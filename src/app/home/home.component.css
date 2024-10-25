@@ -19,27 +19,43 @@ app-navbar {
     }
 }
 .home-content {
+    background: url('../../assets/img/2.png') no-repeat;
     display: flex;
     flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center horizontally */
     justify-content: center; /* Center vertically */
     height: 70vh; /* Full viewport height to center vertically */
     text-align: center; /* Center text and inline elements */
-    opacity: 0; /* Start invisible */
-    animation: slide-up 1s ease-out forwards; /* Add animation */
-    animation-delay: 0.2s; /* Delay for smooth transition */
+    opacity: 1; /* Start invisible */
+    position: relative; /* Ensure it stays above the overlay */
+    z-index: 2; /* Adjust z-index */
+}
+.home-content::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(128, 128, 128, 0.9); /* Black overlay with 50% opacity */
+        z-index: 1
+}
+.app-logo {
+    z-index: 3; /* Ensure app logo is above the overlay */
 }
 .app-logo img {
     max-width: 150px; /* Adjust the logo size */
     animation: slide-up 1s ease-out forwards; 
     animation-delay: 0.2s;
+    color: #fff;
 }
 .title {
     font-weight: 700;
     margin-bottom: 20px; /* Space between title and buttons */ 
     animation: slide-up 1s ease-out forwards;
     animation-delay: 0.2s; /* Delay for smooth transition */
-    color: #092045;
+    color: #fff;
+    z-index: 3;
 }
 .buttons {
     display: flex; /* Align buttons side by side */
@@ -47,6 +63,7 @@ app-navbar {
     gap: 20px; /* Space between buttons */
     animation: slide-up 1s ease-out forwards;
     animation-delay: 0.2s; /* Delay for smooth transition */
+    z-index: 3;
 }
 .explore-btn,
 .contact-btn {
@@ -65,6 +82,7 @@ app-navbar {
 .explore-btn {
     background-color: #F5CA45;
     color: #000;
+    border: 1px solid #000;
     transition: all 0.5s ease;
 }
 .contact-btn:hover {
