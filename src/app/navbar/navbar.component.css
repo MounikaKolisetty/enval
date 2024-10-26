@@ -13,7 +13,8 @@
 }
 .nav-area .logo a img{
     height: auto;
-    max-width: 100%;    
+    max-width: 15%;  
+    padding-left: 15px;  
 }
 /* Logo styling */
 .logo a {
@@ -43,39 +44,34 @@
     color: #000; /* Set link color */
     font-size: 16px; /* Font size for nav links */
     transition: color 0.3s; /* Transition effect for hover */
+    font-weight: 100;
 }
 
 /* Hover effect for nav links */
 .nav-list a:hover {
     color: #F5CA45; /* Change color on hover */
 }
+/* Container styling for the right part of the nav */
+.nav-right-part {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+}
+
+/* Cart icon styling */
+.cart-icon {
+    font-size: 24px; /* Adjust the size as needed */
+    margin-right: 15px; /* Space between the icon and the button */
+    color: #000; /* Icon color */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+}
 
 /* Button styling */
-.signin-btn,
 .signup-btn {
     text-decoration: none; /* Remove underline */
     padding: 10px 20px; /* Padding for buttons */
     border-radius: 5px; /* Rounded corners */
-    margin-left: 10px; /* Space between buttons */
     font-size: 16px; /* Font size */
-    transition: background-color 0.3s, color 0.3s; /* Transition for hover */
-}
-
-/* Sign In button styles */
-.signin-btn {
-    background-color: white; /* White background */
-    color: #000; /* Text color */
-    border: 1px solid #000; /* Border */
-}
-
-/* Sign Up button styles */
-.signup-btn {
     background-color: #F5CA45; /* Yellow background */
     color: #000; /* Text color */
-    transition: all 0.5s ease;
-}
-
-/* Hover effects for buttons */
-.signin-btn:hover {
-    background-color: #f0f0f0; /* Light gray on hover */
+    font-weight: 100;
 }

@@ -37,53 +37,47 @@ app-navbar {
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(128, 128, 128, 0.9); /* Black overlay with 50% opacity */
+        background: rgba(232, 237, 243, 0.9); /* Black overlay with 50% opacity */
         z-index: 1
 }
-.app-logo {
-    z-index: 3; /* Ensure app logo is above the overlay */
+.home-panel{
+    z-index: 3;
+    animation: slide-up 1s ease-out forwards;
+    animation-delay: 0.2s; /* Delay for smooth transition */
+    margin-top: 8%;
 }
 .app-logo img {
     max-width: 150px; /* Adjust the logo size */
-    animation: slide-up 1s ease-out forwards; 
-    animation-delay: 0.2s;
     color: #fff;
 }
 .title {
-    font-weight: 700;
+    font-family: Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 3rem;
     margin-bottom: 20px; /* Space between title and buttons */ 
-    animation: slide-up 1s ease-out forwards;
-    animation-delay: 0.2s; /* Delay for smooth transition */
-    color: #fff;
-    z-index: 3;
+    color: #535353;
 }
 .buttons {
     display: flex; /* Align buttons side by side */
     justify-content: center; /* Center buttons horizontally */
     gap: 20px; /* Space between buttons */
-    animation: slide-up 1s ease-out forwards;
-    animation-delay: 0.2s; /* Delay for smooth transition */
-    z-index: 3;
 }
 .explore-btn,
 .contact-btn {
+    font-family: Helvetica, sans-serif;
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 20px 45px;
     font-size: 16px;
     transition: background-color 0.3s, color 0.3s;
     margin-left: 10px; /* Space between buttons */
 }
 .contact-btn {
     background-color: white;
-    color: #000;
-    border: 1px solid #000;
+    color: #0a1e3a;
 }
 .explore-btn {
     background-color: #F5CA45;
-    color: #000;
-    border: 1px solid #000;
-    transition: all 0.5s ease;
+    color: #0a1e3a;
 }
 .contact-btn:hover {
     background-color: #f0f0f0;
@@ -94,17 +88,18 @@ body {
     padding: 20px;
 }
 .card-container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 3 columns */
+    display: flex;
     gap: 10px; /* Space between cards */
+    overflow: hidden;
 }
 .card {
-    position: relative;
+    position: flex;
     width: 200px; /* Set the width of the card */
     height: 200px; /* Set the height of the card */
     border-radius: 8px; /* Rounded corners */
     perspective: 1000px; /* Add perspective for the 3D effect */
     padding: 7px;
+    animation: scroll-right-to-left 30s linear infinite;
 }
 .card-front, .card-back {
     position: absolute;
@@ -138,44 +133,66 @@ body {
 }
 .f-desc{
     font-size: 13px;
-    color: rgb(142, 142, 142);
+    color: #000;
 }
 
 /*About Us*/
 .about-us {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 30px;
     margin: 5% 10%;
+    position: relative;
 }
-
 .about-image {
     flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
-
-.about-text{
-    flex: 2;
-}
-
 .about-image img {
     border-radius: 10px;
+    position: relative;
+    z-index: 2;
 }
-
-.heading {
-    font-size: 2rem;
+.yellow-panel{
+    background-color: #f0b429;
+    width: 200px;
+    height: 400px;
+    position: absolute;
+    top:20px;
+    left:430px;
+    border-radius: 10px;
+    z-index: 0;
+}
+.about-text{
+    flex: 2;
+    margin-left: 30px;
+    margin-top: 40px;
+}
+.about-heading {
     font-weight: bold;
     color: #002147;
     margin-bottom: 15px;
     text-transform: uppercase;
 }
 
+.heading-with-line {
+    display: flex;
+    align-items: center;
+}
+.line {
+    flex-grow: 0.1;
+    height: 1px;
+    background-color: #002147;
+    margin-left: 10px;
+}
 .description {
     font-size: 1rem;
     color: #555;
     margin-bottom: 20px;
     line-height: 1.6;
 }
-
 .read-more-btn {
     display: inline-block;
     padding: 10px 20px;
@@ -186,7 +203,6 @@ body {
     font-size: 16px;
     transition: background-color 0.3s, color 0.3s;
 }
-
 /*Services*/
 .services {
     width: 100%; 
@@ -391,7 +407,7 @@ h5 {
     color: #002147;
     text-transform: uppercase;
     text-align: center;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 .events-section {
     display: flex;
