@@ -117,3 +117,135 @@ app-navbar {
     background-color: #043F71;
     color: #fff;
 }
+/*Mission and Vision*/
+.aim-container{
+    display: flex;
+    margin: 10% 5% 5% 5%;
+}
+.aim-content{
+    padding: 30px;
+}
+.aim-content ul{
+    list-style: none;
+}
+.aim-head{
+    font-size: 17px;
+    font-weight: 400;
+    color: #043F71;
+}
+
+.aim-subhead{
+    font-size: 44px;
+    font-weight: 550;
+    color: #043F71;
+    margin: 4px 0 24px 0;
+}
+.aim-desc{
+    font-size: 18px;
+    font-weight: 300;
+    color: #636363;
+}
+
+.aim-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 200px; /* Adjust height as needed */
+    overflow: hidden; /* Hide overflow */
+  }
+  
+  .aim-content ul li {
+    width: 100%;
+    opacity: 0;
+    animation: float-up 5s infinite; /* Adjust animation duration as needed */
+  }
+  
+  .aim-content ul li:nth-child(1) {
+    animation-delay: 0s; /* No delay for odd items */
+  }
+  
+  .aim-content ul li:nth-child(2) {
+    animation-delay: 5s; /* Delay for even items */
+  }
+  
+  @keyframes float-up {
+    0%, 100% {
+      opacity: 0;
+      transform: translateY(30px); /* Start and end offscreen */
+    }
+    25%, 75% {
+      opacity: 1;
+      transform: translateY(0); /* Middle of animation in view */
+    }
+  }
+
+/*Values*/
+.values-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers children vertically */
+  align-items: center;     /* Centers children horizontally */
+  margin: 10% 5%;
+}
+
+.values-heading {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center;     /* Center content vertically */
+  margin: 0 15% 5% 15%;
+}
+.values-heading p{
+    font-size: 27px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #043F71;
+}
+.value-content{
+    display: flex;
+    gap: 40px;
+}
+.value-content .value{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.value h4{
+    color: #043F71;
+    font-size: 23px;
+    font-weight: 500;
+    margin: 15px 0;
+}
+.value p{
+    color: #636363;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+}
+.value-logo{
+    margin-bottom: 5%;    
+    display: inline-block;       /* Makes the list items inline */
+    border: 1px solid #cfcfcf;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+}
+.value-logo .vm, .value-logo .sustain{
+    color: #a4a3a3;
+    position: relative;
+    left: 25px;
+    top: 23px;
+}
+.value-logo .people{
+    color: #a4a3a3;
+    position: relative;
+    left: 21px;
+    top: 25px;
+}
+.value-logo .dream{
+    color: #a4a3a3;
+    position: relative;
+    left: 30px;
+    top: 23px;
+}
