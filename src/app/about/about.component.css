@@ -4,6 +4,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+app-navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+    background-color: #fff; /* Optional: set background color */
+}
 .About-us {
     margin: 0;
     padding: 0;
@@ -20,6 +28,7 @@
     flex-direction: column; /* Ensure vertical stacking */
     justify-content: center;
     align-items: center;
+    object-fit: cover;
 }
 .about-pic ul {
     list-style: none; /* Remove default list styling */
@@ -58,4 +67,53 @@
 .about-pic ul li a:hover{
     color: #0a1e3a;
 }
-  
+.more-info{
+    margin: 5%;
+    display: flex;
+    box-shadow: 0 4px 8px 0 #636363;  /* Shadow effect */
+    border-radius: 10px;    /* Optional: Adds rounded corners */
+}
+.more-info .content{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding: 5%;
+}
+.more-info .content h2{
+    font-size: 44px;
+    font-weight: 600;
+    color: #043F71;
+    font-family: 'Titillium Web', sans-serif;
+    margin-bottom: 26px;
+}
+.more-info .content p{
+    font-size: 18px;
+    font-weight: 300;
+    color: #636363;
+    font-family: 'Titillium Web', sans-serif;
+    margin-top: 15px;
+    margin-bottom: 32px;
+    line-height: 1.5;
+}
+.pic-container img{
+    height: 100%;
+    object-fit: cover;
+} 
+ .more-info .content a{
+    text-decoration: none;
+    color: #043F71;
+    background-color: #f0b429;
+    text-transform: uppercase;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 20px 20px 20px 25px;
+    width: 50%;
+    align-items: center;
+    font-style: normal;
+ } 
+.more-info .content a:hover{
+    background-color: #043F71;
+    color: #fff;
+}
