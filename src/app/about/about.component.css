@@ -1,0 +1,61 @@
+/* Add this to your CSS file */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.About-us {
+    margin: 0;
+    padding: 0;
+}
+.about-pic {
+    background-image: url('../../assets/img/others_bg.jpg');
+    background-size: contain;       /* Ensures the entire image is visible */
+    background-position: center;    /* Centers the image */
+    background-repeat: no-repeat;   /* Prevents the image from repeating */
+    color: white;
+    height: 500px;    /* Adjust the height as needed */
+    width: 100%;      /* Ensures it takes the full width */
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking */
+    justify-content: center;
+    align-items: center;
+}
+.about-pic ul {
+    list-style: none; /* Remove default list styling */
+    display:flex;
+}
+.about-pic ul li + li::before {
+    display: inline-block;
+    padding-right: 0;
+    padding-left: 0;
+    color: #6c757d;
+    content: "";
+    height: 10px;
+    width: 10px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-left: 22px;
+    margin-right: 17px;
+}
+.about-pic h1{
+    font-size: 90px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.about-pic ul li {
+    font-size: 24px;
+    font-weight: 500;
+}
+.about-pic ul li:last-child {
+    color: #f0b429;
+}
+.about-pic ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+.about-pic ul li a:hover{
+    color: #0a1e3a;
+}
+  
