@@ -170,13 +170,19 @@ body {
     margin-left: 30px;
     margin-top: 40px;
 }
+.about-text .sub-head{
+    font-family: Rubik, sans-serif;
+    color: #002147;
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 0;
+}
 .about-heading {
     font-weight: bold;
     color: #002147;
     margin-bottom: 15px;
     text-transform: uppercase;
 }
-
 .heading-with-line {
     display: flex;
     align-items: center;
@@ -203,42 +209,82 @@ body {
     font-size: 16px;
     transition: background-color 0.3s, color 0.3s;
 }
+
 /*Services*/
 .services {
     width: 100%; 
-    margin: 5% 0;
     display: flex;
     justify-content: center; 
+    font-family: Rubik, sans-serif;
 }
-
 .service-container {
     display: flex; 
-    gap: 20px; 
+    gap: 30px; 
 }
-
 .service-box {
     flex: 1; 
     max-width: 330px; 
     text-align: center; 
-    border: 1px solid #ccc; 
-    padding: 20px;
-    border-radius: 8px; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.srvc-content{
+    position: relative;
+    border: 1px solid #eee; 
     border-radius: 8px; 
 }
-.service-box:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+.srvc-content:hover .srvc-bottom{
+    color: #fff;
+    background-color: #002147;
+    border-radius: 0 0 8px 8px; 
 }
-
+.srvc-pic{
+    overflow: hidden;
+}
 .srvc-pic img {
     width: 100%; 
     height: 200px;
     object-fit: cover;
-    border-radius: 8px; 
+    border-radius: 8px 8px 0 0; 
+    display: block;
+    position: relative; 
+    z-index: 1; 
+    transition: transform 800ms;
 }
-
+.srvc-content:hover .srvc-pic img{
+    position: inherit;
+    transform: scale(1.2);
+    z-index: -1;
+} 
+.srvc-bottom {
+    display: flex; 
+    align-items: center; /* Align items vertically */
+    justify-content: space-between;
+}
+.srvc-heading{
+    text-align: left;
+    padding: 20px;
+    font-weight: bold;
+}
+.srvc-heading:hover{
+    color: #f0b429 !important;
+    cursor: pointer;
+}
+.srvc-bottom mat-icon{
+    padding-right: 20px;
+}
+.srvc-bottom mat-icon:hover{
+    cursor: pointer;
+}
+.srvc-thumbnail {
+    position: relative;
+    width: 20%;
+    height: auto;
+    z-index:3;
+    background-color: #f0b429;
+    border-radius: 8px;
+    padding: 15px;
+    top: 50px;
+    left: 20px;
+}
 /*Trainings*/
 .trainings {
     text-align: center; /* Center align heading */
@@ -253,33 +299,35 @@ body {
     border: 1px solid #ddd;
     border-radius: 10px;
     margin: 10px;
-    padding: 20px;
     box-sizing: border-box;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
-
-.training-card:hover {
-    transform: translateY(-10px); /* Move card upwards on hover */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Shadow becomes more prominent */
+.training-img{
+    overflow: hidden;
 }
-
 .training-img img {
     width: 100%;
-    height: auto;
-    border-radius: 5px;
+    height: 200px;
+    border-radius: 5px 5px 0 0;
+    object-fit: cover;
+    transition: transform 400ms;
 }
-
+.training-card:hover .training-img img{
+    transform: scale(1.2);
+}
 .training-content {
     margin-top: 15px;
 }
-
+.training-name:hover {
+    color: #f0b429;
+}
 .teacher {
     display: flex;
     align-items: center;
+    padding-left: 15px;
 }
-
 .teacher img {
     width: 30px;
     height: 30px;
@@ -297,7 +345,7 @@ body {
     font-size: 16px;
     font-weight: bold;
     color: #555;
-    margin-top: 5px;
+    margin: 15px 0 15px 15px;
     text-align: left;
 }
 
@@ -308,7 +356,7 @@ body {
     align-items: center;
     border-top: 1px solid #ddd; /* Adds a line separating the footer from the content */
     margin-top: 10px; /* Space between content and the border */
-    padding: 10px 0 0 0; /* Padding only at the top to avoid padding on sides */
+    padding: 10px 0; /* Padding only at the top to avoid padding on sides */
 }
 
 .training-review {
@@ -317,14 +365,13 @@ body {
 }
 .review-count{
     color: #777;
-    padding-top: 5px;
 }
 
 .training-star {
     /*background: url('star-icon.png') no-repeat;*/
     width: 20px;
     height: 20px;
-    margin-right: 5px;
+    margin: 0 10px 7px 10px;
     background-size: cover;
     color: #f0b429;
 }
@@ -332,7 +379,6 @@ body {
 .review-number {
     font-weight: bold;
     margin-right: 5px;
-    padding-top: 5px;
 }
 
 .cost {
@@ -349,6 +395,7 @@ body {
 
 .course-cost {
     font-size: 16px;
+    margin-right: 10px;
 }
 
 
@@ -360,7 +407,7 @@ body {
     height: 150px; /* Adjust based on content */
     position: relative;
     padding-top: 20px;
-    gap: 40px;
+    gap: 20px;
 }
 
 .testimonial {
@@ -368,11 +415,10 @@ body {
     align-items: center;
     justify-content: flex-start;
     flex-shrink: 0;
-    width: 40%; /* Width of each testimonial */
+    width: 30%; /* Width of each testimonial */
     padding: 20px;
     box-sizing: border-box;
     animation: scroll-right-to-left 30s linear infinite;
-    background-color: #eee;
 }
 
 @keyframes scroll-right-to-left {
@@ -383,11 +429,6 @@ body {
         transform: translateX(-100%);
     }
 }
-
-.testi-content {
-    margin-left: 40px;
-}
-
 .review {
     color: #555;
     font-family: "Arima";
@@ -400,14 +441,40 @@ h5 {
 }
 
 /*Upcoming events*/
-
 .events-heading {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #002147;
-    text-transform: uppercase;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 7%;
+}
+.head {
+    font-family: Rubik, sans-serif;
+    position: relative;
+    display: inline-block;
+    padding: 0 15px; /* Space between lines and text */
+    text-transform: uppercase;
+}
+.head::before,
+.head::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 50px; /* Adjust length of the lines */
+    height: 1px; /* Adjust thickness of the lines */
+    background-color: #000; /* Adjust color of the lines */
+}
+.head::before {
+    left: -65px; /* Adjust position of the left line */
+}
+.head::after {
+    right: -65px; /* Adjust position of the right line */
+}
+
+.sub-heading {
+    font-family: Rubik, sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #002147;
+    text-align: center;
+    margin-top: 3px;
 }
 .events-section {
     display: flex;
@@ -415,12 +482,13 @@ h5 {
     background-color: #0a1e3a;
     color: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     width: 100%;
-    max-width: 800px;
-    margin-left: 15%; /* Decrease left margin */
+    max-width: 700px;
+    height: 400px;
+    margin-left: 10%; /* Decrease left margin */
     margin-bottom: 5%;
-    margin-top: 5%;
+    margin-top: 3%;
     position: relative;
 }
 
@@ -431,10 +499,11 @@ h5 {
 
 .events ul {
     list-style-type: none;
-    padding: 40px 70px 40px 40px;
+    padding: 40px;
+    margin: 0;
 }
 .events ul .event {
-    border-bottom: 1px solid #ccc; /* Add small line */
+    border-bottom: 0.1px solid #ccc; /* Add small line */
     padding-bottom: 10px; /* Space between text and line */
     margin-bottom: 30px; /* Space between list items */
 }
@@ -478,7 +547,6 @@ h5 {
 .details ul li {
     display: flex;
     align-items: center;
-    font-weight: lighter;
     font-size: 12px;
 }
 
@@ -504,7 +572,7 @@ h5 {
     padding: 20px;
     margin-left: 20px; /* Add space between events and thumbnail */
     position: absolute; /* Position it absolutely */
-    right: -250px; /* Adjust the value as needed */
+    right: -400px; /* Adjust the value as needed */
     top: 50%; /* Adjust the value as needed */
     transform: translateY(-50%); /* Center it vertically */
     z-index: 1;
@@ -512,11 +580,44 @@ h5 {
 
 .event-thumbnail img {
     max-width: 100%;
-    width: auto;
-    height: 400px;
+    width: 450px;
+    height: 375px;
     object-fit: cover;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light gray shadow */
     border-radius: 10px;
+    display: block;
+}
+.gradient-overlay {
+    position: absolute;
+    top: 10;
+    left: 10;
+    width: 92%;
+    height: 91%;
+    background: linear-gradient(to bottom, transparent, transparent, #f0b429);
+    border-radius: 10px; /* Match border radius if used */
+}
+.contact-section {
+    position: absolute;
+    top: 340px; /* Adjust this value as needed */
+    left: 100px; /* Adjust this value as needed */
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.material-icons {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.contact-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.contact-number {
+    font-size: 18px;
 }
 /*Form*/
 .contact-area {
@@ -615,26 +716,28 @@ h5 {
     margin-top: -200px;
 
 }
-
-.section-title .form-title {
-    font-size: 28px;
-    margin-bottom: 10px;
+.section-title{
+    margin-bottom: 45px;
 }
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Add gap between items */
+.section-title .form-title {
+    font-family: Rubik, sans-serif;
+    color: #002147;
+    font-weight: 500;
+    font-size: 3rem;
+    margin: 0;
+}
+.section-title p{
+    color: #777;
+    font-family: Rubik, sans-serif;
+    margin-top: 0px;
 }
 
 .col-1 {
     flex: 1 1 45%;
-    margin-bottom: 15px; /* Add space below each item */
 }
 
 .col-2 {
     flex: 1 1 100%;
-    margin-bottom: 15px;
 }
 
 .col-3 {
@@ -642,10 +745,9 @@ h5 {
     display: flex;
     align-items: center;
 }
-
 .btn {
-    margin-left: auto;
-    padding: 10px 20px;
+    margin-left: 40%;
+    padding: 20px;
     background: #f0b429;
     color: #0a1e3a;
     text-align: center;
@@ -653,13 +755,22 @@ h5 {
     text-decoration: none;
     cursor: pointer;
 }
-
-.single-input-inner input,
+.single-input-inner {
+    width: 100%; /* Ensure it takes the full width of its parent */
+}
+.single-input-inner input {
+    width: 80%; /* Make the input field fill the container */
+    padding: 5%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
 .single-input-inner textarea {
-    width: 100%;
+    width: 92%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    height: 150px;
+    resize: none;
 }
 
 .single-input-inner input[type="checkbox"] {
@@ -667,8 +778,4 @@ h5 {
     width: auto;
 }
 
-.single-input-inner textarea {
-    height: 150px;
-    resize: none;
-}
 
