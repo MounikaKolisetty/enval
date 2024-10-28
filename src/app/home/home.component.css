@@ -616,26 +616,46 @@ h5 {
 }
 .contact-section {
     position: absolute;
-    top: 340px; /* Adjust this value as needed */
-    left: 100px; /* Adjust this value as needed */
+    top: 320px; /* Adjust this value as needed */
+    left: 150px; /* Adjust this value as needed */
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 10px;
 }
-
+.call-content{
+    display: flex;
+    flex-direction: column;
+}
 .material-icons {
     font-size: 24px;
     margin-right: 10px;
+    color: #fff;
+    z-index: 3;
+    border-radius: 100%;     /* Makes the list items inline */
+}
+.material-icons mat-icon{
+    border: 1px solid #fff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contact-text {
     font-size: 18px;
-    font-weight: bold;
     margin-right: 10px;
+    color: #fff;
+    z-index: 3;
 }
 
 .contact-number {
-    font-size: 18px;
+    font-size: 20px;
+    color: #fff;
+    z-index: 3;
+    font-weight: 600;
+    font-family: Rubik, sans-serif;
 }
 /*Form*/
 .contact-area {
