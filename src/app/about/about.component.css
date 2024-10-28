@@ -249,3 +249,121 @@ app-navbar {
     left: 30px;
     top: 23px;
 }
+/*Team*/
+.team-container{
+    margin: 5% 10%;
+}
+.team-header, .team-subheader{
+    text-align: center;
+}
+.team-headings{
+    margin-bottom: 40px;
+    position: relative; /* Ensure relative positioning for pseudo-elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    height: 100%; /* Ensure the container takes full height */
+}
+.team-header{
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative; /* Ensure relative positioning for pseudo-elements */
+    display: inline-block; /* Optional: ensure pseudo-elements are aligned properly */
+    margin-bottom: 20px; /* Optional: adds spacing below the header */
+    text-align: center;
+    color: #0a1e3a;
+}
+.team-header::before,
+.team-header::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 50px; /* Adjust length of the lines */
+    height: 1px; /* Adjust thickness of the lines */
+    background-color: #0a1e3a; /* Adjust color of the lines */
+}
+.team-header::before {
+    left: -60px; /* Position line to the left */
+}
+.team-header::after {
+    right: -60px; /* Position line to the right */
+}
+.team-subheader{
+    font-family: Rubik, sans-serif;
+    margin-top: 3;
+    font-size: 46px;
+    font-weight: 700;
+    color: #0a1e3a;
+}
+.team-content {
+    display: flex;             /* Use flexbox for layout */
+    justify-content: space-between; /* Distribute space evenly between items */
+    gap: 5%;                 /* Optional: Add some space between the person divs */
+}
+.person {
+    flex: 1;                   /* Ensure each person div takes up equal space */
+    min-width: 200px;          /* Optional: Set a minimum width for responsiveness */
+}
+.thumb {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center;     /* Center the image vertically */
+    position: relative;
+    overflow: hidden;
+}
+.thumb img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px; /* Optional: Add rounded corners */
+    object-fit: cover;
+    transition: transform 400ms;
+}
+.person:hover .thumb img{
+    transform: scale(1.2);
+}
+.person:hover .thumb {
+    border-radius: 10px; /* Optional: Add rounded corners */
+}
+.social-wrap {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    width: 15%;
+    background: #f0b429; /* Optional: for a semi-transparent background */
+    border-radius: 4px;
+}
+.social-wrap .share{
+    color: #002147;
+}
+.details{
+    padding: 20px 30px;
+    margin: -55px 35px 0 35px;
+    background-color: #fff;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 2;
+}
+.details h4{
+    font-family: Rubik, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #002147;
+    margin-bottom: 5px;
+} 
+.details h4:hover{
+    color: #f0b429;
+    cursor: pointer;
+}
+.details span{
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #565872;
+}
