@@ -4,6 +4,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
 import {AboutComponent} from '../about/about.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 
 @Component({
@@ -12,7 +13,8 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   imports: [NavbarComponent, 
             MatIconModule,
             FooterComponent,
-            AboutComponent, RouterOutlet, RouterLink, RouterLinkActive
+            AboutComponent, RouterOutlet, RouterLink, RouterLinkActive,
+            RecaptchaModule
             ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
