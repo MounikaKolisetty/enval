@@ -29,6 +29,7 @@ app-navbar {
     opacity: 1; /* Start invisible */
     position: relative; /* Ensure it stays above the overlay */
     z-index: 2; /* Adjust z-index */
+    padding-top: 100px;
 }
 .home-content::before{
         content: '';
