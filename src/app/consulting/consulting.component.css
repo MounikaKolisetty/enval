@@ -273,7 +273,6 @@ app-navbar {
 }
 .focus-container {
     display: flex;
-    align-items: center;
     margin: 5%;
 }
 .image {
@@ -281,13 +280,72 @@ app-navbar {
 }
 .image img {
     max-width: 100%;
-    width: 600px;
+    width: 700px;
 }
 .metrics {
     flex: 2;
+    height: 350px;
+    margin: 0%;
 }
 .metric-title{
     margin-bottom: 25px;
     font-family: Rubik, sans-serif;
     color: #002147;
+    font-size: 20px;
+    padding: 0 0 10px 5px;
+    border-bottom: 1px solid #555;
+}
+/*Success Stories*/
+.success-stories{
+    display: flex;
+    margin: 5% 10%;
+    gap: 20px;
+}
+.story{
+    padding: 50px;
+    margin: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.author{
+    display: flex;
+    margin-bottom: 24px;
+}
+.media-body h6{
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: Rubik, sans-serif;
+}
+.media-body p{
+    font-family: Rubik, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+.story p{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Rubik, sans-serif;
+    color: #002147;
+    line-height: 1.5;
+    margin: 0;
+}
+.media-left img{
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+}
+.media-left .fa-icon{
+    border-radius: 100%;
+    background-color: #2878EB;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.media-left {
+    position: relative;
+    display: inline-block;
+}
+.media-body{
+    padding: 10px;
 }
