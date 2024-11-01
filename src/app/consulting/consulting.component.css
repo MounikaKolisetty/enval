@@ -9,6 +9,7 @@ app-navbar {
 .About-us {
     margin: 0;
     padding: 0;
+    padding-top: 70px;
 }
 .about-pic {
     background-image: url('../../assets/img/others_bg.jpg');
