@@ -68,6 +68,7 @@ app-navbar {
 .about-pic ul li a:hover{
     color: #0a1e3a;
 }
+/*More info*/
 .more-info{
     margin: 5%;
     display: flex;
