@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
-import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
-import {AboutComponent} from '../about/about.component';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { RecaptchaModule } from 'ng-recaptcha';
-import { ContactComponent } from '../contact/contact.component';
-
 
 @Component({
   selector: 'app-home',
@@ -14,9 +11,8 @@ import { ContactComponent } from '../contact/contact.component';
   imports: [NavbarComponent, 
             MatIconModule,
             FooterComponent,
-            AboutComponent, RouterOutlet, RouterLink, RouterLinkActive,
-            RecaptchaModule,
-            ContactComponent
+            RouterOutlet, RouterLink, RouterLinkActive,
+            RecaptchaModule
             ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

@@ -1,0 +1,292 @@
+app-navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+    background-color: #fff; /* Optional: set background color */
+}
+.About-us {
+    margin: 0;
+    padding: 0;
+}
+.about-pic {
+    background-image: url('../../assets/img/others_bg.jpg');
+    background-size: contain;       /* Ensures the entire image is visible */
+    background-position: center;    /* Centers the image */
+    background-repeat: no-repeat;   /* Prevents the image from repeating */
+    color: white;
+    height: 500px;    /* Adjust the height as needed */
+    width: 100%;      /* Ensures it takes the full width */
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking */
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+}
+.about-pic ul {
+    list-style: none; /* Remove default list styling */
+    display:flex;
+}
+.about-pic ul li + li::before {
+    display: inline-block;
+    padding-right: 0;
+    padding-left: 0;
+    color: #6c757d;
+    content: "";
+    height: 10px;
+    width: 10px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-left: 22px;
+    margin-right: 17px;
+}
+.about-pic h1{
+    font-size: 90px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    margin-top: 0px;
+}
+.about-pic ul li {
+    font-size: 24px;
+    font-weight: 500;
+}
+.about-pic ul li:last-child {
+    color: #f0b429;
+}
+.about-pic ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+.about-pic ul li a:hover{
+    color: #0a1e3a;
+}
+/*Major Segments*/
+.about-us {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin: 5% 10%;
+    position: relative;
+}
+.about-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.about-image img {
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+}
+.yellow-panel{
+    background-color: #f0b429;
+    width: 200px;
+    height: 400px;
+    position: absolute;
+    top:20px;
+    left:430px;
+    border-radius: 10px;
+    z-index: 0;
+}
+.about-text{
+    flex: 2;
+    margin-left: 30px;
+}
+.about-text .sub-head{
+    font-family: Rubik, sans-serif;
+    color: #002147;
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 0;
+}
+.about-heading {
+    font-weight: bold;
+    color: #002147;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.heading-with-line {
+    display: flex;
+    align-items: center;
+}
+.line {
+    flex-grow: 0.1;
+    height: 1px;
+    background-color: #002147;
+    margin-left: 10px;
+}
+.description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0;
+    line-height: 1.6;
+    font-family: Rubik, sans-serif;
+}
+.read-more-btn {
+    display: inline-block;
+    color: #0a1e3a;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 18px 25px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid #CAD0D7;
+  	position:relative;
+  	overflow:hidden;
+  	transition:color 0.5s linear;
+}
+.read-more-btn::before{
+    position:absolute;
+	content:'';
+    top:-10px;
+  	left:-20px;
+  	width:150%;
+  	z-index:-1;
+  	transform: translateX(-100%);
+  	border-right:50px solid transparent;
+  	border-bottom: 100px solid #f0b429;
+  	transition:transform 0.5s linear;
+  
+}
+.read-more-btn:hover::before{
+	transform:translateX(0);
+}
+.segments{
+    display: flex;
+}
+.segments-column{
+    padding-right: 15px;
+}
+.list-wrap{
+    list-style-type: none;
+    padding: 0;
+}
+.list-inner{
+    font-family: Rubik, sans-serif;
+    color: #555;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.fa-icon {
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    border-radius: 50%;
+    background: #f0b429;
+    text-align: center;
+    font-size: 13px;
+    display: inline-block;
+    margin-right: 9px;
+    color: #002147;
+}
+/*Services*/
+.services {
+    font-family: Rubik, sans-serif;
+    margin: 5% 0;
+    padding: 0 5%;
+}
+.service-container {
+    display: flex; 
+    gap: 30px;
+}
+.service-box {
+    position: relative;
+    flex: 1; 
+    perspective: 1000px; /* Add perspective for the 3D effect */
+    animation: scroll-right-to-left 30s linear infinite;
+    height: 260px; /* Set the height of the card */
+}
+.srvc-content, .srvc-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden; /* Hide the back side of the card */
+    border-radius: 8px; /* Match card's border radius */
+    transition: transform 1s; /* Smooth transition for flip */
+    border: 1px solid #ddd;
+}
+.srvc-content{
+    flex-direction: column;
+}
+.srvc-back {
+    transform: rotateY(180deg); /* Hide back side initially */
+}
+.service-box:hover .srvc-content {
+    transform: rotateY(180deg); /* Rotate front side on hover */
+}
+.service-box:hover .srvc-back {
+    transform: rotateY(0); /* Show back side on hover */
+}
+.srvc-content:hover .srvc-bottom{
+    width: 100%;
+    color: #fff;
+    background-color: #002147;
+    border-radius: 0 0 8px 8px; 
+}
+.srvc-pic{
+    width: 100%;
+}
+.srvc-pic img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0; 
+    display: block;
+    position: relative; 
+    z-index: 1; 
+    transition: transform 800ms;
+}
+.srvc-bottom {
+    display: flex; 
+    align-items: center; /* Align items vertically */
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 0 0 8px 8px; 
+}
+.srvc-heading{
+    text-align: left;
+    padding: 20px;
+    font-weight: bold;
+}
+.srvc-bottom mat-icon{
+    padding-right: 20px;
+}
+.srvc-bottom mat-icon:hover{
+    cursor: pointer;
+}
+.sub-heading {
+    font-family: Rubik, sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #002147;
+    text-align: center;
+    margin-top: 3px;
+}
+.focus-container {
+    display: flex;
+    align-items: center;
+    margin: 5%;
+}
+.image {
+    margin-right: 20px;
+}
+.image img {
+    max-width: 100%;
+    width: 600px;
+}
+.metrics {
+    flex: 2;
+}
+.metric-title{
+    margin-bottom: 25px;
+    font-family: Rubik, sans-serif;
+    color: #002147;
+}

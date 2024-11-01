@@ -185,9 +185,8 @@ app-navbar {
   flex-direction: column;
   justify-content: center; /* Centers children vertically */
   align-items: center;     /* Centers children horizontally */
-  margin: 10% 5%;
+  margin: 5%;
 }
-
 .values-heading {
   display: flex;
   justify-content: center; /* Center content horizontally */
@@ -203,25 +202,21 @@ app-navbar {
 }
 .value-content{
     display: flex;
-    gap: 40px;
+    gap: 100px;
 }
 .value-content .value{ 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex: 1; /* Ensures all values take equal space */
+    min-width: 250px; /* Adjust based on the largest element */
 }
 .value h4{
     color: #043F71;
     font-size: 23px;
     font-weight: 500;
     margin: 15px 0;
-}
-.value p{
-    color: #636363;
-    font-size: 18px;
-    font-weight: 300;
-    text-align: center;
 }
 .value-logo{
     margin-bottom: 5%;    
