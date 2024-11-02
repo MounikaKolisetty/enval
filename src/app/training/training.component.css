@@ -62,3 +62,172 @@ app-navbar {
 .about-pic ul li a:hover{
     color: #0a1e3a;
 }
+/*Tranings*/
+.trainings-cert{
+    margin: 5%;
+    background-color: #E6E9EC;
+    padding: 50px;
+}
+.trainings-cert .title{
+    margin-bottom: 6px;
+    font-family: Rubik, sans-serif;
+    font-size: 43px;
+    font-weight: 400;
+    color: #043F71;
+}
+.trainings-cert .description {
+    margin: 20px 0 40px 0;
+    font-family: Rubik, sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    color: #636363;
+    line-height: 1.5;
+}
+.more-options{
+    display: flex;
+    gap: 15px;
+}
+.explore{
+    background-color: #ffffff;
+}
+.read-more{
+    background-color: #F5CA45;
+}
+.explore, .read-more{
+    padding: 15px;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+}
+.explore a, .read-more a{
+    font-family: Rubik, sans-serif;
+    text-decoration: none;
+    color: #0a1e3a;
+    text-transform: uppercase;
+}
+/*Features*/
+.features-section {
+    text-align: center;
+    margin-top: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.features-section .title {
+    font-family: Rubik, sans-serif;
+    position: relative;
+    display: inline-block;
+    padding: 0 5px; /* Space between lines and text */
+    text-transform: uppercase;
+    color: #002147;
+}
+.features-section .title::before,
+.features-section .title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 50px; /* Adjust length of the lines */
+    height: 1px; /* Adjust thickness of the lines */
+    background-color: #000; /* Adjust color of the lines */
+}
+.features-section .title::after {
+    right: -65px; /* Adjust position of the right line */
+}
+.features-section .title::before {
+    left: -65px; /* Adjust position of the left line */
+}
+.features-section .description {
+    font-family: Rubik, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #002147;
+    text-align: center;
+    margin-top: 15px;
+    width: 540px;
+    text-align: center;
+}
+.features-body{
+    margin: 5%;
+}
+.categories{
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+}
+.categories .image{
+    margin-bottom: 30px;
+}
+.practicioners .name, .trainers .name, .students .name{
+    text-align: center;
+    font-family: Rubik, sans-serif;
+    color: #043F71;
+    font-size: 20px;
+    font-weight: 500;
+}
+/*Border*/
+.vm-cvs{
+    margin: 0 85px;
+    display: flex;
+}
+.vma, .vmf2{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.vma-inner{
+    flex: 1;
+    background-color: #F2F5F8;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.vmf2-inner{
+    flex: 1;
+    background-color: #FAFBFC;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.image-vma i, .image-vmf2 i, .image-cvs i{
+    background-color: #F5CA45;
+    border-radius: 50%;
+    color: #043F71;
+}
+.image-vma i{
+    padding: 8%;
+}
+.image-vmf2 i{
+    padding: 9% 8%;
+}
+.image-cvs i{
+    padding: 8% 9%;
+}
+.vma-inner, .vmf2-inner{
+    padding: 60px 60px 0px 60px;
+    position: relative;
+}
+.vma-inner .description, .vmf2-inner .description{
+    margin: 30px 0;
+    color: #043F71;
+    font-family: Rubik, sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+}
+.read-more-icon{
+    padding: 25px;
+    color: #043F71;
+}
+.read-more-button{
+    display: none;
+    background-color: #F5CA45;
+    color: #043F71;
+    font-family: Rubik, sans-serif;
+    padding: 25px;
+    text-align: center;
+}
+.vma:hover .read-more-icon, .vmf2:hover .read-more-icon{
+    display: none;
+}
+.vma:hover .read-more-button, .vmf2:hover .read-more-button{
+    display: block;
+}
