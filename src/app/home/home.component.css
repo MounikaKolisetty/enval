@@ -104,7 +104,15 @@ body {
     border-radius: 8px; 
     perspective: 1000px; 
     padding: 7px;
-    animation: scroll-right-to-left 30s linear infinite;
+    animation: scroll-right-to-left 10s linear infinite;
+}
+@keyframes scroll-right-to-left {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 .card-front, .card-back {
     position: absolute;
