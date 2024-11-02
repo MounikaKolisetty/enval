@@ -124,11 +124,8 @@ app-navbar {
     display: flex;
     margin: 10% 5% 5% 5%;
 }
-.aim-content{
+.aim-left{
     padding: 30px;
-}
-.aim-content ul{
-    list-style: none;
 }
 .aim-head{
     font-size: 17px;
@@ -147,39 +144,31 @@ app-navbar {
     font-weight: 300;
     color: #636363;
 }
-
 .aim-content ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    height: 200px; /* Adjust height as needed */
-    overflow: hidden; /* Hide overflow */
-  }
-  
-  .aim-content ul li {
+    height: 250px; /* Adjust height as needed */
+    overflow: hidden;
+}
+.aim-content ul li {
     width: 100%;
-    opacity: 0;
-    animation: float-up 5s infinite; /* Adjust animation duration as needed */
-  }
-  
-  .aim-content ul li:nth-child(1) {
-    animation-delay: 0s; /* No delay for odd items */
-  }
-  
-  .aim-content ul li:nth-child(2) {
-    animation-delay: 5s; /* Delay for even items */
-  }
-  
-  @keyframes float-up {
-    0%, 100% {
-      opacity: 0;
-      transform: translateY(30px); /* Start and end offscreen */
+}
+.aim-content ul li:nth-child(1) {
+    animation: anim 5s infinite;
+}
+@keyframes anim{
+    0%, 30% {
+        margin-top: 0;
     }
-    25%, 75% {
-      opacity: 1;
-      transform: translateY(0); /* Middle of animation in view */
+    40%, 70% {
+        margin-top: -240px;
     }
-  }
+    100% {
+        margin-top: 0;
+    }
+}
+
 
 /*Values*/
 .values-container {

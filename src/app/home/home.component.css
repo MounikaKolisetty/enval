@@ -92,12 +92,17 @@ body {
     gap: 10px; /* Space between cards */
     overflow: hidden;
 }
+.f-logo mat-icon{
+    width: 48px;
+    height: 48px;
+    font-size: 3rem;
+}
 .card {
     position: flex;
-    width: 200px; /* Set the width of the card */
-    height: 200px; /* Set the height of the card */
-    border-radius: 8px; /* Rounded corners */
-    perspective: 1000px; /* Add perspective for the 3D effect */
+    width: 200px; 
+    height: 200px; 
+    border-radius: 8px; 
+    perspective: 1000px; 
     padding: 7px;
     animation: scroll-right-to-left 30s linear infinite;
 }
@@ -109,23 +114,23 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    backface-visibility: hidden; /* Hide the back side of the card */
-    border-radius: 8px; /* Match card's border radius */
-    transition: transform 0.6s; /* Smooth transition for flip */
+    backface-visibility: hidden; 
+    border-radius: 8px; 
+    transition: transform 0.6s; 
 }
 .card-back {
-    transform: rotateY(180deg); /* Hide back side initially */
+    transform: rotateY(180deg); 
 }
 .card:hover .card-front {
-    transform: rotateY(180deg); /* Rotate front side on hover */
+    transform: rotateY(180deg); 
 }
 .card:hover .card-back {
-    transform: rotateY(0); /* Show back side on hover */
+    transform: rotateY(0); 
 }
 
 .f-logo, .f-heading, .f-desc {
     text-align: center;
-    margin: 10px 0; /* Add some space between elements */
+    margin: 10px 0; 
 }
 
 .f-logo{
