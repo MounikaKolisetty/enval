@@ -64,7 +64,7 @@ app-navbar {
 }
 /*Tranings*/
 .trainings-cert{
-    margin: 5%;
+    margin: 0% 5% 5% 5%;
     background-color: #E6E9EC;
     padding: 50px;
 }
@@ -230,4 +230,97 @@ app-navbar {
 }
 .vma:hover .read-more-button, .vmf2:hover .read-more-button{
     display: block;
+}
+/*Unique Features*/
+.unique-features-container{
+    margin: 10% 5% 0 5%;
+    padding: 0 5%;
+    display: flex;
+}
+.unique-features-container .left, .unique-features-container .right{
+    flex: 1;
+}
+.right{
+    margin-left: 5%;
+}
+.left .image img {
+    width: 100%; 
+    height: 600px;
+    object-fit: cover;
+    border-radius: 8px; 
+    display: block;
+    position: relative; 
+    z-index: 1; 
+    top: -200px;
+}
+.left .thumbnail img{
+    position: relative;
+    width: 30%;
+    height: auto;
+    z-index:3;
+    border-radius: 8px;
+    border: 8px solid #F5CA45;
+    top: -45px;
+    left: -35px;
+}
+.left .feature-footer{
+    position: relative;
+    top: -230px;
+    left: 60px;
+    background-color: #ffffff;
+    border-bottom: 4px solid #f0b429;
+    width: 70%;
+    z-index: 3;
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-family: Rubik, sans-serif;
+    color: #002147;
+    font-size: 16px;
+    font-weight: 400;
+}
+.unique-features-container .right{
+    padding: 0 20px;
+}
+.right .aboutus{
+    font-family: Rubik, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #002147;
+}
+.right .description{
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #565872;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+.features ul{
+    list-style-type: none;
+    margin: 10px 0px;
+    padding: 0;
+}
+.features ul li{
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #565872;
+    display: flex;
+    padding: 1% 0;
+}
+.features ul li .fa-icon{
+    color: #043F71;
+    background-color: #f0b429;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    padding: 15px;
+    font-size: 20px;
+}
+.features ul li p{
+    margin: 0%;
+    padding-left: 3%;
+    display: flex;
+    align-items: center;
 }
