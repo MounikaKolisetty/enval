@@ -54,11 +54,12 @@ app-navbar {
 }
 .contact-bg h1{
     margin-top: 0;
-    font-size: 90px;
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: 8px;
     z-index: 3;
     color: #fff;
+    font-size: 1.875rem;
+    font-size: clamp(1.875rem, 1.0416666666666667rem + 3.7037037037037033vw, 4.375rem);
 }
 .contact-bg ul li {
     font-size: 24px;
@@ -78,10 +79,17 @@ app-navbar {
 /*Contact List*/
 .contact-list{
     padding: 100px 0 90px 0;
-    margin: 0 150px
+    margin: 0 150px;
+    @media (max-width: 375px){
+        padding: 0;
+        margin: 0;
+    }
 }
 .contact-list .container {
     display: flex;
+    @media (max-width: 375px) {
+        flex-direction: column;        
+    }
 }
 .container .contact-list-inner {
     flex: 1; /* or any desired width */
@@ -137,10 +145,17 @@ app-navbar {
 .contact-form {
     display: flex;
     margin: 0 12%;
+    @media (max-width: 375px){
+        flex-direction: column;
+        margin: 3%;
+    }
 }
 .contact-left{
     flex: 1; /* or any desired width */
     padding: 0 15px;
+    @media (max-width: 375px) {
+        padding: 0%;
+    }
 }
 .contact-left h2{
     margin: 10px 0px 0px 0px;
@@ -148,6 +163,8 @@ app-navbar {
     font-size: 42px;
     font-weight: 500;
     color: #002147;
+    font-size: 1.5625rem;
+    font-size: clamp(1.5625rem, 1.2083333333333333rem + 1.5740740740740742vw, 2.625rem);
 }
 .contact-left h6{
     margin: 0;
@@ -237,6 +254,12 @@ app-navbar {
 .map{
     margin-top: 10%;
 }
+@media (max-width: 375px) {
+    iframe {
+        width: 375px; /* Set width for mobile */
+        height: 360px; /* Adjust height if necessary */
+    }
+}
 .footer{
     margin: 5% 10% 0% 10%;
 }
@@ -244,6 +267,10 @@ app-navbar {
     display: flex;
     background-color: #F0F4F9;
     border-radius: 4px;
+    @media (max-width: 375px){
+        flex-direction: column;
+        height: 230px;
+    }
 }
 .name-tag, .email-tag{
     width: 100%;
@@ -265,6 +292,9 @@ app-navbar {
 .subscribe-tag{
     margin-top: 50px;
     margin-right: 20px;
+    @media (max-width: 375px){
+        margin: 20px 0 0 25px;
+    }
 }
 .s-btn {
     font-family: Rubik, sans-serif;
