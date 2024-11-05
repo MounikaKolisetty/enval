@@ -30,6 +30,10 @@ app-navbar {
     justify-content: center;
     align-items: center;
     object-fit: cover;
+    @media (max-width: 375px) {
+        height: 350px;
+        background-size: cover;
+    }
 }
 .about-pic ul {
     list-style: none; /* Remove default list styling */
@@ -50,9 +54,10 @@ app-navbar {
     margin-right: 17px;
 }
 .about-pic h1{
-    font-size: 90px;
     font-weight: 700;
     margin-bottom: 8px;
+    font-size: 1.875rem;
+    font-size: clamp(1.875rem, 1.0416666666666667rem + 3.7037037037037033vw, 4.375rem);
 }
 .about-pic ul li {
     font-size: 24px;
@@ -74,6 +79,10 @@ app-navbar {
     display: flex;
     box-shadow: 0 4px 8px 0 #636363;  /* Shadow effect */
     border-radius: 10px;    /* Optional: Adds rounded corners */
+    @media (max-width: 375px) {
+        flex-direction: column;
+        border-radius: 0;
+    }
 }
 .more-info .content{
     display: flex;
@@ -101,6 +110,10 @@ app-navbar {
 .pic-container img{
     height: 100%;
     object-fit: cover;
+    @media (max-width: 375px) {
+        width: 325px;
+        height: auto;
+    }
 } 
  .more-info .content a{
     text-decoration: none;
@@ -114,6 +127,11 @@ app-navbar {
     width: 50%;
     align-items: center;
     font-style: normal;
+    @media (max-width: 375px) {
+        width: 60%;
+        text-align: center;
+        padding: 10px 0px;
+    }
  } 
 .more-info .content a:hover{
     background-color: #043F71;
@@ -123,6 +141,9 @@ app-navbar {
 .aim-container{
     display: flex;
     margin: 10% 5% 5% 5%;
+    @media (max-width: 375px) {
+        flex-direction: column;
+    }
 }
 .aim-left{
     padding: 30px;
@@ -138,6 +159,8 @@ app-navbar {
     font-weight: 550;
     color: #043F71;
     margin: 4px 0 24px 0;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 1.0833333333333335rem + 1.8518518518518516vw, 2.75rem);
 }
 .aim-desc{
     font-size: 18px;
@@ -150,6 +173,9 @@ app-navbar {
     margin: 0;
     height: 250px; /* Adjust height as needed */
     overflow: hidden;
+    @media (max-width: 375px) {
+        height: 270px;
+    }
 }
 .aim-content ul li {
     width: 100%;
@@ -166,6 +192,29 @@ app-navbar {
     }
     100% {
         margin-top: 0;
+    }
+}
+/* Mobile styling */
+@media (max-width: 375px) {
+    .aim-content ul li:nth-child(1) {
+        animation: anim-mobile 5s infinite;
+    }
+
+    @keyframes anim-mobile {
+        0%, 30% {
+            margin-top: 0;
+        }
+        40%, 70% {
+            margin-top: -260px; /* Increased margin-top for mobile */
+        }
+        100% {
+            margin-top: 0;
+        }
+    }
+}
+@media (max-width: 375px) {
+    .aim-picture img{
+        width: 300px;
     }
 }
 /*Values*/
@@ -192,6 +241,11 @@ app-navbar {
 .value-content{
     display: flex;
     gap: 100px;
+    /* Mobile styling */
+@media (max-width: 375px) {
+   flex-direction: column;
+   gap: 50px;
+}
 }
 .value-content .value{ 
     display: flex;
@@ -285,6 +339,10 @@ app-navbar {
     display: flex;             /* Use flexbox for layout */
     justify-content: space-between; /* Distribute space evenly between items */
     gap: 5%;                 /* Optional: Add some space between the person divs */
+    @media (max-width: 375px) {
+       flex-direction: column;
+       gap: 7%;
+    }
 }
 .person {
     flex: 1;                   /* Ensure each person div takes up equal space */
@@ -333,6 +391,8 @@ app-navbar {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     z-index: 2;
+@media (max-width: 375px) {
+    margin-bottom: 20px;
 }
 .details h4{
     font-family: Rubik, sans-serif;
