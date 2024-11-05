@@ -2,6 +2,11 @@
     display: flex; /* Enables flexbox layout */
     justify-content: space-between; /* Optional: spaces the divs evenly */
     margin: 5% 15% 2% 15%;
+    @media (max-width: 375px){
+        flex-direction: column;
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
 .widget_contact, .widget_course, .widget_blog {
@@ -104,16 +109,24 @@
 }
 .footer-bottom{
     border-top: 1px solid #cfcfcf; /* Adjust the color and thickness as needed */
-      
     display: flex;
     justify-content: space-between;
     padding: 1% 15%;
+    @media (max-width: 375px) {
+        flex-direction: column;
+        padding-left: 0;
+    }
 }
 .footer-bottom .footer_logo, .footer-bottom .footer_copyrights, .footer-bottom .social_media{
     flex: 1;
 }
 .footer_logo{
     padding-left: 40px;
+
+    @media (max-width: 375px) {
+        padding-left: 10px;
+        padding-top: 10px;
+    }
 }
 .footer-bottom .footer_logo img{
     width: 30%;
@@ -129,6 +142,10 @@
     list-style-type: none;
     margin: 0;
     text-align: right;
+    @media (max-width: 375px) {
+        display: flex;
+        padding: 0 0 10px 10px;
+    }
 }
 .social_media ul li{
     display: inline-block;       /* Makes the list items inline */

@@ -13,8 +13,16 @@
 }
 .nav-area .logo a img{
     height: auto;
-    max-width: 15%;  
-    padding-left: 15px;  
+    width: 100%;  
+    max-width: 100px;
+    padding: 15px 0 0 15px;  
+
+@media (min-width: 640px) {
+        max-width: 20%;  
+}
+@media (min-width: 1440px) {
+        max-width: 35%;  
+}
 }
 /* Logo styling */
 .logo a {
@@ -26,6 +34,8 @@
 /* Navigation pages styling */
 .nav-pages {
     flex-grow: 1; /* Use flexbox for nav items */
+    display: flex;
+    justify-content: flex-end;
 }
 
 .nav-list {
