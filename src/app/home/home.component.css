@@ -56,11 +56,16 @@ app-navbar {
     font-size: 3rem;
     margin-bottom: 20px; /* Space between title and buttons */ 
     color: #535353;
+    font-size: 2rem;
+    font-size: clamp(2rem, 1.6666666666666665rem + 1.4814814814814816vw, 3rem);
 }
 .buttons {
     display: flex; /* Align buttons side by side */
     justify-content: center; /* Center buttons horizontally */
     gap: 20px; /* Space between buttons */
+    @media (max-width: 375px) {
+    flex-direction: column;
+ }
 }
 .explore-btn,
 .contact-btn {
@@ -70,6 +75,12 @@ app-navbar {
     font-size: 16px;
     transition: background-color 0.3s, color 0.3s;
     margin-left: 10px; /* Space between buttons */
+    @media (max-width: 375px) {
+            padding: 10px 20px; /* Smaller padding for mobile */
+            font-size: 14px; /* Smaller font size for mobile */
+            margin-left: 20px; /* Remove left margin on mobile */
+            width: 50%;
+    }
 }
 .contact-btn {
     background-color: white;
@@ -91,14 +102,24 @@ body {
     display: flex;
     gap: 10px; /* Space between cards */
     overflow: hidden;
+    @media (max-width: 375px){
+        flex-direction: column;
+        gap: 0px;
+        height: 600px;
+    }
 }
 .f-logo mat-icon{
     width: 48px;
     height: 48px;
     font-size: 3rem;
+    @media (max-width: 375px){
+        width: 24px;
+        height: 24px;
+        font-size: 1.5rem;
+    }
 }
 .card {
-    position: flex;
+    position: relative;
     width: 200px; 
     height: 200px; 
     border-radius: 8px; 
@@ -156,6 +177,10 @@ body {
     gap: 30px;
     margin: 5% 10%;
     position: relative;
+    @media (max-width: 375px){
+        flex-direction: column;
+        margin: 5%;
+    }
 }
 .about-image {
     flex: 1;
@@ -167,6 +192,10 @@ body {
     border-radius: 10px;
     position: relative;
     z-index: 2;
+    @media (max-width:375px) {
+        width: 300px;
+        height: 300px;
+    }
 }
 .yellow-panel{
     background-color: #f0b429;
@@ -177,11 +206,20 @@ body {
     left:430px;
     border-radius: 10px;
     z-index: 0;
+    @media (max-width:375px) {
+        width: 154px;
+        height: 250px;
+        top: 17px;
+        left: 170px;
+    }
 }
 .about-text{
     flex: 2;
     margin-left: 30px;
     margin-top: 40px;
+    @media (max-width:375px) {
+        margin-top: 0px;
+    }
 }
 .about-text .sub-head{
     font-family: Rubik, sans-serif;
@@ -251,6 +289,10 @@ body {
 .service-container {
     display: flex; 
     gap: 30px; 
+    @media (max-width:375px) {
+        flex-direction: column;
+        gap: 0;
+    }
 }
 .service-box {
     flex: 1; 
@@ -341,6 +383,11 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    @media (max-width:375px) {
+        display: block;
+        width: 90%;
+        margin: 18px;
+    }
 }
 .training-img{
     overflow: hidden;
@@ -445,6 +492,10 @@ body {
     height: 150px; /* Adjust based on content */
     position: relative;
     padding-top: 20px;
+    @media (max-width:375px) {
+        height: 300px;
+        align-items: flex-start;
+    }
 }
 
 .testimonial {
@@ -567,11 +618,12 @@ h5 {
 
 .sub-heading {
     font-family: Rubik, sans-serif;
-    font-size: 3rem;
     font-weight: 500;
     color: #002147;
     text-align: center;
     margin-top: 3px;
+    font-size: 2rem;
+    font-size: clamp(2rem, 1.6666666666666665rem + 1.4814814814814816vw, 3rem);
 }
 .events-section {
     display: flex;
@@ -587,6 +639,12 @@ h5 {
     margin-bottom: 5%;
     margin-top: 3%;
     position: relative;
+    @media (max-width:375px) {
+        width: 80%;
+        padding: 10px;
+        margin: 7%;
+        height: 350px;
+    }
 }
 
 .events {
@@ -598,6 +656,9 @@ h5 {
     list-style-type: none;
     padding: 40px;
     margin: 0;
+    @media (max-width:375px) {
+        padding: 5px;
+    }
 }
 .events ul .event {
     border-bottom: 0.1px solid #ccc; /* Add small line */
@@ -621,6 +682,9 @@ h5 {
     border-radius: 5px;
     text-align: center;
     margin-right: 20px;
+    @media (max-width:375px) {
+        margin-right: 7px;
+    }
 }
 
 .date span {
@@ -639,6 +703,9 @@ h5 {
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
+    @media (max-width:375px) {
+        margin-bottom: 10px;
+    }
 }
 
 .details ul li {
@@ -654,6 +721,10 @@ h5 {
 .details h5 {
     font-size: 18px;
     margin: 0;
+    @media (max-width:375px) {
+        text-wrap: wrap;
+        font-size: 15px;
+    }
 }
 .details h5:hover {
     color: #f0b429;
@@ -673,6 +744,9 @@ h5 {
     top: 50%; /* Adjust the value as needed */
     transform: translateY(-50%); /* Center it vertically */
     z-index: 1;
+    @media (max-width:375px) {
+        display: none;
+    }
 }
 
 .event-thumbnail img {
@@ -743,6 +817,9 @@ h5 {
     background-size: cover;
     margin-top: 20%;
     height: 400px;
+    @media (max-width:375px) {
+        height: 1000px;
+    }
 }
 .contact-area::before {
     content: '';
@@ -759,6 +836,9 @@ h5 {
     z-index: 2; /* Ensures content is above the overlay */
     padding: 20px; /* Adjust the padding if needed */
     margin: 0 15%;
+    @media (max-width:375px) {
+        margin: 0 5%;
+    }
 }
 .mt-5 {
     margin-top: 50px;
@@ -770,6 +850,9 @@ h5 {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    @media (max-width:375px) {
+        flex-direction: column;
+    }
 }
 
 .col1 {
@@ -780,6 +863,9 @@ h5 {
 .col1 {
     display: inline-flex;
     align-self: end;
+    @media (max-width:375px) {
+        align-self: center;
+    }
 }
 
 .single-list-wrap {
@@ -841,6 +927,10 @@ h5 {
     font-weight: 500;
     font-size: 3rem;
     margin: 0;
+    @media (max-width:375px) {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
 }
 .section-title p{
     color: #777;
@@ -870,6 +960,9 @@ h5 {
     border-radius: 4px;
     text-decoration: none;
     cursor: pointer;
+    @media (max-width:375px) {
+        margin-left: 5%;
+    }
 }
 .single-input-inner {
     width: 100%; /* Ensure it takes the full width of its parent */
@@ -888,7 +981,11 @@ h5 {
     height: 150px;
     resize: none;
 }
-
+@media (max-width:375px) {
+    .single-input-inner textarea{
+        width: 84%;
+    }
+}
 .single-input-inner input[type="checkbox"] {
     display: inline-block;
     width: auto;
