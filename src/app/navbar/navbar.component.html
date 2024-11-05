@@ -1,32 +1,19 @@
-<!--Navbar Start-->
-<mat-toolbar class="nav-area">
-    <div class="logo">
-        <a href="index.html">
-           <img src="assets/img/logo_trans.png" alt="img" style="width: 375px; height: auto;"> 
-        </a>    
+<nav>
+    <input type="checkbox" id="sidebar-active">
+    <label for="sidebar-active" class="open-sidebar-button">
+        <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+    </label>
+
+    <div class="links-container">
+        <label for="sidebar-active" class="close-sidebar-button">
+            <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+        </label>
+
+        <!--<a href=""><img src="../../assets/img/logo.jpg" alt="enval_logo"></a>-->
+        <a href="#" class="home-link">HOME</a>
+        <a href="#">ABOUT</a>
+        <a href="#">TRAININGS</a>
+        <a href="#">CONSULTING</a>
+        <a href="#">CONTACT US</a>
     </div>
-    <div class="nav-pages">
-        <ul class="nav-list">
-            <li>
-                <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">HOME</a>
-            </li>
-            <li>
-                <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">ABOUT</a>
-            </li>
-            <li>
-                <a routerLink="/training" routerLinkActive="active" ariaCurrentWhenActive="page">TRAINING</a>
-            </li>
-            <li>
-                <a routerLink="/consulting" routerLinkActive="active" ariaCurrentWhenActive="page">CONSULTING</a>
-            </li>
-            <li>
-                <a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">CONTACT US</a>
-            </li>
-        </ul>
-    </div>
-    <div class="nav-right-part">
-        <mat-icon class="cart-icon">shopping_cart</mat-icon>
-        <a href="#" class="signup-btn">Sign Up</a>
-    </div>
-  </mat-toolbar>
-<!--Navbar End-->
+</nav>
