@@ -24,10 +24,17 @@ app-navbar {
     justify-content: center;
     align-items: center;
     object-fit: cover;
+    @media (max-width: 375px) {
+        height: 350px;
+        background-size: cover;
+    }
 }
 .about-pic ul {
     list-style: none; /* Remove default list styling */
     display:flex;
+    @media(max-width:375px) {
+        padding: 0;
+    }
 }
 .about-pic ul li + li::before {
     display: inline-block;
@@ -44,9 +51,10 @@ app-navbar {
     margin-right: 17px;
 }
 .about-pic h1{
-    font-size: 90px;
     font-weight: 700;
     margin-bottom: 8px;
+    font-size: 1.875rem;
+    font-size: clamp(1.875rem, 1.0416666666666667rem + 3.7037037037037033vw, 4.375rem);
 }
 .about-pic ul li {
     font-size: 24px;
@@ -67,6 +75,9 @@ app-navbar {
     margin: 0% 5% 5% 5%;
     background-color: #E6E9EC;
     padding: 50px;
+    @media (max-width:375px) {
+        padding: 10px;
+    }
 }
 .trainings-cert .title{
     margin-bottom: 6px;
@@ -74,6 +85,8 @@ app-navbar {
     font-size: 43px;
     font-weight: 400;
     color: #043F71;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 1.1041666666666665rem + 1.7592592592592593vw, 2.6875rem);
 }
 .trainings-cert .description {
     margin: 20px 0 40px 0;
@@ -86,6 +99,9 @@ app-navbar {
 .more-options{
     display: flex;
     gap: 15px;
+    @media (max-width:375px) {
+        flex-direction: column;
+    }
 }
 .explore{
     background-color: #ffffff;
@@ -98,6 +114,10 @@ app-navbar {
     width: 10%;
     display: flex;
     justify-content: center;
+    @media (max-width:375px) {
+        padding: 10px;
+        width: 40%;
+    }
 }
 .explore a, .read-more a{
     font-family: Rubik, sans-serif;
@@ -138,13 +158,17 @@ app-navbar {
 }
 .features-section .description {
     font-family: Rubik, sans-serif;
-    font-size: 2.5rem;
     font-weight: 500;
     color: #002147;
     text-align: center;
     margin-top: 15px;
     width: 540px;
     text-align: center;
+    font-size: 1rem;
+    font-size: clamp(1rem, 0.5rem + 2.2222222222222223vw, 2.5rem);
+    @media (max-width: 375px){
+        width: 100%;
+    }
 }
 .features-body{
     margin: 5%;
@@ -153,6 +177,9 @@ app-navbar {
     display: flex;
     gap: 10%;
     justify-content: center;
+    @media (max-width: 375px) {
+        flex-direction: column;
+    }
 }
 .categories .image{
     margin-bottom: 30px;
@@ -164,10 +191,19 @@ app-navbar {
     font-size: 20px;
     font-weight: 500;
 }
+@media (max-width: 375px) {
+    .practicioners .image, .trainers .image, .students .image{
+        text-align: center;
+    }
+}
 /*Border*/
 .vm-cvs{
     margin: 0 85px;
     display: flex;
+    @media (max-width:375px) {
+        flex-direction: column;
+        margin: 0 10px;
+    }
 }
 .vma, .vmf2{
     display: flex;
@@ -236,9 +272,19 @@ app-navbar {
     margin: 10% 5% 0 5%;
     padding: 0 5%;
     display: flex;
+    @media (max-width: 375px) {
+        flex-direction: column;
+        margin: 0;
+    }
 }
 .unique-features-container .left, .unique-features-container .right{
     flex: 1;
+}
+
+@media (max-width: 375px) {
+.unique-features-container .left{
+    margin-left: 5%;
+}
 }
 .right{
     margin-left: 5%;
@@ -252,6 +298,11 @@ app-navbar {
     position: relative; 
     z-index: 1; 
     top: -200px;
+    @media (max-width: 375px) {
+        width: 310px;
+        height: 350px;
+        top: -10px;
+    }
 }
 .left .thumbnail img{
     position: relative;
@@ -262,6 +313,10 @@ app-navbar {
     border: 8px solid #F5CA45;
     top: -45px;
     left: -35px;
+    @media (max-width: 375px) {
+        top: 70px;
+        left: -20px;
+    }
 }
 .left .feature-footer{
     position: relative;
@@ -278,9 +333,17 @@ app-navbar {
     color: #002147;
     font-size: 16px;
     font-weight: 400;
+    @media (max-width: 375px) {
+        left: 30px;
+        top: -100px;
+    }
 }
 .unique-features-container .right{
     padding: 0 20px;
+
+    @media (max-width: 375px) {
+        padding: 0;
+    }
 }
 .right .aboutus{
     font-family: Rubik, sans-serif;
