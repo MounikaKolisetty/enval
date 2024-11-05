@@ -24,10 +24,17 @@ app-navbar {
     justify-content: center;
     align-items: center;
     object-fit: cover;
+    @media (max-width: 375px) {
+        height: 350px;
+        background-size: cover;
+    }
 }
 .about-pic ul {
     list-style: none; /* Remove default list styling */
     display:flex;
+    @media (max-width:375px){
+        padding: 0;
+    }
 }
 .about-pic ul li + li::before {
     display: inline-block;
@@ -44,10 +51,11 @@ app-navbar {
     margin-right: 17px;
 }
 .about-pic h1{
-    font-size: 90px;
     font-weight: 700;
     margin-bottom: 8px;
     margin-top: 0px;
+    font-size: 1.875rem;
+    font-size: clamp(1.875rem, 1.0416666666666667rem + 3.7037037037037033vw, 4.375rem);
 }
 .about-pic ul li {
     font-size: 24px;
@@ -64,12 +72,16 @@ app-navbar {
     color: #0a1e3a;
 }
 /*Major Segments*/
-.about-us {
+.aboutus {
     display: flex;
     align-items: flex-start;
     gap: 30px;
     margin: 5% 10%;
     position: relative;
+    @media (max-width:375px) {
+        flex-direction: column;
+        margin: 5%;
+    }
 }
 .about-image {
     flex: 1;
@@ -81,6 +93,10 @@ app-navbar {
     border-radius: 10px;
     position: relative;
     z-index: 2;
+    @media (max-width:375px) {
+        width: 300px;
+        height: 300px;
+    }
 }
 .yellow-panel{
     background-color: #f0b429;
@@ -91,10 +107,19 @@ app-navbar {
     left:430px;
     border-radius: 10px;
     z-index: 0;
+    @media (max-width:375px) {
+        width: 154px;
+        height: 250px;
+        top: 17px;
+        left: 170px;
+    }
 }
 .about-text{
     flex: 2;
     margin-left: 30px;
+    @media (max-width:375px) {
+        margin-left: 0px;
+    }
 }
 .about-text .sub-head{
     font-family: Rubik, sans-serif;
@@ -157,6 +182,9 @@ app-navbar {
 }
 .segments{
     display: flex;
+    @media (max-width:375px) {
+        flex-direction: column;
+    }
 }
 .segments-column{
     padding-right: 15px;
@@ -193,6 +221,9 @@ app-navbar {
 .service-container {
     display: flex; 
     gap: 30px;
+    @media (max-width:375px) {
+        display: block;
+    }
 }
 .service-box {
     position: relative;
@@ -265,15 +296,20 @@ app-navbar {
 }
 .sub-heading {
     font-family: Rubik, sans-serif;
-    font-size: 3rem;
     font-weight: 500;
     color: #002147;
     text-align: center;
     margin-top: 3px;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 1rem + 2.2222222222222223vw, 3rem);
 }
 .focus-container {
     display: flex;
     margin: 5%;
+    @media (max-width:375px) {
+        display: block;
+        padding-bottom: 30px;
+    }
 }
 .image {
     margin-right: 20px;
@@ -296,15 +332,38 @@ app-navbar {
     border-bottom: 1px solid #555;
 }
 /*Success Stories*/
+@media (max-width: 375px) {
+    .success-stories {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory; /* Enable snap scrolling */
+        gap: 20px; /* Adjust the spacing between stories */
+    }
+    
+    .story {
+        width: 100%; /* Each story takes up the full width */
+        scroll-snap-align: center; /* Snap point for each story */
+        box-sizing: border-box; /* Include padding and border in width calculation */
+        flex: 0 0 auto; /* Prevent stories from shrinking or growing */
+    }
+    
+}
 .success-stories{
     display: flex;
     margin: 5% 10%;
     gap: 20px;
+
+    @media (max-width: 375px) {
+        margin: 5%;
+    }
 }
 .story{
     padding: 50px;
     margin: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    @media (max-width: 375px) {
+        padding: 10px;
+    }
 }
 .author{
     display: flex;

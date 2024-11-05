@@ -256,7 +256,7 @@ app-navbar {
 }
 @media (max-width: 375px) {
     iframe {
-        width: 375px; /* Set width for mobile */
+        width: 100%; /* Set width for mobile */
         height: 360px; /* Adjust height if necessary */
     }
 }
