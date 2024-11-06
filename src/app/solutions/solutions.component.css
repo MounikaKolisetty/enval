@@ -1,0 +1,52 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/img/others_bg.jpg');
+    background-position: center;
+    background-size: cover;
+    padding: 0 8%;
+    position: relative;
+}
+.logo{
+    width: 120px;
+    padding: 20px 0;
+    cursor: pointer;
+}
+.content{
+    top:50%;
+    position: absolute;
+    transform: translateY(-50%);
+    color: #fff;
+}
+.content h1 {
+    font-size: 64px;
+    font-weight: 500;
+}
+.content h1 span{
+    color: #E2CC65;
+}
+.content a{
+    text-decoration: none;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    padding: 12px 25px;
+    color: #fff;
+}
+.rocket {
+    width: 250px;
+    position: absolute;
+    right: 20%;
+    bottom: 0;
+    animation: rocket 4s linear infinite;
+}
+@keyframes rocket{
+    0%{
+        bottom: 0%;
+        opacity: 0%;
+    }
+    100%{
+        bottom: 100%;
+        opacity: 1;
+    }
+}

@@ -157,12 +157,27 @@ app-navbar {
 .categories .image{
     margin-bottom: 30px;
 }
-.practicioners .name, .trainers .name, .students .name{
+.leaders{
+    text-align: end;
+}
+.leaders .image img, .policy_makers .image img{
+    width: 50%;
+}
+.practicioners .name, .trainers .name, .students .name, .leaders .name, .policy_makers .name{
     text-align: center;
     font-family: Rubik, sans-serif;
     color: #043F71;
     font-size: 20px;
     font-weight: 500;
+}
+.leaders .name{
+    text-align: end;
+    padding-right: 40px;
+} 
+.policy_makers .name {
+    text-align: start;
+    padding-left: 60px;
+
 }
 /*Border*/
 .vm-cvs{
@@ -242,6 +257,9 @@ app-navbar {
 }
 .right{
     margin-left: 5%;
+}
+.left, .right{
+    height: 750px;
 }
 .left .image img {
     width: 100%; 

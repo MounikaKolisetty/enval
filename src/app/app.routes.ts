@@ -4,6 +4,11 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { ConsultingComponent } from './consulting/consulting.component';
 import { TrainingComponent } from './training/training.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { SolutionsComponent } from './solutions/solutions.component';
+import { EventspageComponent } from './eventspage/eventspage.component';
+import { EventspageSvaComponent } from './eventspage-sva/eventspage-sva.component';
+import { EventspagePvaComponent } from './eventspage-pva/eventspage-pva.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -11,4 +16,9 @@ export const routes: Routes = [
     { path: 'about', component: AboutComponent },
     { path: 'contact', component: ContactComponent},
     { path: 'consulting', component: ConsultingComponent},
-    { path: 'training', component: TrainingComponent}];
+    { path: 'training', component: TrainingComponent},
+    { path: 'projects', component: ProjectsComponent},
+    { path: 'solutions', component: SolutionsComponent},
+    { path: 'eventspage-svp', component: EventspageComponent},
+    { path: 'eventspage-sva', component: EventspageSvaComponent},
+    { path: 'eventspage-pva', component: EventspagePvaComponent}];

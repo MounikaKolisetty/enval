@@ -388,55 +388,19 @@ body {
 }
 
 .training-footer {
-    display: flex;
-    justify-content: space-between;
     margin-top: 15px;
     align-items: center;
     border-top: 1px solid #ddd; /* Adds a line separating the footer from the content */
     margin-top: 10px; /* Space between content and the border */
-    padding: 10px 0; /* Padding only at the top to avoid padding on sides */
+    padding: 20px 0; /* Padding only at the top to avoid padding on sides */
 }
-
-.training-review {
-    display: flex;
-    align-items: center;
+.training-footer a{
+    text-decoration: none;
+    color: #000;
+    background-color: #f0b429;
+    padding: 10px;
+    border-radius: 4px;
 }
-.review-count{
-    color: #777;
-}
-
-.training-star {
-    /*background: url('star-icon.png') no-repeat;*/
-    width: 20px;
-    height: 20px;
-    margin: 0 10px 7px 10px;
-    background-size: cover;
-    color: #f0b429;
-}
-
-.review-number {
-    font-weight: bold;
-    margin-right: 5px;
-}
-
-.cost {
-    display: flex;
-    align-items: center;
-}
-
-.price {
-    font-size: 14px;
-    font-weight: bold;
-    margin-right: 5px;
-    color: #777;
-}
-
-.course-cost {
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-
 /*tetsimonial*/
 .testimonial-container {
     display: flex;
@@ -651,7 +615,9 @@ h5 {
     margin-right: 5px;
 }
 
-.details h5 {
+.details a {
+    text-decoration: none;
+    color: #fff;
     font-size: 18px;
     margin: 0;
 }
