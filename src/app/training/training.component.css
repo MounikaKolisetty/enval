@@ -63,6 +63,20 @@ app-navbar {
     color: #0a1e3a;
 }
 /*Tranings*/
+.value-eng-container{
+    background-image: url('../../assets/img/testing/bg-2.png') ;
+    padding-top: 5%;
+    background-size: cover; 
+    background-position: center; 
+     background-repeat: no-repeat;
+}
+.train-container{
+    background-image: url('../../assets/img/testing/bg.png') ;
+    padding: 5% 0;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
 .trainings-cert{
     margin: 0% 5% 5% 5%;
     background-color: #E6E9EC;
@@ -154,6 +168,19 @@ app-navbar {
     gap: 10%;
     justify-content: center;
 }
+.categories > div{
+    animation: appear 5s linear;
+}
+@keyframes appear {
+    from {
+        opacity: 0.5;
+        scale: 0.7;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
 .categories .image{
     margin-bottom: 30px;
 }
@@ -183,6 +210,9 @@ app-navbar {
 .vm-cvs{
     margin: 0 85px;
     display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    border-radius: 8px;
+    border: 1px solid #f8e9e9;
 }
 .vma, .vmf2{
     display: flex;
