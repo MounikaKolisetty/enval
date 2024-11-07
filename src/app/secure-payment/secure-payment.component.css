@@ -1,0 +1,21 @@
+.nav-bar{
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+.nav-bar img{
+    height: auto;
+    width: 100%;  
+    max-width: 100px;
+    padding: 25px 0 15px 10%;  
+}
+.footer{
+    background-color: #474747;
+    padding: 15px 0 15px 10%;
+    color: #fff;
+    font-family: Rubik, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    position: absolute; 
+    left: 0; 
+    bottom: 0;
+    right: 0;
+}

@@ -1,0 +1,324 @@
+app-navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+    background-color: #fff; /* Optional: set background color */
+}
+/*Course Heading*/
+.course-top-view{
+    display: flex;
+    align-items: stretch;
+}
+.course-heading{
+    padding-top: 100px;
+    margin-left: 10%;
+}
+.course-right{
+    margin-left: 30px;
+    flex-grow: 1;
+    background: #002147;
+    border-top: 400px solid transparent; /* Adjust height as needed */ 
+    border-left: 250px solid #fff; /* Background color */ 
+    position: relative;
+}
+.course-right .banner-img{
+    position: absolute;
+    top: -270px;
+    left: -100px;
+    width: 250px;
+    z-index: 3;
+}
+.course-right .banner-dots{
+    position: absolute;
+    top: -270px;
+    left: -50px;
+}
+.course-heading h1{
+    font-size: 32px;
+    font-weight: 700;
+    font-family: Rubik, sans-serif;
+    color: #002147;
+}
+.banner-details{
+    padding-bottom: 10px ;
+}
+.banner-details ul{
+    padding: 0;
+}
+.banner-details ul li{
+    list-style-type: none;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Rubik, sans-serif;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    color: #555555;
+}
+.banner-details ul li .check{
+    color: #002147;
+    padding-right: 10px;
+}
+.banner-buttons{
+    display: flex;
+    gap: 20px;
+}
+.options{
+    background-color: #002147;
+    color: #fff;
+    padding: 15px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.advisor{
+    border: 1px solid #002147;
+    color: #002147;
+    padding: 15px 10px;
+    border-radius: 4px;
+}
+.advisor a{
+    text-decoration: none;
+    color: #002147;
+}
+/*Course Overview*/
+.course-overview{
+    margin-top: 5%;
+    margin-left: 10%;
+    width: 70%;
+}
+.course-overview .overview-heading{
+    font-family: Rubik, sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    width: 50%;
+}
+.course-overview .overview-desc{
+    font-family: Rubik, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #555555;
+    line-height: 1.5;
+}
+.benefits-items ul{
+    list-style-type: none;
+    padding: 0;
+}
+.benefits-items ul li{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Rubik, sans-serif;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    color: #555555;
+}
+.benefits-items ul li .tick{
+    color: #002147;
+    padding-right: 10px;
+}
+.eligibility h4, .duration h4, .benefits h4, .content-coverage h4, .methodology h4{
+    font-family: Rubik, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+.eligibility ul{
+    padding-left: 15px;
+}
+.eligibility ul li{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Rubik, sans-serif;
+    color: #555555;
+    padding-left: 10px;
+    margin-top: 8px;
+}
+.sections{
+    display: flex;
+    gap: 10%;
+}
+.sections-column ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.sections-column ul li, .list-items ul li{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Rubik, sans-serif;
+    color: #555555;
+    padding-bottom: 20px;
+}
+.container-column{
+    width: 470px;
+}
+.container-column ul li{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Rubik, sans-serif;
+    color: #555555;
+    padding-bottom: 20px;
+    display: flex;
+}
+.sections-column .time{
+    color: #002147;
+    padding-right: 5px;
+}
+.content-coverage{
+    border: 1px solid #bdbdbd;
+    padding-left: 20px;
+    margin: 10px;
+}
+.content-coverage .container{
+    display: flex;
+}
+.container-column ul, .list-items ul{
+    list-style-type: none;
+    padding: 0 30px 0 0;
+}
+.container-column ul li .coveragetick, .list-items ul li .arrow{
+    color: #002147;
+    padding-right: 10px;
+}
+/*Examination and Certification*/
+.certificates{
+    background: linear-gradient(to bottom, #e3e3e3, #fff);
+    padding-top: 10px;
+}
+.certificate-container{
+    margin-left: 10%;
+}
+.certificate-content{
+    display: flex;
+    gap: 20px;
+}
+.certificate-content ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 20px 0 0 0;
+}
+.image-container img{
+    width: 60%;
+}
+.certificate-content ul li{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Rubik, sans-serif;
+    color: #555555;
+    padding: 20px;
+    background-color: #ECF1F8;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+/*Training options*/
+.training-panel{
+    background: linear-gradient(to top, #e3e3e3, #fff);
+    padding-bottom: 20px;
+}
+.training-options{
+    margin-left: 10%;
+}
+.training-options .head{
+    font-family: Rubik, sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+}
+.option{
+    border: 1px solid #e2e1e1;
+    margin-left: 25%;
+    width: 400px;
+    height: 500px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+.bootcamp-head{
+    background-color: #f0b429;
+    margin: 0;
+    padding: 30px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-family: Rubik, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #002147;
+}
+.bootcamp-benefits ul{
+    list-style-type: none;
+    padding: 0 20px;
+}
+.bootcamp-benefits ul li .benefits-tick{
+    color: #002147;
+    padding-right: 20px;
+}
+.bootcamp-benefits ul li{
+    color: #555555;
+    font-family: Rubik, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    padding-bottom: 5px;
+}
+.bootcamp h5{
+    font-family: Rubik, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 20px;
+}
+.batch-dates{
+    padding: 0 20px;
+    display: flex;
+}
+.batch-dates .date1, .batch-dates .date2{
+    font-family: Rubik, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.batch-dates .date1{
+    padding-right: 10px;
+}
+.batch-dates .date2{
+    padding-left: 10px;
+}
+.batch-dates .vertical-line{
+    width: 1px;
+    height: 14px;
+    background-color: #555555;
+    padding-top: 3px;
+}
+.bootcamp .schedules{
+    padding-left: 20px;
+    color: #f0b429;
+}
+.bootcamp-footer{
+    background-color: #F8FBFF;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 20%;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    align-items: center;
+}
+.bootcamp-footer .Enroll-btn .a-btn{
+    text-decoration: none;
+    color: #fff;
+    background-color: #002147;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+.bootcamp-footer .price .offer{
+    padding-bottom: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: #002147;
+}
+.bootcamp-footer .price .offer img{
+    padding-right: 5px;
+}
+.bootcamp-footer .price .total-price del{
+    color: #bdbdbd;
+    padding-left: 5px;
+}

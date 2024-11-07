@@ -87,10 +87,18 @@ body {
     margin: 0;
     padding: 20px;
 }
+.card-layout{
+    display: flex;
+    max-width: 100%;
+}
 .card-container {
     display: flex;
-    gap: 10px; /* Space between cards */
     overflow: hidden;
+    gap: 45px;
+    min-width: 100%; /* Ensure the container takes the full width */ 
+    position: relative; 
+    height: 220px;
+    animation: scroll 10s linear infinite;
 }
 .f-logo mat-icon{
     width: 48px;
@@ -98,19 +106,15 @@ body {
     font-size: 3rem;
 }
 .card {
-    position: flex;
+    flex: 0 0 auto; 
     width: 200px; 
     height: 200px; 
     border-radius: 8px; 
     perspective: 1000px; 
-    padding: 7px;
-    animation: scroll-right-to-left 10s linear infinite;
 }
-@keyframes scroll-right-to-left {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
+@keyframes scroll{
+   
+    to {
         transform: translateX(-100%);
     }
 }
@@ -388,65 +392,29 @@ body {
 }
 
 .training-footer {
-    display: flex;
-    justify-content: space-between;
     margin-top: 15px;
     align-items: center;
     border-top: 1px solid #ddd; /* Adds a line separating the footer from the content */
     margin-top: 10px; /* Space between content and the border */
-    padding: 10px 0; /* Padding only at the top to avoid padding on sides */
+    padding: 20px 0; /* Padding only at the top to avoid padding on sides */
 }
-
-.training-review {
-    display: flex;
-    align-items: center;
+.training-footer a{
+    text-decoration: none;
+    color: #000;
+    background-color: #f0b429;
+    padding: 10px;
+    border-radius: 4px;
 }
-.review-count{
-    color: #777;
-}
-
-.training-star {
-    /*background: url('star-icon.png') no-repeat;*/
-    width: 20px;
-    height: 20px;
-    margin: 0 10px 7px 10px;
-    background-size: cover;
-    color: #f0b429;
-}
-
-.review-number {
-    font-weight: bold;
-    margin-right: 5px;
-}
-
-.cost {
-    display: flex;
-    align-items: center;
-}
-
-.price {
-    font-size: 14px;
-    font-weight: bold;
-    margin-right: 5px;
-    color: #777;
-}
-
-.course-cost {
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-
 /*tetsimonial*/
 .testimonial-container {
     display: flex;
     overflow: hidden;
     width: 100%;
-    height: 150px; /* Adjust based on content */
+    height: 350px; /* Adjust based on content */
     position: relative;
     padding-top: 20px;
+    background-color: rgba(238, 238, 238, 0.8);
 }
-
 .testimonial {
     display: flex;
     align-items: center;
@@ -457,52 +425,8 @@ body {
     box-sizing: border-box;
 }
 .testimonial-container .testimonial:nth-child(1){
-    animation: anim 10s infinite;
+    animation: anim 20s infinite;
 }
-/*
-@keyframes anim1 {
-    0%, 20% {
-        margin-left: 0;
-    }
-    25%, 45% {
-        margin-left: -100%;
-    }
-    100% {
-        margin-left: -100%;
-    }
-}
-@keyframes anim2 {
-    0%, 25% {
-        margin-left: 100%;
-    }
-    30%, 50% {
-        margin-left: 0;
-    }
-    55%, 100% {
-        margin-left: -100%;
-    }
-}
-
-@keyframes anim3 {
-    0%, 50% {
-        margin-left: 100%;
-    }
-    55%, 75% {
-        margin-left: 0;
-    }
-    80%, 100% {
-        margin-left: -100%;
-    }
-}
-
-@keyframes anim4 {
-    0%, 75% {
-        margin-left: 100%;
-    }
-    80%, 100% {
-        margin-left: 0;
-    }
-}*/
 @keyframes anim {
     0%, 15% {
         margin-left: 100%;
@@ -529,12 +453,14 @@ body {
 .review {
     color: #555;
     font-family: "Arima";
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    max-width: 700px;
+    text-align: center;
 }
-
-h5 {
-    margin: 0;
+.testi-content h5 {
+    margin: 0 0 16px 0;
     font-size: 16px;
+    text-align: center;
 }
 
 /*Upcoming events*/
@@ -651,7 +577,9 @@ h5 {
     margin-right: 5px;
 }
 
-.details h5 {
+.details a {
+    text-decoration: none;
+    color: #fff;
     font-size: 18px;
     margin: 0;
 }
