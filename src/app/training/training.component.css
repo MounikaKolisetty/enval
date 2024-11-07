@@ -246,6 +246,11 @@ app-navbar {
 .vma:hover .read-more-button, .vmf2:hover .read-more-button{
     display: block;
 }
+.read-more-button a{
+    text-decoration: none;
+    color: #043F71;
+    padding-right: 10px;
+}
 /*Unique Features*/
 .unique-features-container{
     margin: 10% 5% 0 5%;

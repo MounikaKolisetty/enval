@@ -9,6 +9,10 @@ import { SolutionsComponent } from './solutions/solutions.component';
 import { EventspageComponent } from './eventspage/eventspage.component';
 import { EventspageSvaComponent } from './eventspage-sva/eventspage-sva.component';
 import { EventspagePvaComponent } from './eventspage-pva/eventspage-pva.component';
+import { SecurePaymentComponent } from './secure-payment/secure-payment.component';
+import { TrainingVmaComponent } from './training-vma/training-vma.component';
+import { TrainingVmf2Component } from './training-vmf2/training-vmf2.component';
+import { TrainingCvsComponent } from './training-cvs/training-cvs.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -21,4 +25,8 @@ export const routes: Routes = [
     { path: 'solutions', component: SolutionsComponent},
     { path: 'eventspage-svp', component: EventspageComponent},
     { path: 'eventspage-sva', component: EventspageSvaComponent},
-    { path: 'eventspage-pva', component: EventspagePvaComponent}];
+    { path: 'eventspage-pva', component: EventspagePvaComponent},
+    { path: 'secure-payment', component: SecurePaymentComponent},
+    { path: 'training-vma', component: TrainingVmaComponent},
+    { path: 'training-vmf2', component:TrainingVmf2Component},
+    { path: 'training-cvs', component: TrainingCvsComponent}];
