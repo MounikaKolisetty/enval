@@ -19,10 +19,18 @@
     </div>
     <div class="content">
         <h2 class="Titillium">Enval</h2>
-        <p class="Titillium">ENVAL Consultants Pvt Ltd stands at the forefront of Value Management solutions, 
-            specializing in comprehensive offerings that encompass training, consulting, 
-            project management, and cutting-edge software solutions.</p>
-        <a class="Titillium" href="#">Explore More</a>
+        <p class="Titillium">ENVAL Consultants Pvt. Ltd. is a distinguished leader in Value Management, offering a 
+            comprehensive range of services—from strategic consulting and bespoke training to advanced project management 
+            and AI-driven software solutions. Serving both public and private sectors, we empower organizations to navigate 
+            complex challenges and drive sustainable growth in an increasingly competitive environment.
+        </p>
+            <p class="Titillium" *ngIf="isContentVisible"> 
+                Our methodology is centered around providing tailored, technology-enabled Value Management strategies that 
+                optimize operations, enhance efficiency, and maximize value. With a globally acclaimed team of experts, 
+                ENVAL is committed to delivering results that exceed expectations, fostering enduring partnerships built on 
+                trust and a shared pursuit of excellence. 
+            </p>
+        <a class="Titillium" (click)="toggleContent()">{{ buttonText }}</a>
     </div>
 </div> 
 <!--Mission and Vision-->

@@ -3,6 +3,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HomeComponent } from '../home/home.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-about',
@@ -10,11 +11,18 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   imports: [NavbarComponent,
             FooterComponent,
             HomeComponent,
-            RouterOutlet, RouterLink, RouterLinkActive
+            RouterOutlet, RouterLink, RouterLinkActive,
+            CommonModule
   ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
 export class AboutComponent {
+  isContentVisible: boolean = false; 
+  buttonText: string = 'Read More';
 
+  toggleContent() {
+     this.isContentVisible = !this.isContentVisible; 
+     this.buttonText = this.isContentVisible ? 'Read Less' : 'Read More';
+  } 
 }
