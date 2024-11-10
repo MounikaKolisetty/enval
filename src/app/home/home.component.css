@@ -803,5 +803,70 @@ body {
     display: inline-block;
     width: auto;
 }
+.contact {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Black with 70% transparency */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.contact .training-form{
+    margin: 10% 30%;
+    padding: 40px 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+}
+.form-heading{
+    font-family: Rubik, sans-serif;
+    color: #002147;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 28px;
+}
+.form-items, .dropdown-container{
+    width: 100%;
+    max-width: 550px;
+    margin-bottom: 20px;
+}
+.form-items input, .dropdown-container .dropdown{
+    width: 100%;
+    padding: 11px 15px;
+    border: 1px solid #DADBDD;
+    border-radius: 8px;
+    color: #606266;
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+}
+.form-items input{
+    width: 100%;
+}
+.dropdown-container .dropdown {
+    width: 105%;
+}
+.contact .closebutton {
+    padding: 1px 8px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f0b429;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #002147; /* Change button text color to white */
+}
+.button-ele button{
+    padding: 10px 20px;
+    background-color: #f0b429;
+    border: none;
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+}
 
 

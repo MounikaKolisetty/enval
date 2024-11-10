@@ -499,7 +499,7 @@
             </div>
         </div>
         <div class="training-footer">
-            <a href="">Know More</a>
+            <a (click)="toggleContact()">Know More</a>
         </div>
     </div>
     <div class="training-card">
@@ -512,7 +512,7 @@
             </div>
         </div>
         <div class="training-footer">
-            <a href="">Know More</a>
+            <a (click)="toggleContact()">Know More</a>
         </div>
     </div>
     <div class="training-card">
@@ -525,11 +525,52 @@
             </div>
         </div>
         <div class="training-footer">
-            <a href="">Know More</a>
+            <a (click)="toggleContact()">Know More</a>
         </div>
     </div>
 </div>
-
+<div *ngIf="isContactVisible" class="contact"> 
+    <!-- Your contact content goes here --> 
+    <div class="training-form">
+    <div class="individual-form">
+        <div class="form-heading-bar">
+            <div class="form-heading">
+                Fill up the following form to apply for Individual Training
+            </div>
+            <button (click)="closeContact()" class="closebutton">x</button> 
+        </div>
+        <div class="form-items">
+            <input type="text" placeholder="Full Name">
+        </div>
+        <div class="form-items">
+            <input type="text" placeholder="Organization">
+        </div>
+        <div class="form-items">
+            <input type="text" placeholder="Designation">
+        </div>
+        <div class="dropdown-container"> 
+            <select id="options" name="options" class="dropdown"> 
+                <option value="selectcourse">Select Course</option>
+                <option value="option1">Option 1</option> 
+                <option value="option2">Option 2</option> 
+                <option value="option3">Option 3</option>
+            </select> 
+        </div>
+        <div class="form-items">
+            <input type="text" placeholder="Location">
+        </div>
+        <div class="form-items">
+            <input type="text" placeholder="Phone Number">
+        </div>
+        <div class="form-items">
+            <input type="text" placeholder="Email Address">
+        </div>
+        <div class="button-ele">
+            <button type="submit">Submit Form</button>
+        </div>
+    </div>
+    </div>
+</div>
 <!--Testimonials-->
 <div class="testimonial-container">
     <div class="testimonial">
