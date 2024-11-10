@@ -13,17 +13,28 @@
             <li>
                 <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">ABOUT</a>
             </li>
-            <li>
-                <a routerLink="/training" routerLinkActive="active" ariaCurrentWhenActive="page">TRAINING</a>
+            <li class="dropdown"> 
+                <a routerLink="/training" routerLinkActive="active" ariaCurrentWhenActive="page" class="droplist">TRAININGS</a> 
+                <ul class="dropdown-content">
+                    <li>
+                        <a class="service-item" routerLink="/eventspage-svp" routerLinkActive="active" ariaCurrentWhenActive="page">SVP</a>
+                    </li>
+                    <li>
+                        <a class="service-item" routerLink="/eventspage-sva" routerLinkActive="active" ariaCurrentWhenActive="page">SVA</a>
+                    </li>
+                    <li>
+                        <a class="service-item" routerLink="/eventspage-pva" routerLinkActive="active" ariaCurrentWhenActive="page">PVA</a>
+                    </li>
+                </ul> 
             </li>
             <li>
-                <a routerLink="/consulting" routerLinkActive="active" ariaCurrentWhenActive="page">CONSULTING</a>
+                <a class="service-item" routerLink="/consulting" routerLinkActive="active" ariaCurrentWhenActive="page">CONSULTING</a>
             </li>
             <li>
-                <a routerLink="/solutions" routerLinkActive="active" ariaCurrentWhenActive="page">IT SOLUTIONS</a>
+                <a class="service-item" routerLink="/solutions" routerLinkActive="active" ariaCurrentWhenActive="page">IT SOLUTIONS</a>
             </li>
             <li>
-                <a routerLink="/projects" routerLinkActive="active" ariaCurrentWhenActive="page">IT PROJECTS</a>
+                <a class="service-item" routerLink="/projects" routerLinkActive="active" ariaCurrentWhenActive="page">IT PROJECTS</a>
             </li>
             <li>
                 <a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">CONTACT US</a>
@@ -31,8 +42,8 @@
         </ul>
     </div>
     <div class="nav-right-part">
-        <mat-icon class="cart-icon">shopping_cart</mat-icon>
-        <a href="#" class="signup-btn">Sign Up</a>
+        <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" class="login-btn">Login</a>
+        <a routerLink="/sign-up" routerLinkActive="active" ariaCurrentWhenActive="page" class="signup-btn">Sign Up</a>
     </div>
   </mat-toolbar>
 <!--Navbar End-->

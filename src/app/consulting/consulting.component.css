@@ -295,6 +295,35 @@ app-navbar {
     padding: 0 0 10px 5px;
     border-bottom: 1px solid #555;
 }
+.title1{
+    animation: scrollToPosition 1s forwards;
+}
+.title2{
+    animation: scrollToPosition 2s forwards;
+}
+.title3{
+    animation: scrollToPosition 3s forwards;
+}
+.title4{
+    animation: scrollToPosition 4s forwards;
+}
+.title5{
+    animation: scrollToPosition 5s forwards;
+}
+.title6{
+    animation: scrollToPosition 6s forwards;
+}
+.title7{
+    animation: scrollToPosition 7s forwards;
+}
+@keyframes scrollToPosition{
+    from{
+        transform: translate(100%);
+    }
+    to{
+        transform: translate(0);
+    }
+}
 /*Success Stories*/
 .success-stories{
     display: flex;

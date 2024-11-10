@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+<div class="contact-bg">
+    <h1>Login</h1>
+        <ul>
+            <li>
+                <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" 
+                class="read-more-btn">Home</a>
+            </li>
+            <li>Login</li>
+        </ul>
+</div>
+<div class="login-form" *ngIf="showlogin">
+    <form class="login-inner">
+        <div class="single-input-inner">
+            <input type="text" placeholder="Email" required>
+        </div>
+        <div class="single-input-inner">
+            <input type="text" placeholder="Password" required>
+        </div>
+        <button class="btn">Login</button>
+        <div class="signup">
+            <div>or</div>
+            <a routerLink="#" routerLinkActive="active" ariaCurrentWhenActive="page" 
+            class="login-page" (click)="toggleDiv()">Forget Password</a>
+            </div>
+        <div class="signup">
+        <div>Don't have an account?</div>
+        <a routerLink="/sign-up" routerLinkActive="active" ariaCurrentWhenActive="page" 
+        class="login-page">Sign up</a>
+        </div>
+    </form>
+
+</div>
+<div class="forget-form" *ngIf="showforget">
+    <form class="forget-inner">
+        <div class="forget-text">We’ll email you a link so you can reset your password.</div>
+        <div class="single-input-inner">
+            <input type="text" placeholder="Email" required>
+        </div>
+        <button class="reset-btn">Reset Password</button>
+        <div class="signup">
+            <div>or</div>
+            <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" 
+            class="login-page" (click)="toggleDiv()">Login</a>
+        </div>
+    </form>
+
+</div>
+<app-footer></app-footer>

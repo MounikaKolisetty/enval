@@ -1,0 +1,152 @@
+app-navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+    background-color: #fff; /* Optional: set background color */
+}
+.contact-bg {
+    background-image: url('../../assets/img/contact_bg.png');
+    position: relative;
+    width: 100%;
+    height: 50%;
+    background-size: contain;       /* Ensures the entire image is visible */
+    background-position: center;    /* Centers the image */
+    background-repeat: no-repeat;   /* Prevents the image from repeating */
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking */
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    padding-top: 100px;
+}
+.contact-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(4, 19, 38, 0.9); /* Black overlay with 50% opacity */
+    z-index: 1;
+}
+.contact-bg ul {
+    list-style: none; /* Remove default list styling */
+    display:flex;
+    z-index: 3;
+    color: #fff;
+    padding: 0%;
+}
+.contact-bg ul li + li::before {
+    display: inline-block;
+    padding-right: 0;
+    padding-left: 0;
+    color: #6c757d;
+    content: "";
+    height: 10px;
+    width: 10px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-left: 22px;
+    margin-right: 17px;
+}
+.contact-bg h1{
+    margin-top: 0;
+    font-weight: 500;
+    margin-bottom: 8px;
+    z-index: 3;
+    color: #fff;
+    font-size: 1.875rem;
+    font-size: clamp(1.875rem, 1.0416666666666667rem + 3.7037037037037033vw, 4.375rem);
+}
+.contact-bg ul li {
+    font-size: 24px;
+    font-weight: 500;
+}
+.contact-bg ul li:last-child {
+    color: #f0b429;
+}
+.contact-bg ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+.contact-bg ul li a:hover{
+    color: #f0b429;
+    cursor: pointer;
+}
+/*form*/
+.signup-inner{
+    margin: 5% 35%;
+    background-color: #F2F3F5;
+    border-radius: 8px;
+    padding: 40px 20px 130px 20px;
+    text-align: center;
+}
+.single-input-inner {
+    border: 1px solid rgba(8, 76, 148, 0.2);
+    margin: 20px;
+    background-color: #fff;
+}
+.single-input-inner input{
+    width: 80%;
+    padding: 20px;
+    border: none;
+}
+.btn {
+    color: #0a1e3a;
+  	position:relative;
+  	overflow:hidden;
+  	transition:color 0.5s linear;
+    text-decoration: none; /* Remove underline */
+    padding: 10px 20px; /* Padding for buttons */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    border: 1px solid #F5CA45; /* Yellow background */
+    font-weight: 100;
+    margin-right: 10px;
+    width: 100px;
+    text-align: center;
+    z-index: 1;
+}
+.btn::before{
+    position:absolute;
+	content:'';
+    top:-10px;
+  	left:0px;
+  	width:150%;
+  	z-index:-1;
+  	transform: translateX(-100%);
+  	border-right:50px solid transparent;
+  	border-bottom: 100px solid #F5CA45;
+  	transition:transform 0.5s linear;
+}
+.btn:hover::before{
+	transform:translateX(0);
+}
+.login{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+.login div{
+    color: #6c757d;
+    font-size: 16px;
+    font-family: Rubik, sans-serif;
+}
+.login .login-page{
+    padding-left: 10px;
+}
+input::placeholder { 
+    color: #cdcdcd; /* Change this to your desired color */ 
+    font-size: 16px; /* Change this to your desired font size */ 
+    font-family: Rubik, sans-serif;
+}
+.single-input-inner input:focus {
+    outline: none; 
+    box-shadow: none; 
+    border-color: transparent; /* Adjust the border color as needed */ 
+}
+
+  

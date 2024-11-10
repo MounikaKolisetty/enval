@@ -1,3 +1,11 @@
+app-navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+    background-color: #fff; /* Optional: set background color */
+}
 .container{
     width: 100vw;
     height: 100vh;
