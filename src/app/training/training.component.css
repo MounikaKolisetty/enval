@@ -64,19 +64,36 @@ app-navbar {
 }
 /*Tranings*/
 .value-eng-container{
-    background-image: url('../../assets/img/testing/bg-2.png') ;
-    padding-top: 5%;
-    background-size: cover; 
-    background-position: center; 
-     background-repeat: no-repeat;
-}
-.train-container{
-    background-image: url('../../assets/img/testing/bg.png') ;
+    background-image: url('../../assets/img/testing/training-bg-1.jpg') ;
     padding: 5% 0;
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
+    animation: rotateBackground 10s linear infinite;
 }
+@keyframes rotateBackground {
+    0% {
+    background-position: 0% 0%; 
+    } 
+    50% {
+    background-position: 100% 100%; 
+    } 
+    100% {
+    background-position: 0% 0%; 
+    } 
+}
+.train-container{
+    background-image: url('../../assets/img/testing/training-bg.jpg') ;
+    padding: 5% 0;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    animation: zoomBackground 5s linear infinite;
+}
+@keyframes zoomBackground {
+     0% { background-size: 100%; } 
+     50% { background-size: 120%; } 
+     100% { background-size: 100%; } }
 .trainings-cert{
     margin: 0% 5% 5% 5%;
     background-color: #E6E9EC;
@@ -169,14 +186,17 @@ app-navbar {
     justify-content: center;
 }
 .categories > div{
-    animation: appear 5s linear;
+    animation: appear 5s linear infinite;
 }
 @keyframes appear {
-    from {
+    0% {
         scale: 0.7;
     }
-    to {
+    50% {
         scale: 1;
+    }
+    100% {
+        scale: 0.7;
     }
 }
 .categories .image{
