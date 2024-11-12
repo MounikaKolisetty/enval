@@ -7,11 +7,11 @@ app-navbar {
     background-color: #fff; /* Optional: set background color */
 }
 .contact-bg {
-    background-image: url('../../assets/img/contact_bg.png');
+    background-image: url('../../assets/img/contact_bg.jpg');
     position: relative;
     width: 100%;
     height: 50%;
-    background-size: contain;       /* Ensures the entire image is visible */
+    background-size: cover;       /* Ensures the entire image is visible */
     background-position: center;    /* Centers the image */
     background-repeat: no-repeat;   /* Prevents the image from repeating */
     display: flex;
@@ -81,16 +81,72 @@ app-navbar {
     margin: 5% 35%;
     background-color: #F2F3F5;
     border-radius: 8px;
-    padding: 40px 20px 100px 20px;
+    padding: 40px 20px 60px 20px;
     text-align: center;
+    border: 1px solid rgba(1, 30, 61, 0.3);
+    box-shadow: 0 4px 8px 0 #636363;  /* Shadow effect */
+}
+/*.single-input-inner {
+    border: 1px solid rgba(8, 76, 148, 0.2);
+    margin: 20px;
+    background-color: #fff;
+    display: flex;
+}
+.single-input-inner i{
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
 }
 .single-input-inner input{
-    width: 80%;
+    width: 100%;
     padding: 20px;
-    border: 1px solid rgba(8, 76, 148, 0.2);
-}
+    border: none;
+    box-sizing: border-box;
+}*/
 .single-input-inner{
-    padding-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+}
+.single-input-inner input{
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid rgba(1, 30, 61, 0.5);
+    background-color: #F2F3F5;
+}
+.placeholder {
+    position: absolute;
+    top: 20px;
+    left: 60px;
+    padding: 0px 5px;
+    color: #666;
+    transition: 0.3s;
+    pointer-events: none;
+}
+.single-input-inner input:focus + .placeholder,
+.single-input-inner input:valid + .placeholder{
+    top: -10px;
+    color: #f0b429;
+    background-color: #F2F3F5;
+
+}
+.single-input-inner i{
+    position: absolute;
+    right: 70px;
+    top: 20px;
+}
+.single-input-inner .error-message, .input-inner .error-message{
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: left;
+    margin:10px 0 0 50px;
+    color: #ff0000;
+}
+.input-inner .error-message{
+    margin:10px 0 0 70px;
 }
 .btn, .reset-btn {
     color: #0a1e3a;
@@ -141,6 +197,25 @@ app-navbar {
 .signup .login-page{
     padding-left: 5px;
 }
+.error{
+    display: flex;
+    width: 65%;
+    background-color: #F3BEA5;
+    padding: 20px;
+    margin: 20px 20px 20px 48px;
+}
+.error i{
+    padding-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error-message{
+    font-family: Rubik, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+}
 input::placeholder { 
     color: #cdcdcd; /* Change this to your desired color */ 
     font-size: 16px; /* Change this to your desired font size */ 
@@ -152,6 +227,8 @@ input::placeholder {
     border-radius: 8px;
     padding: 40px 20px 50px 20px;
     text-align: center;
+    border: 1px solid rgba(1, 30, 61, 0.3);
+    box-shadow: 0 4px 8px 0 #636363;  /* Shadow effect */
 }
 .forget-inner .forget-text {
     color: #6c757d;
@@ -159,12 +236,39 @@ input::placeholder {
     font-family: Rubik, sans-serif;
     padding-bottom: 20px;
 }
-.forget-inner .single-input-inner input{
+.forget-inner .input-inner input{
     width: 90%;
     padding: 20px;
-    border: 1px solid rgba(8, 76, 148, 0.2);
 }
 .login-form, .forget-form {
     display: block; /* Ensure it's set to block or any visible display property */
 }
+.input-inner{
+    position: relative;
+    padding-bottom: 15px;
+}
+.input-inner input{
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid rgba(1, 30, 61, 0.5);
+    background-color: #F2F3F5;
+}
+.input-inner .placeholder {
+    position: absolute;
+    top: 20px;
+    left: 80px;
+    padding: 0px 5px;
+    color: #666;
+    transition: 0.3s;
+    pointer-events: none;
+}
+.input-inner input:focus + .placeholder,
+.input-inner input:valid + .placeholder{
+    top: -10px;
+    color: #f0b429;
+    background-color: #F2F3F5;
 
+}

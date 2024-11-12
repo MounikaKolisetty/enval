@@ -10,32 +10,52 @@
         </ul>
 </div>
 <div class="login-form" *ngIf="showlogin">
-    <form class="login-inner">
-        <div class="single-input-inner">
-            <input type="text" placeholder="Email" required>
+    <form class="login-inner" [formGroup]="loginForm" (ngSubmit)="login()">
+      <div *ngIf="invalidInputs" class="error">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <div class="error-message">There was a problem logging in. Check your email and password OR Create an account.</div>
+      </div>
+      <div class="single-input-inner">
+        <input type="text"  formControlName="email" required>
+        <label class="placeholder" [ngClass]="{'float': loginForm.controls['email'].value}">Email<sup>*</sup></label>
+        <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" class="error-message">
+          <div *ngIf="loginForm.controls['email'].errors?.['required']">Email is required.</div>
+          <div *ngIf="loginForm.controls['email'].errors?.['email']">Enter a valid email.</div>
         </div>
-        <div class="single-input-inner">
-            <input type="text" placeholder="Password" required>
+      </div>
+      <div class="single-input-inner">
+        <input [type]="passwordFieldType"  formControlName="password" required>
+        <label class="placeholder" [ngClass]="{'float': loginForm.controls['password'].value}">Password<sup>*</sup></label>
+        <i class="fas" [class.fa-eye]="passwordFieldType === 'password'" [class.fa-eye-slash]="passwordFieldType === 'text'" (click)="togglePasswordVisibility()"></i>
+        <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="error-message">
+          <div *ngIf="loginForm.controls['password'].errors?.['required']">Password is required.</div>
+          <div *ngIf="loginForm.controls['password'].errors?.['minlength']">Password must be at least 6 characters long.</div>
         </div>
-        <button class="btn">Login</button>
-        <div class="signup">
-            <div>or</div>
-            <a routerLink="#" routerLinkActive="active" ariaCurrentWhenActive="page" 
-            class="login-page" (click)="toggleDiv()">Forget Password</a>
-            </div>
-        <div class="signup">
+      </div>
+      <button class="btn" [disabled]="loginForm.invalid">Login</button>
+      <div class="signup">
+        <div>or</div>
+        <a href="javascript:void(0);" 
+           class="login-page" (click)="toggleDiv()">Forget Password</a>
+      </div>
+      <div class="signup">
         <div>Don't have an account?</div>
         <a routerLink="/sign-up" routerLinkActive="active" ariaCurrentWhenActive="page" 
-        class="login-page">Sign up</a>
-        </div>
+           class="login-page">Sign up</a>
+      </div>
     </form>
-
-</div>
+  </div>
+  
 <div class="forget-form" *ngIf="showforget">
-    <form class="forget-inner">
+    <form class="forget-inner" [formGroup]="forgetForm">
         <div class="forget-text">We’ll email you a link so you can reset your password.</div>
-        <div class="single-input-inner">
-            <input type="text" placeholder="Email" required>
+        <div class="input-inner">
+            <input type="text" formControlName="email" required>
+            <label class="placeholder">Email<sup>*</sup></label>
+            <div *ngIf="forgetForm.controls['email'].invalid && (forgetForm.controls['email'].dirty || forgetForm.controls['email'].touched)" class="error-message">
+                <div *ngIf="forgetForm.controls['email'].errors?.['required']">Email is required.</div>
+                <div *ngIf="forgetForm.controls['email'].errors?.['email']">Enter a valid email.</div>
+              </div>
         </div>
         <button class="reset-btn">Reset Password</button>
         <div class="signup">
