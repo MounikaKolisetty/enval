@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   forgetForm!: FormGroup;
   errorMessage: string = '';
+  message = '';
+  showmessage = false;
 
   constructor(private fb:FormBuilder, private userService: UserService) {}
   ngOnInit() {
@@ -59,7 +61,7 @@ export class LoginComponent implements OnInit {
     } 
     const { email, password } = this.loginForm.value;
 
-    this.userService.login(this.email, this.password).subscribe(
+    this.userService.login(email, password).subscribe(
        response => {
          if (response.invalidInputs) {
            this.invalidInputs = true; 
@@ -72,4 +74,20 @@ export class LoginComponent implements OnInit {
       } 
     ); 
   }
+  onSubmit() { 
+    const email = this.forgetForm.value.email; 
+    this.userService.requestPasswordReset(email).subscribe(
+       response => 
+        {
+          this.showlogin = false;
+          this.showforget = false;
+          this.showmessage = true;
+          console.log('Password reset email sent.', response );
+        }, 
+       error =>
+        {
+          console.log('Error sending password reset email.', error)
+        } 
+      );
+   }
 }

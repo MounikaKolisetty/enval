@@ -8,12 +8,18 @@ import { throwError, of } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:5062/api/user'; // Replace with your backend URL 
+  private apiUrl = 'http://localhost:5062/api'; // Replace with your backend URL 
   constructor(private http: HttpClient) {} 
   signUp(user: any): Observable<any> { 
-    return this.http.post(`${this.apiUrl}/signup`, user); 
+    return this.http.post(`${this.apiUrl}/user/signup`, user); 
   }
   login(email: string, password: string): Observable<any> { 
-    return this.http.post(`${this.apiUrl}/login`, { email, password });
+    return this.http.post(`${this.apiUrl}/user/login`, { email, password });
+  }
+  requestPasswordReset(email: string): Observable<any> {
+     return this.http.post(`${this.apiUrl}/passwordreset/request`, { email }); 
+  } 
+  resetPassword(token: string, newPassword: string): Observable<any> {
+     return this.http.post(`${this.apiUrl}/passwordreset/reset`, { token, newPassword }); 
   }
 }

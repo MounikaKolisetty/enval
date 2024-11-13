@@ -15,6 +15,7 @@ import { TrainingVmf2Component } from './training-vmf2/training-vmf2.component';
 import { TrainingCvsComponent } from './training-cvs/training-cvs.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -33,4 +34,6 @@ export const routes: Routes = [
     { path: 'training-vmf2', component:TrainingVmf2Component},
     { path: 'training-cvs', component: TrainingCvsComponent},
     { path: 'login', component: LoginComponent},
-    { path: 'sign-up', component:SignupComponent}];
+    { path: 'sign-up', component:SignupComponent},
+    { path: 'password-reset', component:PasswordResetComponent}
+];

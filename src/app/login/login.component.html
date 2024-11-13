@@ -47,7 +47,7 @@
   </div>
   
 <div class="forget-form" *ngIf="showforget">
-    <form class="forget-inner" [formGroup]="forgetForm">
+    <form class="forget-inner" [formGroup]="forgetForm" (ngSubmit)="onSubmit()">
         <div class="forget-text">We’ll email you a link so you can reset your password.</div>
         <div class="input-inner">
             <input type="text" formControlName="email" required>
@@ -64,6 +64,16 @@
             class="login-page" (click)="toggleDiv()">Login</a>
         </div>
     </form>
+</div>
 
+<div class="reset-password-message" *ngIf="showmessage">
+  <div class="container">
+    <i class="fa-solid fa-circle-check font-icon"></i>
+    <div class="right">
+      <h4>Reset password email sent</h4>
+      <p>You should recieve an email allowing you to reset your password.
+         Please make sure to ckeck you spam and trash if you can't find the email.</p>
+    </div>
+  </div>
 </div>
 <app-footer></app-footer>
