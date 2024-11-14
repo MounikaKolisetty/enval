@@ -8,6 +8,7 @@ import { UserService } from '../services/user.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -36,8 +37,10 @@ export class LoginComponent implements OnInit {
   errorMessage: string = '';
   message = '';
   showmessage = false;
+  userFullName = '';
+  isLoggedIn = false;
 
-  constructor(private fb:FormBuilder, private userService: UserService) {}
+  constructor(private fb:FormBuilder, private userService: UserService, private authService: AuthService) {}
   ngOnInit() {
      this.loginForm = this.fb.group({ 
       email: ['', [Validators.required, Validators.email]], 
@@ -46,6 +49,8 @@ export class LoginComponent implements OnInit {
     this.forgetForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]]
     })
+    this.authService.currentNameSource.subscribe(username => this.userFullName = username);
+    this.authService.currentisLoggedIn.subscribe(loggedIn => this.isLoggedIn = loggedIn);
   }
   
   togglePasswordVisibility() {
@@ -69,7 +74,11 @@ export class LoginComponent implements OnInit {
           } 
           else {
              this.invalidInputs = false; 
-             console.log('Login successful', response); 
+             if (response.user) {
+              const fullName = response.user.fullname; 
+              this.authService.changeName(fullName);
+              this.authService.changeIsLoggedin(true);
+            } 
           } 
       } 
     ); 

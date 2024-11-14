@@ -160,6 +160,10 @@ app-navbar {
     color: #002147;
     padding-right: 10px;
 }
+.methodology{
+    padding: 5% 0 0 10%;
+    width: 75%;
+}
 .methodology h4{
     font-family: Rubik, sans-serif;
     font-size: 20px;
@@ -172,6 +176,7 @@ app-navbar {
     font-family: Rubik, sans-serif;
     color: #555555;
     padding-bottom: 20px;
+    display: flex;
 }
 .list-items ul{
     list-style-type: none;

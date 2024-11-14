@@ -41,9 +41,13 @@
             </li>
         </ul>
     </div>
-    <div class="nav-right-part">
+    <div class="nav-right-part" *ngIf = (!isLoggedIn)>
         <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" class="login-btn">Login</a>
         <a routerLink="/sign-up" routerLinkActive="active" ariaCurrentWhenActive="page" class="signup-btn">Sign Up</a>
+    </div>
+    <div *ngIf = (isLoggedIn)>
+        <p>{{userFullName}}</p>
+        <button (click)="logout()">Logout</button>
     </div>
   </mat-toolbar>
 <!--Navbar End-->

@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,8 @@ import { CommonModule } from '@angular/common';
             FooterComponent,
             RouterOutlet, RouterLink, RouterLinkActive,
             RecaptchaModule,
-            CommonModule
+            CommonModule,
+            HttpClientModule
             ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
