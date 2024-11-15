@@ -78,6 +78,7 @@ export class LoginComponent implements OnInit {
               const fullName = response.user.fullname; 
               this.authService.changeName(fullName);
               this.authService.changeIsLoggedin(true);
+              localStorage.setItem('UserName', fullName);
             } 
           } 
       } 

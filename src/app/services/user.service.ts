@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators'; 
-import { throwError, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +22,8 @@ export class UserService {
   }
   logout(): Observable<any> {
     return this.http.post(`${this.apiUrl}/user/logout`, {} ,{ withCredentials: true }); 
+  }
+  getUserCourses(): Observable<any> {
+     return this.http.get(`${this.apiUrl}/course/user-courses`, { withCredentials: true }); 
   }
 }

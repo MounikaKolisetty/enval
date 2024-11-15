@@ -45,9 +45,16 @@
         <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" class="login-btn">Login</a>
         <a routerLink="/sign-up" routerLinkActive="active" ariaCurrentWhenActive="page" class="signup-btn">Sign Up</a>
     </div>
-    <div *ngIf = (isLoggedIn)>
-        <p>{{userFullName}}</p>
-        <button (click)="logout()">Logout</button>
+    <div *ngIf = (isLoggedIn) class="user-info">
+        <p class="userName">{{userInitials}}</p>
+        <ul class="dropdown-user-info">
+            <li>
+                <a class="service-item" routerLink="/enrolled-courses" routerLinkActive="active" ariaCurrentWhenActive="page">My Courses</a>
+            </li>
+            <li>
+                <a class="service-item" (click)="logout()">Logout</a>
+            </li>
+        </ul> 
     </div>
   </mat-toolbar>
 <!--Navbar End-->
