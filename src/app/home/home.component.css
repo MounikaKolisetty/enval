@@ -645,10 +645,10 @@ body {
 }
 
 .contact-number {
-    font-size: 20px;
+    font-size: 18px;
     color: #fff;
     z-index: 3;
-    font-weight: 600;
+    font-weight: 500;
     font-family: Rubik, sans-serif;
 }
 /*Form*/
@@ -674,7 +674,7 @@ body {
     position: relative;
     z-index: 2; /* Ensures content is above the overlay */
     padding: 20px; /* Adjust the padding if needed */
-    margin: 0 15%;
+    margin: 0 10%;
 }
 .mt-5 {
     margin-top: 50px;

@@ -61,6 +61,7 @@ export class NavbarComponent{
       tap(response => {
         console.log(response.message); 
         this.isLoggedIn = false;
+        localStorage.clear();
       }) 
     ).subscribe( 
       () => { 

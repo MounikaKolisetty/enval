@@ -183,12 +183,6 @@ app-navbar {
     background-color: #002147; /* Adjust color of the lines */
 
 }
-.contact-left p {
-    margin: 15px 0;
-    line-height: 1.6;
-    font-family: Rubik, sans-serif;
-    color: #565872;
-}
 .contact_left .social_media ul{
     list-style-type: none;
     text-align: left;
