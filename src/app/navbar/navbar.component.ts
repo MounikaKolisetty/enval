@@ -60,8 +60,8 @@ export class NavbarComponent{
     this.userService.logout().pipe(
       tap(response => {
         console.log(response.message); 
-        this.isLoggedIn = false;
         localStorage.clear();
+        this.isLoggedIn = false;
       }) 
     ).subscribe( 
       () => { 

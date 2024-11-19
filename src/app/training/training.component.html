@@ -65,9 +65,9 @@
 <div class="value-eng-container">
 <div class="trainings-cert">
     <div class="title">
-        Trainings for Certifications by Indian Value Engineering
+        Training | Examination | Certification Customised courses for Indian Context 
     </div>
-    <div class="description">
+    <!-- <div class="description">
         ENVAL conducts trainings for various certification programs customised for specific context of Indian
         market segments, with reference to emerging trends. Certification is by Indian Value Engineering
         Society (INVEST).
@@ -76,14 +76,70 @@
         <div class="explore">
             <a href="#">Explore More</a>
         </div>
-        <div class="read-more">
+         <div class="read-more">
             <a href="#">Read More</a>
         </div>
+    </div> -->
+</div>
+</div>
+<!--VMA, VMF2, CVS-->
+<div class="train-container-ves">
+    <div class="vm-cvs">
+    <div class="vma">
+        <div class="vma-inner">
+        <div class="image-vma">
+            <i class="fa-solid fa-circle-dollar-to-slot fa-3x"></i>
+        </div>
+        <div class="description">
+            PVA
+        </div>
+        <div class="read-more-icon">
+            <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+        </div>
+        <div class="read-more-button">
+            <a routerLink="/eventspage-pva" routerLinkActive="active" ariaCurrentWhenActive="page">Read More</a>
+            <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+    </div>
+    <div class="vmf2">
+        <div class="vmf2-inner">
+        <div class="image-vmf2">
+            <i class="fa-solid fa-recycle fa-3x"></i>
+        </div>
+        <div class="description">
+            SVP 
+        </div>
+        <div class="read-more-icon">
+            <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+        </div>
+        <div class="read-more-button">
+            <a routerLink="/eventspage-svp" routerLinkActive="active" ariaCurrentWhenActive="page">Read More</a>
+            <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+    </div>
+    <div class="vma">
+        <div class="vma-inner">
+        <div class="image-cvs">
+            <i class="fa-solid fa-hands-holding-child fa-3x"></i>
+        </div>
+        <div class="description">
+            SVA
+        </div>
+        <div class="read-more-icon">
+            <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+        </div>
+        <div class="read-more-button">
+            <a routerLink="/eventspage-sva" routerLinkActive="active" ariaCurrentWhenActive="page">Read More</a>
+            <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+    </div>
     </div>
 </div>
-</div>
 <!--Features-->
-<div class="features-section">
+<!-- <div class="features-section">
     <div class="title">
         Features
     </div>
@@ -95,7 +151,7 @@
     <div class="categories">
         <div class="practicioners">
             <div class="image">
-                <img src="../../assets/img/trainings/practicioner.png" alt="">
+                <img src="../../assets/img/thumb-1.png" alt="">
             </div>
             <div class="name">
                 Practicioners
@@ -103,7 +159,7 @@
         </div>
         <div class="trainers">
             <div class="image">
-                <img src="../../assets/img/trainings/trainers.png" alt="">
+                <img src="../../assets/img/thumb-2.png" alt="">
             </div>
             <div class="name">
                 Trainers
@@ -111,17 +167,15 @@
         </div>
         <div class="students">
             <div class="image">
-                <img src="../../assets/img/trainings/students.png" alt="">
+                <img src="../../assets/img/thumb-3.png" alt="">
             </div>
             <div class="name">
                 Students
             </div>
         </div>
-    </div>
-    <div class="categories">
         <div class="leaders">
             <div class="image">
-                <img src="../../assets/img/trainings/leaders.png" alt="">
+                <img src="../../assets/img/thumb-4.png" alt="">
             </div>
             <div class="name">
                 Business Leaders
@@ -129,20 +183,20 @@
         </div>
         <div class="policy_makers">
             <div class="image">
-                <img src="../../assets/img/trainings/policymakers.png" alt="">
+                <img src="../../assets/img/thumb-6.png" alt="">
             </div>
             <div class="name">
                 Policy Makers
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!--Trainings for certification by SAVE International-->
 <div class="trainings-cert">
     <div class="title">
-        Trainings for Certification by SAVE International
+        Training | Examination | Certification Courses by SAVE International 
     </div>
-    <div class="description">
+    <!-- <div class="description">
         The programs are conducted as per the mandate of SAVE International. The training programs
         comprise of curriculum and content specified by SAVE International, and aim to equip the trainees. with fundamentals and skills, 
         applicable in general. Trainings are conducted and delivered based on
@@ -152,10 +206,10 @@
         <div class="explore">
             <a href="#">Explore More</a>
         </div>
-        <div class="read-more">
+         <div class="read-more">
             <a href="#">Read More</a>
-        </div>
-    </div>
+        </div> 
+    </div> -->
 </div>
 <!--VMA, VMF2, CVS-->
 <div class="train-container">
@@ -211,6 +265,55 @@
         <i class="fa-solid fa-arrow-right-long"></i>
     </div>
 </div>
+</div>
+</div>
+<!--Corporate Trainings-->
+<div class="sub-heading">Corporate Trainings</div>
+<div class="corporate-trainings">
+    <p>ENVAL conducts customised training courses in form of on-site workshops, coupled with hands-on sessions 
+        on live projects. These are conducted by internationally acclaimed experts with acumen in VM combined with 
+        other key techniques, niche sectoral segments and large-scale project management. </p>
+    <a (click)="toggleContact()">Talk to our Advisor</a>
+</div>
+<div *ngIf="isContactVisible" class="contact"> 
+    <div class="training-form">
+    <div class="individual-form">
+        <div class="form-heading-bar">
+            <div class="form-heading">
+                Fill up the following form to apply for Individual Training
+            </div>
+            <button (click)="closeContact()" class="closebutton">x</button> 
+        </div>
+        <div class="form-items">
+            <input type="text" placeholder="Full Name">
+        </div>
+        <div class="form-items">
+            <input type="text" placeholder="Organization">
+        </div>
+        <div class="form-items">
+            <input type="text" placeholder="Designation">
+        </div>
+        <div class="dropdown-container"> 
+            <select id="options" name="options" class="dropdown"> 
+                <option value="selectcourse">Select Course</option>
+                <option value="option1">Classroom Training</option> 
+                <option value="option2">Training + Certification</option> 
+                <option value="option3">Virtual Training</option>
+            </select> 
+        </div>
+        <div class="form-items">
+            <input type="text" placeholder="Location">
+        </div>
+        <div class="form-items">
+            <input type="text" placeholder="Phone Number">
+        </div>
+        <div class="form-items">
+            <input type="text" placeholder="Email Address">
+        </div>
+        <div class="button-ele">
+            <button type="submit">Submit Form</button>
+        </div>
+    </div>
 </div>
 </div>
 <app-footer></app-footer>

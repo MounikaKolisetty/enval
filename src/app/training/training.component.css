@@ -56,8 +56,8 @@ app-navbar {
     margin-right: 17px;
 }
 .about-pic h1{
-    font-size: 90px;
-    font-weight: 700;
+    font-size: 80px;
+    font-weight: 500;
     margin-bottom: 8px;
     z-index: 100;
 }
@@ -76,46 +76,24 @@ app-navbar {
     color: #0a1e3a;
 }
 /*Tranings*/
-.value-eng-container{
-    background-image: url('../../assets/img/testing/training-bg-1.jpg') ;
-    padding: 5% 0;
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-    animation: rotateBackground 10s linear infinite;
-}
-@keyframes rotateBackground {
-    0% {
-    background-position: 0% 0%; 
-    } 
-    50% {
-    background-position: 100% 100%; 
-    } 
-    100% {
-    background-position: 0% 0%; 
-    } 
+.train-container-ves{
+    background: #043F71;
 }
 .train-container{
-    background-image: url('../../assets/img/testing/training-bg.jpg') ;
-    padding: 5% 0;
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-    animation: zoomBackground 5s linear infinite;
+    background: #043F71;
 }
-@keyframes zoomBackground {
-     0% { background-size: 100%; } 
-     50% { background-size: 120%; } 
-     100% { background-size: 100%; } }
+.value-eng-container .trainings-cert{
+    margin: 0 5% 5% 5%;
+    text-align: center;
+}
 .trainings-cert{
-    margin: 0% 5% 5% 5%;
-    background-color: #E6E9EC;
-    padding: 50px;
+    margin: 5%;
+    text-align: center;
 }
 .trainings-cert .title{
     margin-bottom: 6px;
     font-family: Rubik, sans-serif;
-    font-size: 43px;
+    font-size: 30px;
     font-weight: 400;
     color: #043F71;
 }
@@ -191,36 +169,39 @@ app-navbar {
     text-align: center;
 }
 .features-body{
-    margin: 5%;
+    margin: 5% 5% 10% 5%;
 }
 .categories{
     display: flex;
     gap: 10%;
     justify-content: center;
 }
-.categories > div{
-    animation: appear 5s linear infinite;
-}
-@keyframes appear {
-    0% {
-        scale: 0.7;
-    }
-    50% {
-        scale: 1;
-    }
-    100% {
-        scale: 0.7;
-    }
-}
 .categories .image{
     margin-bottom: 30px;
+    width: 100%;
+    height: 100%;
+    max-width: 100px;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 50%;
+    position: relative;
+    background-color: #fff;
+    animation: pulse 3s ease-in infinite; 
 }
-.leaders{
-    text-align: end;
+@keyframes pulse { 
+    0%, 100% { 
+        box-shadow: 0 0 0 #043F71; 
+        border: 1px solid #043F71;
+    } 
+    50% {  
+        box-shadow: 0 0 30px #F5CA45; 
+        border: 1px solid #F5CA45;
+    } 
 }
-.leaders .image img, .policy_makers .image img{
-    width: 50%;
-}
+
 .practicioners .name, .trainers .name, .students .name, .leaders .name, .policy_makers .name{
     text-align: center;
     font-family: Rubik, sans-serif;
@@ -228,18 +209,18 @@ app-navbar {
     font-size: 20px;
     font-weight: 500;
 }
-.leaders .name{
-    text-align: end;
-    padding-right: 40px;
-} 
-.policy_makers .name {
-    text-align: start;
-    padding-left: 60px;
-
+.trainers .name, .students .name{
+    padding-left: 30px;
+}
+.practicioners .name, .policy_makers .name{
+    padding-left: 5px;
+}
+.leaders .image{
+    margin-left: 10px;
 }
 /*Border*/
 .vm-cvs{
-    margin: 0 85px;
+    padding: 85px;
     display: flex;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
     border-radius: 8px;
@@ -277,6 +258,9 @@ app-navbar {
 }
 .image-cvs i{
     padding: 8% 9%;
+}
+.train-container-ves .image-cvs i{
+    padding: 8%;
 }
 .vma-inner, .vmf2-inner{
     padding: 60px 60px 0px 60px;
@@ -408,4 +392,94 @@ app-navbar {
     padding-left: 3%;
     display: flex;
     align-items: center;
+}
+.contact {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Black with 70% transparency */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.contact .training-form{
+    margin: 10% 30%;
+    padding: 40px 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+}
+.form-heading{
+    font-family: Rubik, sans-serif;
+    color: #002147;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 28px;
+}
+.form-items, .dropdown-container{
+    width: 100%;
+    max-width: 550px;
+    margin-bottom: 20px;
+}
+.form-items input, .dropdown-container .dropdown{
+    width: 100%;
+    padding: 11px 15px;
+    border: 1px solid #DADBDD;
+    border-radius: 8px;
+    color: #606266;
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+}
+.form-items input{
+    width: 100%;
+}
+.dropdown-container .dropdown {
+    width: 105%;
+}
+.contact .closebutton {
+    padding: 1px 8px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f0b429;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #002147; /* Change button text color to white */
+}
+.button-ele button{
+    padding: 10px 20px;
+    background-color: #f0b429;
+    border: none;
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+}
+.sub-heading {
+    font-family: Rubik, sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #002147;
+    text-align: center;
+    margin-top: 5%;
+}
+.corporate-trainings p{
+    padding: 3% 10% 0% 10%;
+    color: #565872;
+    font-size: 18px;
+    text-align: center;
+}
+.corporate-trainings a{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: #F5CA45;
+    padding: 20px;
+    margin: 0 43%;
+    color: #002147;
+    border-radius: 8px;
+    cursor: pointer;
 }

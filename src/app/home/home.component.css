@@ -293,6 +293,9 @@ body {
     z-index: 1; 
     transition: transform 800ms;
 }
+.srvc-pic {
+    z-index: -1;
+}
 .srvc-content:hover .srvc-pic img{
     position: inherit;
     transform: scale(1.2);
@@ -326,7 +329,7 @@ body {
     position: relative;
     width: 20%;
     height: auto;
-    z-index:3;
+    z-index:4;
     background-color: #f0b429;
     border-radius: 8px;
     padding: 15px;
@@ -337,7 +340,7 @@ body {
 .trainings {
     text-align: center; /* Center align heading */
     margin: 5% auto;
-    max-width: 1200px; /* Limits the width of the content */
+    max-width: 1440px; /* Limits the width of the content */
 }
 
 .training-card {
@@ -485,7 +488,7 @@ body {
     font-weight: 500;
     color: #002147;
     text-align: center;
-    margin-top: 3px;
+    margin-top: 10px;
 }
 .events-section {
     display: flex;
@@ -496,7 +499,7 @@ body {
     border-radius: 8px;
     width: 100%;
     max-width: 700px;
-    height: 400px;
+    height: 630px;
     margin-left: 10%; /* Decrease left margin */
     margin-bottom: 5%;
     margin-top: 3%;
@@ -594,7 +597,7 @@ body {
 .event-thumbnail img {
     max-width: 100%;
     width: 450px;
-    height: 375px;
+    height: 500px;
     object-fit: cover;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light gray shadow */
     border-radius: 10px;
@@ -605,13 +608,13 @@ body {
     top: 10;
     left: 10;
     width: 92%;
-    height: 91%;
+    height: 95%;
     background: linear-gradient(to bottom, transparent, transparent, #f0b429);
     border-radius: 10px; /* Match border radius if used */
 }
 .contact-section {
     position: absolute;
-    top: 320px; /* Adjust this value as needed */
+    top: 450px; /* Adjust this value as needed */
     left: 150px; /* Adjust this value as needed */
     display: flex;
     align-items: center;

@@ -63,8 +63,8 @@ app-navbar {
     margin-right: 17px;
 }
 .about-pic h1{
-    font-size: 90px;
-    font-weight: 700;
+    font-size: 80px;
+    font-weight: 500;
     margin-bottom: 8px;
     z-index: 100;
 }
@@ -141,7 +141,7 @@ app-navbar {
 /*Mission and Vision*/
 .aim-container{
     display: flex;
-    margin: 10% 5% 5% 5%;
+    margin: 10% 5% 3% 5%;
 }
 .aim-left{
     padding: 30px;
@@ -178,31 +178,44 @@ app-navbar {
     margin: 0;
     height: 250px; /* Adjust height as needed */
     overflow: hidden;
+    position: relative;
 }
+
 .aim-content ul li {
     width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
 }
+
 .aim-content ul li:nth-child(1) {
-    animation: anim 5s infinite;
+    animation: anim1 7s infinite;
 }
-@keyframes anim{
-    0%, 30% {
-        margin-top: 0;
-    }
-    40%, 70% {
-        margin-top: -240px;
-    }
-    100% {
-        margin-top: 0;
-    }
+
+.aim-content ul li:nth-child(2) {
+    animation: anim2 7s infinite;
 }
+
+@keyframes anim1 { 
+    0%, 40% { opacity: 1; transform: translateY(0); } 
+    45%, 50% { opacity: 0; transform: translateY(-100%); } 
+    100% { opacity: 0; transform: translateY(-100%); } 
+} 
+@keyframes anim2 { 
+    0%, 45% { opacity: 0; transform: translateY(100%); } 
+    50%, 90% { opacity: 1; transform: translateY(0); } 
+    95%, 100% { opacity: 0; transform: translateY(-100%); } 
+}
+
 /*Values*/
 .values-container {
   display: flex;
   flex-direction: column;
   justify-content: center; /* Centers children vertically */
   align-items: center;     /* Centers children horizontally */
-  margin: 5%;
+  margin: 3% 5% 7% 5%;
 }
 .values-heading {
   display: flex;
@@ -211,8 +224,8 @@ app-navbar {
   margin: 0 15% 5% 15%;
 }
 .values-heading p{
-    font-size: 27px;
-    font-weight: 300;
+    font-size: 46px;
+    font-weight: 700;
     margin-bottom: 20px;
     text-align: center;
     color: #043F71;

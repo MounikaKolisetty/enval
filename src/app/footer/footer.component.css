@@ -1,7 +1,7 @@
 .footer-top {
     display: flex; /* Enables flexbox layout */
     justify-content: space-between; /* Optional: spaces the divs evenly */
-    margin: 5% 15% 2% 15%;
+    margin: 5% 10% 2% 10%;
     @media (max-width: 375px){
         flex-direction: column;
         margin-left: 0;
@@ -9,15 +9,15 @@
     }
 }
 
-.widget_contact, .widget_blog {
+.widget_contact, .widget_blog, .widget_training {
     flex: 1; /* Makes each child div take equal space */
     padding: 20px; /* Optional: adds padding inside divs */
 }
 .widget_course {
-    flex: 1; /* Makes each child div take equal space */
-    padding: 20px 20px 20px 100px; /* Optional: adds padding inside divs */
+    flex: 1;
+    padding: 20px 10px 10px 100px;
 }
-.widget_contact h4, .widget_course h4, .widget_blog h4{
+.widget_contact h4, .widget_course h4, .widget_blog h4, .widget_training h4{
     color: #0a1e3a;
     font-family: Rubik, sans-serif;
     font-size: 24px;
@@ -27,7 +27,7 @@
     padding-left: 20px; /* Adjust spacing as needed */
     margin: 0 0 27px 0;
 }
-.widget_contact h4::before, .widget_course h4::before, .widget_blog h4::before {
+.widget_contact h4::before, .widget_course h4::before, .widget_blog h4::before, .widget_training h4::before {
     content: '';
     position: absolute;
     left: 0;
@@ -62,18 +62,18 @@
     font-family: Rubik, sans-serif;
     color: #565872;
 }
-.widget_course ul, .widget_blog ul {
+.widget_course ul, .widget_blog ul, .widget_training ul {
     list-style-type: square; /* Set list style to square */
     margin: 0;
     padding-left: 20px;
 }
-.widget_course ul li{
+.widget_course ul li, .widget_training ul li{
     margin-bottom: 8px !important;
 }
 .widget_blog ul li{
     margin-bottom: 15px !important;
 }
-.widget_course ul li a {
+.widget_course ul li a{
     font-family: Rubik, sans-serif;
     font-size: 16px; /* Set font size of anchor tags */
     font-weight: 400; /* Set font weight of anchor tags */
@@ -81,14 +81,20 @@
     display: inline-block; /* Ensure the text behaves like normal text */
     color: #565872;
 }
-.widget_course ul li a:hover{
+.widget_training ul li{
+    font-family: Rubik, sans-serif;
+    font-size: 16px; /* Set font size of anchor tags */
+    font-weight: 400; /* Set font weight of anchor tags */
+    color: #565872;
+}
+.widget_course ul li a:hover, .widget_training ul li:hover{
     color: #f0b429;
 }
 .widget_blog ul li a {
     text-decoration: none;
     color: #0a1e3a;
 }
-.widget_course ul li::marker, .widget_blog ul li::marker {
+.widget_course ul li::marker, .widget_blog ul li::marker, .widget_training ul li::marker {
     color: #f0b429;
 }
 .widget_blog ul li a:hover{

@@ -13,10 +13,9 @@ import { SecurePaymentComponent } from './secure-payment/secure-payment.componen
 import { TrainingVmaComponent } from './training-vma/training-vma.component';
 import { TrainingVmf2Component } from './training-vmf2/training-vmf2.component';
 import { TrainingCvsComponent } from './training-cvs/training-cvs.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { EnrolledcoursesComponent } from './enrolledcourses/enrolledcourses.component';
+import { RegisterComponent } from './register/register.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -34,8 +33,7 @@ export const routes: Routes = [
     { path: 'training-vma', component: TrainingVmaComponent},
     { path: 'training-vmf2', component:TrainingVmf2Component},
     { path: 'training-cvs', component: TrainingCvsComponent},
-    { path: 'login', component: LoginComponent},
-    { path: 'sign-up', component:SignupComponent},
+    { path: 'login', component: RegisterComponent},
     { path: 'password-reset', component:PasswordResetComponent},
     { path: 'enrolled-courses', component:EnrolledcoursesComponent}
 ];

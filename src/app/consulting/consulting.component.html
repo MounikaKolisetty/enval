@@ -66,7 +66,6 @@
                 </ul>
             </div>
         </div>
-        <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page" class="read-more-btn">Read More</a>
     </div>
 </div>
 <!--Unique Features-->
@@ -156,37 +155,34 @@
         <li class="metric-title title7">Return on Investment</li>
     </ul>
 </div>
-<!--Success Stories-->
-<div class="success-stories">
-    <div class="story">
-        <div class="author">
-            <div class="media-left">
-                <img src="../../assets/img/consulting/testimonial-1.png" alt="">
-                <i class="fa fa-quote-left fa-icon"></i>
-            </div>
-            <div class="media-body">
-                <h6>Eugene Freeman</h6>
-                <p>Tincidunt</p>
-            </div>
-        </div>
-        <p>Lorem ipsum dolor sit amet, elitr, sed diam 
-            volu sed diam nonumy eirmod tempor invidunt ut 
-            labore et dolore magna aliquyam erat</p>
+<!--Video-->
+<div class="slider">
+<div class="slide">
+<div class="videos">
+    <img src="../../assets/img/testing/banner-1.jpg" alt="" (click)="toggleVideo()">
+    <i class="fa-regular fa-circle-play font-icon"></i>
+</div>
+<div *ngIf="isVideoVisible" class="video-container" (click)="hideVideo()">
+    <youtube-player videoId="YX5i8T1ta64" [playerVars]="playerConfig" loadApi="true" class="video"/>
+</div>
+</div>
+<div class="slide">
+    <div class="videos">
+        <img src="../../assets/img/testing/banner-1.jpg" alt="" (click)="toggleVideo()">
+        <i class="fa-regular fa-circle-play font-icon"></i>
     </div>
-    <div class="story">
-        <div class="author">
-            <div class="media-left">
-                <img src="../../assets/img/consulting/testimonial-2.png" alt="">
-                <i class="fa fa-quote-left fa-icon"></i>
-            </div>
-            <div class="media-body">
-                <h6>Freeman Ugene</h6>
-                <p>Tincidunt</p>
-            </div>
-        </div>
-        <p>Lorem ipsum dolor sit amet, elitr, sed diam 
-            volu sed diam nonumy eirmod tempor invidunt ut 
-            labore et dolore magna aliquyam erat</p>
+    <div *ngIf="isVideoVisible" class="video-container" (click)="hideVideo()">
+        <youtube-player videoId="Uyfk-4m9Syk" [playerVars]="playerConfig" loadApi="true" class="video"/>
     </div>
+</div>
+<div class="slide">
+    <div class="videos">
+        <img src="../../assets/img/testing/banner-1.jpg" alt="" (click)="toggleVideo()">
+        <i class="fa-regular fa-circle-play font-icon"></i>
+    </div>
+    <div *ngIf="isVideoVisible" class="video-container" (click)="hideVideo()">
+        <youtube-player videoId="0Oc1Y_LZXUI" [playerVars]="playerConfig" loadApi="true" class="video"/>
+    </div>
+</div>
 </div>
 <app-footer></app-footer>

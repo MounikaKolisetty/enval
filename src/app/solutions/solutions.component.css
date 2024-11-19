@@ -43,14 +43,6 @@ app-navbar {
 .content h1 span{
     color: #E2CC65;
 }
-.content a{
-    text-decoration: none;
-    background: transparent;
-    border: 2px solid #fff;
-    outline: none;
-    padding: 12px 25px;
-    color: #fff;
-}
 .rocket {
     width: 250px;
     position: absolute;

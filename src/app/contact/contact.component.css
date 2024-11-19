@@ -216,10 +216,10 @@ app-navbar {
 .name-inputs, .email-inputs{
     display: flex;
 }
-.first-name, .last-name, .email, .subject{
+.first-name, .last-name, .email, .phoneNumber{
     width: 100%;
 }
-.first-name input, .last-name input, .email input, .subject input{
+.first-name input, .last-name input, .email input, .phoneNumber input{
     width: 80%; /* Make the input field fill the container */
     padding: 5%;
     border: 1px solid #ddd;
