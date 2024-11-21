@@ -9,7 +9,7 @@ app-navbar {
 .container{
     width: 100vw;
     height: 100vh;
-    background-image: url('../../assets/img/others_bg.jpg');
+    background-image: url('../../assets/img/consulting/others_bg.jpg');
     background-position: center;
     background-size: cover;
     padding: 0 8%;
