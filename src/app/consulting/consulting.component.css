@@ -340,31 +340,6 @@ title1{
     animation: scrollToPosition;
     animation-timeline: view();
     animation-range: entry 40% cover 40%;
-/*Success Stories*/
-@media (max-width: 375px) {
-    .success-stories {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory; /* Enable snap scrolling */
-        gap: 20px; /* Adjust the spacing between stories */
-    }
-    
-    .story {
-        width: 100%; /* Each story takes up the full width */
-        scroll-snap-align: center; /* Snap point for each story */
-        box-sizing: border-box; /* Include padding and border in width calculation */
-        flex: 0 0 auto; /* Prevent stories from shrinking or growing */
-    }
-    
-}
-.success-stories{
-    display: flex;
-    margin: 5% 10%;
-    gap: 20px;
-
-    @media (max-width: 375px) {
-        margin: 5%;
-    }
 }
 .title5{
     animation: scrollToPosition;
@@ -392,15 +367,6 @@ title1{
     }
 }
 .slider{
-.story{
-    padding: 50px;
-    margin: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    @media (max-width: 375px) {
-        padding: 10px;
-    }
-}
-.author{
     display: flex;
     width: 300%;
     background-image: url('../../assets/img/consulting/img-bg.jpeg');
