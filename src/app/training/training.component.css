@@ -12,8 +12,8 @@ app-navbar {
     padding-top: 70px;
 }
 .about-pic {
-    background-image: url('../../assets/img/others_bg.jpg');
-    background-size: contain;       /* Ensures the entire image is visible */
+    background-image: url('../../assets/img/training/training-1.jpg');
+    background-size: cover;       /* Ensures the entire image is visible */
     background-position: center;    /* Centers the image */
     background-repeat: no-repeat;   /* Prevents the image from repeating */
     color: white;
@@ -29,9 +29,21 @@ app-navbar {
         background-size: cover;
     }
 }
+.about-pic::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 570px;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 33, 71, 0.9), rgba(221, 199, 99, 0.9)); /* Black overlay with 50% opacity */
+    z-index: 0
+}
 .about-pic ul {
     list-style: none; /* Remove default list styling */
     display:flex;
+    z-index: 100;
     @media(max-width:375px) {
         padding: 0;
     }
@@ -51,8 +63,11 @@ app-navbar {
     margin-right: 17px;
 }
 .about-pic h1{
+    font-size: 80px;
+    font-weight: 500;
     font-weight: 700;
     margin-bottom: 8px;
+    z-index: 100;
     font-size: 1.875rem;
     font-size: clamp(1.875rem, 1.0416666666666667rem + 3.7037037037037033vw, 4.375rem);
 }
@@ -71,8 +86,18 @@ app-navbar {
     color: #0a1e3a;
 }
 /*Tranings*/
+.train-container-ves{
+    background: #043F71;
+}
+.train-container{
+    background: #043F71;
+}
+.value-eng-container .trainings-cert{
+    margin: 0 5% 5% 5%;
+}
+
 .trainings-cert{
-    margin: 0% 5% 5% 5%;
+    margin: 5%;
     background-color: #E6E9EC;
     padding: 50px;
     @media (max-width:375px) {
@@ -80,13 +105,19 @@ app-navbar {
     }
 }
 .trainings-cert .title{
-    margin-bottom: 6px;
+    margin-bottom: 15px;
     font-family: Rubik, sans-serif;
-    font-size: 43px;
+    font-size: 30px;
     font-weight: 400;
     color: #043F71;
     font-size: 1.5rem;
     font-size: clamp(1.5rem, 1.1041666666666665rem + 1.7592592592592593vw, 2.6875rem);
+}
+.trainings-cert .sub-title{
+    font-family: Rubik, sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: #043F71;
 }
 .trainings-cert .description {
     margin: 20px 0 40px 0;
@@ -171,7 +202,7 @@ app-navbar {
     }
 }
 .features-body{
-    margin: 5%;
+    margin: 5% 5% 10% 5%;
 }
 .categories{
     display: flex;
@@ -183,13 +214,45 @@ app-navbar {
 }
 .categories .image{
     margin-bottom: 30px;
+    width: 100%;
+    height: 100%;
+    max-width: 100px;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 50%;
+    position: relative;
+    background-color: #fff;
+    animation: pulse 3s ease-in infinite; 
 }
-.practicioners .name, .trainers .name, .students .name{
+@keyframes pulse { 
+    0%, 100% { 
+        box-shadow: 0 0 0 #043F71; 
+        border: 1px solid #043F71;
+    } 
+    50% {  
+        box-shadow: 0 0 30px #F5CA45; 
+        border: 1px solid #F5CA45;
+    } 
+}
+
+.practicioners .name, .trainers .name, .students .name, .leaders .name, .policy_makers .name{
     text-align: center;
     font-family: Rubik, sans-serif;
     color: #043F71;
     font-size: 20px;
     font-weight: 500;
+}
+.trainers .name, .students .name{
+    padding-left: 30px;
+}
+.practicioners .name, .policy_makers .name{
+    padding-left: 5px;
+}
+.leaders .image{
+    margin-left: 10px;
 }
 @media (max-width: 375px) {
     .practicioners .image, .trainers .image, .students .image{
@@ -198,8 +261,11 @@ app-navbar {
 }
 /*Border*/
 .vm-cvs{
-    margin: 0 85px;
+    padding: 85px;
     display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    border-radius: 8px;
+    border: 1px solid #f8e9e9;
     @media (max-width:375px) {
         flex-direction: column;
         margin: 0 10px;
@@ -238,6 +304,9 @@ app-navbar {
 .image-cvs i{
     padding: 8% 9%;
 }
+.train-container-ves .image-cvs i{
+    padding: 8%;
+}
 .vma-inner, .vmf2-inner{
     padding: 60px 60px 0px 60px;
     position: relative;
@@ -267,6 +336,11 @@ app-navbar {
 .vma:hover .read-more-button, .vmf2:hover .read-more-button{
     display: block;
 }
+.read-more-button a{
+    text-decoration: none;
+    color: #043F71;
+    padding-right: 10px;
+}
 /*Unique Features*/
 .unique-features-container{
     margin: 10% 5% 0 5%;
@@ -289,9 +363,12 @@ app-navbar {
 .right{
     margin-left: 5%;
 }
+.left, .right{
+    height: 650px;
+}
 .left .image img {
     width: 100%; 
-    height: 600px;
+    height: 500px;
     object-fit: cover;
     border-radius: 8px; 
     display: block;
@@ -366,8 +443,6 @@ app-navbar {
 }
 .features ul li{
     font-family: Rubik, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
     color: #565872;
     display: flex;
     padding: 1% 0;
@@ -376,14 +451,164 @@ app-navbar {
     color: #043F71;
     background-color: #f0b429;
     border-radius: 4px;
-    width: 20px;
-    height: 20px;
-    padding: 15px;
-    font-size: 20px;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
 }
 .features ul li p{
+    font-size: 16px;
+    font-weight: 400;
     margin: 0%;
     padding-left: 3%;
     display: flex;
     align-items: center;
 }
+.trainings-footer{
+    background-color: #F1F4F9;
+    margin-top: 10%;
+    position: relative;
+    height: 40%;
+}
+.corporate-trainings{
+    position: absolute;
+    background-color: #fff;
+    width: 50%;
+    top: -20%;
+    left: 25%;
+    z-index: 10;
+    padding-bottom: 15px;
+    box-shadow: 5px 5px 4px 6px rgba(0, 0, 0, 0.1);;
+}
+.bg-yellow::after{
+    content: ''; 
+    position: absolute; 
+    left: 25%;
+    right: 0; 
+    bottom: 0; 
+    height: 300px;
+    width: 50%;
+    top: -20%;
+    background-color: #F5CA45; 
+    z-index: 0;
+}
+.bg-yellow:hover::after{
+    transform: rotate(4deg);
+}
+.corporate-trainings .cp-heading {
+    font-family: Rubik, sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #002147;
+    text-align: center;
+    margin-top: 5%;
+}
+.corporate-trainings p{
+    padding: 3% 10% 0% 10%;
+    color: #565872;
+    font-size: 18px;
+    text-align: center;
+}
+.corporate-trainings a{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: #F5CA45;
+    padding: 10px;
+    margin: 0 33% ;
+    color: #002147;
+    border-radius: 8px;
+    cursor: pointer;
+} 
+.contact {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.contact .training-form{
+    margin: 10% 30%;
+    padding: 40px 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+}
+.form-heading{
+    font-family: Rubik, sans-serif;
+    color: #002147;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 28px;
+}
+.form-items, .dropdown-container{
+    width: 100%;
+    max-width: 550px;
+    margin-bottom: 20px;
+}
+.form-items input, .dropdown-container .dropdown{
+    width: 100%;
+    padding: 11px 15px;
+    border: 1px solid #DADBDD;
+    border-radius: 8px;
+    color: #606266;
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+}
+.form-items input{
+    width: 100%;
+}
+.dropdown-container .dropdown {
+    width: 105%;
+}
+.contact .closebutton {
+    padding: 1px 8px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f0b429;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #002147;
+}
+.button-ele button{
+    padding: 10px 20px;
+    background-color: #f0b429;
+    border: none;
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+/*.sub-heading {
+    font-family: Rubik, sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #002147;
+    text-align: center;
+    margin-top: 5%;
+}
+.corporate-trainings p{
+    padding: 3% 10% 0% 10%;
+    color: #565872;
+    font-size: 18px;
+    text-align: center;
+}
+.corporate-trainings a{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: #F5CA45;
+    padding: 20px;
+    margin: 0 43%;
+    color: #002147;
+    border-radius: 8px;
+    cursor: pointer;
+} */

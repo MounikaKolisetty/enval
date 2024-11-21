@@ -1,0 +1,28 @@
+app-navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+    background-color: #fff; /* Optional: set background color */
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    padding: 0 8%;
+}
+.logo{
+    width: 120px;
+    padding: 20px 0;
+    cursor: pointer;
+}
+.content{
+    top:50%;
+    position: absolute;
+    transform: translateY(-50%);
+    color: #000;
+}
+.content h1 {
+    font-size: 64px;
+    font-weight: 500;
+}

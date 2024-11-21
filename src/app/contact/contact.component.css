@@ -7,11 +7,11 @@ app-navbar {
     background-color: #fff; /* Optional: set background color */
 }
 .contact-bg {
-    background-image: url('../../assets/img/contact_bg.png');
+    background-image: url('../../assets/img/footer/contact_bg.jpg');
     position: relative;
     width: 100%;
     height: 50%;
-    background-size: contain;       /* Ensures the entire image is visible */
+    background-size: cover;       /* Ensures the entire image is visible */
     background-position: center;    /* Centers the image */
     background-repeat: no-repeat;   /* Prevents the image from repeating */
     display: flex;
@@ -183,12 +183,6 @@ app-navbar {
     background-color: #002147; /* Adjust color of the lines */
 
 }
-.contact-left p {
-    margin: 15px 0;
-    line-height: 1.6;
-    font-family: Rubik, sans-serif;
-    color: #565872;
-}
 .contact_left .social_media ul{
     list-style-type: none;
     text-align: left;
@@ -222,10 +216,10 @@ app-navbar {
 .name-inputs, .email-inputs{
     display: flex;
 }
-.first-name, .last-name, .email, .subject{
+.first-name, .last-name, .email, .phoneNumber{
     width: 100%;
 }
-.first-name input, .last-name input, .email input, .subject input{
+.first-name input, .last-name input, .email input, .phoneNumber input{
     width: 80%; /* Make the input field fill the container */
     padding: 5%;
     border: 1px solid #ddd;

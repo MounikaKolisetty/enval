@@ -1,0 +1,119 @@
+<app-navbar></app-navbar>
+<div class="form-container-main">
+<div class="wrapper" *ngIf="showlogin">
+    <div class="title-text">
+      <div class="title login">Login Form</div>
+      <div class="title signup">Signup Form</div>
+    </div>
+    <div class="form-container">
+      <div class="slide-controls">
+        <input type="radio" name="slide" id="login" checked>
+        <input type="radio" name="slide" id="signup">
+        <label for="login" class="slide login" (click)="showLogin()">Login</label>
+        <label for="signup" class="slide signup" (click)="showSignup()">Signup</label>
+        <div class="slider-tab"></div>
+      </div>
+      <div class="form-inner">
+        <form class="login-inner" [formGroup]="loginForm" (ngSubmit)="login()">
+            <div *ngIf="invalidInputs" class="error">
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <div class="error-message">There was a problem logging in. Check your email and password OR Create an account.</div>
+            </div>
+            <div class="single-input-inner">
+              <input type="text"  formControlName="email" required>
+              <label class="placeholder" [ngClass]="{'float': loginForm.controls['email'].value}">Email<sup>*</sup></label>
+              <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" class="error-message">
+                <div *ngIf="loginForm.controls['email'].errors?.['required']">Email is required.</div>
+                <div *ngIf="loginForm.controls['email'].errors?.['email']">Enter a valid email.</div>
+              </div>
+            </div>
+            <div class="single-input-inner">
+              <input [type]="passwordFieldType"  formControlName="password" required>
+              <label class="placeholder" [ngClass]="{'float': loginForm.controls['password'].value}">Password<sup>*</sup></label>
+              <i class="fas" [class.fa-eye]="passwordFieldType === 'password'" [class.fa-eye-slash]="passwordFieldType === 'text'" (click)="togglePasswordVisibility()"></i>
+              <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="error-message">
+                <div *ngIf="loginForm.controls['password'].errors?.['required']">Password is required.</div>
+                <div *ngIf="loginForm.controls['password'].errors?.['minlength']">Password must be at least 6 characters long.</div>
+              </div>
+            </div>
+            <button class="btn" [disabled]="loginForm.invalid">Login</button>
+            <div class="signup">
+              <div>or</div>
+              <a href="javascript:void(0);" 
+                 class="login-page" (click)="toggleDiv()">Forget Password</a>
+            </div>
+            <div class="signup">
+              <div>Don't have an account?</div>
+              <a href="javascript:void(0);"
+                 class="login-page" (click)="showSignupFromLogin()">Sign up</a>
+            </div>
+        </form>
+        <form class="signup-inner" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+            <div *ngIf="emailInUse" class="error">
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <div class="error-message">The email you entered is already in use. Please try logging in.</div>
+            </div>
+            <div class="single-input-inner">
+              <input type="text" formControlName="fullName" class="input" required>
+              <label class="placeholder" [ngClass]="{'float': signUpForm.controls['fullName'].value}">Full Name<sup>*</sup></label>
+              <div *ngIf="signUpForm.controls['fullName'].invalid && (signUpForm.controls['fullName'].dirty || signUpForm.controls['fullName'].touched)" class="error-message">
+                <div *ngIf="signUpForm.controls['fullName'].errors?.['required']">Full Name is required.</div>
+              </div>
+            </div>
+            <div class="single-input-inner">
+              <input type="text" formControlName="email" class="input" required>
+              <label class="placeholder" [ngClass]="{'float': signUpForm.controls['email'].value}">Email<sup>*</sup></label>
+              <div *ngIf="signUpForm.controls['email'].invalid && (signUpForm.controls['email'].dirty || signUpForm.controls['email'].touched)" class="error-message">
+                <div *ngIf="signUpForm.controls['email'].errors?.['required']">Email is required.</div>
+                <div *ngIf="signUpForm.controls['email'].errors?.['email']">Enter a valid email.</div>
+              </div>
+            </div>
+            <div class="single-input-inner">
+              <input [type]="passwordFieldType" formControlName="password" class="input" required>
+              <label class="placeholder" [ngClass]="{'float': signUpForm.controls['password'].value}">Password<sup>*</sup></label>
+              <i class="fas" [class.fa-eye]="passwordFieldType === 'password'" [class.fa-eye-slash]="passwordFieldType === 'text'" (click)="togglePasswordVisibility()"></i>
+              <div *ngIf="signUpForm.controls['password'].invalid && (signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched)" class="error-message">
+                <div *ngIf="signUpForm.controls['password'].errors?.['required']">Password is required.</div>
+                <div *ngIf="signUpForm.controls['password'].errors?.['minlength']">Password must be at least 6 characters long.</div>
+              </div>
+            </div>
+            <button class="btn" [disabled]="signUpForm.invalid">Sign Up</button>
+            <div class="login">
+              <div>Already have an account?</div>
+              <a href="javascript:void(0);" class="login-page" (click)="showLogin()">Login</a>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="forget-form" *ngIf="showforget">
+    <form class="forget-inner" [formGroup]="forgetForm" (ngSubmit)="onSubmit()">
+        <div class="forget-text">We’ll email you a link so you can reset your password.</div>
+        <div class="input-inner">
+            <input type="text" formControlName="email" required>
+            <label class="placeholder">Email<sup>*</sup></label>
+            <div *ngIf="forgetForm.controls['email'].invalid && (forgetForm.controls['email'].dirty || forgetForm.controls['email'].touched)" class="error-message">
+                <div *ngIf="forgetForm.controls['email'].errors?.['required']">Email is required.</div>
+                <div *ngIf="forgetForm.controls['email'].errors?.['email']">Enter a valid email.</div>
+              </div>
+        </div>
+        <button class="reset-btn">Reset Password</button>
+        <div class="signup">
+            <div>or</div>
+            <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" 
+            class="login-page" (click)="toggleDiv()">Login</a>
+        </div>
+    </form>
+</div>
+<div class="reset-password-message" *ngIf="showmessage">
+    <div class="container">
+      <i class="fa-solid fa-circle-check font-icon"></i>
+      <div class="right">
+        <h4>Reset password email sent</h4>
+        <p>You should recieve an email allowing you to reset your password.
+           Please make sure to ckeck you spam and trash if you can't find the email.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

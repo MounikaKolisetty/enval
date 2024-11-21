@@ -1,0 +1,68 @@
+app-navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+    background-color: #fff; /* Optional: set background color */
+}
+.courses-container{
+    padding-top: 100px;
+    margin: 3% 15%;
+}
+.courses-container .name{
+    font-family: Rubik, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+.courses-container .heading {
+    font-family: Rubik, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+.courses {
+    display: flex;
+    background-color: #24323F;
+    border-radius: 4px;
+    margin: 20px 0;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 70%;
+}
+.left{
+    color: #fff;
+    margin: 40px 0 40px 50px;
+    justify-content: space-between;
+}
+.left p{
+    color: #aaaaaa;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: Rubik, sans-serif;
+    margin: 0;
+}
+.left h4{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: Rubik, sans-serif;
+    margin-top: 10px;
+}
+.course-name{
+    margin-bottom: 50px;
+}
+.duration h4{
+    margin-bottom: 10px;
+}
+.right{
+    margin: 50px 100px 50px 0;
+    border:1px solid #fff;
+    padding: 20px 30px;
+    border-radius: 50%;
+
+}
+.right i{
+    color: #fff;
+    width: 10%;
+    height: 10%;
+    font-size: 100px;
+}

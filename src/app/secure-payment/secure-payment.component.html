@@ -1,0 +1,43 @@
+<!--Nav Bar-->
+<div class="nav-bar">
+    <a href="index.html">
+        <img src="../../assets/img/logo.jpg" alt="enval_logo">
+    </a>
+</div>
+<div class="basic-details">
+    <div class="basic-details-heading">
+        1. Basic Details
+    </div>
+    <div class="form-container">
+    <div class="details-form">
+        <div class="details-left">
+            <div class="name-field">
+                <label for="name">Name<span>*</span></label>
+                <input type="text" name="name" id="name" class="name-input" placeholder="Enter your full name here" required>
+            </div>
+            <div class="email-field">
+                <label for="email">Email ID<span>*</span></label>
+                <input type="text" name="email" id="email" class="email-input" placeholder="example@site.com" required>
+            </div>
+            <div class="state-field">
+                <label for="state">State<span>*</span></label>
+                <select id="states" name="states" required> 
+                    <option value="">Select a state</option> 
+                    <!-- States will be populated here -->
+                 </select>
+            </div>
+        </div>
+        <div class="details-right">
+            <div class="phone-number-field">
+                <label for="number">Phone number<span>*</span></label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+            </div>
+        </div>
+    </div>
+    <button type="submit">Proceed</button>
+    </div>
+</div>
+<!--Footer-->
+<div class="footer">
+    copyright 2024 by enval.com. All Rights Reserved
+</div>
