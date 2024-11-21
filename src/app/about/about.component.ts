@@ -4,6 +4,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { HomeComponent } from '../home/home.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ScrollButtonComponent } from '../scroll-button/scroll-button.component';
 
 @Component({
   selector: 'app-about',
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
             FooterComponent,
             HomeComponent,
             RouterOutlet, RouterLink, RouterLinkActive,
-            CommonModule
+            CommonModule,
+            ScrollButtonComponent
   ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'

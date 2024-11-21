@@ -19,7 +19,7 @@ app-navbar {
     }
 }
 .home-content {
-    background: url('../../assets/img/home-bg.jpg') no-repeat;
+    background: url('../../assets/img/home/home-content.jpg') no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column; /* Stack elements vertically */
@@ -27,6 +27,7 @@ app-navbar {
     justify-content: center; /* Center vertically */
     width: 100%;
     height: 100%;
+    max-width: 1440px;
     max-height: 70vh;  /*Full viewport height to center vertically */
     text-align: center; /* Center text and inline elements */
     opacity: 1; /* Start invisible */
@@ -41,7 +42,7 @@ app-navbar {
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(232, 237, 243, 0.9); /* Black overlay with 50% opacity */
+        background: rgba(232, 237, 243, 0.7); /* Black overlay with 50% opacity */
         z-index: 1
 }
 .home-panel{
@@ -499,8 +500,8 @@ body {
     border-radius: 8px;
     width: 100%;
     max-width: 700px;
-    height: 630px;
-    margin-left: 10%; /* Decrease left margin */
+    height: 280px;
+    margin-left: 15%; /* Decrease left margin */
     margin-bottom: 5%;
     margin-top: 3%;
     position: relative;
@@ -588,7 +589,7 @@ body {
     padding: 20px;
     margin-left: 20px; /* Add space between events and thumbnail */
     position: absolute; /* Position it absolutely */
-    right: -400px; /* Adjust the value as needed */
+    right: -300px; /* Adjust the value as needed */
     top: 50%; /* Adjust the value as needed */
     transform: translateY(-50%); /* Center it vertically */
     z-index: 1;
@@ -596,8 +597,8 @@ body {
 
 .event-thumbnail img {
     max-width: 100%;
-    width: 450px;
-    height: 500px;
+    width: 350px;
+    height: 300px;
     object-fit: cover;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light gray shadow */
     border-radius: 10px;
@@ -607,15 +608,15 @@ body {
     position: absolute;
     top: 10;
     left: 10;
-    width: 92%;
-    height: 95%;
+    width: 90%;
+    height: 90%;
     background: linear-gradient(to bottom, transparent, transparent, #f0b429);
     border-radius: 10px; /* Match border radius if used */
 }
 .contact-section {
     position: absolute;
-    top: 450px; /* Adjust this value as needed */
-    left: 150px; /* Adjust this value as needed */
+    top: 250px; /* Adjust this value as needed */
+    left: 90px; /* Adjust this value as needed */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -658,9 +659,10 @@ body {
 .contact-area {
     position: relative;
     padding: 50px 0;
-    background: url('../../assets/img/home-bg.jpg') no-repeat center center;
+    background: url('../../assets/img/home/home-bg.jpg') no-repeat center center;
     background-size: cover;
     margin-top: 20%;
+    width: 100%;
     height: 400px;
 }
 .contact-area::before {

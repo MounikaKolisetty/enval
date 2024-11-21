@@ -12,7 +12,7 @@ app-navbar {
     padding-top: 70px;
 }
 .about-pic {
-    background-image: url('../../assets/img/others_bg.jpg');
+    background-image: url('../../assets/img/training/training-1.jpg');
     background-size: cover;       /* Ensures the entire image is visible */
     background-position: center;    /* Centers the image */
     background-repeat: no-repeat;   /* Prevents the image from repeating */
@@ -84,17 +84,24 @@ app-navbar {
 }
 .value-eng-container .trainings-cert{
     margin: 0 5% 5% 5%;
-    text-align: center;
 }
+
 .trainings-cert{
     margin: 5%;
-    text-align: center;
+    background-color: #E6E9EC;
+    padding: 50px;
 }
 .trainings-cert .title{
-    margin-bottom: 6px;
+    margin-bottom: 15px;
     font-family: Rubik, sans-serif;
     font-size: 30px;
     font-weight: 400;
+    color: #043F71;
+}
+.trainings-cert .sub-title{
+    font-family: Rubik, sans-serif;
+    font-size: 40px;
+    font-weight: 500;
     color: #043F71;
 }
 .trainings-cert .description {
@@ -393,13 +400,69 @@ app-navbar {
     display: flex;
     align-items: center;
 }
+.trainings-footer{
+    background-color: #F1F4F9;
+    margin-top: 10%;
+    position: relative;
+    height: 40%;
+}
+.corporate-trainings{
+    position: absolute;
+    background-color: #fff;
+    width: 50%;
+    top: -20%;
+    left: 25%;
+    z-index: 10;
+    padding-bottom: 15px;
+    box-shadow: 5px 5px 4px 6px rgba(0, 0, 0, 0.1);;
+}
+.bg-yellow::after{
+    content: ''; 
+    position: absolute; 
+    left: 25%;
+    right: 0; 
+    bottom: 0; 
+    height: 300px;
+    width: 50%;
+    top: -20%;
+    background-color: #F5CA45; 
+    z-index: 0;
+}
+.bg-yellow:hover::after{
+    transform: rotate(4deg);
+}
+.corporate-trainings .cp-heading {
+    font-family: Rubik, sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #002147;
+    text-align: center;
+    margin-top: 5%;
+}
+.corporate-trainings p{
+    padding: 3% 10% 0% 10%;
+    color: #565872;
+    font-size: 18px;
+    text-align: center;
+}
+.corporate-trainings a{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: #F5CA45;
+    padding: 10px;
+    margin: 0 33% ;
+    color: #002147;
+    border-radius: 8px;
+    cursor: pointer;
+} 
 .contact {
     position: fixed;
     top: 0%;
     left: 0%;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Black with 70% transparency */
+    background-color: rgba(0, 0, 0, 0.7); 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
@@ -448,7 +511,7 @@ app-navbar {
     border: none;
     font-size: 1.5em;
     cursor: pointer;
-    color: #002147; /* Change button text color to white */
+    color: #002147;
 }
 .button-ele button{
     padding: 10px 20px;
@@ -458,7 +521,8 @@ app-navbar {
     font-size: 16px;
     border-radius: 4px;
 }
-.sub-heading {
+
+/*.sub-heading {
     font-family: Rubik, sans-serif;
     font-size: 3rem;
     font-weight: 500;
@@ -482,4 +546,4 @@ app-navbar {
     color: #002147;
     border-radius: 8px;
     cursor: pointer;
-}
+} */

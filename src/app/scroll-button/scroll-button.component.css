@@ -1,0 +1,26 @@
+.scroll-up {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #f0b429;
+    color: #043F71;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  .scroll-up.show { opacity: 1; pointer-events: auto; }
+  .scroll-up:hover {
+    background-color: #f0b429;
+  }
+  

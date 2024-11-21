@@ -3,6 +3,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ScrollButtonComponent } from '../scroll-button/scroll-button.component';
 
 @Component({
   selector: 'app-training',
@@ -10,7 +11,8 @@ import { CommonModule } from '@angular/common';
   imports: [NavbarComponent,
             FooterComponent,
             RouterOutlet, RouterLink, RouterLinkActive,
-            CommonModule
+            CommonModule,
+            ScrollButtonComponent
   ],
   templateUrl: './training.component.html',
   styleUrl: './training.component.css'

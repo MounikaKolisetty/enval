@@ -1,0 +1,109 @@
+app-navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+    background-color: #fff; /* Optional: set background color */
+}
+.enval-broucher img{
+    background-size: contain;
+}
+.enval-broucher{
+    padding-top: 150px;
+    text-align: center;
+    background-color: #E7E9EC;
+}
+.audio-container {
+    text-align: center;
+    margin: 0 20px;
+    padding-top: 20px;
+}  
+audio {
+    width: 100%;
+    max-width: 1200px;
+}
+audio::-webkit-media-controls-enclosure{
+    border-radius: 0%;
+    background-color: #f0b429;
+}
+.ve-importance{
+    background-color: #E7E9EC;
+    padding-bottom: 10px;
+}
+.ve-content{
+    margin: 0 120px 30px 120px;
+    background-color: #fff;
+    padding:0 30px;
+}
+.ve-content h2{
+    font-family: Rubik, sans-serif;
+    color: #043F71;
+    font-size: 43px;
+    font-weight: 500;
+    margin: 0;
+    padding: 30px 0 10px 0px;
+}
+.ve-content .admin-info{
+    display: flex;
+    gap: 25px;
+}
+.admin-info .person, .admin-info .likes, .admin-info .comments{
+    display: flex;
+    gap: 10px;
+    color: #636363;
+    font-family: Rubik, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+.admin-info .date{
+    color: #636363;
+    font-family: Rubik, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+.ve-content .description{
+    margin: 25px 0;
+    color: #636363;
+    font-family: Rubik, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+}
+.ve-content .footer{
+    display: flex;
+    justify-content: space-between;
+    color: #636363;
+    padding: 20px 0 30px 0px;
+    border-top: 1px solid #636363;
+}
+.footer .left{
+    font-family: Rubik, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+.footer .right{
+    display: flex;
+    gap: 15px;
+    font-family: Rubik, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+.hiring{
+    padding:0 120px 30px 120px;
+    background-color: #E7E9EC;
+}
+.hiring .image{
+    width: 100%;
+    max-width: 1200px;
+}
+.hiring .ve-content{
+    margin: 0;
+}
+.video-container{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #E7E9EC;
+    padding-bottom: 30px;
+}

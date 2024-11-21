@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { ScrollButtonComponent } from '../scroll-button/scroll-button.component';
 
 @Component({
   selector: 'app-eventspage',
@@ -9,6 +10,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   imports: [NavbarComponent,
             FooterComponent,
             RouterOutlet, RouterLink, RouterLinkActive,
+            ScrollButtonComponent
   ],
   templateUrl: './eventspage.component.html',
   styleUrl: './eventspage.component.css'

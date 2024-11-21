@@ -15,10 +15,10 @@
 <div class="unique-features-container">
     <div class="left">
         <div class="thumbnail">
-            <img src="../../assets/img/trainings/thumbnail.png" alt="">
+            <img src="../../assets/img/training/thumbnail.png" alt="">
         </div>
         <div class="image">
-            <img src="../../assets/img/trainings/IT-prof.jpg" alt="">
+            <img src="../../assets/img/training/training-2.jpg" alt="">
         </div>
         <div class="feature-footer">
             Partner with ENVAL to lead the way in Value Management excellence.
@@ -65,9 +65,12 @@
 <div class="value-eng-container">
 <div class="trainings-cert">
     <div class="title">
-        Training | Examination | Certification Customised courses for Indian Context 
+        Training | Examination | Certification  
     </div>
-    <!-- <div class="description">
+    <div class="sub-title">
+        Customised courses for Indian Context
+    </div>
+    <div class="description">
         ENVAL conducts trainings for various certification programs customised for specific context of Indian
         market segments, with reference to emerging trends. Certification is by Indian Value Engineering
         Society (INVEST).
@@ -76,10 +79,10 @@
         <div class="explore">
             <a href="#">Explore More</a>
         </div>
-         <div class="read-more">
+         <!-- <div class="read-more">
             <a href="#">Read More</a>
-        </div>
-    </div> -->
+        </div> -->
+    </div>
 </div>
 </div>
 <!--VMA, VMF2, CVS-->
@@ -194,9 +197,12 @@
 <!--Trainings for certification by SAVE International-->
 <div class="trainings-cert">
     <div class="title">
-        Training | Examination | Certification Courses by SAVE International 
+        Training | Examination | Certification
     </div>
-    <!-- <div class="description">
+    <div class="sub-title">
+        Courses by SAVE International 
+    </div>
+    <div class="description">
         The programs are conducted as per the mandate of SAVE International. The training programs
         comprise of curriculum and content specified by SAVE International, and aim to equip the trainees. with fundamentals and skills, 
         applicable in general. Trainings are conducted and delivered based on
@@ -206,10 +212,10 @@
         <div class="explore">
             <a href="#">Explore More</a>
         </div>
-         <div class="read-more">
+        <!--  <div class="read-more">
             <a href="#">Read More</a>
-        </div> 
-    </div> -->
+        </div> -->
+    </div> 
 </div>
 <!--VMA, VMF2, CVS-->
 <div class="train-container">
@@ -268,13 +274,24 @@
 </div>
 </div>
 <!--Corporate Trainings-->
-<div class="sub-heading">Corporate Trainings</div>
+<div class="trainings-footer">
+    <div class="bg-yellow">
+    <div class="corporate-trainings">
+        <div class="cp-heading">Corporate Trainings</div>
+        <p>ENVAL conducts customised training courses in form of on-site workshops, coupled with hands-on sessions 
+            on live projects. These are conducted by internationally acclaimed experts with acumen in VM combined with 
+            other key techniques, niche sectoral segments and large-scale project management. </p>
+        <a (click)="toggleContact()">Talk to our Advisor</a>
+    </div>
+    </div>
+</div>
+<!-- <div class="sub-heading">Corporate Trainings</div>
 <div class="corporate-trainings">
     <p>ENVAL conducts customised training courses in form of on-site workshops, coupled with hands-on sessions 
         on live projects. These are conducted by internationally acclaimed experts with acumen in VM combined with 
         other key techniques, niche sectoral segments and large-scale project management. </p>
     <a (click)="toggleContact()">Talk to our Advisor</a>
-</div>
+</div>-->
 <div *ngIf="isContactVisible" class="contact"> 
     <div class="training-form">
     <div class="individual-form">
@@ -314,6 +331,7 @@
             <button type="submit">Submit Form</button>
         </div>
     </div>
-</div>
+</div> 
 </div>
 <app-footer></app-footer>
+<app-scroll-button></app-scroll-button>

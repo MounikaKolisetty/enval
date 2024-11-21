@@ -15,7 +15,7 @@
 <div class="about-us">
     <!-- Image section on the left -->
     <div class="about-image">
-        <img src="assets/img/home-bg-2.jpg" alt="Group of people">
+        <img src="assets/img/consulting/training1.jpg" alt="Group of people">
         <div class="yellow-panel"></div>
     </div>
     <!-- Text content section on the right -->
@@ -156,33 +156,18 @@
     </ul>
 </div>
 <!--Video-->
+<div class="slider-container">
 <div class="slider">
-<div class="slide">
+<div class="slide" *ngFor="let video of videos; let i = index">
 <div class="videos">
-    <img src="../../assets/img/testing/banner-1.jpg" alt="" (click)="toggleVideo()">
+    <img [src]="video.imgsrc" alt="" (click)="toggleVideo(i)">
     <i class="fa-regular fa-circle-play font-icon"></i>
 </div>
-<div *ngIf="isVideoVisible" class="video-container" (click)="hideVideo()">
-    <youtube-player videoId="YX5i8T1ta64" [playerVars]="playerConfig" loadApi="true" class="video"/>
+<div *ngIf="isVideoVisible[i]" class="video-container" (click)="hideVideo(i)">
+    <youtube-player [videoId]="video.videoId" [playerVars]="playerConfig" loadApi="true" class="video"/>
 </div>
 </div>
-<div class="slide">
-    <div class="videos">
-        <img src="../../assets/img/testing/banner-1.jpg" alt="" (click)="toggleVideo()">
-        <i class="fa-regular fa-circle-play font-icon"></i>
-    </div>
-    <div *ngIf="isVideoVisible" class="video-container" (click)="hideVideo()">
-        <youtube-player videoId="Uyfk-4m9Syk" [playerVars]="playerConfig" loadApi="true" class="video"/>
-    </div>
-</div>
-<div class="slide">
-    <div class="videos">
-        <img src="../../assets/img/testing/banner-1.jpg" alt="" (click)="toggleVideo()">
-        <i class="fa-regular fa-circle-play font-icon"></i>
-    </div>
-    <div *ngIf="isVideoVisible" class="video-container" (click)="hideVideo()">
-        <youtube-player videoId="0Oc1Y_LZXUI" [playerVars]="playerConfig" loadApi="true" class="video"/>
-    </div>
 </div>
 </div>
 <app-footer></app-footer>
+<app-scroll-button></app-scroll-button>

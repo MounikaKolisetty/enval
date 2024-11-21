@@ -1,7 +1,7 @@
 .footer-top {
     display: flex; /* Enables flexbox layout */
     justify-content: space-between; /* Optional: spaces the divs evenly */
-    margin: 5% 10% 2% 10%;
+    margin: 5% 5% 2% 5%;
     @media (max-width: 375px){
         flex-direction: column;
         margin-left: 0;
@@ -15,7 +15,7 @@
 }
 .widget_course {
     flex: 1;
-    padding: 20px 10px 10px 100px;
+    padding: 20px 10px 10px 10px;
 }
 .widget_contact h4, .widget_course h4, .widget_blog h4, .widget_training h4{
     color: #0a1e3a;

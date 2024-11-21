@@ -6,6 +6,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { ScrollButtonComponent } from '../scroll-button/scroll-button.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
             RouterOutlet, RouterLink, RouterLinkActive,
             RecaptchaModule,
             CommonModule,
-            HttpClientModule
+            HttpClientModule,
+            ScrollButtonComponent
             ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
