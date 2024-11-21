@@ -21,23 +21,16 @@ import { ScrollButtonComponent } from '../scroll-button/scroll-button.component'
   styleUrl: './consulting.component.css'
 })
 export class ConsultingComponent {
-  isVideoVisible: boolean[] = [false, false, false]; 
   videos = [ 
-    { videoId: 'YX5i8T1ta64', imgsrc: '../../assets/img/consulting/video-1.jpg'}, 
-    { videoId: 'Uyfk-4m9Syk', imgsrc: '../../assets/img/consulting/video-2.jpg'}, 
-    { videoId: '0Oc1Y_LZXUI', imgsrc: '../../assets/img/consulting/video-3.jpg'} 
+    { videoId: 'YX5i8T1ta64'}, 
+    { videoId: 'Uyfk-4m9Syk'}, 
+    { videoId: '0Oc1Y_LZXUI'} 
   ];
   playerConfig = {
     controls: 0,
     mute: 1,
-    autoplay: 1
+    autoplay: 0
   };
-  toggleVideo(index: number) {
-    this.isVideoVisible[index] = !this.isVideoVisible[index]; 
-  } 
-  hideVideo(index: number) {
-      this.isVideoVisible[index] = false; 
-    } 
 }
 
 

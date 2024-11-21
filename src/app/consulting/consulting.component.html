@@ -159,11 +159,11 @@
 <div class="slider-container">
 <div class="slider">
 <div class="slide" *ngFor="let video of videos; let i = index">
-<div class="videos">
+<!-- <div class="videos">
     <img [src]="video.imgsrc" alt="" (click)="toggleVideo(i)">
     <i class="fa-regular fa-circle-play font-icon"></i>
-</div>
-<div *ngIf="isVideoVisible[i]" class="video-container" (click)="hideVideo(i)">
+</div> -->
+<div class="video-container">
     <youtube-player [videoId]="video.videoId" [playerVars]="playerConfig" loadApi="true" class="video"/>
 </div>
 </div>
