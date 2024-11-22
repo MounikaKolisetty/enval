@@ -39,15 +39,18 @@ app-navbar {
     right: 0;
     bottom: 0;
     background: linear-gradient(to right, rgba(0, 33, 71, 0.9), rgba(221, 199, 99, 0.9)); /* Black overlay with 50% opacity */
-    z-index: 0
+    z-index: 0;
+}
+
+@media (max-width: 375px) {
+    .about-pic::before{
+    height: 430px;
+    }
 }
 .about-pic ul {
     list-style: none; /* Remove default list styling */
     display:flex;
     z-index: 100;
-    @media (max-width:375px){
-        padding: 0;
-    }
 }
 .about-pic ul li + li::before {
     display: inline-block;
@@ -96,7 +99,7 @@ app-navbar {
     position: relative;
     @media (max-width:375px) {
         flex-direction: column;
-        margin: 5%;
+        margin: 10% 5% 5% 5%;
     }
 }
 .about-image {
@@ -432,6 +435,7 @@ title1{
 .video-container{
     position: absolute;
     width: 100%;
+    height: 100%;
 }
 .video-container .video{
     position: absolute;
@@ -455,5 +459,20 @@ title1{
 } */
 .slider-container { 
     position: relative; width: 100%; overflow: hidden; /* Hide overflow to prevent vertical scroll  */
+}
+@media (max-width: 375px) {
+    .video-container{
+        width: 300px;
+        height: 150px;
+        overflow: hidden;
+    }
+    .video{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .slider-container{
+        height: 230px;
+    }
 }
     

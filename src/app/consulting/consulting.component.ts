@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Renderer2 } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
@@ -31,6 +31,27 @@ export class ConsultingComponent {
     mute: 1,
     autoplay: 0
   };
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
+
+  ngAfterViewInit(): void {
+    this.adjustPlaceholderSize();
+    window.addEventListener('resize', this.adjustPlaceholderSize.bind(this)); // Listen to window resize
+  }
+
+  adjustPlaceholderSize() {
+    const placeholders = this.el.nativeElement.querySelectorAll('youtube-player-placeholder');
+    placeholders.forEach((placeholder: HTMLElement) => {
+      if (window.innerWidth <= 768) {
+        // Mobile / tablet view
+        this.renderer.setStyle(placeholder, 'width', '100%');
+        this.renderer.setStyle(placeholder, 'height', '100%');
+      } else {
+        // Desktop view
+        this.renderer.setStyle(placeholder, 'width', '640px'); // Set your desired desktop width
+        this.renderer.setStyle(placeholder, 'height', '390px'); // Set your desired desktop height
+      }
+    });
+  }
 }
 
 

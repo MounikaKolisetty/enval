@@ -1,23 +1,59 @@
-nav{
+/* Toolbar styling */
+.nav-area {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between logo and nav */
+    align-items: center; /* Center items vertically */
+    padding: 0 20px; /* Add padding to the left and right */
+    background-color: #fff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.logo{
+    margin-right: 30px;
+}
+.nav-area .logo a img{
+    height: auto;
+    width: 100%;  
+    max-width: 100px;
+    padding: 15px 0 0 15px;  
+
+@media (min-width: 640px) {
+        max-width: 20%;  
+}
+@media (min-width: 1440px) {
+        max-width: 35%;  
+}
+}
+/* Logo styling */
+.logo a {
+    text-decoration: none; /* Remove underline from link */
+    font-size: 24px; /* Increase font size for logo */
+    color: #000; /* Set logo color */
+}
+
+/* Navigation pages styling */
+.nav-pages {
+    flex-grow: 1; /* Use flexbox for nav items */
     display: flex;
     justify-content: flex-end;
-    align-items: center;
 }
-.links-container{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+
+.nav-list {
+    list-style-type: none; /* Remove bullet points */
+    display: flex; /* Align items horizontally */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
-nav a{
-    height: 100%;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #000;
-    font-size: 16px;
+
+.nav-list li {
+    margin: 0 15px; /* Add space between nav items */
+}
+
+.nav-list a {
+    text-decoration: none; /* Remove underline from links */
+    color: #000; /* Set link color */
+    font-size: 16px; /* Font size for nav links */
+    transition: color 0.3s; /* Transition effect for hover */
     font-weight: 100;
 }
 
@@ -145,9 +181,3 @@ nav a{
     font-weight: 100;
     font-family: Rubik, sans-serif;
 } 
-nav a:hover {
-    color: #f0b429;
-}
-nav .home-link{
-    margin-right: auto;
-}

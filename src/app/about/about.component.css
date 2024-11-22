@@ -31,6 +31,10 @@ app-navbar {
     align-items: center;
     object-fit: cover;
     z-index: -1;
+    @media (max-width: 375px) {
+        height: 350px;
+        background-size: cover;
+    }
 }
 .about-pic::before{
     content: '';
@@ -43,11 +47,21 @@ app-navbar {
     background: linear-gradient(to right, rgba(0, 33, 71, 0.7), rgba(221, 199, 99, 0.9)); /* Black overlay with 50% opacity */
     z-index: 0
 }
+
+@media (max-width: 375px) {
+    .about-pic::before{
+    height: 430px;
+    }
+}
 .about-pic ul {
     list-style: none; /* Remove default list styling */
     display:flex;
     z-index: 100;
+    @media (max-width:375px){
+        padding: 0;
+    }
 }
+
 .about-pic ul li + li::before {
     display: inline-block;
     padding-right: 0;
@@ -67,6 +81,8 @@ app-navbar {
     font-weight: 500;
     margin-bottom: 8px;
     z-index: 100;
+    font-size: 1.875rem;
+    font-size: clamp(1.875rem, 1.0416666666666667rem + 3.7037037037037033vw, 4.375rem);
 }
 .about-pic ul li {
     font-size: 24px;
@@ -88,6 +104,10 @@ app-navbar {
     display: flex;
     box-shadow: 0 4px 8px 0 #636363;  /* Shadow effect */
     border-radius: 10px;    /* Optional: Adds rounded corners */
+    @media (max-width: 375px){
+        display: block;
+        margin-top: 10%;
+    }
 }
 .more-info .content{
     display: flex;
@@ -103,6 +123,10 @@ app-navbar {
     color: #043F71;
     font-family: 'Titillium Web', sans-serif;
     margin-bottom: 26px;
+    @media (max-width: 375px){
+        margin-bottom: 0;
+        font-size: 40px;
+    }
 }
 .more-info .content p{
     font-size: 18px;
@@ -118,8 +142,12 @@ app-navbar {
 .pic-container img{
     width: 100%;
     height: 100%;
-    min-height: 510px;
+    max-height: 510px;
     object-fit: cover;
+    @media (max-width: 375px){
+        height: 100%;
+        max-height: 300px;
+    }
 } 
  .more-info .content a{
     text-decoration: none;
@@ -133,6 +161,9 @@ app-navbar {
     width: 34%;
     align-items: center;
     font-style: normal;
+    @media (max-width: 375px){
+        width: 40%;
+    }
  } 
 .more-info .content a:hover{
     background-color: #043F71;
@@ -142,6 +173,9 @@ app-navbar {
 .aim-container{
     display: flex;
     margin: 10% 5% 3% 5%;
+    @media (max-width: 375px){
+        display: block;
+    }
 }
 .aim-left{
     padding: 30px;
@@ -166,6 +200,10 @@ app-navbar {
     font-weight: 550;
     color: #043F71;
     margin: 4px 0 24px 0;
+    @media (max-width: 375px){
+        font-size: 36px;
+        margin-bottom: 0;
+    }
 }
 .aim-desc{
     font-size: 18px;
@@ -229,10 +267,16 @@ app-navbar {
     margin-bottom: 20px;
     text-align: center;
     color: #043F71;
+    @media (max-width: 375px){
+        font-size: 40px;
+    }
 }
 .value-content{
     display: flex;
     gap: 100px;
+    @media (max-width: 375px){
+        display: block;
+    }
 }
 .value-content .value{ 
     display: flex;
@@ -354,15 +398,24 @@ app-navbar {
     font-size: 46px;
     font-weight: 700;
     color: #0a1e3a;
+    @media (max-width: 375px){
+        font-size: 40px;
+    }
 }
 .team-content {
     display: flex;             /* Use flexbox for layout */
     justify-content: space-between; /* Distribute space evenly between items */
     gap: 5%;                 /* Optional: Add some space between the person divs */
+    @media (max-width: 375px){
+        display: block;
+    }
 }
 .person {
     flex: 1;                   /* Ensure each person div takes up equal space */
     min-width: 200px;          /* Optional: Set a minimum width for responsiveness */
+    @media (max-width: 375px){
+        margin-bottom: 10%;
+    }
 }
 .thumb {
     display: flex;

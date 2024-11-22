@@ -8,12 +8,15 @@ app-navbar {
 }
 .enval-broucher img{
     background-size: contain;
+    width: 1200px;
 }
+
 .enval-broucher{
     padding-top: 100px;
     text-align: center;
     background-color: #E7E9EC;
 }
+
 .audio-container {
     text-align: center;
     margin: 0 20px;
@@ -126,6 +129,10 @@ audio::-webkit-media-controls-enclosure{
     align-items: center;
     object-fit: cover;
     z-index: -1;
+    @media (max-width: 375px) {
+        height: 350px;
+        background-size: cover;
+    }
 }
 .about-pic::before{
     content: '';
@@ -162,6 +169,8 @@ audio::-webkit-media-controls-enclosure{
     font-weight: 500;
     margin-bottom: 8px;
     z-index: 100;
+    font-size: 1.875rem;
+    font-size: clamp(1.875rem, 1.0416666666666667rem + 3.7037037037037033vw, 4.375rem);
 }
 .about-pic ul li {
     font-size: 24px;
@@ -176,4 +185,48 @@ audio::-webkit-media-controls-enclosure{
 }
 .about-pic ul li a:hover{
     color: #0a1e3a;
+}
+
+@media (max-width: 375px) {
+    .enval-broucher img{
+        width: 350px;
+    }
+    .enval-broucher {
+        padding-top: 50px;
+    }
+    .ve-content {
+        margin: 0 10px;
+    }
+    .ve-content h2 {
+        font-size: 28px;
+    }
+    .ve-content .admin-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .about-pic::before{
+        height: 430px;
+    }
+    .hiring {
+        padding: 0 10px;
+    }
+    .audio-container {
+        padding-top: 50px;
+        margin: 0 10px;
+    }
+        .video-container{
+            padding: 10px;
+            width: 355px;
+            height: 150px;
+            overflow: hidden;
+        }
+        .video{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slider-container{
+            height: 230px;
+        }
+    
 }

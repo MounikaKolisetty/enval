@@ -40,6 +40,11 @@ app-navbar {
     background: linear-gradient(to right, rgba(0, 33, 71, 0.9), rgba(221, 199, 99, 0.9)); /* Black overlay with 50% opacity */
     z-index: 0
 }
+@media (max-width: 375px) {
+    .about-pic::before{
+    height: 430px;
+    }
+}
 .about-pic ul {
     list-style: none; /* Remove default list styling */
     display:flex;
@@ -269,6 +274,9 @@ app-navbar {
     @media (max-width:375px) {
         flex-direction: column;
         margin: 0 10px;
+        border: 0;
+        box-shadow: none;
+        padding: 20px;
     }
 }
 .vma, .vmf2{
@@ -349,6 +357,7 @@ app-navbar {
     @media (max-width: 375px) {
         flex-direction: column;
         margin: 0;
+        padding-bottom: 10px;
     }
 }
 .unique-features-container .left, .unique-features-container .right{
@@ -364,7 +373,14 @@ app-navbar {
     margin-left: 5%;
 }
 .left, .right{
-    height: 650px;
+    height: 100%;
+    max-height: 650px;
+}
+@media (max-width: 375px) {
+   .left{
+        height: 100%;
+        max-height: 500px;
+    }
 }
 .left .image img {
     width: 100%; 
@@ -471,6 +487,12 @@ app-navbar {
     position: relative;
     height: 40%;
 }
+@media (max-width: 375px) {
+    .trainings-footer{
+        height: 40%;
+        margin-top: 30%;
+    }
+}
 .corporate-trainings{
     position: absolute;
     background-color: #fff;
@@ -480,6 +502,12 @@ app-navbar {
     z-index: 10;
     padding-bottom: 15px;
     box-shadow: 5px 5px 4px 6px rgba(0, 0, 0, 0.1);;
+}
+@media (max-width: 375px) {
+    .corporate-trainings{
+        width: 80%;
+        left: 10%;
+    }
 }
 .bg-yellow::after{
     content: ''; 
@@ -504,11 +532,21 @@ app-navbar {
     text-align: center;
     margin-top: 5%;
 }
+@media (max-width: 375px) {
+    .corporate-trainings  .cp-heading{
+        font-size: 1.5rem;
+    }
+}
 .corporate-trainings p{
     padding: 3% 10% 0% 10%;
     color: #565872;
     font-size: 18px;
     text-align: center;
+}
+@media (max-width: 375px) {
+    .corporate-trainings p{
+        font-size: 15px;
+    }
 }
 .corporate-trainings a{
     text-align: center;
@@ -539,6 +577,13 @@ app-navbar {
     width: 100%;
     max-width: 600px;
 }
+@media (max-width: 375px) {
+    .contact .training-form{
+        margin: 5%;
+        width: 100%;
+        max-width: 280px;
+    }
+}
 .form-heading{
     font-family: Rubik, sans-serif;
     color: #002147;
@@ -563,8 +608,18 @@ app-navbar {
 .form-items input{
     width: 100%;
 }
+@media (max-width: 375px) {
+    .form-items input{
+        width: 80%;
+    }
+}
 .dropdown-container .dropdown {
     width: 105%;
+}
+@media (max-width: 375px) {
+    .dropdown-container .dropdown {
+        width: 90%;
+    }
 }
 .contact .closebutton {
     padding: 1px 8px;

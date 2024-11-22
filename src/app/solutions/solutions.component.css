@@ -15,6 +15,12 @@ app-navbar {
     padding: 0 8%;
     position: relative;
 }
+@media (max-width:375px){
+    .container{ 
+        width: 100%;
+        max-width: 315px;
+    }
+}
 .container::before{
     content: '';
     position: absolute;
@@ -40,8 +46,13 @@ app-navbar {
     font-size: 64px;
     font-weight: 500;
 }
-.content h1 span{
-    color: #E2CC65;
+@media (max-width:375px){
+    .content{
+        top: 30%;
+    }
+    .content h1{
+        font-size: 40px;
+    }
 }
 .rocket {
     width: 250px;

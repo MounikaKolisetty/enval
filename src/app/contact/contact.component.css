@@ -181,7 +181,12 @@ app-navbar {
     width: 50px; /* Adjust length of the lines */
     height: 1px; /* Adjust thickness of the lines */
     background-color: #002147; /* Adjust color of the lines */
-
+}
+@media (max-width: 375px) {
+    .contact-left h6::after{
+    top: 130.5%;
+    left: 30%;
+    }
 }
 .contact_left .social_media ul{
     list-style-type: none;
