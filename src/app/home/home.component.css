@@ -943,7 +943,7 @@ body {
     animation: scrollToRight;  
     animation-timeline: view(60% auto);
 } */
-@media (max-width: 375px) {
+@media (max-width: 450px) {
     .about-pic{
     height: 350px;
     background-size: cover;

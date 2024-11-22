@@ -31,7 +31,7 @@ app-navbar {
     align-items: center;
     object-fit: cover;
     z-index: -1;
-    @media (max-width: 375px) {
+    @media (max-width: 450px) {
         height: 350px;
         background-size: cover;
     }
@@ -48,7 +48,7 @@ app-navbar {
     z-index: 0
 }
 
-@media (max-width: 375px) {
+@media (max-width: 450px) {
     .about-pic::before{
     height: 430px;
     }
@@ -104,7 +104,7 @@ app-navbar {
     display: flex;
     box-shadow: 0 4px 8px 0 #636363;  /* Shadow effect */
     border-radius: 10px;    /* Optional: Adds rounded corners */
-    @media (max-width: 375px){
+    @media (max-width: 450px){
         display: block;
         margin-top: 10%;
     }
@@ -123,7 +123,7 @@ app-navbar {
     color: #043F71;
     font-family: 'Titillium Web', sans-serif;
     margin-bottom: 26px;
-    @media (max-width: 375px){
+    @media (max-width: 450px){
         margin-bottom: 0;
         font-size: 40px;
     }
@@ -144,7 +144,7 @@ app-navbar {
     height: 100%;
     max-height: 510px;
     object-fit: cover;
-    @media (max-width: 375px){
+    @media (max-width: 450px){
         height: 100%;
         max-height: 300px;
     }
@@ -161,7 +161,7 @@ app-navbar {
     width: 34%;
     align-items: center;
     font-style: normal;
-    @media (max-width: 375px){
+    @media (max-width: 450px){
         width: 40%;
     }
  } 
@@ -173,7 +173,7 @@ app-navbar {
 .aim-container{
     display: flex;
     margin: 10% 5% 3% 5%;
-    @media (max-width: 375px){
+    @media (max-width: 450px){
         display: block;
     }
 }
@@ -200,7 +200,7 @@ app-navbar {
     font-weight: 550;
     color: #043F71;
     margin: 4px 0 24px 0;
-    @media (max-width: 375px){
+    @media (max-width: 450px){
         font-size: 36px;
         margin-bottom: 0;
     }
@@ -267,14 +267,14 @@ app-navbar {
     margin-bottom: 20px;
     text-align: center;
     color: #043F71;
-    @media (max-width: 375px){
+    @media (max-width: 450px){
         font-size: 40px;
     }
 }
 .value-content{
     display: flex;
     gap: 100px;
-    @media (max-width: 375px){
+    @media (max-width: 450px){
         display: block;
     }
 }
@@ -398,7 +398,7 @@ app-navbar {
     font-size: 46px;
     font-weight: 700;
     color: #0a1e3a;
-    @media (max-width: 375px){
+    @media (max-width: 450px){
         font-size: 40px;
     }
 }
@@ -406,14 +406,14 @@ app-navbar {
     display: flex;             /* Use flexbox for layout */
     justify-content: space-between; /* Distribute space evenly between items */
     gap: 5%;                 /* Optional: Add some space between the person divs */
-    @media (max-width: 375px){
+    @media (max-width: 450px){
         display: block;
     }
 }
 .person {
     flex: 1;                   /* Ensure each person div takes up equal space */
     min-width: 200px;          /* Optional: Set a minimum width for responsiveness */
-    @media (max-width: 375px){
+    @media (max-width: 450px){
         margin-bottom: 10%;
     }
 }

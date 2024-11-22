@@ -315,7 +315,7 @@ app-navbar {
     padding-left: 5px;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 450px) {
     .course-top-view {
         flex-direction: column;
     }
@@ -343,7 +343,7 @@ app-navbar {
         flex-grow: 1;
         background: #002147;
         width: 100%;
-        max-width: 375px;
+        max-width: 450px;
         border: 0;
         position: relative;
         height: 250px;
@@ -385,7 +385,7 @@ app-navbar {
     }
     .certificates {
         width: 100%;
-        max-width: 375px;
+        max-width: 450px;
         height: 80%;
     }
     .certificate-container {

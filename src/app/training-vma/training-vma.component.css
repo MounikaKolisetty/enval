@@ -323,7 +323,7 @@ app-navbar {
     color: #bdbdbd;
     padding-left: 5px;
 }
-@media (max-width: 375px){
+@media (max-width: 450px){
     .top-container {
        position: static;
     }

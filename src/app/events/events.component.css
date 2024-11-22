@@ -129,7 +129,7 @@ audio::-webkit-media-controls-enclosure{
     align-items: center;
     object-fit: cover;
     z-index: -1;
-    @media (max-width: 375px) {
+    @media (max-width: 450px) {
         height: 350px;
         background-size: cover;
     }
@@ -187,7 +187,7 @@ audio::-webkit-media-controls-enclosure{
     color: #0a1e3a;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 450px) {
     .enval-broucher img{
         width: 350px;
     }

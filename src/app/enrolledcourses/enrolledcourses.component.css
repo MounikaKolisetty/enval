@@ -65,13 +65,13 @@ app-navbar {
     height: 10%;
     font-size: 100px;
 }
-@media (max-width: 375px){
+@media (max-width: 450px){
     .courses-container{
         margin: 3% 5%;
     }
     .courses{
         width: 100%;
-        max-width: 375px;
+        max-width: 450px;
     }
     .right{
         margin: 5%;

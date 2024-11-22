@@ -25,7 +25,7 @@ app-navbar {
     justify-content: center;
     align-items: center;
     object-fit: cover;
-    @media (max-width: 375px) {
+    @media (max-width: 450px) {
         height: 350px;
         background-size: cover;
     }
@@ -42,7 +42,7 @@ app-navbar {
     z-index: 0;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 450px) {
     .about-pic::before{
     height: 430px;
     }
@@ -460,7 +460,7 @@ title1{
 .slider-container { 
     position: relative; width: 100%; overflow: hidden; /* Hide overflow to prevent vertical scroll  */
 }
-@media (max-width: 375px) {
+@media (max-width: 450px) {
     .video-container{
         width: 300px;
         height: 150px;
