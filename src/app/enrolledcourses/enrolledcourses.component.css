@@ -58,11 +58,34 @@ app-navbar {
     border:1px solid #fff;
     padding: 20px 30px;
     border-radius: 50%;
-
 }
 .right i{
     color: #fff;
     width: 10%;
     height: 10%;
     font-size: 100px;
+}
+@media (max-width: 375px){
+    .courses-container{
+        margin: 3% 5%;
+    }
+    .courses{
+        width: 100%;
+        max-width: 375px;
+    }
+    .right{
+        margin: 5%;
+        width: 5%;
+        height: 5%;
+        padding: 10px 40px 10px 20px;
+    }
+    .right i{
+        color: #fff;
+        width: 5%;
+        height: 5%;
+        font-size: 50px;
+    }
+    .course-name{
+        margin-bottom: 30px;
+    }
 }
