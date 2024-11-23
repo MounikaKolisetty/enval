@@ -337,6 +337,7 @@ app-navbar {
     }
     .top-container .course-points{
         position: static;
+        margin: 100px 20px;
     }
     .course-points .course-includes{
         padding: 0;

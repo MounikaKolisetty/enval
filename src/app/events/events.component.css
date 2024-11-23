@@ -189,7 +189,7 @@ audio::-webkit-media-controls-enclosure{
 
 @media (max-width: 450px) {
     .enval-broucher img{
-        width: 350px;
+        width: 420px;
     }
     .enval-broucher {
         padding-top: 50px;
@@ -216,8 +216,8 @@ audio::-webkit-media-controls-enclosure{
     }
         .video-container{
             padding: 10px;
-            width: 355px;
-            height: 150px;
+            width: 428px;
+            height: 250px;
             overflow: hidden;
         }
         .video{

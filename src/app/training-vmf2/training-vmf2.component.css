@@ -29,6 +29,9 @@ app-navbar {
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     background-color: #fff;
+    @media (max-width: 450px) {
+        margin: 50px 20px;
+    }
 }
 .course-points img{
     border-radius: 8px;
@@ -343,7 +346,7 @@ app-navbar {
         padding: 0;
     }
     .content-info{
-        margin-top: 190%;
+        margin-top: 170%;
         width: 90%;
         padding-left: 5%;
     }

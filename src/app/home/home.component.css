@@ -959,14 +959,14 @@ body {
         margin: 10% 5% 10% 5%;
     }
     .about-image img{
-        width: 300px;
-        height: 300px;
+        width: 95%;
+        height: 100%;
     }
     .yellow-panel{
         width: 154px;
-        height: 250px;
+        height: 85%;
         top: 17px;
-        left: 170px;
+        left: 62%;
     }
     .about-text{
         margin-left: 0;
@@ -980,8 +980,8 @@ body {
     }
     .events-section{
         margin:5%;
-        width: 295px;
-        height: 250px;
+        width: 80%;
+        height: 30%;
     }
     .event-thumbnail{
         display: none;
@@ -1020,6 +1020,13 @@ body {
         max-width: 400%;
     }
     .card-container {
-        min-width: 280%; /* Ensure the container takes the full width */ 
+        min-width: 225%; /* Ensure the container takes the full width */ 
+    }
+    .service-box {
+        max-width: 100%; 
+        max-width: 400px;
+    }
+    .btn{
+        margin-left: 0%;
     }
 }

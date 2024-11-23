@@ -333,13 +333,13 @@ app-navbar {
     }
     .top-container .course-points{
         position: static;
-        margin-bottom: 100px;
+        margin: 100px 20px;
     }
     .course-points .course-includes{
         padding: 0;
     }
     .content-info{
-        margin-top: 200%;
+        margin-top: 170%;
         width: 90%;
         padding-left: 5%;
     }

@@ -97,7 +97,7 @@ app-navbar {
     gap: 30px;
     margin: 5% 10%;
     position: relative;
-    @media (max-width:375px) {
+    @media (max-width:450px) {
         flex-direction: column;
         margin: 10% 5% 5% 5%;
     }
@@ -115,9 +115,9 @@ app-navbar {
     border-radius: 10px;
     position: relative;
     z-index: 2;
-    @media (max-width:375px) {
-        width: 300px;
-        height: 300px;
+    @media (max-width:450px) {
+        width: 95%;
+        height: 100%;
     }
 }
 .yellow-panel{
@@ -129,17 +129,17 @@ app-navbar {
     left:430px;
     border-radius: 10px;
     z-index: 0;
-    @media (max-width:375px) {
+    @media (max-width:450px) {
         width: 154px;
-        height: 250px;
+        height: 85%;
         top: 17px;
-        left: 170px;
+        left: 62%;
     }
 }
 .about-text{
     flex: 2;
     margin-left: 30px;
-    @media (max-width:375px) {
+    @media (max-width:450px) {
         margin-left: 0px;
     }
 }
@@ -175,7 +175,7 @@ app-navbar {
 }
 .segments{
     display: flex;
-    @media (max-width:375px) {
+    @media (max-width:450px) {
         flex-direction: column;
     }
 }
@@ -214,7 +214,7 @@ app-navbar {
 .service-container {
     display: flex; 
     gap: 30px;
-    @media (max-width:375px) {
+    @media (max-width:450px) {
         display: block;
     }
 }
@@ -299,7 +299,7 @@ app-navbar {
 .focus-container {
     display: flex;
     margin: 5%;
-    @media (max-width:375px) {
+    @media (max-width:450px) {
         display: block;
         padding-bottom: 30px;
     }

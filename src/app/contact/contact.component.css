@@ -121,6 +121,13 @@ app-navbar {
 .media-left{
     padding: 15px 10px;
 }
+@media (max-width: 450px) {
+    .media-left{
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    
+}
 .media-left-email{
     padding: 25px 10px;
 }
@@ -184,7 +191,7 @@ app-navbar {
 }
 @media (max-width: 450px) {
     .contact-left h6::after{
-    top: 130.5%;
+    top: 146%;
     left: 30%;
     }
 }
