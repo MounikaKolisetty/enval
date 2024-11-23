@@ -15,7 +15,10 @@
 }
 .widget_course {
     flex: 1;
-    padding: 20px 10px 10px 10px;
+    padding: 20px 10px 10px 150px;
+    @media (max-width:450px) {
+        padding: 20px;
+    }
 }
 .widget_contact h4, .widget_course h4, .widget_blog h4, .widget_training h4{
     color: #0a1e3a;

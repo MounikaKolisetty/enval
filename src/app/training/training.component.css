@@ -298,19 +298,18 @@ app-navbar {
     position: relative;
     overflow: hidden;
 }
-.image-vma i, .image-vmf2 i, .image-cvs i{
+.image-cvs i{
     background-color: #F5CA45;
     border-radius: 50%;
     color: #043F71;
+    padding: 10% 11%;
 }
-.image-vma i{
-    padding: 8%;
-}
-.image-vmf2 i{
-    padding: 9% 8%;
-}
-.image-cvs i{
-    padding: 8% 9%;
+.training-icons{
+    background-color: #F5CA45;
+    border-radius: 50%;
+    color: #043F71;
+    padding: 10%;
+    font-size: 48px;
 }
 .train-container-ves .image-cvs i{
     padding: 8%;

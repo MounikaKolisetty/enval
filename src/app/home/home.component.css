@@ -107,7 +107,7 @@ body {
     height: 220px;
     animation: scroll 25s linear infinite;
 }
-.f-logo mat-icon{
+.f-logo span{
     width: 48px;
     height: 48px;
     font-size: 3rem;
@@ -164,7 +164,7 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 30px;
-    margin: 5% 10%;
+    margin: 0% 10% 5% 10%;
     position: relative;
 }
 .about-image {
@@ -322,10 +322,10 @@ body {
     color: #f0b429 !important;
     cursor: pointer;
 }
-.srvc-bottom mat-icon{
+.srvc-bottom span{
     padding-right: 20px;
 }
-.srvc-bottom mat-icon:hover{
+.srvc-bottom span:hover{
     cursor: pointer;
 }
 .srvc-thumbnail {
@@ -567,7 +567,7 @@ body {
     font-size: 12px;
 }
 
-.details ul li mat-icon {
+.details ul li span {
     margin-right: 5px;
 }
 
@@ -943,6 +943,64 @@ body {
     animation: scrollToRight;  
     animation-timeline: view(60% auto);
 } */
+.values{
+    display: flex;
+    background-color: #F1F4F8;
+    padding: 5%;
+    margin-bottom: 5%;
+}
+.values-right{
+    flex: 2;
+    display: flex;
+    gap: 10px;
+}
+.values-left{
+    flex: 1;
+}
+.values-right .value{
+    display: flex;
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px;
+    border-top: 3px solid #F5CA45;
+}
+.values-left .heading{
+    font-size: 46px;
+    font-weight: 700;
+    color: #002147;
+    font-family: Rubik, sans-serif;
+    padding-top: 50px;
+}
+.values-left .description{
+    padding-right: 10px;
+}
+.value .value-img{
+    background-color: #FDC800;
+    padding: 10px;
+    border-radius: 8px;
+}
+.value-img span{
+    font-size: 60px;
+    padding-top: 10px;
+}
+.value .value-info{
+    padding: 10px;
+}
+.value-info .value-head{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: Rubik, sans-serif;
+    color: #002147;
+    padding-bottom: 10px;
+}
+.value-info .value-subhead{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Rubik, sans-serif;
+    color: #002147;
+}
 @media (max-width: 450px) {
     .about-pic{
     height: 350px;
@@ -956,7 +1014,7 @@ body {
     }
     .about-us{
         flex-direction: column;
-        margin: 10% 5% 10% 5%;
+        margin: 0% 5% 10% 5%;
     }
     .about-image img{
         width: 95%;
@@ -1020,7 +1078,7 @@ body {
         max-width: 400%;
     }
     .card-container {
-        min-width: 225%; /* Ensure the container takes the full width */ 
+        min-width: 240%; /* Ensure the container takes the full width */ 
     }
     .service-box {
         max-width: 100%; 
@@ -1028,5 +1086,15 @@ body {
     }
     .btn{
         margin-left: 0%;
+    }
+    .values{
+        flex-direction: column;
+    }
+    .values-right{
+        flex-direction: column;
+    }
+    .values-left .heading{
+        font-size: 30px;
+        padding-top: 20px;
     }
 }

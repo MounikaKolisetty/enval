@@ -4,6 +4,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ScrollButtonComponent } from '../scroll-button/scroll-button.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-training',
@@ -12,7 +13,8 @@ import { ScrollButtonComponent } from '../scroll-button/scroll-button.component'
             FooterComponent,
             RouterOutlet, RouterLink, RouterLinkActive,
             CommonModule,
-            ScrollButtonComponent
+            ScrollButtonComponent,
+            MatIconModule
   ],
   templateUrl: './training.component.html',
   styleUrl: './training.component.css'

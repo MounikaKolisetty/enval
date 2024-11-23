@@ -281,10 +281,10 @@ app-navbar {
     padding: 20px;
     font-weight: bold;
 }
-.srvc-bottom mat-icon{
+.srvc-bottom span{
     padding-right: 20px;
 }
-.srvc-bottom mat-icon:hover{
+.srvc-bottom span:hover{
     cursor: pointer;
 }
 .sub-heading {

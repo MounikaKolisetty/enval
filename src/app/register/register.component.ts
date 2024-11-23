@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { ScrollButtonComponent } from '../scroll-button/scroll-button.component';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,8 @@ import { NavbarComponent } from '../navbar/navbar.component';
             RouterOutlet, RouterLink, RouterLinkActive,
             HttpClientModule,
             FooterComponent,
-            NavbarComponent
+            NavbarComponent,
+            ScrollButtonComponent
   ],
   providers: [UserService],
   templateUrl: './register.component.html',
