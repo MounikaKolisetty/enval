@@ -17,6 +17,7 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
 import { EnrolledcoursesComponent } from './enrolledcourses/enrolledcourses.component';
 import { RegisterComponent } from './register/register.component';
 import { EventsComponent } from './events/events.component';
+import { CorporateTrainingsComponent } from './corporate-trainings/corporate-trainings.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -37,5 +38,6 @@ export const routes: Routes = [
     { path: 'login', component: RegisterComponent},
     { path: 'password-reset', component:PasswordResetComponent},
     { path: 'enrolled-courses', component:EnrolledcoursesComponent},
-    { path: 'events', component:EventsComponent}
+    { path: 'events', component:EventsComponent},
+    { path: 'corporate-trainings', component: CorporateTrainingsComponent}
 ];
