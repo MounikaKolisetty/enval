@@ -107,7 +107,7 @@
     border-top: 1px solid #cfcfcf; /* Adjust the color and thickness as needed */
     display: flex;
     justify-content: space-between;
-    padding: 1% 15%;
+    padding: 1% 5%;
     @media (max-width: 450px) {
         flex-direction: column;
         padding-left: 0;
@@ -138,6 +138,8 @@
     list-style-type: none;
     margin: 0;
     text-align: right;
+    padding-left: 0;
+    padding-right: 70px;
     @media (max-width: 450px) {
         display: flex;
         padding: 0 0 10px 10px;
