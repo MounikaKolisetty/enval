@@ -33,7 +33,7 @@ app-navbar {
     opacity: 1; /* Start invisible */
     position: relative; /* Ensure it stays above the overlay */
     z-index: 2; /* Adjust z-index */
-    padding-top: 100px;
+    margin-top: 90px;
 }
 .home-content::before{
         content: '';
@@ -42,7 +42,7 @@ app-navbar {
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(232, 237, 243, 0.7); /* Black overlay with 50% opacity */
+        background: rgba(232, 237, 243, 0.9); /* Black overlay with 50% opacity */
         z-index: 1
 }
 .home-panel{
@@ -51,18 +51,18 @@ app-navbar {
     animation-delay: 0.2s; /* Delay for smooth transition */
 }
 .app-logo img {
-    max-width: 150px; /* Adjust the logo size */
+    max-width: 350px; /* Adjust the logo size */
     color: #fff;
+    padding-bottom: 20px;
 }
-.title {
+/* .title {
     font-family: Helvetica, sans-serif;
     font-weight: 400;
-    font-size: 3rem;
-    margin-bottom: 20px; /* Space between title and buttons */ 
+    margin-bottom: 20px; 
     color: #535353;
-    font-size: 1.875rem;
-    font-size: clamp(1.875rem, 1.0416666666666667rem + 3.7037037037037033vw, 4.375rem);
-}
+    font-size: 1rem;
+    font-size: clamp(1rem, 0.923469387755102rem + 0.27210884353741494vw, 1.25rem);
+} */
 .buttons {
     display: flex; /* Align buttons side by side */
     justify-content: center; /* Center buttons horizontally */
@@ -402,43 +402,31 @@ body {
 /*tetsimonial*/
 .testimonial-container {
     display: flex;
-    overflow: hidden;
-    width: 100%;
+    width: 400%;
     height: 350px; /* Adjust based on content */
     position: relative;
     padding-top: 20px;
     background-color: rgba(238, 238, 238, 0.8);
+    animation: anim 10s infinite;
 }
 .testimonial {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    width: 100%; /* Width of each testimonial */
-    padding: 20px;
-    box-sizing: border-box;
-}
-.testimonial-container .testimonial:nth-child(1){
-    animation: anim 20s infinite;
+    width: 100%; 
 }
 @keyframes anim {
-    0%, 15% {
-        margin-left: 100%;
-    }
-    20%, 35% {
-        margin-left: 0;
-    }
-    40%, 55% {
-        margin-left: -100%;
-    }
-    60%, 75% {
-        margin-left: -200%;
-    }
-    80%, 95% {
-        margin-left: -300%;
-    }
-    100% {
-        margin-left: -400%;
+    0%, 20% { 
+        margin-left: 0; 
+    } 
+    25%, 45% { 
+        margin-left: -100%; 
+    } 
+    50%, 70% { 
+        margin-left: -200%; 
+    } 
+    75%, 100% { 
+        margin-left: -300%; 
     }
 }
 .testi-content{

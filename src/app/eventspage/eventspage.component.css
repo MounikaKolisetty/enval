@@ -211,7 +211,7 @@ app-navbar {
     border: 1px solid #d0cfcf;
     margin-left: 27%;
     width: 400px;
-    height: 500px;
+    height: 400px;
     border-radius: 8px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
@@ -279,7 +279,7 @@ app-navbar {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    margin-top: 20%;
+    margin-top: 10%;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     align-items: center;

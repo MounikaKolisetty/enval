@@ -19,7 +19,7 @@ import { ScrollButtonComponent } from '../scroll-button/scroll-button.component'
 export class EventsComponent{
   playerConfig = {
     controls: 0,
-    mute: 1,
+    mute: 0,
     autoplay: 0
   };
   constructor(private renderer: Renderer2, private el: ElementRef) {}

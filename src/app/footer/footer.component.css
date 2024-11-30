@@ -107,7 +107,7 @@
     border-top: 1px solid #cfcfcf; /* Adjust the color and thickness as needed */
     display: flex;
     justify-content: space-between;
-    padding: 1% 5%;
+    padding:1% 5%;
     @media (max-width: 450px) {
         flex-direction: column;
         padding-left: 0;
@@ -117,22 +117,29 @@
     flex: 1;
 }
 .footer_logo{
-    padding-left: 40px;
+    padding-top: 10px;
+    margin-left: 40px;
 
     @media (max-width: 450px) {
         padding-left: 10px;
         padding-top: 10px;
     }
 }
+.footer-bottom .footer_logo{
+    text-align: center;
+}
 .footer-bottom .footer_logo img{
     width: 30%;
 }
-.footer_copyrights p{
+.footer_copyrights p, .footer_developed p{
     margin: 10px;
     font-family: Rubik, sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: #565872;
+}
+.footer_developed p{
+    text-align: center;
 }
 .social_media ul{
     list-style-type: none;

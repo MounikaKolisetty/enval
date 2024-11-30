@@ -475,4 +475,10 @@ title1{
         height: 230px;
     }
 }
+/* Add styles to stop scrolling */
+.stop-scroll .slider {
+    animation-play-state: paused; /* Pause the scrolling animation */
+}
+
+  
     

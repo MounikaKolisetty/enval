@@ -28,7 +28,7 @@ export class ConsultingComponent {
   ];
   playerConfig = {
     controls: 0,
-    mute: 1,
+    mute: 0,
     autoplay: 0
   };
   constructor(private renderer: Renderer2, private el: ElementRef) {}
@@ -51,6 +51,25 @@ export class ConsultingComponent {
         this.renderer.setStyle(placeholder, 'height', '390px'); // Set your desired desktop height
       }
     });
+  }
+  activeVideoIndex: number | null = null; 
+  scrollStopped: boolean = false; 
+  toggleVideo(index: number): void { 
+    if (this.activeVideoIndex === index) { 
+      this.scrollStopped = !this.scrollStopped;
+    } 
+    else { 
+      this.activeVideoIndex = index; 
+      this.scrollStopped = true;
+    } 
+  }
+
+  onPlayerStateChange(event: any, index: number): void { 
+    if ((event.data === 0 || event.data === 2) && this.activeVideoIndex === index) { // Video ended 
+      this.scrollStopped = false; // Resume scrolling 
+    } else if (event.data === 1 && this.activeVideoIndex === index) { // Video playing 
+      this.scrollStopped = true; // Stop scrolling 
+      }
   }
 }
 
