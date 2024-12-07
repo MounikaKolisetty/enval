@@ -481,6 +481,10 @@ app-navbar {
 }
 */
 /*tetsimonial*/
+.testi-section{
+    width: 100%;
+    overflow: hidden;
+}
 .testimonial-container {
     display: flex;
     width: 400%;
