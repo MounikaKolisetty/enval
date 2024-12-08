@@ -1,5 +1,4 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { loadStripe, StripeElements } from '@stripe/stripe-js';
 
 @Component({
   selector: 'app-secure-payment',
