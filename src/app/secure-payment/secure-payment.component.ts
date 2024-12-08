@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
+import { loadStripe, StripeElements } from '@stripe/stripe-js';
 
 @Component({
   selector: 'app-secure-payment',
@@ -7,6 +8,6 @@ import { Component } from '@angular/core';
   templateUrl: './secure-payment.component.html',
   styleUrl: './secure-payment.component.css'
 })
-export class SecurePaymentComponent {
+export class SecurePaymentComponent{
 
 }

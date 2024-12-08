@@ -18,12 +18,16 @@ import { EnrolledcoursesComponent } from './enrolledcourses/enrolledcourses.comp
 import { RegisterComponent } from './register/register.component';
 import { EventsComponent } from './events/events.component';
 import { CorporateTrainingsComponent } from './corporate-trainings/corporate-trainings.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
+import { CancellationRefundpolicyComponent } from './cancellation-refundpolicy/cancellation-refundpolicy.component';
+import { ShippingDeliveryComponent } from './shipping-delivery/shipping-delivery.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent , title: 'Enval'},
     { path: 'home', component: HomeComponent, title: 'Enval'},
     { path: 'about', component: AboutComponent, title: 'About - Enval' },
-    { path: 'contact', component: ContactComponent, title: 'Contact - Enval'},
+    { path: 'contact-us', component: ContactComponent, title: 'Contact - Enval'},
     { path: 'consulting', component: ConsultingComponent, title: 'Consulting - Enval'},
     { path: 'training', component: TrainingComponent, title: 'Trainings - Enval'},
     { path: 'projects', component: ProjectsComponent, title: 'Projects - Enval'},
@@ -39,5 +43,9 @@ export const routes: Routes = [
     { path: 'password-reset', component:PasswordResetComponent, title: 'Password Rest - Enval'},
     { path: 'enrolled-courses', component:EnrolledcoursesComponent, title: 'Enrolled Courses - Enval'},
     { path: 'events', component:EventsComponent, title: 'Events - Enval'},
-    { path: 'corporate-trainings', component: CorporateTrainingsComponent, title: 'Corporate Trainings - Enval'}
+    { path: 'corporate-trainings', component: CorporateTrainingsComponent, title: 'Corporate Trainings - Enval'},
+    { path: 'privacy-policy', component: PrivacyPolicyComponent, title: 'Privacy Policy - Enval'},
+    { path: 'terms-&-conditions', component: TermsConditionsComponent, title: 'Terms and Conditions - Enval'},
+    { path: 'cancellation-&-refundpolicy', component: CancellationRefundpolicyComponent, title: 'Cancellation and Refund Policy - Enval'},
+    { path: 'shipping-&-delivery', component: ShippingDeliveryComponent, title: 'Shipping and Delivery - Enval'}
 ];

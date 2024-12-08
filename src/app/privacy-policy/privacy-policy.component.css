@@ -1,0 +1,67 @@
+app-navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+    background-color: #fff; /* Optional: set background color */
+}
+.contact-bg {
+    background-image: url('../../assets/img/footer/contact_bg.jpg');
+    position: relative;
+    width: 100%;
+    height: 50%;
+    background-size: cover;       /* Ensures the entire image is visible */
+    background-position: center;    /* Centers the image */
+    background-repeat: no-repeat;   /* Prevents the image from repeating */
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking */
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    padding-top: 100px;
+}
+.contact-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(4, 19, 38, 0.9); /* Black overlay with 50% opacity */
+    z-index: 1;
+}
+.contact-bg p{
+    margin-top: 0;
+    font-weight: 500;
+    margin-bottom: 8px;
+    z-index: 3;
+    color: #fff;
+    font-size: 45px;
+    font-family: Rubik, sans-serif;
+}
+.privacy-policy{
+    margin: 0 120px;
+    padding: 10px;
+    font-family: Rubik, sans-serif;
+}
+.privacy-policy h3{
+    font-size: 45px;
+    font-weight: 500;
+    color: #002147;
+}
+.privacy-policy h4{
+    font-size: 20px;
+    font-weight: 400;
+    margin: 20px 0;
+    color: #002147;
+}
+.privacy-policy p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #555;
+}
+.privacy-policy li{
+    color: #555;
+}
