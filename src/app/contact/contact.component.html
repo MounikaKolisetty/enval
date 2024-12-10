@@ -104,6 +104,8 @@
                 <textarea type="text" formControlName="message" required></textarea>
                 <label class="placeholder">Message<sup>*</sup></label>
             </div>
+            <re-captcha (resolved)="resolved($event)" siteKey="6LfeP5cqAAAAAPBDawg7onXwpN2AqW2GjPwvZBc0"></re-captcha>
+                        
             <div class="submit-btn">
                 <button type="submit" class="btn">Send Message</button>
                 <div *ngIf="messageSent" class="info">

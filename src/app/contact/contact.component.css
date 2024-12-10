@@ -288,6 +288,7 @@ app-navbar {
 }
 .submit-btn{
     display: flex;
+    padding-top: 20px;
 }
 .info{
     display: flex;
