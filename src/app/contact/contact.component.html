@@ -79,28 +79,37 @@
         </div>
     </div>
     <div class="contact-right">
-        <form class="contact-inputs">
+        <form class="contact-inputs" [formGroup]="userForm" (ngSubmit)="onSubmit()">
             <div class="name-inputs">
-                <div class="first-name">
-                    <input type="text" placeholder="First Name">
+                <div class="first-name input-inner">
+                    <input type="text" formControlName="firstName" required>
+                    <label class="placeholder">First Name<sup>*</sup></label>
                 </div>
-                <div class="last-name">
-                    <input type="text" placeholder="Last Name">
+                <div class="last-name input-inner">
+                    <input type="text" formControlName="lastName" required>
+                    <label class="placeholder">Last Name<sup>*</sup></label>
                 </div>
             </div>
             <div class="email-inputs">
-                <div class="email">
-                    <input type="text" placeholder="Email">
+                <div class="email input-inner">
+                    <input type="text" formControlName="email" required>
+                    <label class="placeholder">Email<sup>*</sup></label>
                 </div>
-                <div class="phoneNumber">
-                    <input type="text" placeholder="Phone Number">
+                <div class="phoneNumber input-inner">
+                    <input type="text" formControlName="phoneNumber" required>
+                    <label class="placeholder">Phone Number<sup>*</sup></label>
                 </div>
             </div>
-            <div class="message">
-                <textarea type="text" placeholder="Message"></textarea>
+            <div class="message input-inner">
+                <textarea type="text" formControlName="message" required></textarea>
+                <label class="placeholder">Message<sup>*</sup></label>
             </div>
             <div class="submit-btn">
-                <a class="btn" href="#">Send Message</a>
+                <button type="submit" class="btn">Send Message</button>
+                <div *ngIf="messageSent" class="info">
+                    <i class="fa-solid fa-check sent-icon"></i>
+                    <div class="sent-message">Message Sent!</div>
+                </div>
             </div>
         </form>
     </div>

@@ -26,4 +26,10 @@ export class UserService {
   getUserCourses(): Observable<any> {
      return this.http.get(`${this.apiUrl}/course/user-courses`, { withCredentials: true }); 
   }
+  sendHomeContact(formData: any): Observable<any>{
+    return this.http.post(`${this.apiUrl}/email/send-email`, formData ,{ withCredentials: true });
+  }
+  sendUserContact(formData: any): Observable<any>{
+    return this.http.post(`${this.apiUrl}/email/send-form`, formData ,{ withCredentials: true })
+  }
 }

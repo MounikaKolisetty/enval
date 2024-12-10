@@ -7,6 +7,8 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ScrollButtonComponent } from '../scroll-button/scroll-button.component';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -18,17 +20,53 @@ import { ScrollButtonComponent } from '../scroll-button/scroll-button.component'
             RecaptchaModule,
             CommonModule,
             HttpClientModule,
-            ScrollButtonComponent
+            ScrollButtonComponent,
+            ReactiveFormsModule
             ],
+  providers: [UserService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
   isContactVisible: boolean = false; 
+  userForm!: FormGroup;
+  messageSent: boolean = false;
+  captchaResolved: boolean = false; // Variable to track reCAPTCHA status
+  constructor(private fb: FormBuilder, private userService: UserService) { }
+  ngOnInit(){
+    this.userForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      corporateTraining: [false], 
+      trainingForPractitioners: [false], 
+      consulting: [false], 
+      projects: [false], 
+      subscribe: [false],
+      message: ['', Validators.required]
+    })
+  }
   toggleContact() {
     this.isContactVisible = !this.isContactVisible; 
   } 
   closeContact() {
     this.isContactVisible = false; 
+  }
+  resolved(captchaResponse: string | null) { 
+    console.log('Captcha Response:', captchaResponse); 
+    this.captchaResolved = !!captchaResponse; // Set to true if captchaResponse is not empty 
+  }
+  onSubmit(){
+    if(this.userForm.valid && this.captchaResolved){
+      this.userService.sendHomeContact(this.userForm.value).subscribe(
+        response => {
+          console.log('Email sent successfully', response); 
+          this.messageSent = true;
+          this.userForm.reset();
+        }, 
+        error => { 
+          console.error('Error sending email', error); 
+        }
+      );
+    }
   }
 }

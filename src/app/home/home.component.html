@@ -755,7 +755,7 @@
     <div class="contact-container">
         <div class="row">
             <div class="col">
-                <form class="contact-form-inner">
+                <form class="contact-form-inner" [formGroup]="userForm" (ngSubmit)="onSubmit()">
                     <div class="section-title">
                         <h2 class="form-title">Connect with us</h2>
                         <p>We will be happy to answer your questions.</p>
@@ -763,51 +763,59 @@
                     <div class="row">
                         <div class="col-1">
                             <div class="single-input-inner">
-                                <input type="text" placeholder="Full name">
+                                <input type="text" formControlName="name" required>
+                                <label class="placeholder">Full Name<sup>*</sup></label>
                             </div>
                         </div>
                         <div class="col-1">
                             <div class="single-input-inner">
-                                <input type="text" placeholder="Email Id">
+                                <input type="text" formControlName="email" required>
+                                <label class="placeholder">Email Id<sup>*</sup></label>
                             </div>
                         </div>
                         <div class="col-1">
                             <div class="single-input-inner">
-                                <input type="checkbox" id="agree" name="option1">
+                                <input type="checkbox" formControlName="corporateTraining" id="agree" name="option1">
                                 <label for="option1">Corporate Training</label>
                             </div>
                         </div>
                         <div class="col-1">
                             <div class="single-input-inner">
-                                <input type="checkbox" id="agree" name="option2">
+                                <input type="checkbox" formControlName="trainingForPractitioners" id="agree" name="option2">
                                 <label for="option2">Training for Practitioners</label>
                             </div>
                         </div>
                         <div class="col-1">
                             <div class="single-input-inner">
-                                <input type="checkbox" id="agree" name="option3">
+                                <input type="checkbox" formControlName="consulting" id="agree" name="option3">
                                 <label for="option3">Consulting</label>
                             </div>
                         </div>
                         <div class="col-1">
                             <div class="single-input-inner">
-                                <input type="checkbox" id="agree" name="option4">
+                                <input type="checkbox" formControlname="projects" id="agree" name="option4">
                                 <label for="option4">Projects</label>
                             </div>
                         </div>
                         <div class="col-2">
                             <div class="single-input-inner">
-                                <textarea placeholder="Message"></textarea>
+                                <textarea name="multiline" formControlName="message" required></textarea>
+                                <label class="placeholder">Message<sup>*</sup></label>
                             </div>
                         </div>
+
+                        <re-captcha (resolved)="resolved($event)" siteKey="6LfeP5cqAAAAAPBDawg7onXwpN2AqW2GjPwvZBc0"></re-captcha>
                         <div class="col-3">
+                            <div class="message">
                             <div class="single-input-inner">
-                                <input type="checkbox"> Also subscribe us
+                                <input type="checkbox" formControlName="subscribe"> Also subscribe us
                             </div>
-                        </div>
-                        <!-- <re-captcha siteKey="YOUR_SITE_KEY"></re-captcha> -->
-                        <div class="col-3">
-                            <a class="btn" href="#">Send Message</a>
+                            <div *ngIf="messageSent" class="info">
+                                <i class="fa-solid fa-check sent-icon"></i>
+                                <div class="sent-message">Message Sent!</div>
+                            </div>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
                         </div>
                     </div>
                 </form>

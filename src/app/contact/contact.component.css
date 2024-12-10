@@ -238,14 +238,71 @@ app-navbar {
     border-radius: 4px;
     margin-bottom: 20px;
 }
+.input-inner {
+    position: relative;
+}
+.input-inner input, .input-inner textarea {
+    padding: 5%;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid rgba(1, 30, 61, 0.5);
+    background-color: #fff;
+    font-family: Rubik, sans-serif;
+    resize: none;
+}
+.input-inner textarea {
+    width: 100%;
+    max-width: 650px;
+    height: 150px;
+}
+.placeholder {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 0px 5px;
+    color: #666;
+    transition: 0.3s;
+    pointer-events: none;
+    @media (max-width: 450px){
+       left: 40px;
+    }
+}
+.input-inner input:focus + .placeholder,
+.input-inner input:valid + .placeholder,
+.input-inner textarea:focus + .placeholder,
+.input-inner textarea:valid + .placeholder {
+    top: -10px;
+    background-color: #fff;
+    color: #f0b429;
+}
 .message textarea {
     width: 92%;
     padding: 10px;
-    border: 1px solid #ddd;
     border-radius: 4px;
     height: 150px;
     resize: none;
     margin-bottom: 30px;
+}
+.submit-btn{
+    display: flex;
+}
+.info{
+    display: flex;
+    margin-left: 30px;
+    align-items: center;
+}
+.info .sent-icon{
+    color: #fff;
+    border-radius: 50%;
+    padding: 3px 4px;
+    background-color: rgb(100, 171, 100);
+    font-size: 13px;
+}
+.info .sent-message{
+    padding-left: 10px;
 }
 .btn {
     font-family: Rubik, sans-serif;
@@ -256,6 +313,8 @@ app-navbar {
     border-radius: 4px;
     text-decoration: none;
     cursor: pointer;
+    border: none;
+    font-size: 16px;
 }
 .map{
     margin-top: 10%;
