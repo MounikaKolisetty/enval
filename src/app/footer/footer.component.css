@@ -116,6 +116,21 @@
 .footer-bottom .footer_logo, .footer-bottom .footer_copyrights, .footer-bottom .social_media{
     flex: 1;
 }
+.footer_copyrights .policies{
+    display: flex;
+    margin-left: 15px;
+    font-family: Rubik, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: #565872;
+}
+.footer_copyrights .policies .policy-link{
+    text-decoration: none;
+    color: #565872;
+}
+.footer_copyrights .policies div{
+    padding: 0 3px;
+}
 .footer_logo{
     padding-top: 10px;
     margin-left: 40px;

@@ -27,7 +27,7 @@ export const routes: Routes = [
     { path: '', component: HomeComponent , title: 'Enval'},
     { path: 'home', component: HomeComponent, title: 'Enval'},
     { path: 'about', component: AboutComponent, title: 'About - Enval' },
-    { path: 'contact-us', component: ContactComponent, title: 'Contact - Enval'},
+    { path: 'contactus', component: ContactComponent, title: 'Contact - Enval'},
     { path: 'consulting', component: ConsultingComponent, title: 'Consulting - Enval'},
     { path: 'training', component: TrainingComponent, title: 'Trainings - Enval'},
     { path: 'projects', component: ProjectsComponent, title: 'Projects - Enval'},
@@ -44,8 +44,8 @@ export const routes: Routes = [
     { path: 'enrolled-courses', component:EnrolledcoursesComponent, title: 'Enrolled Courses - Enval'},
     { path: 'events', component:EventsComponent, title: 'Events - Enval'},
     { path: 'corporate-trainings', component: CorporateTrainingsComponent, title: 'Corporate Trainings - Enval'},
-    { path: 'privacy-policy', component: PrivacyPolicyComponent, title: 'Privacy Policy - Enval'},
-    { path: 'terms-&-conditions', component: TermsConditionsComponent, title: 'Terms and Conditions - Enval'},
-    { path: 'cancellation-&-refundpolicy', component: CancellationRefundpolicyComponent, title: 'Cancellation and Refund Policy - Enval'},
-    { path: 'shipping-&-delivery', component: ShippingDeliveryComponent, title: 'Shipping and Delivery - Enval'}
+    { path: 'privacypolicy', component: PrivacyPolicyComponent, title: 'Privacy Policy - Enval'},
+    { path: 'termsconditions', component: TermsConditionsComponent, title: 'Terms and Conditions - Enval'},
+    { path: 'cancellationrefundpolicy', component: CancellationRefundpolicyComponent, title: 'Cancellation and Refund Policy - Enval'},
+    { path: 'shippingdelivery', component: ShippingDeliveryComponent, title: 'Shipping and Delivery - Enval'}
 ];
