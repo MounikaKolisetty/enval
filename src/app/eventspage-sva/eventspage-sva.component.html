@@ -33,10 +33,41 @@
     <div class="banner-buttons">
         <div class="options"><a (click)="scrollToTraining()">View training options</a></div>
         <div class="advisor">
-            <a routerLink="/contact-us" routerLinkActive="active" ariaCurrentWhenActive="page">
-                Talk to our advisor
-            </a>
+            <a (click)="toggleContact()">Talk to our advisor</a>
         </div>
+    </div>
+    <div *ngIf="isContactVisible" class="contact"> 
+        <div class="training-form">
+        <div class="individual-form">
+            <div class="form-heading-bar">
+                <div class="form-heading">
+                    Fill up the following form to connect with our advisor
+                </div>
+                <button (click)="closeContact()" class="closebutton">x</button> 
+            </div>
+            <div class="form-items">
+                <input type="text" placeholder="Name">
+            </div>
+            <div class="form-items">
+                <input type="text" placeholder="Designation">
+            </div>
+            <div class="form-items">
+                <input type="text" placeholder="Organization">
+            </div>
+            <div class="form-items">
+                <input type="text" placeholder="Location">
+            </div>
+            <div class="form-items">
+                <input type="text" placeholder="Email ID">
+            </div>
+            <div class="form-items">
+                <input type="text" placeholder="Mobile No.">
+            </div>
+            <div class="button-ele">
+                <button type="submit">Submit Form</button>
+            </div>
+        </div>
+    </div> 
     </div>
 </div>
 <div class="course-right">

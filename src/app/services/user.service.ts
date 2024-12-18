@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:5062/api'; // Replace with your backend URL 
+  private apiUrl = environment.apiUrl; // Replace with your backend URL 
   constructor(private http: HttpClient) {} 
   signUp(user: any): Observable<any> { 
     return this.http.post(`${this.apiUrl}/user/signup`, user); 
@@ -27,9 +28,9 @@ export class UserService {
      return this.http.get(`${this.apiUrl}/course/user-courses`, { withCredentials: true }); 
   }
   sendHomeContact(formData: any): Observable<any>{
-    return this.http.post(`${this.apiUrl}/email/send-email`, formData ,{ withCredentials: true });
+    return this.http.post(`${this.apiUrl}/sendEmail.php`, formData ,{ withCredentials: true });
   }
   sendUserContact(formData: any): Observable<any>{
-    return this.http.post(`${this.apiUrl}/email/send-form`, formData ,{ withCredentials: true })
+    return this.http.post(`${this.apiUrl}/contactForm.php`, formData ,{ withCredentials: true })
   }
 }

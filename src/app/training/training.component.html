@@ -291,7 +291,10 @@
         <p>ENVAL conducts customised training courses in form of on-site workshops, coupled with hands-on sessions 
             on live projects. These are conducted by internationally acclaimed experts with acumen in VM combined with 
             other key techniques, niche sectoral segments and large-scale project management. </p>
-        <a (click)="toggleContact()">Talk to our Advisor</a>
+        <div class="buttons">
+            <a (click)="toggleContact()">Talk to our Advisor</a>
+            <a class="more-btn" routerLink="/corporate-trainings" routerLinkActive="active" ariaCurrentWhenActive="page">Read More</a>
+        </div>
     </div>
     </div>
 </div>
@@ -312,30 +315,25 @@
             <button (click)="closeContact()" class="closebutton">x</button> 
         </div>
         <div class="form-items">
-            <input type="text" placeholder="Full Name">
+            <input type="text" placeholder="Name">
+        </div>
+        <div class="form-items">
+            <input type="text" placeholder="Designation">
         </div>
         <div class="form-items">
             <input type="text" placeholder="Organization">
         </div>
         <div class="form-items">
-            <input type="text" placeholder="Designation">
-        </div>
-        <div class="dropdown-container"> 
-            <select id="options" name="options" class="dropdown"> 
-                <option value="selectcourse">Select Course</option>
-                <option value="option1">Classroom Training</option> 
-                <option value="option2">Training + Certification</option> 
-                <option value="option3">Virtual Training</option>
-            </select> 
-        </div>
-        <div class="form-items">
             <input type="text" placeholder="Location">
         </div>
         <div class="form-items">
-            <input type="text" placeholder="Phone Number">
+            <input type="text" placeholder="No. of trainees">
         </div>
         <div class="form-items">
-            <input type="text" placeholder="Message">
+            <input type="text" placeholder="Email ID">
+        </div>
+        <div class="form-items">
+            <input type="text" placeholder="Mobile No.">
         </div>
         <div class="button-ele">
             <button type="submit">Submit Form</button>

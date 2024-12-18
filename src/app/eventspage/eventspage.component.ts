@@ -3,6 +3,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ScrollButtonComponent } from '../scroll-button/scroll-button.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-eventspage',
@@ -10,18 +11,25 @@ import { ScrollButtonComponent } from '../scroll-button/scroll-button.component'
   imports: [NavbarComponent,
             FooterComponent,
             RouterOutlet, RouterLink, RouterLinkActive,
-            ScrollButtonComponent
+            ScrollButtonComponent,
+            CommonModule
   ],
   templateUrl: './eventspage.component.html',
   styleUrl: './eventspage.component.css'
 })
 export class EventspageComponent { 
   @ViewChild('training') trainingDiv!: ElementRef;
+  isContactVisible: boolean = false; 
 
   scrollToTraining() {
     const element = this.trainingDiv.nativeElement;
     const top = element.getBoundingClientRect().top + window.pageYOffset - 100; // Adjust the offset as needed
     window.scrollTo({ top: top, behavior: 'smooth' });
   }
-
+  toggleContact() {
+    this.isContactVisible = !this.isContactVisible; 
+  } 
+  closeContact() {
+    this.isContactVisible = false; 
+  }
 }

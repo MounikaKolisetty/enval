@@ -509,6 +509,12 @@ app-navbar {
         left: 10%;
     }
 }
+.corporate-trainings .buttons{
+    display: flex;
+    margin: 0 0 0 30%;
+    gap: 20px;
+    text-align: center;
+}
 .bg-yellow::after{
     content: ''; 
     position: absolute; 
@@ -552,16 +558,16 @@ app-navbar {
         font-size: 15px;
     }
 }
-.corporate-trainings a{
+.corporate-trainings .buttons a, .corporate-trainings .buttons .more-btn{
     text-align: center;
     display: flex;
     justify-content: center;
     background-color: #F5CA45;
     padding: 10px;
-    margin: 0 33% ;
     color: #002147;
     border-radius: 8px;
     cursor: pointer;
+    text-decoration: none;
 } 
 .contact {
     position: fixed;
