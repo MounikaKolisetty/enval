@@ -35,7 +35,7 @@ export const routes: Routes = [
     { path: 'eventspage-svp', component: EventspageComponent, title: 'Student Value Practitioner (SVP) Certification - Enval'},
     { path: 'eventspage-sva', component: EventspageSvaComponent, title: 'Senior Value Analyst (SVA) Certification - Enval'},
     { path: 'eventspage-pva', component: EventspagePvaComponent, title: 'Professional Value Analyst (PVA) Certification - Enval'},
-    { path: 'secure-payment', component: SecurePaymentComponent, title: 'Payment - Enval'},
+    { path: 'secure-payment/:courseTitle', component: SecurePaymentComponent, title: 'Payment - Enval'},
     { path: 'training-vma', component: TrainingVmaComponent, title: 'Value Methodology Associate (VMA) Certification - Enval'},
     { path: 'training-vmf2', component:TrainingVmf2Component, title: 'Value Methodology Fundamentals - 2 (VMF2) Certification - Enval'},
     { path: 'training-cvs', component: TrainingCvsComponent, title: 'Certified Value Specialist (CVS) Certification - Enval'},

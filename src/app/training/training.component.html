@@ -308,6 +308,8 @@
 <div *ngIf="isContactVisible" class="contact"> 
     <div class="training-form">
     <div class="individual-form">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <!-- <form> -->
         <div class="form-heading-bar">
             <div class="form-heading">
                 Fill up the following form to connect with our advisor
@@ -315,29 +317,42 @@
             <button (click)="closeContact()" class="closebutton">x</button> 
         </div>
         <div class="form-items">
-            <input type="text" placeholder="Name">
+            <input type="text" formControlName="name" required>
+            <label class="placeholder">Name<sup>*</sup></label>
         </div>
         <div class="form-items">
-            <input type="text" placeholder="Designation">
+            <input type="text" formControlName="designation" required>
+            <label class="placeholder">Designation<sup>*</sup></label>
         </div>
         <div class="form-items">
-            <input type="text" placeholder="Organization">
+            <input type="text" formControlName="organization" required>
+            <label class="placeholder">Organization<sup>*</sup></label>
         </div>
         <div class="form-items">
-            <input type="text" placeholder="Location">
+            <input type="text" formControlName="location" required>
+            <label class="placeholder">Location<sup>*</sup></label>
         </div>
         <div class="form-items">
-            <input type="text" placeholder="No. of trainees">
+            <input type="text" formControlName="trainees" required>
+            <label class="placeholder">No. of trainees<sup>*</sup></label>
         </div>
         <div class="form-items">
-            <input type="text" placeholder="Email ID">
+            <input type="text" formControlName="email" required>
+            <label class="placeholder">Email ID<sup>*</sup></label>
         </div>
         <div class="form-items">
-            <input type="text" placeholder="Mobile No.">
+            <input type="text" formControlName="mobile" required>
+            <label class="placeholder">Mobile No.<sup>*</sup></label>
+        </div>
+        <re-captcha (resolved)="resolved($event)" siteKey="6LfeP5cqAAAAAPBDawg7onXwpN2AqW2GjPwvZBc0"></re-captcha>
+        <div *ngIf="messageSent" class="info">
+            <i class="fa-solid fa-check sent-icon"></i>
+            <div class="sent-message">Message Sent!</div>
         </div>
         <div class="button-ele">
             <button type="submit">Submit Form</button>
         </div>
+    </form>
     </div>
 </div> 
 </div>

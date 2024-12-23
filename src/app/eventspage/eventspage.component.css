@@ -424,7 +424,7 @@ app-navbar {
     z-index: 1000;
 }
 .contact .training-form{
-    margin: 10% 30%;
+    margin: 5% 30%;
     padding: 40px 25px;
     background-color: #fff;
     border-radius: 8px;
@@ -445,12 +445,27 @@ app-navbar {
     font-weight: 700;
     margin-bottom: 28px;
 }
-.form-items, .dropdown-container{
+.form-items{
     width: 100%;
     max-width: 550px;
     margin-bottom: 20px;
+    position: relative;
 }
-.form-items input, .dropdown-container .dropdown{
+.placeholder {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 0px 5px;
+    color: #000;
+    transition: 0.3s;
+    pointer-events: none;
+}
+@media (max-width: 450px){
+    .placeholder{
+        left: 40px;
+    }
+}
+.form-items input{
     width: 100%;
     padding: 11px 15px;
     border: 1px solid #DADBDD;
@@ -458,8 +473,6 @@ app-navbar {
     color: #606266;
     font-family: Rubik, sans-serif;
     font-size: 16px;
-}
-.form-items input{
     width: 100%;
 }
 @media (max-width: 450px) {
@@ -494,4 +507,29 @@ app-navbar {
     font-family: Rubik, sans-serif;
     font-size: 16px;
     border-radius: 4px;
+    margin-top: 10px;
+}
+.form-items input:focus + .placeholder,
+.form-items input:valid + .placeholder{
+    top: -10px;
+    background-color: #fff;
+    color: #f0b429;
+}
+.form-items input:focus {
+    border: 1px solid #DADBDD; /* Change the border color */ 
+    outline: none;
+}
+.info{
+    display: flex;
+    margin: 10px;
+}
+.info .sent-icon{
+    color: #fff;
+    border-radius: 50%;
+    padding: 3px 4px;
+    background-color: rgb(100, 171, 100);
+    font-size: 13px;
+}
+.info .sent-message{
+    padding-left: 10px;
 }

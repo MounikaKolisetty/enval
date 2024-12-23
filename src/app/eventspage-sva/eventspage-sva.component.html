@@ -38,35 +38,48 @@
     </div>
     <div *ngIf="isContactVisible" class="contact"> 
         <div class="training-form">
-        <div class="individual-form">
-            <div class="form-heading-bar">
-                <div class="form-heading">
-                    Fill up the following form to connect with our advisor
+            <div class="individual-form">
+                <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="form-heading-bar">
+                    <div class="form-heading">
+                        Fill up the following form to connect with our advisor
+                    </div>
+                    <button (click)="closeContact()" class="closebutton">x</button> 
                 </div>
-                <button (click)="closeContact()" class="closebutton">x</button> 
+                <div class="form-items">
+                    <input type="text" formControlName="name" required>
+                    <label class="placeholder">Name<sup>*</sup></label>
+                </div>
+                <div class="form-items">
+                    <input type="text" formControlName="designation" required>
+                    <label class="placeholder">Designation<sup>*</sup></label>
+                </div>
+                <div class="form-items">
+                    <input type="text" formControlName="organization" required>
+                    <label class="placeholder">Organization<sup>*</sup></label>
+                </div>
+                <div class="form-items">
+                    <input type="text" formControlName="location" required>
+                    <label class="placeholder">Location<sup>*</sup></label>
+                </div>
+                <div class="form-items">
+                    <input type="text" formControlName="email" required>
+                    <label class="placeholder">Email ID<sup>*</sup></label>
+                </div>
+                <div class="form-items">
+                    <input type="text" formControlName="mobile" required>
+                    <label class="placeholder">Mobile No.<sup>*</sup></label>
+                </div>
+                <re-captcha (resolved)="resolved($event)" siteKey="6LfeP5cqAAAAAPBDawg7onXwpN2AqW2GjPwvZBc0"></re-captcha>
+                <div *ngIf="messageSent" class="info">
+                    <i class="fa-solid fa-check sent-icon"></i>
+                    <div class="sent-message">Message Sent!</div>
+                </div>
+                <div class="button-ele">
+                    <button type="submit">Submit Form</button>
+                </div>
+                </form>
             </div>
-            <div class="form-items">
-                <input type="text" placeholder="Name">
-            </div>
-            <div class="form-items">
-                <input type="text" placeholder="Designation">
-            </div>
-            <div class="form-items">
-                <input type="text" placeholder="Organization">
-            </div>
-            <div class="form-items">
-                <input type="text" placeholder="Location">
-            </div>
-            <div class="form-items">
-                <input type="text" placeholder="Email ID">
-            </div>
-            <div class="form-items">
-                <input type="text" placeholder="Mobile No.">
-            </div>
-            <div class="button-ele">
-                <button type="submit">Submit Form</button>
-            </div>
-        </div>
     </div> 
     </div>
 </div>
@@ -255,7 +268,7 @@
             </div>
         </div> -->
         <div class="Enroll-btn">
-            <a href="" class="a-btn">Enroll Now</a>
+            <a [routerLink]="['/secure-payment', 'Senior Value Analyst (SVA)']" routerLinkActive="active" ariaCurrentWhenActive="page" class="a-btn">Enroll Now</a>
         </div>
     </div>
     </div>

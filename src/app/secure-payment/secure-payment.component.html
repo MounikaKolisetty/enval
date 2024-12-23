@@ -1,0 +1,91 @@
+<div class="header">
+    <img src="assets/img/home/logo_trans.png" alt="img" style="width: 375px; height: auto;"> 
+</div>
+<div class="payment">
+    <div class="container">
+        <div class="basic-details">
+
+            <div class="basic-header">Basic Details</div>
+            <form [formGroup]="paymentForm">
+
+                <div class="basic-sec">
+                    <div class="first-line">
+                        <div class="name-field"> 
+                            <label class="field-label" for="name">Name<span>*</span></label> 
+                            <input type="text" id="name" name="name" placeholder="Enter your full name here" required formControlName="userName" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userName'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userName'].invalid">
+                                error
+                            </span>
+                        </div> 
+
+                        <div class="phone-field"> 
+                            <label class="field-label" for="phone">Phone number<span>*</span></label> 
+                            <div class="input-fields">
+                                <select id="country-code" name="country-code" formControlName="selectedCountryCode" (change)="onCountryChange($event)" required> 
+                                    <option *ngFor="let country of countries" [value]="country.code">{{country.code}}</option> 
+                                </select>
+                                <input type="tel" id="phone" name="phone" [placeholder]="selectedCountryDialCode + ' - Phone Number'" required formControlName="userContact" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userContact'].invalid}">
+                                <span class="material-symbols-outlined phone-info-icon"  *ngIf="formSubmitted && paymentForm.controls['userContact'].invalid">
+                                    error
+                                </span>
+                                
+                            </div> 
+                        </div> 
+                    </div>
+
+                    <div class="email-field"> 
+                        <label class="field-label" for="email">Email ID<span>*</span></label> 
+                        <input type="email" id="email" name="email" placeholder="example@site.com" required formControlName="userEmail" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userEmail'].invalid}"> 
+                        <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userEmail'].invalid">
+                            error
+                        </span>                    
+                    </div> 
+
+                    <div class="state-field"> 
+                        <label class="field-label" for="state">State<span>*</span></label> 
+                        <select id="state" name="state" required formControlName="state" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['state'].invalid}"> 
+                            <option value="">Select State</option> 
+                            <option *ngFor="let state of states" [value]="state.code">{{state.name}}</option> 
+                        </select>
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['state'].invalid">
+                                error
+                            </span>
+                    </div> 
+                    <button class="proceed-btn" type="submit" (click)="createOrder()">Proceed</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="order-summary">
+        <div class="summary-header">
+            <div class="header-icon"><i class="fa-regular fa-rectangle-list"></i></div>
+            <div class="header-text">Order Summary</div>
+        </div>
+        <div class="summary-details">
+            <div class="course-details">
+                <div class="course-heading">{{ courseTitle }}</div>
+                <div class="course-time">
+                    <i class="fa-regular fa-calendar"></i>
+                    25<sup>th</sup> Jan 2025
+                </div>
+            </div>
+            <div class="program-fees">
+                <div class="fees-text">Program Fees</div>
+                <div class="fees">₹400</div>
+            </div>
+        </div>
+        <div class="summary-bottom">
+            <div class="billing-details">
+                Billing Details
+            </div>
+            <div class="total-price">
+                <div class="price-text">Total Price</div>
+                <div class="fees">₹400.00</div>
+            </div>
+        </div>
+        <div class="grand-total-price">
+            <div class="grand-text">Grand Total</div>
+            <div class="fees">₹400.00</div>
+        </div>
+    </div>
+</div>
