@@ -31,12 +31,13 @@ export class PaymentService {
     };
   }
 
-  setOrderDetails(amount: number, userName: string, userEmail: string, userContact: string, orderId: string): void {
+  setOrderDetails(amount: number, userName: string, userEmail: string, userContact: string, orderId: string, courseTitle: string): void {
     this.razorpayOptions.amount = amount;
     this.razorpayOptions.prefill.name = userName;
     this.razorpayOptions.prefill.email = userEmail;
     this.razorpayOptions.prefill.contact = userContact;
     this.razorpayOptions.order_id = orderId;
+    this.razorpayOptions.notes = { courseTitle: courseTitle };
   }
 
   openRazorpay() {
@@ -49,6 +50,7 @@ export class PaymentService {
       razorpay_payment_id: paymentId, 
       razorpay_order_id: orderId, 
       razorpay_signature: signature, 
+      course_title: this.razorpayOptions.notes.courseTitle
     }; 
     
     this.userService.verifyPayment(verifyDetails).subscribe( 

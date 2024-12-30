@@ -184,3 +184,26 @@
     left: -25px;
     color: red;
 }
+@media (max-width: 450px) {
+    .header img{
+        padding-left: 50px;  
+    }
+    .payment{
+        flex-direction: column;
+    }
+    .payment .order-summary{
+        order: 1;
+        width: 100%;
+    }
+    .payment .container{
+        order: 2;
+        width: 100%;
+    }
+    .basic-details .first-line{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .basic-details .name-field, .basic-details .email-field, .basic-details .state-field{ 
+        max-width: 250px;
+    }
+}

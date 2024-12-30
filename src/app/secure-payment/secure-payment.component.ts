@@ -73,7 +73,7 @@ export class SecurePaymentComponent{
       (response:any) => { 
         console.log(response)
         const orderId = response.orderId; 
-        this.paymentService.setOrderDetails(amount, formValue.userName, formValue.userEmail, formValue.userContact, orderId); 
+        this.paymentService.setOrderDetails(amount, formValue.userName, formValue.userEmail, formValue.userContact, orderId, this.courseTitle); 
         this.paymentService.openRazorpay(); 
       }, 
       (error: HttpErrorResponse) => { 

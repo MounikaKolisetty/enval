@@ -51,14 +51,15 @@ app-navbar {
     animation-delay: 0.2s; /* Delay for smooth transition */
 }
 .app-logo {
-    color: #002147;
+    background: linear-gradient(45deg, #f0b429, #002147);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
     padding-bottom: 20px;
     font-family: Rubik, sans-serif;
     font-weight: 500;
     margin-bottom: 8px;
     z-index: 100;
-    font-size: 1rem;
-    font-size: clamp(1.5rem, 1.0408rem + 1.6327vw, 3rem);
+    font-size: clamp(3rem, 2.3878rem + 2.1769vw, 5rem);
 }
 /* .app-logo img {
     max-width: 350px; 
@@ -73,19 +74,17 @@ app-navbar {
     font-size: 1rem;
     font-size: clamp(1rem, 0.923469387755102rem + 0.27210884353741494vw, 1.25rem);
 } */
-.buttons {
-    display: flex; /* Align buttons side by side */
-    justify-content: center; /* Center buttons horizontally */
-    gap: 20px; /* Space between buttons */
-}
-.explore-btn,
-.contact-btn {
+/* .buttons {
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+}  */
+.explore-btn {
     font-family: Helvetica, sans-serif;
     text-decoration: none;
     padding: 20px 45px;
     font-size: 16px;
     transition: background-color 0.3s, color 0.3s;
-    margin-left: 10px; /* Space between buttons */
 }
 .contact-btn {
     background-color: white;
@@ -1067,8 +1066,8 @@ body {
     .about-pic::before{
         height: 430px;
     }
-    .home-panel .buttons{
-        flex-direction: column;
+    .buttons .explore-btn{
+        padding: 20px 35px;
     }
     .about-us{
         flex-direction: column;
