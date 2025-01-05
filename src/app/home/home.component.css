@@ -412,6 +412,7 @@ body {
 .testi-section{
     width: 100%;
     overflow: hidden;
+    margin-top: 10px;
 }
 .testimonial-container {
     display: flex;
@@ -1096,7 +1097,8 @@ body {
     .events-section{
         margin:5%;
         width: 80%;
-        height: 30%;
+        min-height: 22%;
+        height: auto;
     }
     .event-thumbnail{
         display: none;
@@ -1106,7 +1108,8 @@ body {
     }
     .contact-area{
         margin-top: 60%;
-        height: 130%;
+        min-height: 100vh;
+        height: auto; /* Allow height to adjust if needed */
     }
     .contact-container{
         margin: 0 5%;

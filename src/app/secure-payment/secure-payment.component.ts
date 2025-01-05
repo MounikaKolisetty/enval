@@ -35,7 +35,11 @@ export class SecurePaymentComponent{
       userName: ['', Validators.required], 
       userContact: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]], 
       userEmail: ['', [Validators.required, Validators.email]], state: ['', Validators.required], 
-      selectedCountryCode: ['', Validators.required] });
+      selectedCountryCode: ['', Validators.required],
+      userDesignation: ['', Validators.required],
+      userOrganization: ['', Validators.required],
+      userLocation: ['', Validators.required] 
+    });
   } 
   
   ngOnInit() { 

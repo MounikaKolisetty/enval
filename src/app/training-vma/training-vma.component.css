@@ -329,7 +329,7 @@ app-navbar {
     }
     .top-container h1{
         font-size: 28px;
-        width: 100%;
+        width: 80%;
     }
     .top-container .course-points{
         position: static;
@@ -339,7 +339,7 @@ app-navbar {
         padding: 0;
     }
     .content-info{
-        margin-top: 170%;
+        margin-top: calc(85vh + (100vh - 667px) * 0.05);
         width: 90%;
         padding-left: 5%;
     }
@@ -366,7 +366,7 @@ app-navbar {
         width: 100%;
     }
     .training-panel{
-        height: 90%;
+        height: 60%;
     }
     .training-options{
         margin:0 5%;

@@ -36,7 +36,7 @@
     width: 100%;
     max-width: 300px;
 }
-.basic-details .email-field, .basic-details .state-field {
+ .basic-details .state-field {
     margin: 20px 35px;
 }
 .basic-details .proceed-btn{

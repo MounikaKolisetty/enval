@@ -50,7 +50,8 @@ export class PaymentService {
       razorpay_payment_id: paymentId, 
       razorpay_order_id: orderId, 
       razorpay_signature: signature, 
-      course_title: this.razorpayOptions.notes.courseTitle
+      course_title: this.razorpayOptions.notes.courseTitle,
+      user_email: this.razorpayOptions.prefill.email
     }; 
     
     this.userService.verifyPayment(verifyDetails).subscribe( 

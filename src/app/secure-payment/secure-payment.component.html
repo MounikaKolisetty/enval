@@ -33,6 +33,25 @@
                         </div> 
                     </div>
 
+                    <div class="first-line">
+                        <div class="name-field"> 
+                            <label class="field-label" for="name">Designation<span>*</span></label> 
+                            <input type="text" id="name" name="name" placeholder="Enter your designation here" required formControlName="userDesignation" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userName'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userName'].invalid">
+                                error
+                            </span>
+                        </div> 
+
+                        <div class="name-field"> 
+                            <label class="field-label" for="name">Organization<span>*</span></label> 
+                            <input type="text" id="name" name="name" placeholder="Enter your organization here" required formControlName="userOrganization" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userName'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userName'].invalid">
+                                error
+                            </span>
+                        </div> 
+                    </div>
+
+                    <div class="first-line">
                     <div class="email-field"> 
                         <label class="field-label" for="email">Email ID<span>*</span></label> 
                         <input type="email" id="email" name="email" placeholder="example@site.com" required formControlName="userEmail" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userEmail'].invalid}"> 
@@ -41,6 +60,15 @@
                         </span>                    
                     </div> 
 
+                    <div class="name-field"> 
+                        <label class="field-label" for="name">Location<span>*</span></label> 
+                        <input type="text" id="name" name="name" placeholder="Enter your location here" required formControlName="userLocation" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userName'].invalid}"> 
+                        <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userName'].invalid">
+                            error
+                        </span>
+                    </div> 
+
+                    </div>
                     <div class="state-field"> 
                         <label class="field-label" for="state">State<span>*</span></label> 
                         <select id="state" name="state" required formControlName="state" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['state'].invalid}"> 
@@ -71,7 +99,7 @@
             </div>
             <div class="program-fees">
                 <div class="fees-text">Program Fees</div>
-                <div class="fees">₹400</div>
+                <div class="fees">₹20,000</div>
             </div>
         </div>
         <div class="summary-bottom">
@@ -80,12 +108,12 @@
             </div>
             <div class="total-price">
                 <div class="price-text">Total Price</div>
-                <div class="fees">₹400.00</div>
+                <div class="fees">₹20,000.00</div>
             </div>
         </div>
         <div class="grand-total-price">
             <div class="grand-text">Grand Total</div>
-            <div class="fees">₹400.00</div>
+            <div class="fees">₹20,000.00</div>
         </div>
     </div>
 </div>
