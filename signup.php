@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Enable CORS
-header("Access-Control-Allow-Origin: *"); // Replace with your frontend URL
+header("Access-Control-Allow-Origin: https://enval.in"); // Replace with your frontend URL
 header("Access-Control-Allow-Methods: POST, OPTIONS"); // Allow POST and OPTIONS methods
 header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Allow necessary headers
 header("Access-Control-Allow-Credentials: true"); // Allow credentials
@@ -68,10 +68,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo json_encode(["message" => "Execute failed: " . $stmt->error]);
         http_response_code(500);
         exit();
-    } else {
-        echo json_encode(["message" => "User added successfully", "emailInUse" => false]);
-        http_response_code(201); // Created
     }
+
+    // Fetch the newly created user's details
+    $userId = $stmt->insert_id;
+    $stmt->close();
+
+    $stmt = $conn->prepare("SELECT id, username, email FROM users WHERE id = ?");
+    if (!$stmt) {
+        echo json_encode(["message" => "Prepare failed: " . $conn->error]);
+        http_response_code(500);
+        exit();
+    }
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+
+    // Return success message along with user details
+    echo json_encode(["message" => "User added successfully", "emailInUse" => false, "user" => $user]);
+    http_response_code(201); // Created
 
     // Close the statement and connection
     $stmt->close();

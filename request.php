@@ -62,11 +62,17 @@ function sendPasswordResetEmail($email, $resetLink) {
     $resetLink
     This link will expire in 24 hours.";
 
-    $headers = "From: mouni.kolisetty@gmail.com";
+    $headers = "From: enval.connect@gmail.com\r\n";
     $headers .= "Reply-To: $email\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
-    mail($email, $subject, $body, $headers);
+    error_log("Sending email to: $email, subject: $subject, body: $body, headers: $headers");
+    if (!mail($email, $subject, $body, $headers)) { 
+        error_log("Mail sending failed: " . error_get_last()['message']); 
+        echo json_encode(['message' => 'Failed to send email.']); 
+    } 
+    else { 
+        echo json_encode(['message' => 'Password reset email sent.']); 
+    }
 }
 
 // Handle the password reset request
@@ -90,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $expiration = date('Y-m-d H:i:s', strtotime('+24 hours'));
     storeResetToken($user['id'], $resetToken, $expiration);
 
-    $resetLink = "http://localhost:4200/password-reset?token={$resetToken}";
+    $resetLink = "https://enval.in/password-reset?token={$resetToken}";
     sendPasswordResetEmail($user['email'], $resetLink);
 
     echo json_encode(['message' => 'Password reset email sent.']);
