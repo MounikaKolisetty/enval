@@ -10,19 +10,19 @@ export class UserService {
   private apiUrl = environment.apiUrl; // Replace with your backend URL 
   constructor(private http: HttpClient) {} 
   signUp(user: any): Observable<any> { 
-    return this.http.post(`${this.apiUrl}/user/signup`, user); 
+    return this.http.post(`${this.apiUrl}/signup.php`, user, { responseType: 'json' }); 
   }
   login(email: string, password: string): Observable<any> { 
-    return this.http.post(`${this.apiUrl}/user/login`, { email, password } ,{ withCredentials: true });
+    return this.http.post(`${this.apiUrl}/login.php`, { email, password } ,{ responseType: 'json' });
   }
   requestPasswordReset(email: string): Observable<any> {
-     return this.http.post(`${this.apiUrl}/passwordreset/request`, { email }); 
+     return this.http.post(`${this.apiUrl}/request.php`, { email },{ responseType: 'json' }); 
   } 
   resetPassword(token: string, newPassword: string): Observable<any> {
-     return this.http.post(`${this.apiUrl}/passwordreset/reset`, { token, newPassword }); 
+     return this.http.post(`${this.apiUrl}/reset.php`, { token, newPassword }); 
   }
   logout(): Observable<any> {
-    return this.http.post(`${this.apiUrl}/user/logout`, {} ,{ withCredentials: true }); 
+    return this.http.post(`${this.apiUrl}/logout.php`, {} ,{ withCredentials: true }); 
   }
   getUserCourses(): Observable<any> {
      return this.http.get(`${this.apiUrl}/course/user-courses`, { withCredentials: true }); 

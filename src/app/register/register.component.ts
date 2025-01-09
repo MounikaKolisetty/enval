@@ -105,7 +105,7 @@ export class RegisterComponent {
           else {
              this.invalidInputs = false; 
              if (response.user) {
-              const fullName = response.user.fullname; 
+              const fullName = response.user.username; 
               this.authService.changeName(fullName);
               this.authService.changeIsLoggedin(true);
               localStorage.setItem('UserName', fullName);
