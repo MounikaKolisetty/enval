@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ScrollButtonComponent } from '../scroll-button/scroll-button.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
@@ -32,7 +32,7 @@ export class HomeComponent {
   userForm!: FormGroup;
   messageSent: boolean = false;
   captchaResolved: boolean = false; // Variable to track reCAPTCHA status
-  constructor(private fb: FormBuilder, private userService: UserService) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private http: HttpClient) { }
   ngOnInit(){
     this.userForm = this.fb.group({
       name: ['', Validators.required],
@@ -68,5 +68,19 @@ export class HomeComponent {
         }
       );
     }
+  }
+  downloadFile() { 
+    const fileUrl = '../../assets/Corporate Brochure.pdf'; 
+    // Replace with your file URL 
+    this.http.get(fileUrl, { responseType: 'blob' }).subscribe((response: Blob) => { 
+      const downloadURL = window.URL.createObjectURL(response); 
+      const link = document.createElement('a'); 
+      link.href = downloadURL; 
+      link.download = 'Corporate Brochure.pdf'; // Replace with the desired file name 
+      link.click(); 
+    }, 
+    error => { 
+      console.error('Error downloading the file', error); 
+    }); 
   }
 }

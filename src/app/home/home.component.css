@@ -234,6 +234,10 @@ body {
     margin-bottom: 20px;
     line-height: 1.6;
 }
+.buttons-about{
+    display: flex;
+    gap: 10px
+}
 .read-more-btn {
     display: inline-block;
     color: #0a1e3a;
@@ -262,6 +266,14 @@ body {
 }
 .read-more-btn:hover::before{
 	transform:translateX(0);
+}
+.download-btn {
+    color: #000;
+    background-color: #f0b429;
+    border: 1px solid #CAD0D7;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 0 10px;
 }
 /*Services*/
 .services {

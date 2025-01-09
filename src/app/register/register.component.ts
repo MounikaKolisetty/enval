@@ -8,6 +8,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { ScrollButtonComponent } from '../scroll-button/scroll-button.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -46,7 +47,7 @@ export class RegisterComponent {
   showmessage = false;
   userFullName = '';
   isLoggedIn = false;
-  constructor(private fb: FormBuilder, private userService: UserService, private authService: AuthService) {} 
+  constructor(private fb: FormBuilder, private userService: UserService, private authService: AuthService, private router: Router) {} 
   ngOnInit() {
      this.signUpForm = this.fb.group({
        fullName: ['', [Validators.required]],
@@ -80,6 +81,11 @@ export class RegisterComponent {
         else { 
           this.emailInUse = false; 
           console.log('User signed up successfully', response); 
+          const fullName = response.user.username; 
+          this.authService.changeName(fullName);
+          this.authService.changeIsLoggedin(true);
+          localStorage.setItem('UserName', fullName);
+          this.router.navigate(['enrolled-courses']);
         } 
       }, 
       error => {
@@ -109,6 +115,7 @@ export class RegisterComponent {
               this.authService.changeName(fullName);
               this.authService.changeIsLoggedin(true);
               localStorage.setItem('UserName', fullName);
+              this.router.navigate(['enrolled-courses']);
             } 
           } 
       } 

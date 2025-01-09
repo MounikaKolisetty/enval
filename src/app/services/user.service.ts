@@ -19,7 +19,7 @@ export class UserService {
      return this.http.post(`${this.apiUrl}/request.php`, { email },{ responseType: 'json' }); 
   } 
   resetPassword(token: string, newPassword: string): Observable<any> {
-     return this.http.post(`${this.apiUrl}/reset.php`, { token, newPassword }); 
+     return this.http.post(`${this.apiUrl}/reset.php`, { token, newPassword }, { responseType: 'json' }); 
   }
   logout(): Observable<any> {
     return this.http.post(`${this.apiUrl}/logout.php`, {} ,{ withCredentials: true }); 
