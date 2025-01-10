@@ -300,8 +300,8 @@ nav svg{
     }
     .logo img{
         display: block;
-        max-width: 20%;  
-        padding-left: 20px;
+        max-width: 30%;  
+        padding-left: 0px;
     }
     .home-link img{
         display: none;

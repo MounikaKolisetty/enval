@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -28,6 +28,7 @@ import { UserService } from '../services/user.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  @ViewChild('about') aboutDiv!: ElementRef;
   isContactVisible: boolean = false; 
   userForm!: FormGroup;
   messageSent: boolean = false;
@@ -44,6 +45,11 @@ export class HomeComponent {
       subscribe: [false],
       message: ['', Validators.required]
     })
+  }
+  scrollToAbout() {
+    const element = this.aboutDiv.nativeElement;
+    const top = element.getBoundingClientRect().top + window.pageYOffset - 100; // Adjust the offset as needed
+    window.scrollTo({ top: top, behavior: 'smooth' });
   }
   toggleContact() {
     this.isContactVisible = !this.isContactVisible; 

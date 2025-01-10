@@ -72,7 +72,7 @@ export class SecurePaymentComponent{
   createOrder() { 
     if (this.paymentForm.valid) {
     const formValue = this.paymentForm.value;
-    const amount = 500; // Amount in INR 
+    const amount = 20000; // Amount in INR 
     this.userService.createOrder(amount * 100).subscribe( 
       (response:any) => { 
         console.log(response)

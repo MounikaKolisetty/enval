@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-training',
@@ -26,11 +27,13 @@ import { RecaptchaModule } from 'ng-recaptcha';
   styleUrl: './training.component.css'
 })
 export class TrainingComponent {
+  @ViewChild('trainings1') trainings1Div!: ElementRef;
+  @ViewChild('trainings2') trainings2Div!: ElementRef;
   isContactVisible: boolean = false; 
   userForm!: FormGroup;
   captchaResolved: boolean = false;
   messageSent: boolean = false;
-  constructor(private fb: FormBuilder, private userService: UserService) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private http: HttpClient) { }
   ngOnInit(){
       this.userForm = this.fb.group({
         name: ['', Validators.required],
@@ -41,6 +44,16 @@ export class TrainingComponent {
         email: ['', Validators.required], 
         mobile: ['', Validators.required]
       })
+    }
+    scrollToTrainings1() {
+      const element = this.trainings1Div.nativeElement;
+      const top = element.getBoundingClientRect().top + window.pageYOffset - 100; // Adjust the offset as needed
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+    scrollToTrainings2() {
+      const element = this.trainings2Div.nativeElement;
+      const top = element.getBoundingClientRect().top + window.pageYOffset - 100; // Adjust the offset as needed
+      window.scrollTo({ top: top, behavior: 'smooth' });
     }
   toggleContact() {
     this.isContactVisible = !this.isContactVisible; 
@@ -66,5 +79,19 @@ export class TrainingComponent {
         }
       );
     }
+  }
+  downloadFile() { 
+    const fileUrl = '../../assets/Corporate Brochure.pdf'; 
+    // Replace with your file URL 
+    this.http.get(fileUrl, { responseType: 'blob' }).subscribe((response: Blob) => { 
+      const downloadURL = window.URL.createObjectURL(response); 
+      const link = document.createElement('a'); 
+      link.href = downloadURL; 
+      link.download = 'Corporate Brochure.pdf'; // Replace with the desired file name 
+      link.click(); 
+    }, 
+    error => { 
+      console.error('Error downloading the file', error); 
+    }); 
   }
 }

@@ -13,7 +13,7 @@
         We only add value
     </h1> -->
     <div class="buttons">
-        <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page" class="explore-btn">Explore More</a>
+        <a (click)="scrollToAbout()" class="explore-btn">Explore More</a>
         <!-- <a routerLinke="/contact-us" routerLinkActive="active" ariaCurrentWhenActive="page" class="contact-btn">Contact Us</a> -->
     </div>
     </div>
@@ -362,7 +362,7 @@
     </div>
 </div>
 <!--About Enval-->
-<div class="about-us">
+<div class="about-us" id="about" #about>
         <!-- Image section on the left -->
         <div class="about-image">
             <img src="../../assets/img/home/training1.jpg" alt="Group of people">
@@ -574,7 +574,7 @@
             <li class="event">
                 <div class="single-event">
                     <div class="date">
-                        <span>FEB</span>25
+                        <span>7, 8, 14, 15</span>Feb 2025
                     </div>
                     <div class="details">
                         <ul>
@@ -592,7 +592,7 @@
             <li class="event">
                 <div class="single-event">
                     <div class="date">
-                        <span>FEB</span>25
+                        <span>7, 8, 14, 15</span>Feb 2025
                     </div>
                     <div class="details">
                         <ul>
