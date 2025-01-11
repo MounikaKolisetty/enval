@@ -85,6 +85,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
+    // Send welcome email
+    $subject = "Welcome to Enval, $username";
+    $message = "
+    <html>
+    <head>
+        <title>Welcome to a world of possibilities</title>
+    </head>
+    <body>
+        <h1>Thanks for joining our global community!</h1> 
+        <p>Start exploring, and discovering, today.</p>
+        <a href='https://enval.in/training'>
+            <button style='padding: 10px 20px; background-color: #f0b429; border: none; color: #000000; border-radius: 5px; cursor: pointer;'>Browse Courses</button>
+        </a>
+    </body>
+    </html>
+    ";
+    
+    $headers = "From: enval.connect@gmail.com\r\n"; 
+    $headers .= "Reply-To: enval.connect@gmail.com\r\n"; 
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n"; 
+
+    if (!mail($email, $subject, $message, $headers)) {
+        echo json_encode(["message" => "Failed to send the welcome email."]);
+        http_response_code(500);
+        exit();
+    }
+
     // Return success message along with user details
     echo json_encode(["message" => "User added successfully", "emailInUse" => false, "user" => $user]);
     http_response_code(201); // Created
