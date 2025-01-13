@@ -6,6 +6,8 @@ declare var Razorpay: any;
 })
 export class PaymentService {
   private razorpayOptions: any;
+  private userDetails: any;
+  paymentsuccess: boolean = false;
 
   constructor(private userService: UserService) {
     this.razorpayOptions = {
@@ -45,6 +47,10 @@ export class PaymentService {
     rzp.open();
   }
 
+  processUserDetails(userDetails: any) {
+    this.userDetails = userDetails;
+  }
+
   verifyPayment(paymentId: string, orderId: string, signature: string) { 
     const verifyDetails = { 
       razorpay_payment_id: paymentId, 
@@ -56,7 +62,16 @@ export class PaymentService {
     
     this.userService.verifyPayment(verifyDetails).subscribe( 
       response => { 
-        console.log('Payment verification response:', response); 
+        console.log('Payment verification response:', response);
+        this.paymentsuccess = true 
+        this.userService.saveToDb( verifyDetails,  this.userDetails, this.paymentsuccess).subscribe(
+          saveResponse => { 
+            console.log('User details saved to database:', saveResponse); 
+          }, 
+          saveError => { 
+            console.error('Error saving user details:', saveError); 
+          }
+        )
       }, 
       error => { 
         console.error('Error verifying payment:', error); 

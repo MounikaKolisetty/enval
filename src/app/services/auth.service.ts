@@ -8,7 +8,7 @@ export class AuthService {
   private nameSource = new BehaviorSubject<string>("");
   currentNameSource = this.nameSource.asObservable();
 
-  private isLoggedInSource = new BehaviorSubject<boolean>(false);
+  private isLoggedInSource = new BehaviorSubject<boolean>(this.hasToken());
   currentisLoggedIn = this.isLoggedInSource.asObservable();
 
   constructor() {}
@@ -18,5 +18,8 @@ export class AuthService {
   }
   changeIsLoggedin(info:boolean) {
     this.isLoggedInSource.next(info);
+  }
+  private hasToken(): boolean { 
+    return !!localStorage.getItem('UserName'); 
   }
 }

@@ -21,53 +21,37 @@ declare var Razorpay: any;
   styleUrl: './secure-payment.component.css'
 })
 export class SecurePaymentComponent{
-  countries: any[] = [];
-  states: any[] = []; 
-  selectedCountryCode: string = ''; 
-  selectedCountryDialCode: string = '';
-  selectedState: string = '';
   courseTitle: string = '';
   paymentForm: FormGroup;
   formSubmitted: boolean = false;
 
   constructor(private paymentService: PaymentService, private userService: UserService, private route: ActivatedRoute, private fb: FormBuilder) {
     this.paymentForm = this.fb.group({ 
+      userTitle: ['', Validators.required],
       userName: ['', Validators.required], 
       userContact: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]], 
-      userEmail: ['', [Validators.required, Validators.email]], state: ['', Validators.required], 
-      selectedCountryCode: ['', Validators.required],
       userDesignation: ['', Validators.required],
+      userDepartment: ['', Validators.required],
       userOrganization: ['', Validators.required],
-      userLocation: ['', Validators.required] 
+      userLocation: ['', Validators. required],
+      userBusinessArea: ['', Validators. required],
+      userVAVME: ['', Validators. required],
+      userResponsibilities: ['', Validators. required],
+      userDegree: ['', Validators. required],
+      userPGDegree: ['', Validators. required],
+      userOtherDegree: ['', Validators. required],
+      userSponsoredby: ['', Validators. required],
+      userPurpose: ['', Validators. required],
+      userUsage: ['', Validators. required],
+      userExpectation: ['', Validators. required],
+      userEmail: ['', [Validators.required, Validators.email]], 
     });
   } 
   
   ngOnInit() { 
-    this.loadCountryCodes(); 
     this.route.params.subscribe(params => { 
       this.courseTitle = params['courseTitle']; });
   } 
-  loadCountryCodes() { 
-      this.countries = countryData; 
-      if (this.countries.length > 0) { 
-        this.selectedCountryCode = this.countries[0].code; // Set default country code 
-        this.selectedCountryDialCode = this.countries[0].dial_code;
-        this.paymentForm.patchValue({ selectedCountryCode: this.selectedCountryCode });
-          this.loadStates(this.countries[0].code); // Set default states 
-      }
-  } 
-
-  loadStates(countryCode: string) { 
-    const selectedCountry = stateData.find(country => country.code2 === countryCode); 
-    this.states = selectedCountry ? selectedCountry.states : []; 
-  }
-  
-  onCountryChange(event: any) { 
-    const selectedCountry = this.countries.find(country => country.code === event.target.value);
-    this.selectedCountryDialCode = selectedCountry.dial_code;
-    this.loadStates(selectedCountry.code);
-    (document.getElementById('phone') as HTMLInputElement).placeholder = this.selectedCountryCode + " - Phone Number"; 
-  }
 
   createOrder() { 
     if (this.paymentForm.valid) {
@@ -79,6 +63,7 @@ export class SecurePaymentComponent{
         const orderId = response.orderId; 
         this.paymentService.setOrderDetails(amount, formValue.userName, formValue.userEmail, formValue.userContact, orderId, this.courseTitle); 
         this.paymentService.openRazorpay(); 
+        this.paymentService.processUserDetails(formValue);
       }, 
       (error: HttpErrorResponse) => { 
         console.error('Error creating order:', error); 

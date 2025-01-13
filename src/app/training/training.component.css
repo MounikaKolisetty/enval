@@ -46,6 +46,7 @@ app-navbar {
     }
 }
 .about-pic ul {
+    margin-right: 30px;
     list-style: none; /* Remove default list styling */
     display:flex;
     z-index: 100;
@@ -211,13 +212,14 @@ app-navbar {
     margin: 5% 5% 10% 5%;
 }
 .download-btn {
-    color: #043F71;
+    color: #000;
     background-color: #f0b429;
-    border: 1px solid #CAD0D7;
+    border: 1px solid #f0b429;
     border-radius: 5px;
     font-size: 16px;
     padding: 15px 10px;
     margin-top: 5px;
+    z-index: 100;
 }
 .categories{
     display: flex;

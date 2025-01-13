@@ -379,7 +379,7 @@ app-navbar {
     }
 }
 /* For taller devices */
-@media (min-height: 897px) {
+@media (max-width: 450px) and (min-height: 897px) {
     .content-info{
         margin-top: 85vh;
     }
@@ -389,7 +389,7 @@ app-navbar {
 }
 
 /* For medium-height devices */
-@media (min-height: 768px) and (max-height: 896px) {
+@media (max-width: 450px) and (min-height: 768px) and (max-height: 896px) {
     .content-info {
         margin-top: 90vh; /* Adjust as needed */
     }
@@ -399,7 +399,7 @@ app-navbar {
 }
 
 /* For shorter devices */
-@media (max-height: 767px) {
+@media (max-width: 450px) and (max-height: 767px) {
     .content-info {
         margin-top: 110vh; /* Adjust as needed */
     }

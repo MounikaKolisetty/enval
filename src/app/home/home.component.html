@@ -17,6 +17,13 @@
         <!-- <a routerLinke="/contact-us" routerLinkActive="active" ariaCurrentWhenActive="page" class="contact-btn">Contact Us</a> -->
     </div>
     </div>
+    <div class="bg-yellow">
+        <div class="announcement">
+            <h3>Announcement!!</h3>
+            <p>Professional Value Analyst (PVA) training starts from 7, 8, 14, 15 Feb 2025.</p>
+        </div>
+        
+    </div>
 </div>
 <!--Cards-->
 <div class="card-layout">
@@ -374,7 +381,7 @@
                 <p class="about-heading">ABOUT ENVAL</p>
                 <div class="line"></div>
             </div>
-            <p class="sub-head">We only add value</p>
+            <p class="sub-head">We only enhance value</p>
             <p class="description">
                 ENVAL Consultants Pvt. Ltd. stands as distinguished leader in the Value Management space, offering 
                 an array of digitally-enabled, transformative solutions catering to unique needs of public and 
@@ -384,10 +391,7 @@
                 Through our technology-driven approach to Value Management, we strive to equip organizations with 
                 the tools and methodologies necessary to thrive in an ever-evolving global landscape.
             </p> 
-            <div class="buttons-about">
             <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page" class="read-more-btn">Know More</a>
-            <button (click)="downloadFile()" class="download-btn">Download Brochure</button>
-            </div>
         </div>
 </div>
 
@@ -396,7 +400,7 @@
 <div class="values-left">
     <div class="heading">Our Value Proposition</div>
     <p class="description">We deliver AI-driven solutions and expertise in Value Management (VM) to transform 
-        businesses across industries, including government and CSR sectors, with a focus on innovation, 
+        businesses across industries, including government and CSR with a focus on innovation, 
         sustainability, and impactful outcomes.
     </p>
 </div>
@@ -411,7 +415,7 @@
             <div class="value-info">
                 <div class="value-head">Specialised services</div>
                 <div class="value-subhead">Strong focus on integration of technology, change management, competitive advantage and 
-                    sustainability </div>
+                    sustainability. </div>
             </div>
         </div>
         <div class="value">
@@ -495,7 +499,7 @@
             </div>
             <div class="srvc-bottom">
                 <div class="srvc-heading">
-                    <a routerLink="/training" routerLinkActive="active" ariaCurrentWhenActive="page">Trainings: Practicioners and Organizational</a>
+                    <a routerLink="/training" routerLinkActive="active" ariaCurrentWhenActive="page">Trainings: Practitioners and Organizational</a>
                 </div>
                 <span class="material-symbols-outlined">
                     trending_flat
@@ -574,35 +578,39 @@
             <li class="event">
                 <div class="single-event">
                     <div class="date">
-                        <span>7, 8, 14, 15</span>Feb 2025
+                        <span>Feb</span>25
                     </div>
                     <div class="details">
-                        <ul>
+                        <!-- <ul class="online">
                             <li>
                                 <span class="material-symbols-outlined">
                                     person
                                 </span>
                                 BY ADMIN
                             </li>
-                        </ul>
-                        <a routerLink="/eventspage-pva" routerLinkActive="active" ariaCurrentWhenActive="page">Online Training for Practicioners</a>
+                        </ul> -->
+                        <div class="dates">
+                            Dates: 7, 8, 14, 15 Jan 2025
+                        </div>
+                        <a routerLink="/eventspage-pva" routerLinkActive="active" ariaCurrentWhenActive="page">Online Training for Practitioners</a>
+                        <button (click)="downloadFile()" class="download-btn">Download Brochure</button>
                     </div>
                 </div>
             </li>
             <li class="event">
                 <div class="single-event">
                     <div class="date">
-                        <span>7, 8, 14, 15</span>Feb 2025
+                        <span>Feb</span>25
                     </div>
                     <div class="details">
-                        <ul>
+                        <!-- <ul class="corporate">
                             <li>
                                 <span class="material-symbols-outlined">
                                     person
                                 </span>
                                 BY ADMIN
                             </li>
-                        </ul>
+                        </ul> -->
                         <a routerLink="/corporate-trainings" routerLinkActive="active" ariaCurrentWhenActive="page">On-site Corporate Trainings</a>
                     </div>
                 </div>

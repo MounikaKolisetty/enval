@@ -85,6 +85,7 @@ export class RegisterComponent {
           this.authService.changeName(fullName);
           this.authService.changeIsLoggedin(true);
           localStorage.setItem('UserName', fullName);
+          localStorage.setItem('UserID', response.user.id);
           this.router.navigate(['enrolled-courses']);
         } 
       }, 
@@ -115,6 +116,7 @@ export class RegisterComponent {
               this.authService.changeName(fullName);
               this.authService.changeIsLoggedin(true);
               localStorage.setItem('UserName', fullName);
+              localStorage.setItem('UserID', response.user.id);
               this.router.navigate(['enrolled-courses']);
             } 
           } 

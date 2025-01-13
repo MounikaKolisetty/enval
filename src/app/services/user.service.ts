@@ -13,7 +13,7 @@ export class UserService {
     return this.http.post(`${this.apiUrl}/signup.php`, user, { responseType: 'json' }); 
   }
   login(email: string, password: string): Observable<any> { 
-    return this.http.post(`${this.apiUrl}/login.php`, { email, password } ,{ responseType: 'json' });
+    return this.http.post(`${this.apiUrl}/login.php`, { email, password } ,{ responseType: 'json', withCredentials: true });
   }
   requestPasswordReset(email: string): Observable<any> {
      return this.http.post(`${this.apiUrl}/request.php`, { email },{ responseType: 'json' }); 
@@ -24,8 +24,8 @@ export class UserService {
   logout(): Observable<any> {
     return this.http.post(`${this.apiUrl}/logout.php`, {} ,{ withCredentials: true }); 
   }
-  getUserCourses(): Observable<any> {
-     return this.http.get(`${this.apiUrl}/course/user-courses`, { withCredentials: true }); 
+  getUserCourses(userid: string): Observable<any> {
+     return this.http.post(`${this.apiUrl}/userCourses.php`, {userid}, { withCredentials: true }); 
   }
   sendHomeContact(formData: any): Observable<any>{
     return this.http.post(`${this.apiUrl}/sendEmail.php`, formData ,{ withCredentials: true });
@@ -44,5 +44,8 @@ export class UserService {
   } 
   verifyPayment(verifyDetails: any): Observable<any> { 
     return this.http.post(`${this.apiUrl}/verify_payment.php`, verifyDetails, { responseType: 'json' }); 
+  }
+  saveToDb(verificationDetails:any, userDetails: any, paymentVerify: boolean): Observable<any> {
+    return this.http.post(`${this.apiUrl}/userDetailsToDB.php`, { verificationDetails, userDetails, paymentVerify }, { responseType: 'json' })
   }
 }
