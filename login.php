@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 
 // Enable CORS
 header("Access-Control-Allow-Origin: https://enval.in"); // Replace with your frontend URL
+// header("Access-Control-Allow-Origin: http://localhost:4200"); // Replace with your frontend URL
 header("Access-Control-Allow-Methods: POST, OPTIONS"); // Allow POST and OPTIONS methods
 header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Allow necessary headers
 header("Access-Control-Allow-Credentials: true"); // Allow credentials
@@ -21,6 +22,8 @@ header('Content-Type: application/json');
 
 // Include the database connection file
 include 'connect.php';
+
+session_start();
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -64,6 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sessionId = bin2hex(random_bytes(16));
         $userId = $user['id'];
         $expiresAt = date('Y-m-d H:i:s', strtotime('+30 minutes'));
+
+        $_SESSION['SessionId'] = $sessionId;
 
         // Insert session into database
         $sessionStmt = $conn->prepare("INSERT INTO sessions (session_id, user_id, expires_at) VALUES (?, ?, ?)");
