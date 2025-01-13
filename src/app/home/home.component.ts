@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -33,7 +33,10 @@ export class HomeComponent {
   userForm!: FormGroup;
   messageSent: boolean = false;
   captchaResolved: boolean = false; // Variable to track reCAPTCHA status
-  constructor(private fb: FormBuilder, private userService: UserService, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, 
+    private userService: UserService, 
+    private http: HttpClient,
+    private router: Router) { }
   ngOnInit(){
     this.userForm = this.fb.group({
       name: ['', Validators.required],
@@ -88,5 +91,8 @@ export class HomeComponent {
     error => { 
       console.error('Error downloading the file', error); 
     }); 
+  }
+  navigateToPVA(){
+    this.router.navigate(['/eventspage-pva']);
   }
 }

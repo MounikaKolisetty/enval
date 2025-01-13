@@ -233,6 +233,8 @@ nav a:hover{
 }
 nav .home-link{
     margin-right: auto;
+    width: 100%;
+    max-width: 350px;
 }
 .home-link img{
     height: auto;

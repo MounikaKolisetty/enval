@@ -246,6 +246,10 @@ textarea::placeholder {
         flex-direction: column;
         gap: 20px;
     }
+    .basic-details .line{
+        flex-direction: column;
+        gap: 10px;
+    }
     .basic-details .name-field, .basic-details .email-field, .basic-details .state-field{ 
         max-width: 250px;
     }
