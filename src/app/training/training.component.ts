@@ -94,4 +94,18 @@ export class TrainingComponent {
       console.error('Error downloading the file', error); 
     }); 
   }
+  downloadFlyer() { 
+    const fileUrl = '../../assets/Flyer_PVA.pdf'; 
+    // Replace with your file URL 
+    this.http.get(fileUrl, { responseType: 'blob' }).subscribe((response: Blob) => { 
+      const downloadURL = window.URL.createObjectURL(response); 
+      const link = document.createElement('a'); 
+      link.href = downloadURL; 
+      link.download = 'PVA Flyer.pdf'; // Replace with the desired file name 
+      link.click(); 
+    }, 
+    error => { 
+      console.error('Error downloading the file', error); 
+    }); 
+  }
 }

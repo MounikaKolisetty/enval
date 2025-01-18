@@ -11,7 +11,7 @@ export class PaymentService {
 
   constructor(private userService: UserService) {
     this.razorpayOptions = {
-      key: 'rzp_test_GipqMzLCho9rLk',
+      key: 'rzp_live_c061E9tG8H1iyX',
       amount: 0, // Will be updated later
       currency: 'INR',
       name: 'ENVAL',

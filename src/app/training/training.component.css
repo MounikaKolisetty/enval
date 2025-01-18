@@ -211,15 +211,31 @@ app-navbar {
 .features-body{
     margin: 5% 5% 10% 5%;
 }
-.download-btn {
-    color: #000;
-    background-color: #f0b429;
-    border: 1px solid #f0b429;
-    border-radius: 5px;
-    font-size: 16px;
-    padding: 15px 10px;
-    margin-top: 5px;
+.buttons{
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
     z-index: 100;
+}
+.download-btn {
+    font-family: Helvetica, sans-serif;
+    padding: 20px 45px;
+    background-color: #f5ca45;
+    color: #0a1e3a;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+.contact-btn {
+    font-family: Helvetica, sans-serif;
+    padding: 20px 45px;
+    background-color: #ffffff;
+    color: #0a1e3a;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
 }
 .categories{
     display: flex;

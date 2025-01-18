@@ -9,6 +9,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ScrollButtonComponent } from '../scroll-button/scroll-button.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +23,8 @@ import { UserService } from '../services/user.service';
             CommonModule,
             HttpClientModule,
             ScrollButtonComponent,
-            ReactiveFormsModule
+            ReactiveFormsModule,
+            NgxSpinnerModule
             ],
   providers: [UserService],
   templateUrl: './home.component.html',
@@ -36,7 +39,8 @@ export class HomeComponent {
   constructor(private fb: FormBuilder, 
     private userService: UserService, 
     private http: HttpClient,
-    private router: Router) { }
+    private router: Router,
+    private spinner: NgxSpinnerService,) { }
   ngOnInit(){
     this.userForm = this.fb.group({
       name: ['', Validators.required],
@@ -78,18 +82,21 @@ export class HomeComponent {
       );
     }
   }
-  downloadFile() { 
-    const fileUrl = '../../assets/Corporate Brochure.pdf'; 
+  downloadFlyer() { 
+    this.spinner.show();
+    const fileUrl = '../../assets/Flyer_PVA.pdf'; 
     // Replace with your file URL 
     this.http.get(fileUrl, { responseType: 'blob' }).subscribe((response: Blob) => { 
       const downloadURL = window.URL.createObjectURL(response); 
       const link = document.createElement('a'); 
       link.href = downloadURL; 
-      link.download = 'Corporate Brochure.pdf'; // Replace with the desired file name 
+      link.download = 'PVA Flyer.pdf'; // Replace with the desired file name 
       link.click(); 
+      this.spinner.hide();
     }, 
     error => { 
       console.error('Error downloading the file', error); 
+      this.spinner.hide();
     }); 
   }
   navigateToPVA(){

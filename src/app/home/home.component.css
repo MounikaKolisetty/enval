@@ -74,11 +74,11 @@ app-navbar {
     font-size: 1rem;
     font-size: clamp(1rem, 0.923469387755102rem + 0.27210884353741494vw, 1.25rem);
 } */
-/* .buttons {
+.buttons {
     display: flex; 
     justify-content: center; 
     gap: 20px; 
-}  */
+} 
 .explore-btn {
     font-family: Helvetica, sans-serif;
     text-decoration: none;
@@ -86,17 +86,24 @@ app-navbar {
     font-size: 16px;
     transition: background-color 0.3s, color 0.3s;
     cursor: pointer;
+    display: flex;
+    text-align: center;
+    align-items: center;
 }
 .contact-btn {
-    background-color: white;
+    font-family: Helvetica, sans-serif;
+    padding: 20px 45px;
+    background-color: #ffffff;
     color: #0a1e3a;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
 }
 .explore-btn {
     background-color: #F5CA45;
     color: #0a1e3a;
-}
-.contact-btn:hover {
-    background-color: #f0f0f0;
 }
 .announcement{
     z-index: 100;
@@ -304,6 +311,8 @@ body {
     font-size: 16px;
     padding: 10px 0px;
     cursor: pointer;
+    width: 100%;
+    max-width: 150px;
 }
 .line {
     display: flex;
@@ -1119,15 +1128,35 @@ body {
     }
 }
 @media (max-width: 450px) {
+    .home-panel{
+        order: 2;
+    }
+    .home-content{
+        display: flex;
+        flex-direction: column;
+    }
     .about-pic{
-    height: 350px;
-    background-size: cover;
+        height: 350px;
+        background-size: cover;
+    }
+    .app-logo{
+        padding: 0;
     }
     .about-pic::before{
         height: 430px;
     }
+    .buttons{
+        flex-direction: column;
+        margin-left: 50px;
+    }
     .buttons .explore-btn{
         padding: 20px 35px;
+        width: 100%;
+        max-width: 230px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
     }
     .about-us{
         flex-direction: column;
@@ -1245,6 +1274,8 @@ body {
         height: 100%;
         max-height: 7vh;
         position: relative;
-        bottom: 32vh;
+        bottom: 5vh;
+        margin-top: 20px;
+        order: 1;
     }
 }

@@ -14,7 +14,8 @@
     </h1> -->
     <div class="buttons">
         <a (click)="scrollToAbout()" class="explore-btn">Explore More</a>
-        <!-- <a routerLinke="/contact-us" routerLinkActive="active" ariaCurrentWhenActive="page" class="contact-btn">Contact Us</a> -->
+        <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-8bits" [fullScreen]="true"></ngx-spinner>
+        <button (click)="downloadFlyer()" class="contact-btn">Professional Value Analyst Training Flyer</button>
     </div>
     </div>
     <div class="bg-yellow">
@@ -590,10 +591,10 @@
                             </li>
                         </ul> -->
                         <div class="dates">
-                            Dates: 7, 8, 14, 15 Jan 2025
+                            Dates: 7, 8, 14, 15 Feb 2025
                         </div>
-                        <a routerLink="/eventspage-pva" routerLinkActive="active" ariaCurrentWhenActive="page">Online Training for Practitioners</a>
-                        <button (click)="downloadFile()" class="download-btn">Download Brochure</button>
+                        <a routerLink="/eventspage-pva" routerLinkActive="active" ariaCurrentWhenActive="page">Online Training for Professional Value Analyst Course</a>
+                        <button (click)="downloadFlyer()" class="download-btn">Download Flyer</button>
                     </div>
                 </div>
             </li>
