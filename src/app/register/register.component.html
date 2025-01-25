@@ -15,7 +15,7 @@
       </div>
       <div class="form-inner">
         <form class="login-inner" [formGroup]="loginForm" (ngSubmit)="login()">
-            <div *ngIf="invalidInputs" class="error">
+            <div  class="error">
               <i class="fa-solid fa-circle-exclamation"></i>
               <div class="error-message">There was a problem logging in. Check your email and password OR Create an account.</div>
             </div>
@@ -35,6 +35,9 @@
                 <div *ngIf="loginForm.controls['password'].errors?.['required']">Password is required.</div>
                 <div *ngIf="loginForm.controls['password'].errors?.['minlength']">Password must be at least 6 characters long.</div>
               </div>
+            </div>
+            <div class="re-captcha">
+            <re-captcha (resolved)="resolvedLogin($event)" siteKey="6LfeP5cqAAAAAPBDawg7onXwpN2AqW2GjPwvZBc0"></re-captcha>
             </div>
             <button class="btn" [disabled]="loginForm.invalid">Login</button>
             <div class="signup">
@@ -76,6 +79,9 @@
                 <div *ngIf="signUpForm.controls['password'].errors?.['required']">Password is required.</div>
                 <div *ngIf="signUpForm.controls['password'].errors?.['minlength']">Password must be at least 6 characters long.</div>
               </div>
+            </div>
+            <div class="re-captcha">
+              <re-captcha (resolved)="resolvedSignUp($event)" siteKey="6LfeP5cqAAAAAPBDawg7onXwpN2AqW2GjPwvZBc0"></re-captcha>
             </div>
             <button class="btn" [disabled]="signUpForm.invalid">Sign Up</button>
             <div class="login">

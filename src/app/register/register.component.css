@@ -25,6 +25,7 @@ app-navbar {
     box-shadow: 5px 0px 15px 20px rgba(0,0,0,0.1);
     @media (max-width: 450px){
         margin: 0 5%;
+        max-width: 330px;
     }
   }
   .wrapper .title-text{
@@ -44,11 +45,17 @@ app-navbar {
     display: flex;
     height: 50px;
     width: 90%;
+    max-width: 351px;
     overflow: hidden;
     margin: 30px 0px 10px 0px;
     justify-content: space-between;
     border: 1px solid lightgrey;
     border-radius: 15px;
+    right: 150px;       
+    @media (max-width: 450px){
+        max-width: 300px;
+        right: 160px;
+    }
   }
   .slide-controls .slide{
     height: 100%;
@@ -150,10 +157,10 @@ app-navbar {
 }
 .single-input-inner i{
     position: absolute;
-    right: 70px;
+    right: 55%;
     top: 20px;
     @media (max-width: 450px){
-       right: 30px;
+       right: 3;
     }
 }
 .single-input-inner .error-message, .input-inner .error-message{
@@ -198,7 +205,7 @@ app-navbar {
 }
 .btn{
     width: 100px;
-    margin-left: 35%;
+    margin-left: 20%;
 }
 .reset-btn {
     width: 180px;
@@ -208,11 +215,21 @@ app-navbar {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    width: 100%;
+    max-width: 380px;    
+    @media (max-width: 450px){
+        max-width: 350px;
+    }
 }
 .signup-inner .login{
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    width: 100%;
+    max-width: 380px; 
+    @media (max-width: 450px){
+        max-width: 350px;
+    }
 }
 .signup div{
     color: #6c757d;
@@ -224,10 +241,14 @@ app-navbar {
 }
 .error{
     display: flex;
-    width: 65%;
+    width: 100%;
+    max-width: 260px;
     background-color: #F3BEA5;
     padding: 20px;
-    margin: 20px 20px 20px 48px;
+    margin: 20px 20px 20px 40px;
+    @media (max-width: 450px){
+        margin-left: 20px;
+    }
 }
 .error i{
     padding-right: 15px;
@@ -304,6 +325,10 @@ input::placeholder {
 .reset-password-message{
     background-color: #B4D1CC;
     margin: 5% 35%;
+    @media (max-width: 450px){
+        margin: 5%;
+    }
+
 }
 .reset-password-message .container{
     padding: 20px;
@@ -331,3 +356,10 @@ input::placeholder {
     font-weight: 300;
     margin: 5px 0 0 0;
 } 
+.re-captcha{
+    padding-left: 40px;
+    padding-bottom: 15px;    
+    @media (max-width: 450px){
+        padding-left: 20px;
+    }
+}

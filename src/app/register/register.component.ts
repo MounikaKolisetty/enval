@@ -9,6 +9,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { ScrollButtonComponent } from '../scroll-button/scroll-button.component';
 import { Router } from '@angular/router';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,8 @@ import { Router } from '@angular/router';
             HttpClientModule,
             FooterComponent,
             NavbarComponent,
-            ScrollButtonComponent
+            ScrollButtonComponent,
+            RecaptchaModule
   ],
   providers: [UserService],
   templateUrl: './register.component.html',
@@ -47,6 +49,8 @@ export class RegisterComponent {
   showmessage = false;
   userFullName = '';
   isLoggedIn = false;
+  captchaResolvedLogin: string | null = null;
+  captchaResolvedSignUp: string | null = null;
   constructor(private fb: FormBuilder, private userService: UserService, private authService: AuthService, private router: Router) {} 
   ngOnInit() {
      this.signUpForm = this.fb.group({
@@ -68,42 +72,39 @@ export class RegisterComponent {
      this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password'; 
     }
   signUp() { 
-    if (this.signUpForm.invalid) { 
-      return; 
-    } 
-    const { fullName, email, password } = this.signUpForm.value;
-    this.user = {fullName, email, password};
-    this.userService.signUp(this.user).subscribe( 
-      response => { 
-        if (response.emailInUse) {
-           this.emailInUse = true; 
+    if (this.signUpForm.valid && this.captchaResolvedSignUp) { 
+      const { fullName, email, password } = this.signUpForm.value;
+      this.user = {fullName, email, password, captchaResponse: this.captchaResolvedSignUp};
+      this.userService.signUp(this.user).subscribe( 
+        response => { 
+          if (response.emailInUse) {
+            this.emailInUse = true; 
+            } 
+          else { 
+            this.emailInUse = false; 
+            console.log('User signed up successfully', response); 
+            const fullName = response.user.username; 
+            this.authService.changeName(fullName);
+            this.authService.changeIsLoggedin(true);
+            localStorage.setItem('UserName', fullName);
+            localStorage.setItem('UserID', response.user.id);
+            this.router.navigate(['enrolled-courses']);
           } 
-        else { 
-          this.emailInUse = false; 
-          console.log('User signed up successfully', response); 
-          const fullName = response.user.username; 
-          this.authService.changeName(fullName);
-          this.authService.changeIsLoggedin(true);
-          localStorage.setItem('UserName', fullName);
-          localStorage.setItem('UserID', response.user.id);
-          this.router.navigate(['enrolled-courses']);
-        } 
-      }, 
-      error => {
-        console.error('Error signing up user', error); 
-      })
+        }, 
+        error => {
+          console.error('Error signing up user', error); 
+        })
+    }
   }
   toggleDiv() {
     this.showforget = !this.showforget;
     this.showlogin = !this.showlogin;
   }
   login() { 
-    if (this.loginForm.invalid) { 
-      return; 
-    } 
+    if (this.loginForm.valid && this.captchaResolvedLogin) { 
     const { email, password } = this.loginForm.value;
 
-    this.userService.login(email, password).subscribe(
+    this.userService.login(email, password, this.captchaResolvedLogin).subscribe(
        response => {
          if (response.invalidInputs) {
            this.invalidInputs = true; 
@@ -122,6 +123,7 @@ export class RegisterComponent {
           } 
       } 
     ); 
+    }
   }
   onSubmit() { 
     const email = this.forgetForm.value.email; 
@@ -172,5 +174,10 @@ export class RegisterComponent {
       signupBtn.click();
     }
   }
-  
+  resolvedLogin(captchaResponse: string | null) { 
+    this.captchaResolvedLogin = captchaResponse; 
+  }
+  resolvedSignUp(captchaResponse: string | null) { 
+    this.captchaResolvedSignUp = captchaResponse; 
+  }
 }

@@ -12,8 +12,8 @@ export class UserService {
   signUp(user: any): Observable<any> { 
     return this.http.post(`${this.apiUrl}/signup.php`, user, { responseType: 'json' }); 
   }
-  login(email: string, password: string): Observable<any> { 
-    return this.http.post(`${this.apiUrl}/login.php`, { email, password } ,{ responseType: 'json', withCredentials: true });
+  login(email: string, password: string, captchaResponse: string): Observable<any> { 
+    return this.http.post(`${this.apiUrl}/login.php`, { email, password, captchaResponse } ,{ responseType: 'json', withCredentials: true });
   }
   requestPasswordReset(email: string): Observable<any> {
      return this.http.post(`${this.apiUrl}/request.php`, { email },{ responseType: 'json' }); 
