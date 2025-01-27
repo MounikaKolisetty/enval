@@ -40,7 +40,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get user details from input
     $email = $input['email'];
     $password = $input['password'];
+    $captchaResponse = $input['captchaResponse'];
 
+    // Verify CAPTCHA
+    $secretKey = "6LfeP5cqAAAAAFuoiQlEzNQEtsEslby-HmeLf-YV"; // Replace with your actual secret key
+    $verifyURL = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captchaResponse";
+
+    $response = file_get_contents($verifyURL);
+    $responseData = json_decode($response);
+
+    if (!$responseData->success) {
+        echo json_encode(["message" => "CAPTCHA verification failed."]);
+        http_response_code(400);
+        exit();
+    }
     // Check if email exists
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
     if (!$stmt) {

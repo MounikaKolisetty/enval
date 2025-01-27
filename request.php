@@ -98,8 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $resetLink = "https://enval.in/password-reset?token={$resetToken}";
     sendPasswordResetEmail($user['email'], $resetLink);
-
-    echo json_encode(['message' => 'Password reset email sent.']);
     exit;
 }
 
