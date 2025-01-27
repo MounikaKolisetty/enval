@@ -39,9 +39,11 @@ export class PasswordResetComponent implements OnInit{
        this.token = params['token']; 
       }); 
       this.passwordResetForm = this.fb.group({
-        newPassword: ['', [Validators.required, Validators.minLength(6)]]
-      });
-    
+        newPassword: ['', [
+            Validators.required,
+            Validators.minLength(10),
+            Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{10,}$')
+          ]] })
     }
 
   togglePasswordVisibility() {
