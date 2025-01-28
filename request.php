@@ -65,7 +65,7 @@ function sendPasswordResetEmail($email, $resetLink) {
     Hi,
     Please click on the following link to reset your password:
     $resetLink
-    This link will expire in 24 hours.";
+    This link will expire in 1 hour.";
 
     $headers = "From: enval.connect@gmail.com\r\n";
     $headers .= "Reply-To: $email\r\n";
