@@ -780,12 +780,19 @@
                             <div class="single-input-inner">
                                 <input type="text" formControlName="name" required>
                                 <label class="placeholder">Full Name<sup>*</sup></label>
+                                <div *ngIf="userForm.controls['name'].invalid && (userForm.controls['name'].dirty || userForm.controls['name'].touched)" class="error-message">
+                                    <div *ngIf="userForm.controls['name'].errors?.['required']">Full Name is required.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-1">
                             <div class="single-input-inner">
                                 <input type="text" formControlName="email" required>
                                 <label class="placeholder">Email Id<sup>*</sup></label>
+                                <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)" class="error-message">
+                                    <div *ngIf="userForm.controls['email'].errors?.['required']">Email is required.</div>
+                                    <div *ngIf="userForm.controls['email'].errors?.['email']">Enter a valid email.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-1">
@@ -816,6 +823,9 @@
                             <div class="single-input-inner">
                                 <textarea name="multiline" formControlName="message" required></textarea>
                                 <label class="placeholder">Message<sup>*</sup></label>
+                                <div *ngIf="userForm.controls['message'].invalid && (userForm.controls['message'].dirty || userForm.controls['message'].touched)" class="error-message">
+                                    <div *ngIf="userForm.controls['message'].errors?.['required']">Message is required.</div>
+                                </div>
                             </div>
                         </div>
 
