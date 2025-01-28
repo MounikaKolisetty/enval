@@ -10,7 +10,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200); // Respond OK to preflight request
     exit();
 }
+// Include the rate limiter file
+include 'rateLimiter.php';
 
+session_start();
+
+// Set up rate limiter with a capacity of 5 tokens and a rate of 1 token per second
+if (!isset($_SESSION['rateLimiter'])) {
+    $_SESSION['rateLimiter'] = new RateLimiter(5, 1);
+}
+
+$rateLimiter = $_SESSION['rateLimiter'];
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+if (!$rateLimiter->allowRequest()) {
+    echo json_encode(["message" => "Too many requests. Please try again later."]);
+    http_response_code(429); // Too Many Requests
+    exit();
+}
 // Get the raw POST data
 $rawData = file_get_contents("php://input");
 
@@ -77,5 +95,6 @@ if ($data) {
         "success" => false,
         "message" => "Invalid JSON data."
     ]);
+}
 }
 ?>
