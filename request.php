@@ -19,11 +19,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 // Include the database connection
 require 'connect.php'; // Ensure this file creates the $conn object
+require 'rateLimiter.php';
 
-// Enable error reporting for debugging purposes
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+session_start();
+
+// Set up rate limiter with a capacity of 5 tokens and a rate of 1 token per second
+if (!isset($_SESSION['rateLimiter'])) {
+    $_SESSION['rateLimiter'] = new RateLimiter(5, 1);
+}
+
+$rateLimiter = $_SESSION['rateLimiter'];
 
 // Function to generate a random token
 function generateResetToken() {
@@ -77,6 +82,14 @@ function sendPasswordResetEmail($email, $resetLink) {
 
 // Handle the password reset request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // Rate limit check
+    if (!$rateLimiter->allowRequest()) {
+        echo json_encode(["message" => "Too many requests. Please try again later."]);
+        http_response_code(429); // Too Many Requests
+        exit();
+    }
+    
     // Get the JSON input
     $input = json_decode(file_get_contents('php://input'), true);
     $email = $input['email'] ?? null;
