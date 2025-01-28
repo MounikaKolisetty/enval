@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         http_response_code(429); // Too Many Requests
         exit();
     }
-    
+
     // Get the JSON input
     $input = json_decode(file_get_contents('php://input'), true);
     $email = $input['email'] ?? null;
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $resetToken = generateResetToken();
-    $expiration = date('Y-m-d H:i:s', strtotime('+24 hours'));
+    $expiration = date('Y-m-d H:i:s', strtotime('+1 hour'));
     storeResetToken($user['id'], $resetToken, $expiration);
 
     $resetLink = "https://enval.in/password-reset?token={$resetToken}";
