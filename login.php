@@ -22,26 +22,9 @@ header('Content-Type: application/json');
 
 // Include the database connection file
 include 'connect.php';
-// Include the rate limiter file
-include 'rateLimiter.php';
-
-session_start();
-
-// Set up rate limiter with a capacity of 5 tokens and a rate of 1 token per second
-if (!isset($_SESSION['rateLimiter'])) {
-    $_SESSION['rateLimiter'] = new RateLimiter(5, 1);
-}
-
-$rateLimiter = $_SESSION['rateLimiter'];
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Rate limit check
-    if (!$rateLimiter->allowRequest()) {
-        echo json_encode(["message" => "Too many requests. Please try again later."]);
-        http_response_code(429); // Too Many Requests
-        exit();
-    }
 
     // Get the JSON input from the Angular app
     $input = json_decode(file_get_contents('php://input'), true);
