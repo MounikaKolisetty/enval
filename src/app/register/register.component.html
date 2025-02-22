@@ -33,10 +33,6 @@
               <i class="fas" [class.fa-eye]="passwordFieldType === 'password'" [class.fa-eye-slash]="passwordFieldType === 'text'" (click)="togglePasswordVisibility()"></i>
               <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="error-message">
                 <div *ngIf="loginForm.controls['password'].errors?.['required']">Password is required.</div>
-                <div *ngIf="loginForm.controls['password'].errors?.['minlength']">Password must be at least 10 characters long.</div>
-                <div *ngIf="loginForm.controls['password'].errors?.['pattern']">
-                  Password must include uppercase, lowercase, a number, and a special character.  
-                </div>
               </div>
             </div>
             <div class="re-captcha">

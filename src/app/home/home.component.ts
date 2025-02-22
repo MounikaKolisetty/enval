@@ -99,7 +99,4 @@ export class HomeComponent {
       this.spinner.hide();
     }); 
   }
-  navigateToPVA(){
-    this.router.navigate(['/eventspage-pva']);
-  }
 }
