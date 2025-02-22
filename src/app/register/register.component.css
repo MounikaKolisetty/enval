@@ -7,7 +7,9 @@ app-navbar {
     background-color: #fff; /* Optional: set background color */
 }
 .form-container-main{
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-top: 150px;
 }
 .form-container{
