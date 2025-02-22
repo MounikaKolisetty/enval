@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
+error_log('Signup Started' . date('Y-m-d H:i:s'));
 // Include the database connection file
 include 'connect.php';
 
@@ -51,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    error_log('Captcha Verified' . date('Y-m-d H:i:s'));
     // Check if email already exists
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
     if (!$stmt) {
@@ -78,6 +80,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $stmt->bind_param("sss", $username, $email, $password);
 
+    error_log('Signup Inserted to DB' . date('Y-m-d H:i:s'));
+
     // Execute the query
     if (!$stmt->execute()) {
         echo json_encode(["message" => "Execute failed: " . $stmt->error]);
@@ -99,6 +103,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
+
+    error_log('Fetch newly created details' . date('Y-m-d H:i:s'));
 
     // Send welcome email
     $subject = "Welcome to Enval, $username";
@@ -127,10 +133,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    error_log('Email sent' . date('Y-m-d H:i:s'));
     // Return success message along with user details
     echo json_encode(["message" => "User added successfully", "emailInUse" => false, "user" => $user]);
     http_response_code(201); // Created
 
+    error_log('Signup Ended' . date('Y-m-d H:i:s'));
     // Close the statement and connection
     $stmt->close();
     $conn->close();
