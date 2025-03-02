@@ -73,8 +73,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Check password
+    // Fetch user data
     $user = $result->fetch_assoc();
+
+    // Check if the account is verified
+    if ($user['isVerified'] == 0) {
+        echo json_encode(["message" => "Your account is not verified. Please check your email for the verification link.", "notVerified" => true]);
+        http_response_code(200);
+        exit();
+    }
+    
     if (password_verify($password, $user['password'])) {
         // Create session ID
         $sessionId = bin2hex(random_bytes(16));

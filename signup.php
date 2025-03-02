@@ -6,27 +6,22 @@ error_reporting(E_ALL);
 
 // Enable CORS
 header("Access-Control-Allow-Origin: https://enval.in"); // Replace with your frontend URL
-header("Access-Control-Allow-Methods: POST, OPTIONS"); // Allow POST and OPTIONS methods
-header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Allow necessary headers
-header("Access-Control-Allow-Credentials: true"); // Allow credentials
+header("Access-Control-Allow-Methods: POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Credentials: true");
 
 // Handle preflight OPTIONS request
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200); // Respond OK to preflight request
+    http_response_code(200);
     exit();
 }
 
-error_log('Signup Started' . date('Y-m-d H:i:s'));
-// Include the database connection file
+error_log('Signup Started ' . date('Y-m-d H:i:s'));
 include 'connect.php';
 
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // Get the JSON input from the Angular app
     $input = json_decode(file_get_contents('php://input'), true);
 
-    // Check for JSON errors
     if (json_last_error() !== JSON_ERROR_NONE) {
         echo json_encode(["message" => "Invalid JSON input: " . json_last_error_msg()]);
         http_response_code(400);
@@ -40,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $captchaResponse = $input['captchaResponse'];
 
     // Verify CAPTCHA
-    $secretKey = "6LfeP5cqAAAAAFuoiQlEzNQEtsEslby-HmeLf-YV"; // Replace with your actual secret key
+    $secretKey = "6LfeP5cqAAAAAFuoiQlEzNQEtsEslby-HmeLf-YV";
     $verifyURL = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captchaResponse";
 
     $response = file_get_contents($verifyURL);
@@ -52,14 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    error_log('Captcha Verified' . date('Y-m-d H:i:s'));
+    error_log('Captcha Verified ' . date('Y-m-d H:i:s'));
+
     // Check if email already exists
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
-    if (!$stmt) {
-        echo json_encode(["message" => "Prepare failed: " . $conn->error]);
-        http_response_code(500);
-        exit();
-    }
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -71,76 +62,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Prepare and bind for insert
-    $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-    if (!$stmt) {
-        echo json_encode(["message" => "Prepare failed: " . $conn->error]);
-        http_response_code(500);
-        exit();
-    }
-    $stmt->bind_param("sss", $username, $email, $password);
+    // Generate email verification token
+    $token = bin2hex(random_bytes(32));
+    $expiry = date("Y-m-d H:i:s", strtotime("+10 minutes"));
+    $isVerified = false;
 
-    error_log('Signup Inserted to DB' . date('Y-m-d H:i:s'));
-
-    // Execute the query
-    if (!$stmt->execute()) {
-        echo json_encode(["message" => "Execute failed: " . $stmt->error]);
-        http_response_code(500);
-        exit();
-    }
-
-    // Fetch the newly created user's details
-    $userId = $stmt->insert_id;
+    // Store token in database
+    $stmt = $conn->prepare("INSERT INTO users (email, username, password, token, expiry, isVerified) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssi", $email, $username, $password, $token, $expiry, $isVerified);
+    $stmt->execute();
     $stmt->close();
 
-    $stmt = $conn->prepare("SELECT id, username, email FROM users WHERE id = ?");
-    if (!$stmt) {
-        echo json_encode(["message" => "Prepare failed: " . $conn->error]);
-        http_response_code(500);
-        exit();
-    }
-    $stmt->bind_param("i", $userId);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
-
-    error_log('Fetch newly created details' . date('Y-m-d H:i:s'));
-
-    // Send welcome email
-    $subject = "Welcome to Enval, $username";
-    $message = "
-    <html>
-    <head>
-        <title>Welcome to a world of possibilities</title>
-    </head>
-    <body>
-        <h1>Thanks for joining our global community!</h1> 
-        <p>Start exploring, and discovering, today.</p>
-        <a href='https://enval.in/training'>
-            <button style='padding: 10px 20px; background-color: #f0b429; border: none; color: #000000; border-radius: 5px; cursor: pointer;'>Browse Courses</button>
-        </a>
-    </body>
-    </html>
-    ";
-    
-    $headers = "From: enval.connect@gmail.com\r\n"; 
-    $headers .= "Reply-To: enval.connect@gmail.com\r\n"; 
-    $headers .= "Content-Type: text/html; charset=UTF-8\r\n"; 
+    // Send email verification link
+    $verifyLink = "https://enval.in/verify-email?token=$token";
+    $subject = "Verify Your Email";
+    $message = "<html><body>
+        <p>Click the link below to verify your email:</p>
+        <a href='$verifyLink'>Verify Email</a>
+        </body></html>";
+    $headers = "From: enval.connect@gmail.com\r\n";
+    $headers .= "Reply-To: enval.connect@gmail.com\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
     if (!mail($email, $subject, $message, $headers)) {
-        echo json_encode(["message" => "Failed to send the welcome email."]);
+        echo json_encode(["message" => "Failed to send the verification email."]);
         http_response_code(500);
         exit();
     }
 
-    error_log('Email sent' . date('Y-m-d H:i:s'));
-    // Return success message along with user details
-    echo json_encode(["message" => "User added successfully", "emailInUse" => false, "user" => $user]);
-    http_response_code(201); // Created
+    echo json_encode(["message" => "Verification email sent successfully.", "emailInUse" => false]);
+    http_response_code(200);
 
-    error_log('Signup Ended' . date('Y-m-d H:i:s'));
-    // Close the statement and connection
-    $stmt->close();
+    error_log('Signup Ended ' . date('Y-m-d H:i:s'));
     $conn->close();
 }
 ?>
