@@ -345,9 +345,33 @@ input::placeholder {
     }
 
 }
-.reset-password-message .container{
+.verification-message{
+    background-color: #B4D1CC;
+    margin: 2%;
+    @media (max-width: 450px){
+        margin: 5% 0% 5% 2%;
+    }
+}
+.reset-password-message .container, 
+.verification-message .containerverificationStatus{
     padding: 20px;
     display: flex;
+}
+.rightverificationStatus{
+    display: flex;
+}
+.verificationStatusText{
+    margin: 0;
+    width: 80%;
+    font-family: Rubik, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    @media (max-width: 450px){
+        width: 60%;
+    }
+}
+.verification-message .containerverificationStatus .font-icon {
+    padding-top: 2px;
 }
 .font-icon{
     padding-top: 20px;

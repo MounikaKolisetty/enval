@@ -48,4 +48,7 @@ export class UserService {
   saveToDb(verificationDetails:any, userDetails: any, paymentVerify: boolean): Observable<any> {
     return this.http.post(`${this.apiUrl}/userDetailsToDB.php`, { verificationDetails, userDetails, paymentVerify }, { responseType: 'json' })
   }
+  verifyEmail(token: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/verifyEmail.php`, { token }, { responseType: 'json' });
+  }
 }

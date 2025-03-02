@@ -22,6 +22,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 import { CancellationRefundpolicyComponent } from './cancellation-refundpolicy/cancellation-refundpolicy.component';
 import { ShippingDeliveryComponent } from './shipping-delivery/shipping-delivery.component';
+import { VerifyUserComponent } from './verify-user/verify-user.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent , title: 'Enval'},
@@ -47,5 +48,6 @@ export const routes: Routes = [
     { path: 'privacypolicy', component: PrivacyPolicyComponent, title: 'Privacy Policy - Enval'},
     { path: 'termsconditions', component: TermsConditionsComponent, title: 'Terms and Conditions - Enval'},
     { path: 'cancellationrefundpolicy', component: CancellationRefundpolicyComponent, title: 'Cancellation and Refund Policy - Enval'},
-    { path: 'shippingdelivery', component: ShippingDeliveryComponent, title: 'Shipping and Delivery - Enval'}
+    { path: 'shippingdelivery', component: ShippingDeliveryComponent, title: 'Shipping and Delivery - Enval'},
+    { path: 'verify-email', component: VerifyUserComponent, title: 'Enval'}
 ];

@@ -49,8 +49,10 @@ export class RegisterComponent {
   showmessage = false;
   userFullName = '';
   isLoggedIn = false;
+  notVerified = false;
   captchaResolvedLogin: string | null = null;
   captchaResolvedSignUp: string | null = null;
+  verificationStatus = '';
   constructor(private fb: FormBuilder, private userService: UserService, private authService: AuthService, private router: Router) {} 
   ngOnInit() {
      this.signUpForm = this.fb.group({
@@ -76,6 +78,7 @@ export class RegisterComponent {
      this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password'; 
     }
   signUp() { 
+    this.verificationStatus = 'Please hang on, signup processing'
     if (this.signUpForm.valid && this.captchaResolvedSignUp) { 
       const { fullName, email, password } = this.signUpForm.value;
       this.user = {fullName, email, password, captchaResponse: this.captchaResolvedSignUp};
@@ -83,16 +86,12 @@ export class RegisterComponent {
         response => { 
           if (response.emailInUse) {
             this.emailInUse = true; 
+            this.verificationStatus = '';
             } 
           else { 
             this.emailInUse = false; 
             console.log('User signed up successfully', response); 
-            const fullName = response.user.username; 
-            this.authService.changeName(fullName);
-            this.authService.changeIsLoggedin(true);
-            localStorage.setItem('UserName', fullName);
-            localStorage.setItem('UserID', response.user.id);
-            this.router.navigate(['enrolled-courses']);
+            this.verificationStatus = 'An email has been sent to you. Please verify your account.'
           } 
         }, 
         error => {
@@ -110,6 +109,9 @@ export class RegisterComponent {
 
     this.userService.login(email, password, this.captchaResolvedLogin).subscribe(
        response => {
+         if(response.notVerified) {
+           this.notVerified = true;
+         }
          if (response.invalidInputs) {
            this.invalidInputs = true; 
            console.log(response.message); 

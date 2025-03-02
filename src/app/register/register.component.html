@@ -19,6 +19,10 @@
               <i class="fa-solid fa-circle-exclamation"></i>
               <div class="error-message">There was a problem logging in. Check your email and password OR Create an account.</div>
             </div>
+            <div *ngIf="notVerified" class="error">
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <div class="error-message">Your account is not verified. Please check your email for the verification link.</div>
+            </div>
             <div class="single-input-inner">
               <input type="text"  formControlName="email" required>
               <label class="placeholder" [ngClass]="{'float': loginForm.controls['email'].value}">Email<sup>*</sup></label>
@@ -53,7 +57,15 @@
         <form class="signup-inner" [formGroup]="signUpForm" (ngSubmit)="signUp()">
             <div *ngIf="emailInUse" class="error">
               <i class="fa-solid fa-circle-exclamation"></i>
-              <div class="error-message">Please check your email address again.</div>
+              <div class="error-message">User exists. Please login.</div>
+            </div>
+            <div class="verification-message" *ngIf="verificationStatus">
+              <div class="containerverificationStatus">
+                <i class="fa-solid fa-circle-check font-icon"></i>
+                <div class="rightverificationStatus">
+                  <p class="verificationStatusText">{{ verificationStatus }}</p>
+                </div>
+              </div>
             </div>
             <div class="single-input-inner">
               <input type="text" formControlName="fullName" class="input" required>
