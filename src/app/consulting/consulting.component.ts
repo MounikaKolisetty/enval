@@ -23,8 +23,8 @@ import { ScrollButtonComponent } from '../scroll-button/scroll-button.component'
 export class ConsultingComponent {
   videos = [ 
     { videoId: 'YX5i8T1ta64'}, 
-    { videoId: 'Uyfk-4m9Syk'}, 
-    { videoId: '0Oc1Y_LZXUI'} 
+    // { videoId: 'Uyfk-4m9Syk'}, 
+    // { videoId: '0Oc1Y_LZXUI'} 
   ];
   playerConfig = {
     controls: 0,
@@ -53,7 +53,7 @@ export class ConsultingComponent {
     });
   }
   activeVideoIndex: number | null = null; 
-  scrollStopped: boolean = false; 
+  scrollStopped: boolean = true; 
   toggleVideo(index: number): void { 
     if (this.activeVideoIndex === index) { 
       this.scrollStopped = !this.scrollStopped;
@@ -66,7 +66,7 @@ export class ConsultingComponent {
 
   onPlayerStateChange(event: any, index: number): void { 
     if ((event.data === 0 || event.data === 2) && this.activeVideoIndex === index) { // Video ended 
-      this.scrollStopped = false; // Resume scrolling 
+      this.scrollStopped = true; // Resume scrolling 
     } else if (event.data === 1 && this.activeVideoIndex === index) { // Video playing 
       this.scrollStopped = true; // Stop scrolling 
       }

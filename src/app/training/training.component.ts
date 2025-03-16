@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { UserService } from '../services/user.service';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { HttpClient } from '@angular/common/http';
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-training',
@@ -20,7 +21,8 @@ import { HttpClient } from '@angular/common/http';
             ScrollButtonComponent,
             MatIconModule,
             RecaptchaModule,
-            ReactiveFormsModule
+            ReactiveFormsModule,
+            NgxSpinnerModule
   ],
   providers: [UserService],
   templateUrl: './training.component.html',
@@ -33,7 +35,12 @@ export class TrainingComponent {
   userForm!: FormGroup;
   captchaResolved: boolean = false;
   messageSent: boolean = false;
-  constructor(private fb: FormBuilder, private userService: UserService, private http: HttpClient) { }
+  constructor(
+    private fb: FormBuilder, 
+    private userService: UserService, 
+    private http: HttpClient,
+    private spinner: NgxSpinnerService,
+  ) { }
   ngOnInit(){
       this.userForm = this.fb.group({
         name: ['', Validators.required],
@@ -81,6 +88,7 @@ export class TrainingComponent {
     }
   }
   downloadFile() { 
+    this.spinner.show();
     const fileUrl = '../../assets/Corporate Brochure.pdf'; 
     // Replace with your file URL 
     this.http.get(fileUrl, { responseType: 'blob' }).subscribe((response: Blob) => { 
@@ -89,9 +97,11 @@ export class TrainingComponent {
       link.href = downloadURL; 
       link.download = 'Corporate Brochure.pdf'; // Replace with the desired file name 
       link.click(); 
+      this.spinner.hide();
     }, 
     error => { 
       console.error('Error downloading the file', error); 
+      this.spinner.hide();
     }); 
   }
   downloadFlyer() { 

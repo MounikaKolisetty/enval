@@ -50,6 +50,8 @@ export class PasswordResetComponent implements OnInit{
     this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password'; 
   }
   onSubmit() {
+    if(this.passwordResetForm.valid)
+    {
     const newPassword = this.passwordResetForm.value.newPassword;
     this.userService.resetPassword(this.token, newPassword).subscribe(
       response => 
@@ -63,5 +65,6 @@ export class PasswordResetComponent implements OnInit{
           console.log('Error resetting password', error)
         } 
       );
+    }
   }
 }

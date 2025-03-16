@@ -132,6 +132,7 @@ export class RegisterComponent {
     }
   }
   onSubmit() { 
+    if(this.forgetForm.valid) {
     const email = this.forgetForm.value.email; 
     this.userService.requestPasswordReset(email).subscribe(
        response => 
@@ -146,6 +147,7 @@ export class RegisterComponent {
           console.log('Error sending password reset email.', error)
         } 
       );
+    }
    }
 
   showLogin(): void {
