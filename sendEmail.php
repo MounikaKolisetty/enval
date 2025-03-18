@@ -1,4 +1,9 @@
 <?php
+// Enable error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Allow CORS
 header("Access-Control-Allow-Origin: https://enval.in"); // Replace with your frontend URL
 header("Access-Control-Allow-Methods: POST, OPTIONS"); // Allow POST and OPTIONS methods
@@ -18,24 +23,53 @@ $rawData = file_get_contents("php://input");
 
 // Decode the JSON data
 $data = json_decode($rawData, true);
+$formData = $data['formData'] ?? [];
 
 if ($data) {
     // Sanitize and retrieve form data
-    $name = isset($data['name']) ? htmlspecialchars($data['name']) : '';
-    $email = isset($data['email']) ? htmlspecialchars($data['email']) : '';
-    $message = isset($data['message']) ? htmlspecialchars($data['message']) : '';
-    $corporateTraining = isset($data['corporateTraining']) ? ($data['corporateTraining'] ? 'Yes' : 'No') : 'No';
-    $trainingForPractitioners = isset($data['trainingForPractitioners']) ? ($data['trainingForPractitioners'] ? 'Yes' : 'No') : 'No';
-    $consulting = isset($data['consulting']) ? ($data['consulting'] ? 'Yes' : 'No') : 'No';
-    $projects = isset($data['projects']) ? ($data['projects'] ? 'Yes' : 'No') : 'No';
-    $subscribe = isset($data['subscribe']) ? ($data['subscribe'] ? 'Yes' : 'No') : 'No';
+    $name = isset($formData['name']) ? htmlspecialchars($formData['name']) : '';
+    $email = isset($formData['email']) ? htmlspecialchars($formData['email']) : '';
+    $message = isset($formData['message']) ? htmlspecialchars($formData['message']) : '';
+    $corporateTraining = isset($formData['corporateTraining']) ? ($formData['corporateTraining'] ? 'Yes' : 'No') : 'No';
+    $trainingForPractitioners = isset($formData['trainingForPractitioners']) ? ($formData['trainingForPractitioners'] ? 'Yes' : 'No') : 'No';
+    $consulting = isset($formData['consulting']) ? ($formData['consulting'] ? 'Yes' : 'No') : 'No';
+    $projects = isset($formData['projects']) ? ($formData['projects'] ? 'Yes' : 'No') : 'No';
+    $subscribe = isset($formData['subscribe']) ? ($formData['subscribe'] ? 'Yes' : 'No') : 'No'; 
 
+    $captchaResponse = $data['captchaResponse'];
+
+    // Verify CAPTCHA
+    $secretKey = "6LfeP5cqAAAAAFuoiQlEzNQEtsEslby-HmeLf-YV"; // Replace with your actual secret key
+    $verifyURL = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captchaResponse";
+
+    $response = file_get_contents($verifyURL);
+    $responseData = json_decode($response);
+
+    if (!$responseData->success) {
+        echo json_encode(["message" => "CAPTCHA verification failed."]);
+        http_response_code(400);
+        exit();
+    }
+    error_log('Data ' . $data);
+    error_log('name ' . $name);
+    error_log('email ' . $email);
+    error_log('message ' . $message);
     // Validate required fields
     if (empty($name) || empty($email) || empty($message)) {
         echo json_encode([
             "success" => false,
             "message" => "Name, email, and message are required."
         ]);
+        exit();
+    }
+
+    // ✅ 3. Rate Limit Requests
+    if (!isset($_SESSION['email_sent'])) {
+        $_SESSION['email_sent'] = 0;
+    }
+    if ($_SESSION['email_sent'] >= 5) {  
+        echo json_encode(["success" => false, "message" => "Rate limit exceeded."]);
+        http_response_code(429);
         exit();
     }
 
@@ -48,7 +82,7 @@ if ($data) {
     }
 
     // Email details
-    $to = $email;
+    $to = "enval.connect@gmail.com";
     $subject = "New Form Submission";
     $headers = "From: enval.connect@gmail.com\r\n";
     $headers .= "Reply-To: $email\r\n";
@@ -61,6 +95,22 @@ if ($data) {
     $fullMessage .= "Consulting: $consulting\n";
     $fullMessage .= "Projects: $projects\n";
     $fullMessage .= "Subscribe: $subscribe\n";
+
+    $allowed_domains = ['@gmail.com', '@yahoo.com', '@enval.in'];
+    $valid_email = false;
+
+    foreach ($allowed_domains as $domain) {
+        if (str_ends_with($email, $domain)) {
+            $valid_email = true;
+            break;
+        }
+    }
+
+    if (!$email || !$valid_email || empty($name) || empty($message)) {
+        echo json_encode(["success" => false, "message" => "Invalid or unauthorized recipient."]);
+        exit();
+    }
+
 
     // Send email using mail() function
     if (mail($to, $subject, $fullMessage, $headers)) {
