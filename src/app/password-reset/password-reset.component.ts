@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,8 +30,9 @@ export class PasswordResetComponent implements OnInit{
   passwordFieldType: string = 'password'; 
   showmessage = false;
   showresetform = true;
+  verificationStatus: string = 'Verifying...';
 
-  constructor(private fb: FormBuilder, private userService: UserService, private route: ActivatedRoute) {}
+  constructor(private fb: FormBuilder, private userService: UserService, private route: ActivatedRoute, private router: Router) {}
     
   ngOnInit() {
      // Capture the token from the query parameters 
@@ -52,19 +53,24 @@ export class PasswordResetComponent implements OnInit{
   onSubmit() {
     if(this.passwordResetForm.valid)
     {
-    const newPassword = this.passwordResetForm.value.newPassword;
-    this.userService.resetPassword(this.token, newPassword).subscribe(
-      response => 
-        {
-          this.showresetform = false;
-          this.showmessage = true;
-          console.log('Password has been reset', response );
-        }, 
-       error =>
-        {
-          console.log('Error resetting password', error)
-        } 
-      );
+      const newPassword = this.passwordResetForm.value.newPassword;
+      this.userService.resetPassword(this.token, newPassword).subscribe({
+        next: (response) => {
+          if (response.success) {
+            this.showmessage = true;
+            this.showresetform = false;
+            this.verificationStatus = 'Password updated successfully! Redirecting...';
+            setTimeout(() => this.router.navigate(['/login']), 3000);
+          } else {
+            this.showmessage = true;
+            this.showresetform = false;
+            this.verificationStatus = 'Verification failed: ' + response.message;
+          }
+        },
+        error: () => {
+          this.verificationStatus = 'Error verifying email!';
+        }
+      });
     }
   }
 }
