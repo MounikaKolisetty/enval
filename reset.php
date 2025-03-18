@@ -11,7 +11,7 @@ require 'connect.php'; // Ensure this file creates the $conn object
 // Function to get the reset token from the database
 function getPasswordResetToken($token) {
     global $conn; // Declare $conn as global
-    $query = "SELECT * FROM passwordresettokens WHERE token = ?";
+    $query = "SELECT * FROM passwordresettokens WHERE token = ? AND isVerified = 0";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $token);
     $stmt->execute();
@@ -47,30 +47,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newPassword = $input['newPassword'] ?? null;
 
     if (!$token || !$newPassword) {
-        echo json_encode(['message' => 'Token and new password are required.']);
+        echo json_encode(["success" => false, 'message' => 'Token and new password are required.']);
         exit;
     }
 
     // Retrieve the reset token from the database
     $resetToken = getPasswordResetToken($token);
     if (!$resetToken || strtotime($resetToken['expiration']) < time()) {
-        echo json_encode(['message' => 'Invalid or expired token.']);
+        echo json_encode(["success" => false, 'message' => 'Invalid or expired token.']);
         exit;
     }
 
     // Retrieve the user associated with the token
     $user = getUserById($resetToken['user_id']);
     if (!$user) {
-        echo json_encode(['message' => 'User not found.']);
+        echo json_encode(["success" => false, 'message' => 'User not found.']);
         exit;
     }
 
     // Update the user's password
     if (updateUserPassword($user['id'], $newPassword)) {
-        echo json_encode(['message' => 'Password has been reset.']);
+        echo json_encode(["success" => true, 'message' => 'Password has been reset.']);
     } else {
-        echo json_encode(['message' => 'Failed to reset password.']);
+        echo json_encode(["success" => false, 'message' => 'Failed to reset password.']);
     }
+
+    $stmt = $conn->prepare("UPDATE passwordresettokens SET isVerified = 1, token = NULL WHERE token = ?");
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+
     exit;
 }
 ?>

@@ -28,9 +28,10 @@ function generateResetToken() {
 // Function to store the token
 function storeResetToken($userId, $token, $expiration) {
     global $conn; // Declare $conn as global
-    $query = "INSERT INTO passwordresettokens (user_id, token, expiration) VALUES (?, ?, ?)";
+    $isVerified = false;
+    $query = "INSERT INTO passwordresettokens (user_id, token, expiration, isVerified) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("iss", $userId, $token, $expiration);
+    $stmt->bind_param("issi", $userId, $token, $expiration, $isVerified);
     $stmt->execute();
     $stmt->close();
 }

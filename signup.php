@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         http_response_code(400);
         exit();
     }
+    error_log('Captcha Verification Started ' . date('Y-m-d H:i:s'));
 
     // Get user details from input
     $username = $input['fullName'];
@@ -73,6 +74,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $stmt->close();
 
+    error_log('Stored to DB ' . date('Y-m-d H:i:s'));
+
     // Send email verification link
     $verifyLink = "https://enval.in/verify-email?token=$token";
     $subject = "Verify Your Email";
@@ -89,6 +92,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         http_response_code(500);
         exit();
     }
+
+    error_log('Email Sent ' . date('Y-m-d H:i:s'));
 
     echo json_encode(["message" => "Verification email sent successfully.", "emailInUse" => false]);
     http_response_code(200);
