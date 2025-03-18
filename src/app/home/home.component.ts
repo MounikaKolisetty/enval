@@ -36,6 +36,7 @@ export class HomeComponent {
   userForm!: FormGroup;
   messageSent: boolean = false;
   captchaResolved: boolean = false; // Variable to track reCAPTCHA status
+  captchaResponse: string | null = null;
   constructor(private fb: FormBuilder, 
     private userService: UserService, 
     private http: HttpClient,
@@ -66,11 +67,13 @@ export class HomeComponent {
   }
   resolved(captchaResponse: string | null) { 
     console.log('Captcha Response:', captchaResponse); 
+    this.captchaResponse = captchaResponse;
     this.captchaResolved = !!captchaResponse; // Set to true if captchaResponse is not empty 
   }
   onSubmit(){
     if(this.userForm.valid && this.captchaResolved){
-      this.userService.sendHomeContact(this.userForm.value).subscribe(
+      const captchaToken = this.captchaResponse ?? ''; 
+      this.userService.sendHomeContact(this.userForm.value, captchaToken).subscribe(
         response => {
           console.log('Email sent successfully', response); 
           this.messageSent = true;

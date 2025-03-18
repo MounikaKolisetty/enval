@@ -27,8 +27,8 @@ export class UserService {
   getUserCourses(userid: string): Observable<any> {
      return this.http.post(`${this.apiUrl}/userCourses.php`, {userid}, { withCredentials: true }); 
   }
-  sendHomeContact(formData: any): Observable<any>{
-    return this.http.post(`${this.apiUrl}/sendEmail.php`, formData ,{ withCredentials: true });
+  sendHomeContact(formData: any, captchaResponse: string): Observable<any>{
+    return this.http.post(`${this.apiUrl}/sendEmail.php`, { formData, captchaResponse } ,{ withCredentials: true });
   }
   sendUserContact(formData: any): Observable<any>{
     return this.http.post(`${this.apiUrl}/contactForm.php`, formData ,{ withCredentials: true });
