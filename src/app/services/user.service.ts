@@ -24,8 +24,8 @@ export class UserService {
   logout(): Observable<any> {
     return this.http.post(`${this.apiUrl}/logout.php`, {} ,{ withCredentials: true }); 
   }
-  getUserCourses(userid: string): Observable<any> {
-     return this.http.post(`${this.apiUrl}/userCourses.php`, {userid}, { withCredentials: true }); 
+  getUserCourses(): Observable<any> {
+     return this.http.post(`${this.apiUrl}/userCourses.php`, {}, { withCredentials: true }); 
   }
   sendHomeContact(formData: any, captchaResponse: string): Observable<any>{
     return this.http.post(`${this.apiUrl}/sendEmail.php`, { formData, captchaResponse } ,{ withCredentials: true });

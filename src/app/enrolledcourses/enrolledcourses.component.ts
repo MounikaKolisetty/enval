@@ -31,7 +31,7 @@ export class EnrolledcoursesComponent {
     this.courses();
   }
   courses(){
-    this.userService.getUserCourses(this.userID).subscribe(
+    this.userService.getUserCourses().subscribe(
       response => {
         this.userCourses = response;
       },
