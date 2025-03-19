@@ -21,10 +21,10 @@ export class UserService {
       });
   }
   signUp(user: any): Observable<any> { 
-    return this.http.post(`${this.apiUrl}/signup.php`, user, { responseType: 'json' }); 
+    const headers = { 'X-CSRF-Token': localStorage.getItem('csrf_token') || '' };
+    return this.http.post(`${this.apiUrl}/signup.php`, user, { responseType: 'json', headers }); 
   }
   login(email: string, password: string, captchaResponse: string): Observable<any> { 
-    console.log('Getting CSRF', localStorage.getItem('csrf_token'))
     const headers = { 'X-CSRF-Token': localStorage.getItem('csrf_token') || '' };
     return this.http.post(
       `${this.apiUrl}/login.php`, 
@@ -33,13 +33,16 @@ export class UserService {
     );
   }
   requestPasswordReset(email: string): Observable<any> {
-     return this.http.post(`${this.apiUrl}/request.php`, { email },{ responseType: 'json' }); 
+    const headers = { 'X-CSRF-Token': localStorage.getItem('csrf_token') || '' };
+     return this.http.post(`${this.apiUrl}/request.php`, { email },{ responseType: 'json', headers }); 
   } 
   resetPassword(token: string, newPassword: string): Observable<any> {
-     return this.http.post(`${this.apiUrl}/reset.php`, { token, newPassword }, { responseType: 'json' }); 
+    const headers = { 'X-CSRF-Token': localStorage.getItem('csrf_token') || '' };
+     return this.http.post(`${this.apiUrl}/reset.php`, { token, newPassword }, { responseType: 'json', headers }); 
   }
   logout(): Observable<any> {
-    return this.http.post(`${this.apiUrl}/logout.php`, {} ,{ withCredentials: true }); 
+    const headers = { 'X-CSRF-Token': localStorage.getItem('csrf_token') || '' };
+    return this.http.post(`${this.apiUrl}/logout.php`, {} ,{ withCredentials: true, headers }); 
   }
   getUserCourses(): Observable<any> {
      return this.http.post(`${this.apiUrl}/userCourses.php`, {}, { withCredentials: true }); 
@@ -57,15 +60,27 @@ export class UserService {
     return this.http.post(`${this.apiUrl}/advisorForm.php`, formData ,{ withCredentials: true });
   }
   createOrder(amount: number): Observable<any> { 
-    return this.http.post<any>(`${this.apiUrl}/create_order.php`, { amount }, { responseType: 'json' }); 
+    const headers = { 'X-CSRF-Token': localStorage.getItem('csrf_token') || '' };
+    return this.http.post<any>(
+      `${this.apiUrl}/create_order.php`,
+       { amount }, 
+       { responseType: 'json', headers }
+    ); 
   } 
   verifyPayment(verifyDetails: any): Observable<any> { 
-    return this.http.post(`${this.apiUrl}/verify_payment.php`, verifyDetails, { responseType: 'json' }); 
+    const headers = { 'X-CSRF-Token': localStorage.getItem('csrf_token') || '' };
+    return this.http.post(`${this.apiUrl}/verify_payment.php`, verifyDetails, { responseType: 'json', headers }); 
   }
   saveToDb(verificationDetails:any, userDetails: any, paymentVerify: boolean): Observable<any> {
-    return this.http.post(`${this.apiUrl}/userDetailsToDB.php`, { verificationDetails, userDetails, paymentVerify }, { responseType: 'json' })
+    const headers = { 'X-CSRF-Token': localStorage.getItem('csrf_token') || '' };
+    return this.http.post(
+      `${this.apiUrl}/userDetailsToDB.php`, 
+      { verificationDetails, userDetails, paymentVerify }, 
+      { responseType: 'json', headers })
   }
   verifyEmail(token: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/verifyEmail.php`, { token }, { responseType: 'json' });
+    console.log('verifying email', localStorage.getItem('csrf_token'));
+    const headers = { 'X-CSRF-Token': localStorage.getItem('csrf_token') || '' };
+    return this.http.post(`${this.apiUrl}/verifyEmail.php`, { token }, { responseType: 'json', headers });
   }
 }
