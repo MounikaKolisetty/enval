@@ -11,6 +11,8 @@ header("Access-Control-Allow-Methods: POST, OPTIONS"); // Allow POST and OPTIONS
 header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Allow necessary headers
 header("Access-Control-Allow-Credentials: true"); // Allow credentials
 
+session_start();
+
 // Handle preflight OPTIONS request
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200); // Respond OK to preflight request
@@ -90,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $expiresAt = date('Y-m-d H:i:s', strtotime('+30 minutes'));
 
         $_SESSION['SessionId'] = $sessionId;
-
+        $_SESSION['user_id'] = $userId;
         // Insert session into database
         $sessionStmt = $conn->prepare("INSERT INTO sessions (session_id, user_id, expires_at) VALUES (?, ?, ?)");
         if (!$sessionStmt) {

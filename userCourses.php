@@ -1,32 +1,29 @@
 <?php
-// header("Access-Control-Allow-Origin: https://enval.in"); // Replace with your frontend URL
-header("Access-Control-Allow-Origin: http://localhost:4200"); // Replace with your frontend URL
+header("Access-Control-Allow-Origin: https://enval.in"); // Replace with your frontend URL
+// header("Access-Control-Allow-Origin: http://localhost:4200"); // Replace with your frontend URL
 header("Access-Control-Allow-Methods: POST, OPTIONS"); // Allow POST and OPTIONS methods
 header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Allow necessary headers
 header("Access-Control-Allow-Credentials: true"); // Allow credentials
 
-// Handle preflight OPTIONS request
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200); // Respond OK to preflight request
+    http_response_code(200);
     exit();
 }
 
-// Include the database connection
+session_start(); // Ensure session is started
+
 include 'connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the JSON input from the Angular app
-    $input = json_decode(file_get_contents('php://input'), true);
 
-    // Check for JSON errors
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        echo json_encode(["message" => "Invalid JSON input: " . json_last_error_msg()]);
-        http_response_code(400);
+    if (!isset($_SESSION['user_id'])) {
+        http_response_code(403); // Forbidden
+        echo json_encode(["error" => "Unauthorized access"]);
         exit();
     }
 
-    // Extract the user ID from the input and convert it to an integer
-    $user_id = intval($input['userid']);
+    $user_id = $_SESSION['user_id'];
+    error_log($user_id);
 
     // Step 1: Fetch email from users table based on user_id
     $stmt = $conn->prepare("SELECT email FROM users WHERE id = ?");
