@@ -1,7 +1,35 @@
 <?php
 include 'connect.php';
-header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: https://enval.in"); // Replace with your frontend URL
+header("Access-Control-Allow-Methods: POST, OPTIONS"); // Allow POST and OPTIONS methods
+header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Allow necessary headers
+header("Access-Control-Allow-Credentials: true"); // Allow credentials
+session_set_cookie_params([
+    'lifetime' => 0,
+    'path' => '/',
+    'domain' => 'www.enval.in',
+    'secure' => true,
+    'httponly' => true,
+    'samesite' => 'Strict'
+]);
 
+$headers = getallheaders();
+$csrf_token = $headers['X-CSRF-Token'] ?? ($headers['X-Csrf-Token'] ?? ''); // Case handling
+
+if (empty($csrf_token)) {
+    error_log("CSRF Token Missing");
+    echo json_encode(["message" => "Invalid CSRF token"]);
+    http_response_code(403);
+    exit();
+}
+
+session_start();
+if (!isset($_SESSION['csrf_token']) || $csrf_token !== $_SESSION['csrf_token']) {
+    error_log("CSRF Token Mismatch");
+    echo json_encode(["message" => "Invalid CSRF token"]);
+    http_response_code(403);
+    exit();
+}
 // Get JSON input
 $input = json_decode(file_get_contents('php://input'), true);
 $token = $input['token'] ?? '';
