@@ -8,12 +8,29 @@ import { environment } from '../../environments/environment';
 })
 export class UserService {
   private apiUrl = environment.apiUrl; // Replace with your backend URL 
-  constructor(private http: HttpClient) {} 
+  csrfToken: string | null = null;
+  constructor(private http: HttpClient) {
+    this.getCsrfToken();
+  } 
+  getCsrfToken() {
+    this.http.get<{ csrf_token: string }>(`${this.apiUrl}/csrfToken.php`)
+      .subscribe(response => {
+        this.csrfToken = response.csrf_token;
+        console.log('Running...', this.csrfToken);
+        localStorage.setItem('csrf_token', this.csrfToken); // Store token
+      });
+  }
   signUp(user: any): Observable<any> { 
     return this.http.post(`${this.apiUrl}/signup.php`, user, { responseType: 'json' }); 
   }
   login(email: string, password: string, captchaResponse: string): Observable<any> { 
-    return this.http.post(`${this.apiUrl}/login.php`, { email, password, captchaResponse } ,{ responseType: 'json', withCredentials: true });
+    console.log('Getting CSRF', localStorage.getItem('csrf_token'))
+    const headers = { 'X-CSRF-Token': localStorage.getItem('csrf_token') || '' };
+    return this.http.post(
+      `${this.apiUrl}/login.php`, 
+      { email, password, captchaResponse } ,
+      { responseType: 'json', withCredentials: true , headers}
+    );
   }
   requestPasswordReset(email: string): Observable<any> {
      return this.http.post(`${this.apiUrl}/request.php`, { email },{ responseType: 'json' }); 
