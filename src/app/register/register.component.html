@@ -55,15 +55,15 @@
             </div>
         </form>
         <form class="signup-inner" [formGroup]="signUpForm" (ngSubmit)="signUp()">
-            <div *ngIf="emailInUse" class="error">
+            <div *ngIf="error" class="error">
               <i class="fa-solid fa-circle-exclamation"></i>
-              <div class="error-message">User exists. Please login.</div>
+              <div class="error-message">{{ error }}</div>
             </div>
-            <div class="verification-message" *ngIf="verificationStatus">
+            <div class="verification-message" *ngIf="response">
               <div class="containerverificationStatus">
                 <i class="fa-solid fa-circle-check font-icon"></i>
                 <div class="rightverificationStatus">
-                  <p class="verificationStatusText">{{ verificationStatus }}</p>
+                  <p class="verificationStatusText">{{ response }}</p>
                 </div>
               </div>
             </div>

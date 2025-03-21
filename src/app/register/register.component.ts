@@ -37,7 +37,7 @@ export class RegisterComponent {
     password: '' 
   };
   passwordFieldType: string = 'password'; 
-  emailInUse = false; // Add a flag for email in use
+  error = ''; // Add a flag for email in use
   //Login
   showforget = false;
   showlogin = true;
@@ -52,7 +52,7 @@ export class RegisterComponent {
   notVerified = false;
   captchaResolvedLogin: string | null = null;
   captchaResolvedSignUp: string | null = null;
-  verificationStatus = '';
+  response = '';
   constructor(private fb: FormBuilder, private userService: UserService, private authService: AuthService, private router: Router) {} 
   ngOnInit() {
      this.signUpForm = this.fb.group({
@@ -78,25 +78,48 @@ export class RegisterComponent {
      this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password'; 
     }
   signUp() { 
-    this.verificationStatus = 'Please hang on, signup processing'
+    this.response = 'Please hang on, signup processing'
     if (this.signUpForm.valid && this.captchaResolvedSignUp) { 
       const { fullName, email, password } = this.signUpForm.value;
       this.user = {fullName, email, password, captchaResponse: this.captchaResolvedSignUp};
       this.userService.signUp(this.user).subscribe( 
-        response => { 
-          if (response.emailInUse) {
-            this.emailInUse = true; 
-            this.verificationStatus = '';
-            } 
-          else { 
-            this.emailInUse = false; 
-            console.log('User signed up successfully', response); 
-            this.verificationStatus = 'An email has been sent to you. Please verify your account.'
-          } 
-        }, 
-        error => {
-          console.error('Error signing up user', error); 
-        })
+          response => {
+            console.log('Success response:', response); // Log the entire response
+            this.error = ''; // Clear any previous error
+            if (response.message === "Verification email sent successfully.") {
+              this.response = 'An email has been sent to you. Please verify your account.';
+            } else {
+              // Handle other successful responses if any.  Important to set this.response even in the else
+              this.response = response.message;  //Display message whatever it is
+              console.log("Unexpected success response", response.message);
+            }
+          },
+          error => {
+            console.error('Error response:', error); // Log the entire error object
+            this.response = ''; // Clear any previous success message
+            if (error.status === 403) {
+              this.error = "Security check failed. Please refresh the page and try again.";
+            } else if (error.status === 400) {
+              // Access the response body
+              try {
+                const errorBody = JSON.parse(error.error); // Try to parse the error response
+        
+                if (errorBody && errorBody.message) {
+                  this.error = errorBody.message; // Display the message from the server
+                } else {
+                  this.error = "Unable to create account. Please ensure all information is correct and try again later."; // Generic message as a fallback
+                }
+              } catch (e) {
+                console.error("Error parsing error response:", e);
+                this.error = "Unable to create account. Please ensure all information is correct and try again later."; // Generic message if parsing fails
+              }
+            } else if (error.status === 500) {
+              this.error = "An unexpected server error occurred. Please try again later."; // Generic server error message
+            } else {
+              this.error = "An unexpected error occurred. Please try again later.";  //Catch all
+            }
+          }
+        );
     }
   }
   toggleDiv() {
