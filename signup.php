@@ -84,7 +84,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        echo json_encode(["message" => "User already exists.", "emailInUse" => true]);
+        echo json_encode(["message" => "Unable to create account. Please ensure all information is correct and try again later."]);
+        http_response_code(400);
         $stmt->close();
         $conn->close();
         exit();
@@ -122,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     error_log('Email Sent ' . date('Y-m-d H:i:s'));
 
-    echo json_encode(["message" => "Verification email sent successfully.", "emailInUse" => false]);
+    echo json_encode(["message" => "Verification email sent successfully."]);
     http_response_code(200);
 
     error_log('Signup Ended ' . date('Y-m-d H:i:s'));
