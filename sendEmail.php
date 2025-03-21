@@ -40,6 +40,7 @@ if ($data) {
 
     // Verify CAPTCHA
     $secretKey = "6LfeP5cqAAAAAFuoiQlEzNQEtsEslby-HmeLf-YV"; // Replace with your actual secret key
+    // $secretKey = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"; // Google test secret key
     $verifyURL = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captchaResponse";
 
     $response = file_get_contents($verifyURL);
@@ -63,12 +64,19 @@ if ($data) {
         exit();
     }
 
+    session_start();
     // ✅ 3. Rate Limit Requests
-    if (!isset($_SESSION['email_sent'])) {
-        $_SESSION['email_sent'] = 0;
+    if (!isset($_SESSION['email_timestamps'])) {
+        $_SESSION['email_timestamps'] = [];
     }
-    if ($_SESSION['email_sent'] >= 5) {  
-        echo json_encode(["success" => false, "message" => "Rate limit exceeded."]);
+    // Remove timestamps older than 1 hour
+    $_SESSION['email_timestamps'] = array_filter($_SESSION['email_timestamps'], function ($timestamp) {
+        return $timestamp > time() - 3600;
+    });
+
+    // Check rate limit
+    if (count($_SESSION['email_timestamps']) >= 5) {
+        echo json_encode(["success" => false, "message" => "Rate limit exceeded. Try again later."]);
         http_response_code(429);
         exit();
     }
@@ -114,6 +122,7 @@ if ($data) {
 
     // Send email using mail() function
     if (mail($to, $subject, $fullMessage, $headers)) {
+        $_SESSION['email_timestamps'][] = time();
         echo json_encode([
             "success" => true,
             "message" => "Email successfully sent!"
