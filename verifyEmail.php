@@ -30,6 +30,19 @@ if (!isset($_SESSION['csrf_token']) || $csrf_token !== $_SESSION['csrf_token']) 
     http_response_code(403);
     exit();
 }
+include 'connect.php';
+include 'rateLimit.php'; 
+
+if (!checkRateLimit($conn, "userDetailsToDB")) {
+    error_log("USERDETAILSTODB: Rate limit exceeded for Client Key.");
+    echo json_encode([
+        "success" => false,
+        "message" => "Too many attempts. Please try again after an hour.",
+        "captcha_required" => true
+    ]);
+    http_response_code(429);
+    exit();
+}
 // Get JSON input
 $input = json_decode(file_get_contents('php://input'), true);
 $token = $input['token'] ?? '';

@@ -51,7 +51,7 @@ if ($data) {
         http_response_code(400);
         exit();
     }
-    error_log('Data ' . $data);
+
     error_log('name ' . $name);
     error_log('email ' . $email);
     error_log('message ' . $message);
@@ -65,21 +65,6 @@ if ($data) {
     }
 
     session_start();
-    // ✅ 3. Rate Limit Requests
-    if (!isset($_SESSION['email_timestamps'])) {
-        $_SESSION['email_timestamps'] = [];
-    }
-    // Remove timestamps older than 1 hour
-    $_SESSION['email_timestamps'] = array_filter($_SESSION['email_timestamps'], function ($timestamp) {
-        return $timestamp > time() - 3600;
-    });
-
-    // Check rate limit
-    if (count($_SESSION['email_timestamps']) >= 5) {
-        echo json_encode(["success" => false, "message" => "Rate limit exceeded. Try again later."]);
-        http_response_code(429);
-        exit();
-    }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo json_encode([
@@ -122,7 +107,6 @@ if ($data) {
 
     // Send email using mail() function
     if (mail($to, $subject, $fullMessage, $headers)) {
-        $_SESSION['email_timestamps'][] = time();
         echo json_encode([
             "success" => true,
             "message" => "Email successfully sent!"

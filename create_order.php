@@ -44,6 +44,20 @@ require 'index.php';
 
 header('Content-Type: application/json');
 
+include 'connect.php';
+include 'rateLimit.php'; 
+
+if (!checkRateLimit($conn, "createOrder")) {
+    error_log("CREATEORDER: Rate limit exceeded for Client Key.");
+    echo json_encode([
+        "success" => false,
+        "message" => "Too many attempts. Please try again after an hour.",
+        "captcha_required" => true
+    ]);
+    http_response_code(429);
+    exit();
+}
+
 try {
     $postData = json_decode(file_get_contents('php://input'), true);
     if (!$postData) {

@@ -11,19 +11,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
+include 'connect.php';
+include 'rateLimit.php'; 
+
+if (!checkRateLimit($conn, "contactForm")) {
+    error_log("CONTACTFORM: Rate limit exceeded for Client Key.");
+    echo json_encode([
+        "success" => false,
+        "message" => "Too many attempts. Please try again after an hour.",
+        "captcha_required" => true
+    ]);
+    http_response_code(429);
+    exit();
+}
+
 // Get the raw POST data
 $rawData = file_get_contents("php://input");
 
 // Decode the JSON data
 $data = json_decode($rawData, true);
+$formData = $data['formData'] ?? [];
 
 if ($data) {
     // Sanitize and retrieve form data
-    $firstname = isset($data['firstName']) ? htmlspecialchars($data['firstName']) : '';
-    $lastname = isset($data['lastName']) ? htmlspecialchars($data['lastName']) : '';
-    $email = isset($data['email']) ? htmlspecialchars($data['email']) : '';
-    $phonenumber = isset($data['phoneNumber']) ? htmlspecialchars($data['phoneNumber']) : '';
-    $message = isset($data['message']) ? htmlspecialchars($data['message']) : '';
+    $firstname = isset($formData['firstName']) ? htmlspecialchars($formData['firstName']) : '';
+    $lastname = isset($formData['lastName']) ? htmlspecialchars($formData['lastName']) : '';
+    $email = isset($formData['email']) ? htmlspecialchars($formData['email']) : '';
+    $phonenumber = isset($formData['phoneNumber']) ? htmlspecialchars($formData['phoneNumber']) : '';
+    $message = isset($formData['message']) ? htmlspecialchars($formData['message']) : '';
+
+    $captchaResponse = $data['captchaResponse'];
+
+    // Verify CAPTCHA
+    $secretKey = "6LfeP5cqAAAAAFuoiQlEzNQEtsEslby-HmeLf-YV"; // Replace with your actual secret key
+    // $secretKey = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"; // Google test secret key
+    $verifyURL = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captchaResponse";
+
+    $response = file_get_contents($verifyURL);
+    $responseData = json_decode($response);
+
+    if (!$responseData->success) {
+        echo json_encode(["message" => "CAPTCHA verification failed."]);
+        http_response_code(400);
+        exit();
+    }
 
     // Validate required fields
     if (empty($firstname) || empty($lastname) || empty($phonenumber) || empty($email) || empty($message)) {
@@ -43,7 +74,7 @@ if ($data) {
     }
 
     // Email details
-    $to = $email;
+    $to = "enval.connect@gmail.com";
     $subject = "New Form Submission";
     $headers = "From: enval.connect@gmail.com\r\n";
     $headers .= "Reply-To: $email\r\n";

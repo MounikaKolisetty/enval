@@ -50,9 +50,21 @@ header('Content-Type: application/json');
 
 // Include the database connection file
 include 'connect.php';
+include 'rateLimit.php'; 
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if (!checkRateLimit($conn, "login")) {
+        error_log("LOGIN: Rate limit exceeded for Client Key.");
+        echo json_encode([
+            "success" => false,
+            "message" => "Too many attempts. Please try again after an hour.",
+            "captcha_required" => true
+        ]);
+        http_response_code(429);
+        exit();
+    }
 
     // Get the JSON input from the Angular app
     $input = json_decode(file_get_contents('php://input'), true);

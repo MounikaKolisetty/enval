@@ -40,6 +40,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 require 'connect.php';
+include 'rateLimit.php'; 
+
+if (!checkRateLimit($conn, "userDetailsToDB")) {
+    error_log("USERDETAILSTODB: Rate limit exceeded for Client Key.");
+    echo json_encode([
+        "success" => false,
+        "message" => "Too many attempts. Please try again after an hour.",
+        "captcha_required" => true
+    ]);
+    http_response_code(429);
+    exit();
+}
+
 
 // Get the POST data
 $input = json_decode(file_get_contents('php://input'), true);

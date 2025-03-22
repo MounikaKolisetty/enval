@@ -2,8 +2,25 @@
 function checkRateLimit($conn, $action, $limits = []) {
     // Define rate limits for different actions
     $defaultLimits = [
-        "signup" => ["limit" => 5, "window" => 3600],  // 5 attempts per hour  
-        "request" => ["limit" => 20, "window" => 900], // 20 requests per 15 mins
+        // Authentication-related endpoints (Strict limits)
+        "signup" => ["limit" => 5, "window" => 3600],  // 5 requests per hour
+        "login" => ["limit" => 5, "window" => 3600],   // 5 requests per hour
+        "reset" => ["limit" => 5, "window" => 3600],   // 5 requests per hour
+        "verifyEmail" => ["limit" => 5, "window" => 3600], // 5 requests per hour
+    
+        // Form submissions (Moderate limits)
+        "advisorForm" => ["limit" => 10, "window" => 3600],  // 10 requests per hour
+        "contactForm" => ["limit" => 10, "window" => 3600],  // 10 requests per hour
+        "trainingForm" => ["limit" => 10, "window" => 3600], // 10 requests per hour
+        "sendEmail" => ["limit" => 10, "window" => 3600],    // 10 requests per hour
+    
+        // Payment and orders (Controlled limits)
+        "createOrder" => ["limit" => 15, "window" => 1800], // 15 requests per 30 mins
+        "verifyPayment" => ["limit" => 15, "window" => 1800], // 15 requests per 30 mins
+    
+        // General API calls (Higher limits but controlled)
+        "request" => ["limit" => 20, "window" => 900],  // 20 requests per 15 mins
+        "userDetailsToDB" => ["limit" => 20, "window" => 900],  // 20 requests per 15 mins
     ];
     
     // Use provided limits or fallback to defaults

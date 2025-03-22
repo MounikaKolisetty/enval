@@ -12,20 +12,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
+include 'connect.php';
+include 'rateLimit.php'; 
+
+if (!checkRateLimit($conn, "advisorForm")) {
+    error_log("ADVISORFORM: Rate limit exceeded for Client Key.");
+    echo json_encode([
+        "success" => false,
+        "message" => "Too many attempts. Please try again after an hour.",
+        "captcha_required" => true
+    ]);
+    http_response_code(429);
+    exit();
+}
+
 // Get the raw POST data
 $rawData = file_get_contents("php://input");
 
 // Decode the JSON data
 $data = json_decode($rawData, true);
+$formData = $data['formData'] ?? [];
 
 if ($data) {
     // Sanitize and retrieve form data
-    $name = isset($data['name']) ? htmlspecialchars($data['name']) : '';
-    $designation = isset($data['designation']) ? htmlspecialchars($data['designation']) : '';
-    $organization = isset($data['organization']) ? htmlspecialchars($data['organization']) : '';
-    $location = isset($data['location']) ? htmlspecialchars($data['location']) : '';
-    $email = isset($data['email']) ? htmlspecialchars($data['email']) : '';
-    $mobile = isset($data['mobile']) ? htmlspecialchars($data['mobile']) : '';
+    $name = isset($formData['name']) ? htmlspecialchars($formData['name']) : '';
+    $designation = isset($formData['designation']) ? htmlspecialchars($formData['designation']) : '';
+    $organization = isset($formData['organization']) ? htmlspecialchars($formData['organization']) : '';
+    $location = isset($formData['location']) ? htmlspecialchars($formData['location']) : '';
+    $email = isset($formData['email']) ? htmlspecialchars($formData['email']) : '';
+    $mobile = isset($formData['mobile']) ? htmlspecialchars($formData['mobile']) : '';
+
+    $captchaResponse = $data['captchaResponse'];
+
+    // Verify CAPTCHA
+    $secretKey = "6LfeP5cqAAAAAFuoiQlEzNQEtsEslby-HmeLf-YV"; // Replace with your actual secret key
+    // $secretKey = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"; // Google test secret key
+    $verifyURL = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captchaResponse";
+
+    $response = file_get_contents($verifyURL);
+    $responseData = json_decode($response);
+
+    if (!$responseData->success) {
+        echo json_encode(["message" => "CAPTCHA verification failed."]);
+        http_response_code(400);
+        exit();
+    }
 
     // Validate required fields
     if (empty($name) || empty($designation) || empty($organization) || empty($location) || empty($email) || empty($mobile)) {
@@ -45,14 +76,14 @@ if ($data) {
     }
 
     // Email details
-    $to = $email;
+    $to = "enval.connect@gmail.com";
     $subject = "New Form Submission";
     $headers = "From: enval.connect@gmail.com\r\n";
     $headers .= "Reply-To: $email\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
     // Prepare message
-    $fullMessage = "Name: $name\nDesignation: $designation\nOrganization: $organization\nLocation: $location\nNo. of Trainees: $trainees\nMobile: $mobile\nEmail: $email\n";
+    $fullMessage = "Name: $name\nDesignation: $designation\nOrganization: $organization\nLocation: $location\nMobile: $mobile\nEmail: $email\n";
 
     // Send email using mail() function
     if (mail($to, $subject, $fullMessage, $headers)) {

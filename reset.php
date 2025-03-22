@@ -45,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 // Include the database connection
 require 'connect.php'; // Ensure this file creates the $conn object
+include 'rateLimit.php'; 
 
 // Function to get the reset token from the database
 function getPasswordResetToken($token) {
@@ -79,6 +80,16 @@ function updateUserPassword($userId, $newPassword) {
 
 // Handle the password reset request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!checkRateLimit($conn, "reset")) {
+        error_log("RESET: Rate limit exceeded for Client Key.");
+        echo json_encode([
+            "success" => false,
+            "message" => "Too many attempts. Please try again after an hour.",
+            "captcha_required" => true
+        ]);
+        http_response_code(429);
+        exit();
+    }
     // Get the JSON input
     $input = json_decode(file_get_contents('php://input'), true);
     $token = $input['token'] ?? null;
