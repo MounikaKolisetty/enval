@@ -29,6 +29,7 @@ export class ContactComponent {
   userForm!: FormGroup;
   messageSent = false;
   captchaResolved: boolean = false; // Variable to track reCAPTCHA status
+  captchaResponse: string | null = null;
   constructor(private fb: FormBuilder, private userService: UserService) { }
   ngOnInit(){
     this.userForm = this.fb.group({
@@ -41,11 +42,13 @@ export class ContactComponent {
   }
   resolved(captchaResponse: string | null) { 
     console.log('Captcha Response:', captchaResponse); 
+    this.captchaResponse = captchaResponse;
     this.captchaResolved = !!captchaResponse; // Set to true if captchaResponse is not empty 
   }
   onSubmit() {
     if(this.userForm.valid && this.captchaResolved){
-      this.userService.sendUserContact(this.userForm.value).subscribe(
+      const captchaToken = this.captchaResponse ?? ''; 
+      this.userService.sendUserContact(this.userForm.value, captchaToken).subscribe(
         response => {
           console.log('Email sent successfully', response); 
           this.messageSent = true;

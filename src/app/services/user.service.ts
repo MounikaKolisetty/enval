@@ -50,14 +50,14 @@ export class UserService {
   sendHomeContact(formData: any, captchaResponse: string): Observable<any>{
     return this.http.post(`${this.apiUrl}/sendEmail.php`, { formData, captchaResponse } ,{ withCredentials: true });
   }
-  sendUserContact(formData: any): Observable<any>{
-    return this.http.post(`${this.apiUrl}/contactForm.php`, formData ,{ withCredentials: true });
+  sendUserContact(formData: any, captchaResponse: string): Observable<any>{
+    return this.http.post(`${this.apiUrl}/contactForm.php`, { formData, captchaResponse } ,{ withCredentials: true });
   }
-  sendTrainingForm(formData: any): Observable<any>{
-    return this.http.post(`${this.apiUrl}/trainingForm.php`, formData ,{ withCredentials: true });
+  sendTrainingForm(formData: any, captchaResponse: string): Observable<any>{
+    return this.http.post(`${this.apiUrl}/trainingForm.php`, { formData, captchaResponse }  ,{ withCredentials: true });
   }
-  sendAdvisorForm(formData: any): Observable<any>{
-    return this.http.post(`${this.apiUrl}/advisorForm.php`, formData ,{ withCredentials: true });
+  sendAdvisorForm(formData: any, captchaResponse: string): Observable<any>{
+    return this.http.post(`${this.apiUrl}/advisorForm.php`, { formData, captchaResponse } ,{ withCredentials: true });
   }
   createOrder(amount: number): Observable<any> { 
     const headers = { 'X-CSRF-Token': localStorage.getItem('csrf_token') || '' };

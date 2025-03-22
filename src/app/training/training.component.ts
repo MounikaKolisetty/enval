@@ -35,6 +35,7 @@ export class TrainingComponent {
   userForm!: FormGroup;
   captchaResolved: boolean = false;
   messageSent: boolean = false;
+  captchaResponse: string | null = null;
   constructor(
     private fb: FormBuilder, 
     private userService: UserService, 
@@ -70,12 +71,14 @@ export class TrainingComponent {
   }
   resolved(captchaResponse: string | null) { 
     console.log('Captcha Response:', captchaResponse); 
+    this.captchaResponse = captchaResponse;
     this.captchaResolved = !!captchaResponse; // Set to true if captchaResponse is not empty 
   }
   onSubmit(){
     if(this.userForm.valid && this.captchaResolved){
+      const captchaToken = this.captchaResponse ?? ''; 
     // if(this.userForm.valid){
-      this.userService.sendTrainingForm(this.userForm.value).subscribe(
+      this.userService.sendTrainingForm(this.userForm.value, captchaToken).subscribe(
         response => {
           console.log('Email sent successfully', response); 
           this.messageSent = true;

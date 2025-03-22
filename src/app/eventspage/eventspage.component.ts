@@ -29,6 +29,7 @@ export class EventspageComponent {
     userForm!: FormGroup;
     messageSent: boolean = false;
     captchaResolved: boolean = false;
+    captchaResponse: string | null = null;
   constructor(private fb: FormBuilder, private userService: UserService){}
     ngOnInit(){
       this.userForm = this.fb.group({
@@ -53,12 +54,14 @@ export class EventspageComponent {
   }
   resolved(captchaResponse: string | null) { 
     console.log('Captcha Response:', captchaResponse); 
+    this.captchaResponse = captchaResponse;
     this.captchaResolved = !!captchaResponse; // Set to true if captchaResponse is not empty 
   }
   onSubmit(){
     if(this.userForm.valid && this.captchaResolved){
+      const captchaToken = this.captchaResponse ?? ''; 
     //if(this.userForm.valid){
-      this.userService.sendAdvisorForm(this.userForm.value).subscribe(
+      this.userService.sendAdvisorForm(this.userForm.value, captchaToken).subscribe(
         response => {
           console.log('Email sent successfully', response); 
           this.messageSent = true;
