@@ -24,7 +24,7 @@ $headers = getallheaders();
 $csrf_token = $headers['X-CSRF-Token'] ?? ($headers['X-Csrf-Token'] ?? ''); // Case handling
 
 if (empty($csrf_token)) {
-    error_log("CSRF Token Missing");
+    error_log("RESET PASSWORD: CSRF Token Missing from IP: " . $_SERVER['REMOTE_ADDR']);
     echo json_encode(["message" => "Invalid CSRF token"]);
     http_response_code(403);
     exit();
@@ -32,11 +32,12 @@ if (empty($csrf_token)) {
 
 session_start();
 if (!isset($_SESSION['csrf_token']) || $csrf_token !== $_SESSION['csrf_token']) {
-    error_log("CSRF Token Mismatch");
+    error_log("RESET PASSWORD: CSRF Token Mismatch from IP: " . $_SERVER['REMOTE_ADDR']);
     echo json_encode(["message" => "Invalid CSRF token"]);
     http_response_code(403);
     exit();
 }
+
 // Handle preflight OPTIONS request
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200); // Respond OK to preflight request
@@ -45,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 // Include the database connection
 require 'connect.php'; // Ensure this file creates the $conn object
+require 'rateLimit.php';
 
 // Function to generate a random token
 function generateResetToken() {
@@ -62,7 +64,7 @@ function storeResetToken($userId, $token, $expiration) {
     $stmt->close();
 }
 
-// Function to get user by email
+// Function to get user by email (MODIFIED)
 function getUserByEmail($email) {
     global $conn; // Declare $conn as global
     $query = "SELECT id, email FROM users WHERE email = ?";
@@ -72,10 +74,10 @@ function getUserByEmail($email) {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
     $stmt->close();
-    return $user;
+    return $user;  //Returning user even when its null
 }
 
-// Function to send the password reset email
+// Function to send the password reset email (MODIFIED)
 function sendPasswordResetEmail($email, $resetLink) {
     $subject = "Password Reset";
     $body = "
@@ -87,40 +89,53 @@ function sendPasswordResetEmail($email, $resetLink) {
     $headers = "From: enval.connect@gmail.com\r\n";
     $headers .= "Reply-To: $email\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-    error_log("Sending email to: $email, subject: $subject, body: $body, headers: $headers");
-    if (!mail($email, $subject, $body, $headers)) { 
-        error_log("Mail sending failed: " . error_get_last()['message']); 
-        echo json_encode(['message' => 'Failed to send email.']); 
-    } 
-    else { 
-        echo json_encode(['message' => 'Password reset email sent.']); 
+    
+    if (!mail($email, $subject, $body, $headers)) {
+        error_log("RESET PASSWORD: Mail sending failed to " . $email .": " . error_get_last()['message']);
     }
 }
 
-// Handle the password reset request
+// Handle the password reset request (MODIFIED)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Check rate limit
+    if (!checkRateLimit($conn, "request")) {
+        error_log("RESET PASSWORD: Rate limit exceeded for Client Key.");
+        echo json_encode([
+            "success" => false,
+            "message" => "Please complete CAPTCHA to continue",
+            "captcha_required" => true
+        ]);
+        http_response_code(429);
+        exit();
+    }
+
 
     // Get the JSON input
     $input = json_decode(file_get_contents('php://input'), true);
     $email = $input['email'] ?? null;
 
+    error_log("RESET PASSWORD REQUEST: Attempt for email: " . $email . ", IP: " . $_SERVER['REMOTE_ADDR']);
     if (!$email) {
-        echo json_encode(['message' => 'Email is required.']);
+        echo json_encode(['message' => 'A password reset link has been sent to your email if the email is on our system.']);
         exit;
     }
 
     $user = getUserByEmail($email);
-    if (!$user) {
-        echo json_encode(['message' => 'User not found.']);
-        exit;
-    }
 
+    //Always generate and store the token even if the user does not exist.
     $resetToken = generateResetToken();
     $expiration = date('Y-m-d H:i:s', strtotime('+1 hour'));
-    storeResetToken($user['id'], $resetToken, $expiration);
 
+    if($user){
+        storeResetToken($user['id'], $resetToken, $expiration);
+    } else {
+        echo json_encode(['message' => 'If the email is registered, a password reset link has been sent to your email address.']);
+        http_response_code(400);
+    }
     $resetLink = "https://enval.in/password-reset?token={$resetToken}";
-    sendPasswordResetEmail($user['email'], $resetLink);
+    sendPasswordResetEmail($email, $resetLink);
+    echo json_encode(['message' => 'A password reset link has been sent to your email if the email is on our system.']);
+    http_response_code(200);
     exit;
 }
 
