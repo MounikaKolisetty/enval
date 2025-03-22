@@ -130,10 +130,13 @@
       <i class="fa-solid fa-circle-check font-icon"></i>
       <div class="right">
         <h4>Reset password email sent</h4>
-        <p>If the email is vaild, you should recieve an email allowing you to reset your password.
-           Please make sure to check you spam and trash if you can't find the email.</p>
+        <p>{{ message }}</p>
       </div>
     </div>
+  </div>
+  <div *ngIf="resetPassworderror" class="error">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div class="error-message">{{ resetPassworderror }}</div>
   </div>
 </div>
 <app-footer></app-footer>

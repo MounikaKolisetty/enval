@@ -38,6 +38,7 @@ export class RegisterComponent {
   };
   passwordFieldType: string = 'password'; 
   error = ''; // Add a flag for email in use
+  resetPassworderror = '';
   //Login
   showforget = false;
   showlogin = true;
@@ -113,6 +114,8 @@ export class RegisterComponent {
                 console.error("Error parsing error response:", e);
                 this.error = "Unable to create account. Please ensure all information is correct and try again later."; // Generic message if parsing fails
               }
+            } else if (error.status === 429) {
+              this.error = "Too many attempts. Please try again after an hour."; // Generic server error message
             } else if (error.status === 500) {
               this.error = "An unexpected server error occurred. Please try again later."; // Generic server error message
             } else {
@@ -154,24 +157,54 @@ export class RegisterComponent {
     ); 
     }
   }
-  onSubmit() { 
-    if(this.forgetForm.valid) {
-    const email = this.forgetForm.value.email; 
-    this.userService.requestPasswordReset(email).subscribe(
-       response => 
-        {
+  onSubmit() {
+    // Ensure the form is valid before proceeding
+    if (this.forgetForm.valid) {
+      const email = this.forgetForm.value.email;
+  
+      // Call the password reset service
+      this.userService.requestPasswordReset(email).subscribe(
+        response => {
+          // Handle success response
           this.showlogin = false;
           this.showforget = false;
           this.showmessage = true;
-          console.log('Password reset email sent.', response );
-        }, 
-       error =>
-        {
-          console.log('Error sending password reset email.', error)
-        } 
+  
+          // Display a generic success message
+          console.log('Password reset email sent successfully.', response);
+          this.message = 'If the email is registered, a password reset link has been sent to your email address.';
+        },
+        error => {
+          // Show the message to the user
+          this.showlogin = false;
+          this.showforget = false;
+          this.showmessage = false;
+          // Handle error response
+          console.error('Error sending password reset email.', error);
+  
+          // Handle specific error cases based on status code
+          if (error.status === 400) {
+            this.resetPassworderror = 'If the email is registered, a password reset link has been sent to your email address.';
+          } else if (error.status === 403) {
+            this.resetPassworderror = 'Security issue detected. Please refresh the page and try again.';
+          } else if (error.status === 429) {
+            this.resetPassworderror = "Too many attempts. Please try again after an hour."; // Generic server error message
+          } else if (error.status === 500) {
+            this.resetPassworderror = 'An unexpected server error occurred. Please try again later.';
+          } else {
+            this.resetPassworderror = 'An unexpected error occurred. Please try again later.';
+          }
+  
+        }
       );
+    } else {
+      // If the form is invalid, display an appropriate message
+      console.log('Form is invalid.');
+      this.message = 'Please enter a valid email address.';
+      this.showmessage = true;
     }
-   }
+  }
+  
 
   showLogin(): void {
     const loginForm = document.querySelector("form.login-inner") as HTMLElement; 

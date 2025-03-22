@@ -22,7 +22,7 @@ export class UserService {
   }
   signUp(user: any): Observable<any> { 
     const headers = { 'X-CSRF-Token': localStorage.getItem('csrf_token') || '' };
-    return this.http.post(`${this.apiUrl}/signup.php`, user, { responseType: 'json', headers }); 
+    return this.http.post(`${this.apiUrl}/signup.php`, user, { responseType: 'json', headers });
   }
   login(email: string, password: string, captchaResponse: string): Observable<any> { 
     const headers = { 'X-CSRF-Token': localStorage.getItem('csrf_token') || '' };
