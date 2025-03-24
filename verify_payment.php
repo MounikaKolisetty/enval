@@ -20,7 +20,10 @@ $csrf_token = $headers['X-CSRF-Token'] ?? ($headers['X-Csrf-Token'] ?? ''); // C
 
 if (empty($csrf_token)) {
     error_log("CSRF Token Missing");
-    echo json_encode(["message" => "Invalid CSRF token"]);
+    echo json_encode([
+        "success" => false,
+        "message" => htmlspecialchars("Invalid CSRF token", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     http_response_code(403);
     exit();
 }
@@ -28,7 +31,10 @@ if (empty($csrf_token)) {
 session_start();
 if (!isset($_SESSION['csrf_token']) || $csrf_token !== $_SESSION['csrf_token']) {
     error_log("CSRF Token Mismatch");
-    echo json_encode(["message" => "Invalid CSRF token"]);
+    echo json_encode([
+        "success" => false,
+        "message" => htmlspecialchars("Invalid CSRF token", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     http_response_code(403);
     exit();
 }
@@ -46,9 +52,9 @@ if (!checkRateLimit($conn, "userDetailsToDB")) {
     error_log("USERDETAILSTODB: Rate limit exceeded for Client Key.");
     echo json_encode([
         "success" => false,
-        "message" => "Too many attempts. Please try again after an hour.",
+        "message" => htmlspecialchars("Too many attempts. Please try again after an hour.", ENT_QUOTES, 'UTF-8'),
         "captcha_required" => true
-    ]);
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     http_response_code(429);
     exit();
 }
@@ -98,11 +104,17 @@ try {
     </body> 
     </html> "; 
     if (mail($to, $subject, $message, $headers)) { 
-        echo json_encode(['status' => 'success', 'message' => 'Payment was successful and email sent!']); } 
+        echo json_encode([
+            'status' => 'success', 
+            'message' => htmlspecialchars('Payment was successful and email sent!', ENT_QUOTES, 'UTF-8')
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); } 
         else { throw new Exception('Failed to send email.'); }
 } catch (Exception $e) {
     // Payment failed or was tampered with
     http_response_code(500);
-    echo json_encode(['status' => 'error', 'message' => 'Payment verification failed: ' . $e->getMessage()]);
+    echo json_encode([
+        'status' => 'error', 
+        'message' => htmlspecialchars('Payment verification failed: ' . $e->getMessage(), ENT_QUOTES, 'UTF-8'
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
 }
 ?>

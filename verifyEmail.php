@@ -18,7 +18,10 @@ $csrf_token = $headers['X-CSRF-Token'] ?? ($headers['X-Csrf-Token'] ?? ''); // C
 
 if (empty($csrf_token)) {
     error_log("CSRF Token Missing");
-    echo json_encode(["message" => "Invalid CSRF token"]);
+    echo json_encode([
+        "success" => false,
+        "message" => htmlspecialchars("Invalid CSRF token", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     http_response_code(403);
     exit();
 }
@@ -26,7 +29,10 @@ if (empty($csrf_token)) {
 session_start();
 if (!isset($_SESSION['csrf_token']) || $csrf_token !== $_SESSION['csrf_token']) {
     error_log("CSRF Token Mismatch");
-    echo json_encode(["message" => "Invalid CSRF token"]);
+    echo json_encode([
+        "success" => false,
+        "message" => htmlspecialchars("Invalid CSRF token", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     http_response_code(403);
     exit();
 }
@@ -37,9 +43,9 @@ if (!checkRateLimit($conn, "userDetailsToDB")) {
     error_log("USERDETAILSTODB: Rate limit exceeded for Client Key.");
     echo json_encode([
         "success" => false,
-        "message" => "Too many attempts. Please try again after an hour.",
+        "message" => htmlspecialchars("Too many attempts. Please try again after an hour.", ENT_QUOTES, 'UTF-8'),
         "captcha_required" => true
-    ]);
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     http_response_code(429);
     exit();
 }
@@ -48,7 +54,10 @@ $input = json_decode(file_get_contents('php://input'), true);
 $token = $input['token'] ?? '';
 
 if (!$token) {
-    echo json_encode(["success" => false, "message" => "Invalid token."]);
+    echo json_encode([
+        "success" => false, 
+        "message" => htmlspecialchars("Invalid token.", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     exit();
 }
 
@@ -66,7 +75,10 @@ if ($result->num_rows === 1) {
     error_log('verify email' . $expiryTime . $currentTime);
 
     if ($currentTime > $expiryTime) {
-        echo json_encode(["success" => false, "message" => "Expired token."]);
+        echo json_encode([
+            "success" => false, 
+            "message" => htmlspecialchars("Expired token.", ENT_QUOTES, 'UTF-8')
+        ]);
         exit();
     }
     // Update user as verified
@@ -74,9 +86,15 @@ if ($result->num_rows === 1) {
     $stmt->bind_param("s", $token);
     $stmt->execute();
 
-    echo json_encode(["success" => true, "message" => "Email verified successfully."]);
+    echo json_encode([
+        "success" => true, 
+        "message" => htmlspecialchars("Email verified successfully.", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
 } else {
-    echo json_encode(["success" => false, "message" => "Invalid or expired token."]);
+    echo json_encode([
+        "success" => false, 
+        "message" => htmlspecialchars("Invalid or expired token.", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
 }
 
 $stmt->close();

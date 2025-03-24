@@ -20,13 +20,15 @@ session_set_cookie_params([
     'samesite' => 'Strict'
 ]);
 
-
 $headers = getallheaders();
 $csrf_token = $headers['X-CSRF-Token'] ?? ($headers['X-Csrf-Token'] ?? ''); // Case handling
 
 if (empty($csrf_token)) {
     error_log("CSRF Token Missing");
-    echo json_encode(["message" => "Invalid CSRF token"]);
+    echo json_encode([
+        "success" => false,
+        "message" => htmlspecialchars("Invalid CSRF token", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     http_response_code(403);
     exit();
 }
@@ -34,7 +36,10 @@ if (empty($csrf_token)) {
 session_start();
 if (!isset($_SESSION['csrf_token']) || $csrf_token !== $_SESSION['csrf_token']) {
     error_log("CSRF Token Mismatch");
-    echo json_encode(["message" => "Invalid CSRF token"]);
+    echo json_encode([
+        "success" => false,
+        "message" => htmlspecialchars("Invalid CSRF token", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     http_response_code(403);
     exit();
 }
@@ -51,6 +56,7 @@ header('Content-Type: application/json');
 // Include the database connection file
 include 'connect.php';
 include 'rateLimit.php'; 
+include 'inputValidation.php'; // Include input validation functions
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -59,9 +65,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         error_log("LOGIN: Rate limit exceeded for Client Key.");
         echo json_encode([
             "success" => false,
-            "message" => "Too many attempts. Please try again after an hour.",
+            "message" => htmlspecialchars("Too many attempts. Please try again after an hour.", ENT_QUOTES, 'UTF-8'),
             "captcha_required" => true
-        ]);
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         http_response_code(429);
         exit();
     }
@@ -71,33 +77,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check for JSON errors
     if (json_last_error() !== JSON_ERROR_NONE) {
-        echo json_encode(["message" => "Invalid JSON input: " . json_last_error_msg()]);
+        echo json_encode([
+            "success" => false,
+            "message" => htmlspecialchars("Invalid JSON input: " . json_last_error_msg(), ENT_QUOTES, 'UTF-8'),
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         http_response_code(400);
         exit();
     }
 
     // Get user details from input
-    $email = $input['email'];
-    $password = $input['password'];
+    $email = sanitize_input($input['email'] ?? '');
+    $password = $input['password'] ?? '';
     $captchaResponse = $input['captchaResponse'];
 
     // Verify CAPTCHA
     $secretKey = "6LfeP5cqAAAAAFuoiQlEzNQEtsEslby-HmeLf-YV"; // Replace with your actual secret key
-    $verifyURL = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captchaResponse";
-
-    $response = file_get_contents($verifyURL);
-    $responseData = json_decode($response);
-
-    if (!$responseData->success) {
-        echo json_encode(["message" => "CAPTCHA verification failed."]);
+    if (!verify_captcha($captchaResponse, $secretKey)) {
+        echo json_encode([
+            "success" => false,
+            "message" => htmlspecialchars("CAPTCHA verification failed.", ENT_QUOTES, 'UTF-8')
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         http_response_code(400);
+        exit();
+    }
+
+    // Validate required fields
+    if (!validate_required_fields([$email, $password])) {
+        echo json_encode([
+            "success" => false,
+            "message" => htmlspecialchars("All fields are required.", ENT_QUOTES, 'UTF-8')
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+        exit();
+    }
+
+    if (!validate_email($email)) {
+        echo json_encode([
+            "success" => false,
+            "message" => htmlspecialchars("Invalid email format.", ENT_QUOTES, 'UTF-8')
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         exit();
     }
 
     // Check if email exists
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
     if (!$stmt) {
-        echo json_encode(["message" => "Prepare failed: " . $conn->error]);
+        echo json_encode([
+            "success" => false,
+            "message" => htmlspecialchars("Prepare failed: " . $conn->error, ENT_QUOTES, 'UTF-8')
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         http_response_code(500);
         exit();
     }
@@ -106,7 +133,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
 
     if ($result->num_rows == 0) {
-        echo json_encode(["message" => "Invalid email or password.", "invalidInputs" => true]);
+        echo json_encode([
+            "success" => false,
+            "message" => htmlspecialchars("Invalid email or password.", "invalidInputs" => true, ENT_QUOTES, 'UTF-8')
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         http_response_code(200);
         $stmt->close();
         $conn->close();
@@ -118,7 +148,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if the account is verified
     if ($user['isVerified'] == 0) {
-        echo json_encode(["message" => "Your account is not verified. Please check your email for the verification link.", "notVerified" => true]);
+        echo json_encode([
+            "success" => false,
+            "message" => htmlspecialchars("Your account is not verified. Please check your email for the verification link.", ENT_QUOTES, 'UTF-8'),
+            "notVerified" => true
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         http_response_code(200);
         exit();
     }
@@ -134,13 +168,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Insert session into database
         $sessionStmt = $conn->prepare("INSERT INTO sessions (session_id, user_id, expires_at) VALUES (?, ?, ?)");
         if (!$sessionStmt) {
-            echo json_encode(["message" => "Prepare failed: " . $conn->error]);
+            echo json_encode([
+                "success" => false,
+                "message" => htmlspecialchars("Prepare failed: " . $conn->error, ENT_QUOTES, 'UTF-8')
+            ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
             http_response_code(500);
             exit();
         }
         $sessionStmt->bind_param("sis", $sessionId, $userId, $expiresAt);
         if (!$sessionStmt->execute()) {
-            echo json_encode(["message" => "Execute failed: " . $sessionStmt->error]);
+            echo json_encode([
+                "success" => false,
+                "message" => htmlspecialchars("Execute failed: " . $sessionStmt->error, ENT_QUOTES, 'UTF-8')
+            ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
             http_response_code(500);
             exit();
         }
@@ -148,10 +188,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Set session ID in response
         setcookie("SessionId", $sessionId, time() + (30 * 60), "/"); // 30 minutes
 
-        echo json_encode(["message" => "Login successful", "invalidInputs" => false, "user" => $user]);
+        echo json_encode([
+            "message" => htmlspecialchars("Login successful", ENT_QUOTES, 'UTF-8'),
+            "invalidInputs" => false, 
+            "user" => $user
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         http_response_code(200);
     } else {
-        echo json_encode(["message" => "Invalid email or password.", "invalidInputs" => true]);
+        echo json_encode([
+            "success" => false,
+            "message" => htmlspecialchars("Invalid email or password.", ENT_QUOTES, 'UTF-8')
+            "invalidInputs" => true
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         http_response_code(200);
     }
 

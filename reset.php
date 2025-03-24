@@ -24,7 +24,10 @@ $csrf_token = $headers['X-CSRF-Token'] ?? ($headers['X-Csrf-Token'] ?? ''); // C
 
 if (empty($csrf_token)) {
     error_log("CSRF Token Missing");
-    echo json_encode(["message" => "Invalid CSRF token"]);
+    echo json_encode([
+        "success" => false,
+        "message" => htmlspecialchars("Invalid CSRF token", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     http_response_code(403);
     exit();
 }
@@ -32,7 +35,10 @@ if (empty($csrf_token)) {
 session_start();
 if (!isset($_SESSION['csrf_token']) || $csrf_token !== $_SESSION['csrf_token']) {
     error_log("CSRF Token Mismatch");
-    echo json_encode(["message" => "Invalid CSRF token"]);
+    echo json_encode([
+        "success" => false,
+        "message" => htmlspecialchars("Invalid CSRF token", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     http_response_code(403);
     exit();
 }
@@ -84,9 +90,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         error_log("RESET: Rate limit exceeded for Client Key.");
         echo json_encode([
             "success" => false,
-            "message" => "Too many attempts. Please try again after an hour.",
+            "message" => htmlspecialchars("Too many attempts. Please try again after an hour.", ENT_QUOTES, 'UTF-8'),
             "captcha_required" => true
-        ]);
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         http_response_code(429);
         exit();
     }
@@ -95,30 +101,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $token = $input['token'] ?? null;
     $newPassword = $input['newPassword'] ?? null;
 
-    if (!$token || !$newPassword) {
-        echo json_encode(["success" => false, 'message' => 'Token and new password are required.']);
-        exit;
+    // Validate required fields
+    if (!validate_required_fields([$token, $newPassword])) {
+        echo json_encode([
+            "success" => false,
+            "message" => htmlspecialchars("All fields are required.", ENT_QUOTES, 'UTF-8')
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+        exit();
     }
 
     // Retrieve the reset token from the database
     $resetToken = getPasswordResetToken($token);
     if (!$resetToken || strtotime($resetToken['expiration']) < time()) {
-        echo json_encode(["success" => false, 'message' => 'Invalid or expired token.']);
+        echo json_encode([
+            "success" => false, 
+            'message' => htmlspecialchars('Invalid or expired token.', ENT_QUOTES, 'UTF-8')
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         exit;
     }
 
     // Retrieve the user associated with the token
     $user = getUserById($resetToken['user_id']);
     if (!$user) {
-        echo json_encode(["success" => false, 'message' => 'User not found.']);
+        echo json_encode([
+            "success" => false, 
+            'message' => htmlspecialchars('User not found.', ENT_QUOTES, 'UTF-8')
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         exit;
     }
 
     // Update the user's password
     if (updateUserPassword($user['id'], $newPassword)) {
-        echo json_encode(["success" => true, 'message' => 'Password has been reset.']);
+        echo json_encode([
+            "success" => true, 
+            'message' => htmlspecialchars('Password has been reset.', ENT_QUOTES, 'UTF-8')
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     } else {
-        echo json_encode(["success" => false, 'message' => 'Failed to reset password.']);
+        echo json_encode([
+            "success" => false, 
+            'message' => htmlspecialchars('Failed to reset password.', ENT_QUOTES, 'UTF-8')
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     }
 
     $stmt = $conn->prepare("UPDATE passwordresettokens SET isVerified = 1, token = NULL WHERE token = ?");

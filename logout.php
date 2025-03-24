@@ -25,7 +25,10 @@ $csrf_token = $headers['X-CSRF-Token'] ?? ($headers['X-Csrf-Token'] ?? ''); // C
 
 if (empty($csrf_token)) {
     error_log("CSRF Token Missing");
-    echo json_encode(["message" => "Invalid CSRF token"]);
+    echo json_encode([
+        "success" => false,
+        "message" => htmlspecialchars("Invalid CSRF token", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     http_response_code(403);
     exit();
 }
@@ -33,7 +36,10 @@ if (empty($csrf_token)) {
 session_start();
 if (!isset($_SESSION['csrf_token']) || $csrf_token !== $_SESSION['csrf_token']) {
     error_log("CSRF Token Mismatch");
-    echo json_encode(["message" => "Invalid CSRF token"]);
+    echo json_encode([
+        "success" => false,
+        "message" => htmlspecialchars("Invalid CSRF token", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     http_response_code(403);
     exit();
 }
@@ -53,10 +59,16 @@ function logout() {
         $sessionId = $_SESSION['SessionId'];
         deleteUserSession($sessionId);
         unset($_SESSION['SessionId']);
-        echo json_encode(array("message" => "Logout successful"));
+        echo json_encode([
+            "success" => true,
+            "message" => htmlspecialchars("Logout successful", ENT_QUOTES, 'UTF-8')
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     } else {
         error_log('isset($_SESSION["SessionId"]): ' . isset($_SESSION['SessionId']) . ', !empty($_SESSION["SessionId"]): ' . !empty($_SESSION['SessionId']));
-        echo json_encode(array("message" => "Logout unsuccessful"));
+        echo json_encode([
+            "success" => false,
+            "message" => htmlspecialchars("Logout unsuccessful", ENT_QUOTES, 'UTF-8')
+        ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     }
 }
 
