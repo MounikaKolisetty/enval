@@ -120,4 +120,29 @@ function verify_captcha($captchaResponse, $secretKey) {
     $responseData = json_decode($response);
     return $responseData->success;
 }
+
+function isValidEmail($email) {
+    // Check if email is properly formatted
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return false;
+    }
+
+    // Extract domain from email
+    list($user, $domain) = explode('@', $email);
+
+    // List of known disposable email domains (you can expand this)
+    $disposableDomains = [
+        'tempmail.com', 'mailinator.com', 'guerrillamail.com',
+        '10minutemail.com', 'throwawaymail.com', 'fakeinbox.com'
+    ];
+
+    // Check if the email domain is in the disposable list
+    if (in_array($domain, $disposableDomains)) {
+        return false; // Block disposable emails
+    }
+
+    // Check if domain has valid MX records
+    return checkdnsrr($domain, 'MX');
+}
+
 ?>

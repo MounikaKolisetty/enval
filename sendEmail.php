@@ -142,14 +142,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fullMessage .= "Projects: $projects\n";
         $fullMessage .= "Subscribe: $subscribe\n";
 
-        $allowed_domains = ['@gmail.com', '@yahoo.com', '@enval.in'];
-        $valid_email = false;
-
-        foreach ($allowed_domains as $domain) {
-            if (str_ends_with($email, $domain)) {
-                $valid_email = true;
-                break;
-            }
+        if (!isValidEmail($email)) {
+            echo json_encode([
+                "success" => false,
+                "message" => htmlspecialchars("Invalid email address!", ENT_QUOTES, 'UTF-8')
+            ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+            exit();
         }
 
         if (!$email || !$valid_email || empty($name) || empty($message)) {
