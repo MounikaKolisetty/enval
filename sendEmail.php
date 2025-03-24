@@ -17,15 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 include 'inputValidation.php'; // Include input validation functions
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    http_response_code(403); // Forbidden
-    echo json_encode([
-        "success" => false,
-        "error" => htmlspecialchars("Unauthorized access", ENT_QUOTES, 'UTF-8')
-    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
-    exit();
-}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
