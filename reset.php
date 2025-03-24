@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 // Include the database connection
 require 'connect.php'; // Ensure this file creates the $conn object
 include 'rateLimit.php'; 
+include 'inputValidation.php';
 
 // Function to get the reset token from the database
 function getPasswordResetToken($token) {

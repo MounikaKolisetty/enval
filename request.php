@@ -150,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         storeResetToken($user['id'], $resetToken, $expiration);
     } else {
         echo json_encode([
-            "success" => true,
+            "success" => false,
             "message" => htmlspecialchars('If the email is registered, a password reset link has been sent to your email address.', ENT_QUOTES, 'UTF-8')
         ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         http_response_code(400);
@@ -158,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resetLink = "https://enval.in/password-reset?token={$resetToken}";
     sendPasswordResetEmail($email, $resetLink);
     echo json_encode([
-        "success" => false,
+        "success" => true,
         "message" => htmlspecialchars('A password reset link has been sent to your email if the email is on our system.', ENT_QUOTES, 'UTF-8')
     ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     http_response_code(200);

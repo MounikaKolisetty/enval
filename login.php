@@ -135,7 +135,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows == 0) {
         echo json_encode([
             "success" => false,
-            "message" => htmlspecialchars("Invalid email or password.", "invalidInputs" => true, ENT_QUOTES, 'UTF-8')
+            "message" => htmlspecialchars("Invalid email or password.", ENT_QUOTES, 'UTF-8'),
+            "invalidInputs" => true
         ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         http_response_code(200);
         $stmt->close();
@@ -197,7 +198,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo json_encode([
             "success" => false,
-            "message" => htmlspecialchars("Invalid email or password.", ENT_QUOTES, 'UTF-8')
+            "message" => htmlspecialchars("Invalid email or password.", ENT_QUOTES, 'UTF-8'),
             "invalidInputs" => true
         ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
         http_response_code(200);
