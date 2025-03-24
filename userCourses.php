@@ -83,4 +83,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $conn->close();
 }
+else {
+    http_response_code(405); // Method Not Allowed
+    echo json_encode([
+        "success" => false, 
+        "error" => htmlspecialchars("Method Not Allowed", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+    exit();
+}
 ?>

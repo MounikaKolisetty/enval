@@ -17,6 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 include 'inputValidation.php'; // Include input validation functions
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    http_response_code(403); // Forbidden
+    echo json_encode([
+        "success" => false,
+        "error" => htmlspecialchars("Unauthorized access", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+    exit();
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -125,7 +134,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }        
 
-        session_start();
         // Email details
         $to = "enval.connect@gmail.com";
         $subject = "New Form Submission";
@@ -180,5 +188,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "message" => htmlspecialchars("Invalid JSON data.", ENT_QUOTES, 'UTF-8')
         ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     }
+}
+else {
+    http_response_code(405); // Method Not Allowed
+    echo json_encode([
+        "success" => false, 
+        "error" => htmlspecialchars("Method Not Allowed", ENT_QUOTES, 'UTF-8')
+    ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+    exit();
 }
 ?>
