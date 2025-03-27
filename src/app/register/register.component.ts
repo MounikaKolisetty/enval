@@ -161,6 +161,10 @@ export class RegisterComponent {
     // Ensure the form is valid before proceeding
     if (this.forgetForm.valid) {
       const email = this.forgetForm.value.email;
+      this.showlogin = false;
+      this.showforget = false;
+      this.showmessage = true;
+      this.message = 'Hangon! Request processing'
   
       // Call the password reset service
       this.userService.requestPasswordReset(email).subscribe(
