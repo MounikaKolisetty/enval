@@ -1,0 +1,73 @@
+app-navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+    background-color: #fff; /* Optional: set background color */
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/img/consulting/others_bg.jpg');
+    background-position: center;
+    background-size: cover;
+    padding: 0 8%;
+    position: relative;
+}
+@media (max-width:375px){
+    .container{ 
+        width: 100%;
+        max-width: 315px;
+    }
+}
+.container::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 33, 71, 0.9), rgba(221, 199, 99, 0.9)); /* Black overlay with 50% opacity */
+    z-index: 0
+}
+.logo{
+    width: 120px;
+    padding: 20px 0;
+    cursor: pointer;
+}
+.content{
+    top:50%;
+    position: absolute;
+    transform: translateY(-50%);
+    color: #fff;
+}
+.content h1 {
+    font-size: 64px;
+    font-weight: 500;
+}
+@media (max-width:375px){
+    .content{
+        top: 30%;
+    }
+    .content h1{
+        font-size: 40px;
+    }
+}
+.rocket {
+    width: 250px;
+    position: absolute;
+    right: 20%;
+    bottom: 0;
+    animation: rocket 4s linear infinite;
+}
+@keyframes rocket{
+    0%{
+        bottom: 0%;
+        opacity: 0%;
+    }
+    100%{
+        bottom: 100%;
+        opacity: 1;
+    }
+}

@@ -6,6 +6,7 @@
 
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
+require 'phpmailer.php';
 
 // Enable CORS
 header("Access-Control-Allow-Origin: https://enval.in"); // Replace with your frontend URL
@@ -152,7 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->close();
         exit();
     }
-
+    error_log('Email does not exists in the system ' . date('Y-m-d H:i:s'));
     // Generate email verification token
     $token = bin2hex(random_bytes(32));
     $expiry = date("Y-m-d H:i:s", strtotime("+10 minutes"));
@@ -185,10 +186,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    // $response = sendEmail(
+    //     'enval.connect@gmail.com',
+    //     'mouni.kolisetty@gmail.com',
+    //     'Test Subject',
+    //     '<h1>This is the body</h1>',
+    // );
+
+    // if ($response['status']) {
+    //     echo "✅ " . $response['message'];
+    // } else {
+    //     echo "❌ " . $response['message'];
+    // }
+
     echo json_encode([
-        "success" => false,
+        "success" => true,
         "message" => htmlspecialchars("Verification email sent successfully.", ENT_QUOTES, 'UTF-8')
     ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+
+    error_log('Email sent successfully' . date('Y-m-d H:i:s') .$email);
     http_response_code(200);
 
     $conn->close();

@@ -1,0 +1,294 @@
+<app-navbar></app-navbar>
+<div class="course-top-view">
+<div class="course-heading">
+    <h1>Training for Professional Value Analyst(PVA)</h1>
+    <div class="banner-details">
+        <ul>
+            <li>
+                <i class="fa-solid fa-circle-check check"></i>
+                Gain career success with our comprehensive Value Engineering course
+            </li>
+            <li>
+                <i class="fa-solid fa-circle-check check"></i>
+                Learn from 32 hrs. of Applied Learning and interactive labs
+            </li>
+            <li>
+                <i class="fa-solid fa-circle-check check"></i>
+                Complete hands-on projects to solidify your understanding
+            </li>
+            <li>
+                <i class="fa-solid fa-circle-check check"></i>
+                Receive mentoring support throughout your learning journey
+            </li>
+            <li>
+                <i class="fa-solid fa-circle-check check"></i>
+                Master essential Value Engineering concepts for certification
+            </li>
+            <li>
+                <i class="fa-solid fa-circle-check check"></i>
+                Gain the skills needed to become a successful value engineer
+            </li>
+        </ul>
+    </div>
+    <div class="banner-buttons">
+        <div class="options"><a (click)="scrollToTraining()">View training options</a></div>
+        <div class="advisor">
+            <a (click)="toggleContact()">Talk to our advisor</a>
+        </div>
+    </div>
+    <div *ngIf="isContactVisible" class="contact"> 
+        <div class="training-form">
+        <div class="individual-form">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="form-heading-bar">
+                <div class="form-heading">
+                    Fill up the following form to connect with our advisor
+                </div>
+                <button (click)="closeContact()" class="closebutton">x</button> 
+            </div>
+            <div class="form-items">
+                <input type="text" formControlName="name" required>
+                <label class="placeholder">Name<sup>*</sup></label>
+            </div>
+            <div class="form-items">
+                <input type="text" formControlName="designation" required>
+                <label class="placeholder">Designation<sup>*</sup></label>
+            </div>
+            <div class="form-items">
+                <input type="text" formControlName="organization" required>
+                <label class="placeholder">Organization<sup>*</sup></label>
+            </div>
+            <div class="form-items">
+                <input type="text" formControlName="location" required>
+                <label class="placeholder">Location<sup>*</sup></label>
+            </div>
+            <div class="form-items">
+                <input type="text" formControlName="email" required>
+                <label class="placeholder">Email ID<sup>*</sup></label>
+            </div>
+            <div class="form-items">
+                <input type="text" formControlName="mobile" required>
+                <label class="placeholder">Mobile No.<sup>*</sup></label>
+            </div>
+            <re-captcha (resolved)="resolved($event)" siteKey="6LfeP5cqAAAAAPBDawg7onXwpN2AqW2GjPwvZBc0"></re-captcha>
+            <div *ngIf="messageSent" class="info">
+                <i class="fa-solid fa-check sent-icon"></i>
+                <div class="sent-message">Message Sent!</div>
+            </div>
+            <div class="button-ele">
+                <button type="submit">Submit Form</button>
+            </div>
+            </form>
+        </div>
+    </div> 
+    </div>
+</div>
+<div class="course-right">
+    <img src="../../assets/img/training/Certificate_desktop_banner.jpg" alt="" class="banner-img">
+    <img src="../../assets/img/training/Certificate_banner_dots.svgz" alt="" class="banner-dots">
+</div>
+</div>
+<div class="course-overview">
+    <h2 class="overview-heading">Professional Value Analyst (PVA) Course <b>Overview</b></h2>
+    <p class="overview-desc">
+        The course is offered to professionals from all sectors, including academia. The training programs are 
+        conducted both at organisational level and individual participants from multiple organisations. 
+    </p>
+    <div class="benefits">
+        <h4>Benefits</h4>
+        <div class="benefits-items">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-check tick"></i>
+                    Lead VM project in any organisation 
+                </li>
+                <li>
+                    <i class="fa-solid fa-check tick"></i>
+                    Promote VM within and outside organisation
+                </li>
+                <li>
+                    <i class="fa-solid fa-check tick"></i>
+                    Conduct sessions or co-facilitate Trainings along with Licensed Trainers
+                </li>
+                <li>
+                    <i class="fa-solid fa-check tick"></i>
+                    Gain in-depth understanding of concept of VM 
+                </li>
+                <li>
+                    <i class="fa-solid fa-check tick"></i>
+                    Develop expertise for application of VM principles and technique for improving 
+                    products, processes, services or projects of the organisations or clients
+                </li>
+                <li>
+                    <i class="fa-solid fa-check tick"></i>
+                    Eligibility to conduct session/s on specific modules of VM in a training or workshop 
+                    conducted by expert licensed trainer
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="eligibility">
+        <h4>Eligibility</h4>
+        <ul>
+            <li>Industry professionals must have 4 years of experience in practicing VM</li>
+            <li>College / University faculty have no specific pre-qualification criteria</li>
+        </ul>
+    </div>
+    <div class="duration">
+        <h4>This course include:</h4>
+        <div class="sections">
+            <div class="sections-column">
+                <ul>
+                    <li>
+                        <i class="fa-brands fa-youtube time"></i>
+                        32 hours of training by INVEST Licensed Instructor
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-code time"></i>
+                        Project Work
+                    </li>
+                </ul>
+            </div>
+            <div class="sections-column">
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-mobile-screen-button time"></i>
+                        Access on mobile and TV
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-trophy time"></i>
+                        Certification of completion
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-coverage">
+        <h4>Content and Coverage</h4>
+        <div class="container">
+            <div class="container-column">
+                <ul>
+                    <li>
+                        <i class="fa-regular fa-circle-check coveragetick"></i>
+                        Fundamentals of VM 
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-circle-check coveragetick"></i>
+                        <div class="content-value">Application of VM across industry, government, academia and 
+                            social sector</div>
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-circle-check coveragetick"></i>
+                        Orientation on specific skills for leading VM Projects
+                    </li>
+                </ul>
+            </div>
+            <div class="container-column">
+                <ul>
+                    <li>
+                        <i class="fa-regular fa-circle-check coveragetick"></i>
+                        Orientation on facilitation skills  
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-circle-check coveragetick"></i>
+                    <div class="content-value">Preparation for PVA examination, certification and 
+                        renewal</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="methodology">
+        <h4>Training Methodology</h4>
+        <div class="list-items">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                    Interactive lectures - online and offline depending on modality opted 
+                </li>
+                <li>
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                    Case studies
+                </li>
+                <li>
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                    Intensive group work with focus on VM project management 
+                </li>
+                <li>
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                    <div class="list-value">In case of organizational training with batches of participants from the same 
+                    organisation, the workshops are mostly conducted on live projects based on 
+                    specific objectives.</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="certificates">
+    <div class="certificate-container">
+        <h2>Examination and Certification</h2>
+        <div class="certificate-content">
+            <ul>
+                <li>The training is conducted by ENVAL and a Training Certificate is awarded to participants 
+                    successfully completing all modules.</li>
+                <li>Examination is scheduled and conducted by INVEST, comprising 2 objective papers of 100 
+                    marks each, 70% passing marks in each paper.</li>
+                <li>Certification is awarded to the successful candidates by INVEST. It is valid for 4 years 
+                    and has to be renewed thereafter. </li>
+            </ul>
+            <!-- <div class="image-container">
+                <img src="../../assets/img/training/Simplilearn_Certificate_ML.jpg" alt="">
+            </div> -->
+        </div>
+    </div>
+</div>
+<div class="training-panel">
+<div class="training-options" id="training" #training>
+    <h4 class="head">Training Options</h4>
+    <div class="option">
+    <div class="bootcamp">
+        <h4 class="bootcamp-head">ONLINE TRAINING</h4>
+        <div class="bootcamp-benefits">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-check benefits-tick"></i>
+                    Live, online classroom training by top instructors and practitioners
+                </li>
+                <li>
+                    <i class="fa-solid fa-check benefits-tick"></i>
+                    Interactive lectures
+                </li>
+                <li>
+                    <i class="fa-solid fa-check benefits-tick"></i>
+                    Intensive groupwork
+                </li>
+            </ul>
+        </div>
+        <h5>4 days Batch</h5>
+        <!-- <div class="batch-dates">
+            <div class="date1">7, 8, 14, 15 Feb 2025</div>
+            <div class="vertical-line"></div>
+            <div class="date2">11<sup>th</sup> Nov, Weekday Class</div>
+        </div> -->
+        <!-- <a href="" class="schedules">View all schedules</a> -->
+    </div>
+    <div class="bootcamp-footer">
+        <!-- <div class="price">
+            <div class="offer">
+                <img src="../../assets/img/training/badge-percent.svg" alt="" style="width: 15px; height: 15px;">
+                33% Off
+            </div>
+            <div class="total-price">
+                $499<del>$749</del>
+            </div>
+        </div> -->
+        <div class="Enroll-btn">
+            <a [routerLink]="['/secure-payment', 'Professional Value Analyst (PVA)']" routerLinkActive="active" ariaCurrentWhenActive="page" class="a-btn">Enroll Now</a>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+<app-footer></app-footer>
+<app-scroll-button></app-scroll-button>

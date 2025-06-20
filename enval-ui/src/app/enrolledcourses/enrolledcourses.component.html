@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<div class="courses-container">
+    <h1 class="name">Hello, {{userFullName}}</h1>
+    <h4 class="heading">Enrolled Courses</h4>
+    <ng-template #noCourses>
+    <h4 class="heading">Start Learning from enval today!</h4>
+    <p class="heading">When you purchase a course, it will appear here. 
+        <span>
+            <a routerLink="/training" routerLinkActive="active" ariaCurrentWhenActive="page">Browse now.</a>
+        </span>
+    </p>
+    </ng-template>
+    <div *ngIf="userCourses.length > 0; else noCourses"> 
+        <table> 
+            <thead> 
+                <tr> 
+                    <th>Course Title</th> 
+                    <th>Enrollment Date</th> 
+                    <th>Total Price</th> 
+                </tr> 
+            </thead> 
+            <tbody> 
+                <tr *ngFor="let course of userCourses"> 
+                    <td>{{ course.course_title }}</td> 
+                    <td>{{ course.created_at | date:'MMM d, yyyy' }}</td> <!-- Assuming 'created_at' is the enrollment date --> 
+                    <td>₹20,000</td> <!-- Assuming 'total_price' is the price field --> 
+                </tr> 
+            </tbody> 
+        </table> 
+    </div>
+    <!-- 
+    <div class="courses">
+        <div class="left">
+            <div class="course-name">
+                <p>Course Name</p>
+                <h4>CVS</h4>
+            </div>
+            <div class="duration">
+                <p>Course Duration</p>
+                <h4>30 Hrs</h4>
+            </div>
+        </div>
+        <div class="right">
+            <i class="fa-solid fa-award"></i>
+        </div>
+    </div>
+    <div class="courses">
+        <div class="left">
+            <div class="course-name">
+                <p>Course Name</p>
+                <h4>CVS</h4>
+            </div>
+            <div class="duration">
+                <p>Course Duration</p>
+                <h4>30 Hrs</h4>
+            </div>
+        </div>
+        <div class="right">
+            <i class="fa-solid fa-award"></i>
+        </div>
+    </div> -->
+</div>
+<app-footer></app-footer>
+<app-scroll-button></app-scroll-button>

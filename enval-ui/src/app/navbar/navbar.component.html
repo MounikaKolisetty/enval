@@ -1,0 +1,91 @@
+<!--Navbar Start-->
+<!-- <mat-toolbar class="nav-area">
+    <div class="logo">
+        <a href="index.html">
+           <img src="assets/img/home/logo_trans.png" alt="img" style="width: 375px; height: auto;"> 
+        </a>    
+    </div>
+    <div class="nav-pages">
+        <ul class="nav-list">
+            <li>
+                <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">HOME</a>
+            </li>
+            <li>
+                <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">ABOUT</a>
+            </li>
+            <li class="dropdown"> 
+                <a routerLink="/training" routerLinkActive="active" ariaCurrentWhenActive="page" class="droplist">TRAININGS</a> 
+            </li>
+            <li>
+                <a class="service-item" routerLink="/consulting" routerLinkActive="active" ariaCurrentWhenActive="page">CONSULTING</a>
+            </li>
+            <li>
+                <a routerLink="/events" routerLinkActive="active" ariaCurrentWhenActive="page">EVENTS</a>
+            </li>
+            <li>
+                <a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">CONTACT US</a>
+            </li>
+        </ul>
+    </div>
+    <div class="nav-right-part" *ngIf = (!isLoggedIn)>
+        <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" class="login-btn">Login</a>
+           </div>
+    <div *ngIf = (isLoggedIn) class="user-info">
+        <p class="userName">{{userInitials}}</p>
+        <ul class="dropdown-user-info">
+            <li>
+                <a class="service-item" routerLink="/enrolled-courses" routerLinkActive="active" ariaCurrentWhenActive="page">My Courses</a>
+            </li>
+            <li>
+                <a class="service-item" (click)="logout()">Logout</a>
+            </li>
+        </ul> 
+    </div>
+  </mat-toolbar> -->
+  <nav>
+    <input type="checkbox" id="sidebar-active">
+    <div class="logo">
+        <a href="index.html" >
+            <img src="assets/img/home/logo_trans.png" alt="img" style="width: 375px; height: auto;"> 
+        </a>
+    <label for="sidebar-active" class="open-sidebar-button"> 
+        <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" 
+        fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+    </label>
+    </div>
+    <label id="overlay" for="sidebar-active"></label>
+    <div class="links-container">
+        <label for="sidebar-active" class="close-sidebar-button">
+            <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" 
+            fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+        </label>
+        <a href="index.html" class="home-link">
+            <img src="assets/img/home/logo_trans.png" alt="img" style="width: 375px; height: auto;"> 
+         </a> 
+
+         <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">HOME</a>
+         <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">ABOUT</a>
+         <a routerLink="/training" routerLinkActive="active" ariaCurrentWhenActive="page" class="droplist">TRAININGS</a> 
+         <a class="service-item" routerLink="/consulting" routerLinkActive="active" ariaCurrentWhenActive="page">CONSULTING</a>
+         <a routerLink="/projects" routerLinkActive="active" ariaCurrentWhenActive="page">PROJECTS</a>
+         <a routerLink="/solutions" routerLinkActive="active" ariaCurrentWhenActive="page">IT SOLUTIONS</a>
+         <!-- <a routerLink="/events" routerLinkActive="active" ariaCurrentWhenActive="page">EVENTS</a> -->
+         <a routerLink="/contactus" routerLinkActive="active" ariaCurrentWhenActive="page">CONTACT US</a>
+         <a routerLink="/login" *ngIf = (!isLoggedIn) routerLinkActive="active" ariaCurrentWhenActive="page" class="login-btn">LOGIN</a>
+         <div *ngIf = (isLoggedIn) class="user-info">
+            <p class="userName">{{userInitials}}</p>
+            <ul class="dropdown-user-info">
+                <li>
+                    <a class="service-item" routerLink="/enrolled-courses" routerLinkActive="active" ariaCurrentWhenActive="page">My Courses</a>
+                </li>
+                <li>
+                    <a class="service-item" (click)="logout()">Logout</a>
+                </li>
+            </ul> 
+        </div>
+         <!-- <p class="userName" *ngIf = (isLoggedIn)>{{userInitials}}</p>
+         <a class="service-item" *ngIf = (isLoggedIn) routerLink="/enrolled-courses" routerLinkActive="active" ariaCurrentWhenActive="page">My Courses</a>
+         <a class="service-item" *ngIf = (isLoggedIn) (click)="logout()">Logout</a>  -->
+    </div>
+  </nav>
+<!--Navbar End-->

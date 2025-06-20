@@ -1,0 +1,753 @@
+app-navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+    background-color: #fff; /* Optional: set background color */
+}
+.About-us {
+    margin: 0;
+    padding: 0;
+    padding-top: 70px;
+}
+.about-pic {
+    background-image: url('../../assets/img/training/training-1.jpg');
+    background-size: cover;       /* Ensures the entire image is visible */
+    background-position: center;    /* Centers the image */
+    background-repeat: no-repeat;   /* Prevents the image from repeating */
+    color: white;
+    height: 500px;    /* Adjust the height as needed */
+    width: 100%;      /* Ensures it takes the full width */
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking */
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    @media (max-width: 450px) {
+        height: 350px;
+        background-size: cover;
+    }
+}
+.about-pic::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 570px;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 33, 71, 0.9), rgba(221, 199, 99, 0.9)); /* Black overlay with 50% opacity */
+    z-index: 0
+}
+@media (max-width: 450px) {
+    .about-pic::before{
+    height: 430px;
+    }
+}
+.about-pic ul {
+    margin-right: 30px;
+    list-style: none; /* Remove default list styling */
+    display:flex;
+    z-index: 100;
+    @media(max-width:450px) {
+        padding: 0;
+    }
+}
+.about-pic ul li + li::before {
+    display: inline-block;
+    padding-right: 0;
+    padding-left: 0;
+    color: #6c757d;
+    content: "";
+    height: 10px;
+    width: 10px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-left: 22px;
+    margin-right: 17px;
+}
+.about-pic h1{
+    font-size: 80px;
+    font-weight: 500;
+    font-weight: 700;
+    margin-bottom: 8px;
+    z-index: 100;
+    font-size: 1.875rem;
+    font-size: clamp(1.875rem, 1.0416666666666667rem + 3.7037037037037033vw, 4.375rem);
+}
+.about-pic ul li {
+    font-size: 24px;
+    font-weight: 500;
+}
+.about-pic ul li:last-child {
+    color: #f0b429;
+}
+.about-pic ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+.about-pic ul li a:hover{
+    color: #0a1e3a;
+}
+/*Tranings*/
+.train-container-ves{
+    background: #043F71;
+}
+.train-container{
+    background: #043F71;
+}
+.value-eng-container .trainings-cert{
+    margin: 0 5% 5% 5%;
+}
+
+.trainings-cert{
+    margin: 5%;
+    background-color: #E6E9EC;
+    padding: 50px;
+    @media (max-width:450px) {
+        padding: 10px;
+    }
+}
+.trainings-cert .title{
+    margin-bottom: 15px;
+    font-family: Rubik, sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #043F71;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 1.1041666666666665rem + 1.7592592592592593vw, 2.6875rem);
+}
+.trainings-cert .sub-title{
+    font-family: Rubik, sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: #043F71;
+}
+.trainings-cert .description {
+    margin: 20px 0 40px 0;
+    font-family: Rubik, sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    color: #636363;
+    line-height: 1.5;
+}
+.more-options{
+    display: flex;
+    gap: 15px;
+    @media (max-width:450px) {
+        flex-direction: column;
+    }
+}
+.explore{
+    background-color: #ffffff;
+}
+.read-more{
+    background-color: #F5CA45;
+}
+.explore, .read-more{
+    padding: 15px;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    @media (max-width:450px) {
+        padding: 10px;
+        width: 40%;
+    }
+}
+.explore a, .read-more a{
+    font-family: Rubik, sans-serif;
+    text-decoration: none;
+    color: #0a1e3a;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+/*Features*/
+.features-section {
+    text-align: center;
+    margin-top: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.features-section .title {
+    font-family: Rubik, sans-serif;
+    position: relative;
+    display: inline-block;
+    padding: 0 5px; /* Space between lines and text */
+    text-transform: uppercase;
+    color: #002147;
+}
+.features-section .title::before,
+.features-section .title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 50px; /* Adjust length of the lines */
+    height: 1px; /* Adjust thickness of the lines */
+    background-color: #000; /* Adjust color of the lines */
+}
+.features-section .title::after {
+    right: -65px; /* Adjust position of the right line */
+}
+.features-section .title::before {
+    left: -65px; /* Adjust position of the left line */
+}
+.features-section .description {
+    font-family: Rubik, sans-serif;
+    font-weight: 500;
+    color: #002147;
+    text-align: center;
+    margin-top: 15px;
+    width: 540px;
+    text-align: center;
+    font-size: 1rem;
+    font-size: clamp(1rem, 0.5rem + 2.2222222222222223vw, 2.5rem);
+    @media (max-width: 450px){
+        width: 100%;
+    }
+}
+.features-body{
+    margin: 5% 5% 10% 5%;
+}
+.buttons{
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    z-index: 100;
+}
+.download-btn {
+    font-family: Helvetica, sans-serif;
+    padding: 20px 45px;
+    background-color: #f5ca45;
+    color: #0a1e3a;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+.contact-btn {
+    font-family: Helvetica, sans-serif;
+    padding: 20px 45px;
+    background-color: #ffffff;
+    color: #0a1e3a;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+}
+.categories{
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+    @media (max-width: 450px) {
+        flex-direction: column;
+    }
+}
+.categories .image{
+    margin-bottom: 30px;
+    width: 100%;
+    height: 100%;
+    max-width: 100px;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 50%;
+    position: relative;
+    background-color: #fff;
+    animation: pulse 3s ease-in infinite; 
+}
+@keyframes pulse { 
+    0%, 100% { 
+        box-shadow: 0 0 0 #043F71; 
+        border: 1px solid #043F71;
+    } 
+    50% {  
+        box-shadow: 0 0 30px #F5CA45; 
+        border: 1px solid #F5CA45;
+    } 
+}
+
+.practicioners .name, .trainers .name, .students .name, .leaders .name, .policy_makers .name{
+    text-align: center;
+    font-family: Rubik, sans-serif;
+    color: #043F71;
+    font-size: 20px;
+    font-weight: 500;
+}
+.trainers .name, .students .name{
+    padding-left: 30px;
+}
+.practicioners .name, .policy_makers .name{
+    padding-left: 5px;
+}
+.leaders .image{
+    margin-left: 10px;
+}
+@media (max-width: 450px) {
+    .practicioners .image, .trainers .image, .students .image{
+        text-align: center;
+    }
+}
+/*Border*/
+.vm-cvs{
+    padding: 85px;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    border-radius: 8px;
+    border: 1px solid #f8e9e9;
+    @media (max-width:450px) {
+        flex-direction: column;
+        margin: 0 10px;
+        border: 0;
+        box-shadow: none;
+        padding: 20px;
+    }
+}
+.vma, .vmf2{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.vma-inner{
+    flex: 1;
+    background-color: #F2F5F8;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.vmf2-inner{
+    flex: 1;
+    background-color: #FAFBFC;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.image-cvs i{
+    background-color: #F5CA45;
+    border-radius: 50%;
+    color: #043F71;
+    padding: 10% 11%;
+}
+.training-icons{
+    background-color: #F5CA45;
+    border-radius: 50%;
+    color: #043F71;
+    padding: 10%;
+    font-size: 48px;
+}
+.train-container-ves .image-cvs i{
+    padding: 8%;
+}
+.vma-inner, .vmf2-inner{
+    padding: 60px 60px 0px 60px;
+    position: relative;
+}
+.vma-inner .description, .vmf2-inner .description{
+    margin: 30px 0;
+    color: #043F71;
+    font-family: Rubik, sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+}
+.read-more-icon{
+    padding: 25px;
+    color: #043F71;
+}
+.read-more-button{
+    display: none;
+    background-color: #F5CA45;
+    color: #043F71;
+    font-family: Rubik, sans-serif;
+    padding: 25px;
+    text-align: center;
+}
+.vma:hover .read-more-icon, .vmf2:hover .read-more-icon{
+    display: none;
+}
+.vma:hover .read-more-button, .vmf2:hover .read-more-button{
+    display: block;
+}
+.read-more-button a{
+    text-decoration: none;
+    color: #043F71;
+    padding-right: 10px;
+}
+/*Unique Features*/
+.unique-features-container{
+    margin: 10% 5% 0 5%;
+    padding: 0 5%;
+    display: flex;
+    @media (max-width: 450px) {
+        flex-direction: column;
+        margin: 0;
+        padding-bottom: 10px;
+    }
+}
+.unique-features-container .left, .unique-features-container .right{
+    flex: 1;
+}
+
+@media (max-width: 450px) {
+.unique-features-container .left{
+    margin-left: 5%;
+}
+}
+.right{
+    margin-left: 5%;
+}
+.left, .right{
+    height: 100%;
+    max-height: 650px;
+}
+@media (max-width: 450px) {
+   .left{
+        height: 100%;
+        max-height: 500px;
+    }
+}
+.left .image img {
+    width: 100%; 
+    height: 550px;
+    object-fit: cover;
+    border-radius: 8px; 
+    display: block;
+    position: relative; 
+    z-index: 1; 
+    top: -200px;
+    @media (max-width: 450px) {
+        width: 95%;
+        height: 100%;
+        top: -10px;
+    }
+}
+.left .thumbnail img{
+    position: relative;
+    width: 30%;
+    height: auto;
+    z-index:3;
+    border-radius: 8px;
+    border: 8px solid #F5CA45;
+    top: -45px;
+    left: -35px;
+    @media (max-width: 450px) {
+        top: 70px;
+        left: -20px;
+    }
+}
+.left .feature-footer{
+    position: relative;
+    top: -230px;
+    left: 60px;
+    background-color: #ffffff;
+    border-bottom: 4px solid #f0b429;
+    width: 70%;
+    z-index: 3;
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-family: Rubik, sans-serif;
+    color: #002147;
+    font-size: 16px;
+    font-weight: 400;
+    @media (max-width: 450px) {
+        left: 30px;
+        top: -100px;
+    }
+}
+.unique-features-container .right{
+    padding: 0 20px;
+
+    @media (max-width: 450px) {
+        padding: 0;
+        margin-top: 200px;
+    }
+}
+.right .aboutus{
+    font-family: Rubik, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #002147;
+}
+.right .description{
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #565872;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+.features ul{
+    list-style-type: none;
+    margin: 10px 0px;
+    padding: 0;
+}
+.features ul li{
+    font-family: Rubik, sans-serif;
+    color: #565872;
+    display: flex;
+    padding: 1% 0;
+}
+.features ul li .fa-icon{
+    color: #043F71;
+    background-color: #f0b429;
+    border-radius: 4px;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+}
+.features ul li p{
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0%;
+    padding-left: 3%;
+    display: flex;
+    align-items: center;
+}
+.trainings-footer{
+    background-color: #F1F4F9;
+    margin-top: 10%;
+    position: relative;
+    height: 100%;
+    max-height: 325px;
+}
+@media (max-width: 450px) {
+    .trainings-footer{
+        height: 100%;
+        max-height: 350px;
+        margin-top: 30%;
+    }
+}
+.corporate-trainings{
+    position: absolute;
+    background-color: #fff;
+    width: 50%;
+    top: -20%;
+    left: 25%;
+    z-index: 10;
+    padding-bottom: 15px;
+    box-shadow: 5px 5px 4px 6px rgba(0, 0, 0, 0.1);;
+}
+@media (max-width: 450px) {
+    .corporate-trainings{
+        width: 80%;
+        left: 10%;
+    }
+}
+.corporate-trainings .buttons{
+    display: flex;
+    margin: 0 15%;
+    gap: 20px;
+    text-align: center;
+}
+.bg-yellow::after{
+    content: ''; 
+    position: absolute; 
+    left: 25%;
+    right: 0; 
+    bottom: 0; 
+    height: 100%;
+    max-height: 300px;
+    width: 50%;
+    top: -20%;
+    background-color: #F5CA45; 
+    z-index: 0;
+    transform: rotate(4deg);
+}
+@media (max-width: 450px) {
+    .bg-yellow::after{
+        width: 80%;
+        left: 10%;
+        height: 100%;
+        max-height: 450px;
+    }
+    .corporate-trainings .buttons {
+        flex-direction: column;
+        margin: 10%;
+    }
+}
+.corporate-trainings .cp-heading {
+    font-family: Rubik, sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #002147;
+    text-align: center;
+    margin-top: 5%;
+}
+@media (max-width: 450px) {
+    .corporate-trainings  .cp-heading{
+        font-size: 1.5rem;
+    }
+}
+.corporate-trainings p{
+    padding: 3% 10% 0% 10%;
+    color: #565872;
+    font-size: 18px;
+    text-align: center;
+}
+@media (max-width: 450px) {
+    .corporate-trainings p{
+        font-size: 15px;
+    }
+}
+.corporate-trainings .buttons a, .corporate-trainings .buttons .more-btn{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: #F5CA45;
+    padding: 10px;
+    color: #002147;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+} 
+.contact {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.contact .training-form{
+    margin: 3% 30%;
+    padding: 40px 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+}
+@media (max-width: 450px) {
+    .contact .training-form{
+        margin: 5%;
+        width: 100%;
+        max-width: 350px;
+    }
+}
+.form-heading{
+    font-family: Rubik, sans-serif;
+    color: #002147;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 28px;
+}
+.form-items{
+    width: 100%;
+    max-width: 550px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.form-items input{
+    width: 100%;
+    padding: 11px 15px;
+    border: 1px solid #DADBDD;
+    border-radius: 8px;
+    color: #606266;
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    width: 100%;
+}
+@media (max-width: 450px) {
+    .form-items input{
+        width: 90%;
+    }
+}
+.dropdown-container .dropdown {
+    width: 105%;
+}
+@media (max-width: 450px) {
+    .dropdown-container .dropdown {
+        width: 100%;
+    }
+}
+.contact .closebutton {
+    padding: 1px 8px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f0b429;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #002147;
+}
+.button-ele button{
+    padding: 10px 20px;
+    background-color: #f0b429;
+    border: none;
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.placeholder {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 0px 5px;
+    color: #666;
+    transition: 0.3s;
+    pointer-events: none;
+}
+@media (max-width: 450px){
+    .placeholder{
+        left: 40px;
+    }
+}
+.form-items input:focus + .placeholder,
+.form-items input:valid + .placeholder{
+    top: -10px;
+    background-color: #fff;
+    color: #f0b429;
+}
+.form-items input:focus {
+    border: 1px solid #DADBDD; /* Change the border color */ 
+    outline: none;
+}
+.info{
+    display: flex;
+    margin: 10px;
+}
+.info .sent-icon{
+    color: #fff;
+    border-radius: 50%;
+    padding: 3px 4px;
+    background-color: rgb(100, 171, 100);
+    font-size: 13px;
+}
+.info .sent-message{
+    padding-left: 10px;
+}
+/*.sub-heading {
+    font-family: Rubik, sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #002147;
+    text-align: center;
+    margin-top: 5%;
+}
+.corporate-trainings p{
+    padding: 3% 10% 0% 10%;
+    color: #565872;
+    font-size: 18px;
+    text-align: center;
+}
+.corporate-trainings a{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: #F5CA45;
+    padding: 20px;
+    margin: 0 43%;
+    color: #002147;
+    border-radius: 8px;
+    cursor: pointer;
+} */

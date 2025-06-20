@@ -1,0 +1,178 @@
+<app-navbar></app-navbar>
+<!--Consulting Pic-->
+<div class="About-us">
+    <div class="about-pic">
+        <h1>Consulting</h1>
+        <ul>
+            <li>
+                <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" >Home</a>
+            </li>
+            <li>Consulting</li>
+        </ul>
+    </div>
+</div>
+<!--Major Segments-->
+<div class="aboutus">
+    <!-- Image section on the left -->
+    <div class="about-image">
+        <img src="assets/img/consulting/training1.jpg" alt="Group of people">
+        <div class="yellow-panel"></div>
+    </div>
+    <!-- Text content section on the right -->
+    <div class="about-text">
+        <div class="heading-with-line">
+            <p class="about-heading">ENVAL</p>
+            <div class="line"></div>
+        </div>
+        <p class="sub-head">We only enhance value</p>
+        <p class="description">
+            ENVAL has versatile expertise and experience in advisory and consulting for application of Value
+            Methodology. Consulting assignments by our experts have won international awards and gained global 
+            reputation for niche expertise in developing strategies and solutions on large scale complex projects 
+            both in public and private sector alike.
+        </p> 
+        <!--Segments-->
+        <div class="segments">
+            <div class="segments-column">
+                <ul class="list-wrap">
+                    <li class="list-inner">
+                        <i class="fa fa-check fa-icon"></i>
+                        IT and Digital Solutions
+                    </li>
+                    <li class="list-inner">
+                        <i class="fa fa-check fa-icon"></i>
+                        Energy
+                    </li>
+                    <li class="list-inner">
+                        <i class="fa fa-check fa-icon"></i>
+                        Infrastructure
+                    </li>
+                </ul>
+            </div>
+            <div class="segments-column">
+                <ul class="list-wrap">
+                    <li class="list-inner">
+                        <i class="fa fa-check fa-icon"></i>
+                        Heavy Industry
+                    </li>
+                    <li class="list-inner">
+                        <i class="fa fa-check fa-icon"></i>
+                        Manufacturing
+                    </li>
+                    <li class="list-inner">
+                        <i class="fa fa-check fa-icon"></i>
+                        Automobile
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Unique Features-->
+<div class="sub-heading">Unique Features</div>
+<div class="services">
+    <div class="service-container">
+        <div class="service-box">
+            <div class="srvc-content">
+            <div class="srvc-pic">
+                <img src="../../assets/img/consulting/feature-1.jpg" alt="Trainings">
+            </div>
+            <div class="srvc-bottom">
+                <div class="srvc-heading">
+                    Research-Based
+                </div>
+                <span class="material-symbols-outlined">
+                    trending_flat
+                </span>
+            </div>
+            </div>
+            <div class="srvc-back">
+                <p>Backed by intensive research</p>
+            </div>
+        </div>
+        <div class="service-box">
+            <div class="srvc-content">
+            <div class="srvc-pic">
+                <img src="assets/img/consulting/feature-2.jpg" alt="Consutling">
+            </div>
+            <div class="srvc-bottom">
+                <div class="srvc-heading">
+                    Futuristic Solutions
+                </div>
+                <span class="material-symbols-outlined">
+                    trending_flat
+                </span>
+            </div>
+            </div>
+            <div class="srvc-back">
+                <p>Solutions developed are futuristic and ensure sustainability</p>
+            </div>
+        </div>
+        <div class="service-box">
+            <div class="srvc-content">
+            <div class="srvc-pic">
+                <img src="assets/img/consulting/feature-3.jpg" alt="IT Solutions">
+            </div>
+            <div class="srvc-bottom">
+                <div class="srvc-heading">
+                    Expert Advisory
+                </div>
+                <span class="material-symbols-outlined">
+                    trending_flat
+                </span>
+            </div>
+            </div>
+            <div class="srvc-back">
+                <p>Capacity building of the concerned experts and teams</p>
+            </div>
+        </div>
+        <div class="service-box">
+            <div class="srvc-content">
+            <div class="srvc-pic">
+                <img src="assets/img/consulting/feature-4.jpg" alt="IT Solutions">
+            </div>
+            <div class="srvc-bottom">
+                <div class="srvc-heading">
+                    Optimizing Benefits
+                </div>
+                <span class="material-symbols-outlined">
+                    trending_flat
+                </span>
+            </div>
+            </div>
+            <div class="srvc-back">
+                <p>Mentoring to internalize the methodology and optimize benefits beyond project objectives</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Focus Area-->
+<div class="sub-heading">Focus Areas</div>
+<div class="focus-container">
+    <div class="image">
+        <img src="../../assets/img/consulting/picture-laptop.jpg" alt="Laptop">
+    </div>
+    <ul class="metrics">
+        <li class="metric-title title1">Organizational Excellence</li>
+        <li class="metric-title title2">Capacitive Building</li>
+        <li class="metric-title title3">Resource Optimisation</li>
+        <li class="metric-title title4">Improving Efficiency</li>
+    </ul>
+</div>
+<!--Video-->
+<div class="slider-container" [ngClass]="{'stop-scroll': scrollStopped}">
+    <div class="slider">
+      <div class="slide" *ngFor="let video of videos; let i = index" 
+      [ngClass]="{'active-slide': activeVideoIndex === i}">
+        <div class="video-container" (click)="toggleVideo(i)">
+          <youtube-player 
+          [videoId]="video.videoId" 
+          [playerVars]="playerConfig" loadApi="true" class="video" (stateChange)="onPlayerStateChange($event, i)"></youtube-player>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<app-footer></app-footer>
+<app-scroll-button></app-scroll-button>

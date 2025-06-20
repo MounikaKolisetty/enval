@@ -1,0 +1,374 @@
+app-navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+    background-color: #fff; /* Optional: set background color */
+}
+.contact-bg {
+    background-image: url('../../assets/img/footer/contact_bg.jpg');
+    position: relative;
+    width: 100%;
+    height: 50%;
+    background-size: cover;       /* Ensures the entire image is visible */
+    background-position: center;    /* Centers the image */
+    background-repeat: no-repeat;   /* Prevents the image from repeating */
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking */
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    padding-top: 100px;
+}
+.contact-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(4, 19, 38, 0.9); /* Black overlay with 50% opacity */
+    z-index: 1;
+}
+.contact-bg ul {
+    list-style: none; /* Remove default list styling */
+    display:flex;
+    z-index: 3;
+    color: #fff;
+    padding: 0%;
+}
+.contact-bg ul li + li::before {
+    display: inline-block;
+    padding-right: 0;
+    padding-left: 0;
+    color: #6c757d;
+    content: "";
+    height: 10px;
+    width: 10px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-left: 22px;
+    margin-right: 17px;
+}
+.contact-bg h1{
+    margin-top: 0;
+    font-weight: 500;
+    margin-bottom: 8px;
+    z-index: 3;
+    color: #fff;
+    font-size: 1.875rem;
+    font-size: clamp(1.875rem, 1.0416666666666667rem + 3.7037037037037033vw, 4.375rem);
+}
+.contact-bg ul li {
+    font-size: 24px;
+    font-weight: 500;
+}
+.contact-bg ul li:last-child {
+    color: #f0b429;
+}
+.contact-bg ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+.contact-bg ul li a:hover{
+    color: #f0b429;
+    cursor: pointer;
+}
+/*Contact List*/
+.contact-list{
+    padding: 100px 0 90px 0;
+    margin: 0 150px;
+    @media (max-width: 450px){
+        padding: 0;
+        margin: 0;
+    }
+}
+.contact-list .container {
+    display: flex;
+    @media (max-width: 450px) {
+        flex-direction: column;        
+    }
+}
+.container .contact-list-inner {
+    flex: 1; /* or any desired width */
+    background-color: #F0F4F9;
+    padding: 25px;
+    margin: 25px;
+    border-radius: 8px;
+}
+.media {
+    display: flex;
+}
+.media-body{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.media-left, .media-left-email{
+    flex: 1;
+    background-color: #f0b429;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 16px;
+    display: flex; /* Center the image */
+    overflow: hidden; /* Hide overflow */
+}
+.media-left{
+    padding: 15px 10px;
+}
+@media (max-width: 450px) {
+    .media-left{
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    
+}
+.media-left-email{
+    padding: 25px 10px;
+}
+.media-body h5{
+    font-family: Rubik, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #002147;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+}
+.media-body p{
+    font-family: Rubik, sans-serif;
+    color: #565872;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+/*Contact Form*/
+.contact-form {
+    display: flex;
+    margin: 0 12%;
+    @media (max-width: 450px){
+        flex-direction: column;
+        margin: 3%;
+    }
+}
+.contact-left{
+    flex: 1; /* or any desired width */
+    padding: 0 15px;
+    @media (max-width: 450px) {
+        padding: 0%;
+    }
+}
+.contact-left h2{
+    margin: 10px 0px 0px 0px;
+    font-family: Rubik, sans-serif;
+    font-size: 42px;
+    font-weight: 500;
+    color: #002147;
+    font-size: 1.5625rem;
+    font-size: clamp(1.5625rem, 1.2083333333333333rem + 1.5740740740740742vw, 2.625rem);
+}
+.contact-left h6{
+    margin: 0;
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #002147;
+}
+.contact-left h6::after {
+    content: '';
+    position: absolute;
+    top: 109.5%;
+    left: 20%;
+    width: 50px; /* Adjust length of the lines */
+    height: 1px; /* Adjust thickness of the lines */
+    background-color: #002147; /* Adjust color of the lines */
+}
+@media (max-width: 450px) {
+    .contact-left h6::after{
+    top: 146%;
+    left: 30%;
+    }
+}
+.contact_left .social_media ul{
+    list-style-type: none;
+    text-align: left;
+}
+.social_media ul li{
+    display: inline-block;       /* Makes the list items inline */
+    border: 1px solid #cfcfcf;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.facebook, .whatsapp, .instagram, .linkedin{
+    color: #565872;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 15px;
+}
+.facebook i, .whatsapp i, .instagram i, .linkedin i{ 
+    padding-top: 13px;
+}
+.social_media ul li:hover {
+    background-color: #f0b429;
+}
+.social_media ul li:hover a{
+    color: #0a1e3a;
+}
+.contact-right{
+    flex: 2; /* or any desired width */
+}
+.name-inputs, .email-inputs{
+    display: flex;
+}
+.first-name, .last-name, .email, .phoneNumber{
+    width: 100%;
+}
+.first-name input, .last-name input, .email input, .phoneNumber input{
+    width: 80%; /* Make the input field fill the container */
+    padding: 5%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+.input-inner {
+    position: relative;
+}
+.input-inner input, .input-inner textarea {
+    padding: 5%;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid rgba(1, 30, 61, 0.5);
+    background-color: #fff;
+    font-family: Rubik, sans-serif;
+    resize: none;
+}
+.input-inner textarea {
+    width: 100%;
+    max-width: 650px;
+    height: 150px;
+}
+.placeholder {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 0px 5px;
+    color: #666;
+    transition: 0.3s;
+    pointer-events: none;
+    @media (max-width: 450px){
+       left: 40px;
+    }
+}
+.input-inner input:focus + .placeholder,
+.input-inner input:valid + .placeholder,
+.input-inner textarea:focus + .placeholder,
+.input-inner textarea:valid + .placeholder {
+    top: -10px;
+    background-color: #fff;
+    color: #f0b429;
+}
+.message textarea {
+    width: 92%;
+    padding: 10px;
+    border-radius: 4px;
+    height: 150px;
+    resize: none;
+    margin-bottom: 30px;
+}
+.submit-btn{
+    display: flex;
+    padding-top: 20px;
+}
+.info{
+    display: flex;
+    margin-left: 30px;
+    align-items: center;
+}
+.info .sent-icon{
+    color: #fff;
+    border-radius: 50%;
+    padding: 3px 4px;
+    background-color: rgb(100, 171, 100);
+    font-size: 13px;
+}
+.info .sent-message{
+    padding-left: 10px;
+}
+.btn {
+    font-family: Rubik, sans-serif;
+    padding: 20px;
+    background: #f0b429;
+    color: #0a1e3a;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+}
+.map{
+    margin-top: 10%;
+}
+@media (max-width: 450px) {
+    iframe {
+        width: 100%; /* Set width for mobile */
+        height: 360px; /* Adjust height if necessary */
+    }
+}
+.footer{
+    margin: 5% 10% 0% 10%;
+}
+.footer-form{
+    display: flex;
+    background-color: #F0F4F9;
+    border-radius: 4px;
+    @media (max-width: 450px){
+        flex-direction: column;
+        height: 230px;
+    }
+}
+.name-tag, .email-tag{
+    width: 100%;
+}
+.name-tag input, .email-tag input{
+    width: 80%; /* Make the input field fill the container */
+    border: none;
+    border-bottom: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 10% 10% 5% 10%;
+    background-color: #F0F4F9;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+.name-tag input:focus, .email-tag input:focus {
+    outline: none; /* Remove the default outline */
+    background-color: #F0F4F9; /* Ensure the background color stays the same */
+}
+.subscribe-tag{
+    margin-top: 50px;
+    margin-right: 20px;
+    @media (max-width: 450px){
+        margin: 20px 0 0 25px;
+    }
+}
+.s-btn {
+    font-family: Rubik, sans-serif;
+    padding: 15px 20px;
+    background: #f0b429;
+    color: #0a1e3a;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -12,6 +12,7 @@ return array(
     'Razorpay\\Tests\\' => array($vendorDir . '/razorpay/razorpay/tests'),
     'Razorpay\\Api\\' => array($vendorDir . '/razorpay/razorpay/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),
+    'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
     'MouniKolisetty\\EnvalPhpBackend\\' => array($baseDir . '/src'),
     'MongoDB\\' => array($vendorDir . '/mongodb/mongodb/src'),
 );

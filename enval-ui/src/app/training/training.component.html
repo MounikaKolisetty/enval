@@ -1,0 +1,365 @@
+<app-navbar></app-navbar>
+<div class="About-us">
+    <div class="about-pic">
+        <h1>Trainings</h1>
+        <ul>
+            <li>
+                <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" 
+                class="read-more-btn">Home</a>
+            </li>
+            <li>Trainings</li>
+        </ul>
+        <div class="buttons">
+            <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-8bits" [fullScreen]="true"></ngx-spinner>
+            <button (click)="downloadFile()" class="download-btn">Download Brochure</button>
+            <!-- <button (click)="downloadFlyer()" class="contact-btn">Professional Value Analyst Training Flyer</button> -->
+        </div>
+    </div>
+</div>
+<!--UniqueFeatures-->
+<div class="unique-features-container">
+    <div class="left">
+        <div class="thumbnail">
+            <img src="../../assets/img/training/thumbnail.png" alt="">
+        </div>
+        <div class="image">
+            <img src="../../assets/img/training/training-2.jpg" alt="">
+        </div>
+        <div class="feature-footer">
+            Partner with ENVAL to lead the way in Value Management excellence.
+        </div>
+    </div>
+    <div class="right">
+        <div class="aboutus">
+            Empower your future —
+        </div>
+        <div class="description">
+            ENVAL presents a comprehensive and adaptable range of training programs, meticulously designed to empower 
+            Value Management (VM) professionals across all organizational levels and sectors. Our offerings include tailored 
+            training solutions for corporate entities, government organizations, institutions and, CSR, as well as specialized, 
+            stand-alone programs for individuals pursuing prestigious international certifications.
+        </div>
+        <div class="features">
+            <ul>
+                <li>
+                    <i class="fa fa-check fa-icon"></i>
+                    <p>Trainings by domain experts with global recognition.</p>
+                </li>
+                <li>
+                    <i class="fa fa-check fa-icon"></i>
+                    <p>Value added sessions by trainers of international stature.</p>
+                </li>
+                <li>
+                    <i class="fa fa-check fa-icon"></i>
+                    <p>Curated trainings in line with emerging technologies.</p>
+                </li>
+                <li>
+                    <i class="fa fa-check fa-icon"></i>
+                    <p>Training coupled with internationally recognized certifications</p>
+                </li>
+                <li>
+                    <i class="fa fa-check fa-icon"></i>
+                    <p>100% results for CVS coaching</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<!--Trainings for certifications by indian value engineering-->
+<div class="value-eng-container">
+<div class="trainings-cert">
+    <div class="title">
+        Training | Examination | Certification  
+    </div>
+    <div class="sub-title">
+        Customised courses for Indian Context
+    </div>
+    <div class="description">
+        ENVAL conducts training for various certification programs customised for specific context of Indian
+        market segments, with reference to emerging trends. Certification is by Indian Value Engineering
+        Society (INVEST).
+    </div>
+    <div class="more-options">
+        <div class="explore">
+            <a (click)="scrollToTrainings1()">Explore More</a>
+        </div>
+         <!-- <div class="read-more">
+            <a href="#">Read More</a>
+        </div> -->
+    </div>
+</div>
+</div>
+<!--VMA, VMF2, CVS-->
+<div class="train-container-ves" id="trainings1" #trainings1>
+    <div class="vm-cvs">
+    <div class="vma">
+        <div class="vma-inner">
+        <div class="image-vma">
+            <span class="material-symbols-outlined training-icons">
+                monitoring
+            </span>
+        </div>
+        <div class="description">
+            Professional Value Analyst (PVA)
+        </div>
+        <div class="read-more-icon">
+            <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+        </div>
+        <div class="read-more-button">
+            <a routerLink="/eventspage-pva" routerLinkActive="active" ariaCurrentWhenActive="page">Read More</a>
+            <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+    </div>
+    <div class="vmf2">
+        <div class="vmf2-inner">
+        <div class="image-vmf2">
+            <span class="material-symbols-outlined training-icons">
+                menu_book
+            </span>
+        </div>
+        <div class="description">
+            Student Value Practitioner (SVP) 
+        </div>
+        <div class="read-more-icon">
+            <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+        </div>
+        <div class="read-more-button">
+            <a routerLink="/eventspage-svp" routerLinkActive="active" ariaCurrentWhenActive="page">Read More</a>
+            <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+    </div>
+    <div class="vma">
+        <div class="vma-inner">
+        <div class="image-cvs">
+            <span class="material-symbols-outlined training-icons">
+                troubleshoot
+            </span>
+        </div>
+        <div class="description">
+            Senior Value Analyst (SVA)
+        </div>
+        <div class="read-more-icon">
+            <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+        </div>
+        <div class="read-more-button">
+            <a routerLink="/eventspage-sva" routerLinkActive="active" ariaCurrentWhenActive="page">Read More</a>
+            <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+    </div>
+    </div>
+</div>
+<!--Features-->
+<!-- <div class="features-section">
+    <div class="title">
+        Features
+    </div>
+    <div class="description">
+        Requirement Specific Unique Programs
+    </div>
+</div>
+<div class="features-body">
+    <div class="categories">
+        <div class="practicioners">
+            <div class="image">
+                <img src="../../assets/img/thumb-1.png" alt="">
+            </div>
+            <div class="name">
+                Practicioners
+            </div>
+        </div>
+        <div class="trainers">
+            <div class="image">
+                <img src="../../assets/img/thumb-2.png" alt="">
+            </div>
+            <div class="name">
+                Trainers
+            </div>
+        </div>
+        <div class="students">
+            <div class="image">
+                <img src="../../assets/img/thumb-3.png" alt="">
+            </div>
+            <div class="name">
+                Students
+            </div>
+        </div>
+        <div class="leaders">
+            <div class="image">
+                <img src="../../assets/img/thumb-4.png" alt="">
+            </div>
+            <div class="name">
+                Business Leaders
+            </div>
+        </div>
+        <div class="policy_makers">
+            <div class="image">
+                <img src="../../assets/img/thumb-6.png" alt="">
+            </div>
+            <div class="name">
+                Policy Makers
+            </div>
+        </div>
+    </div>
+</div> -->
+<!--Trainings for certification by SAVE International-->
+<div class="trainings-cert">
+    <div class="title">
+        Training | Examination | Certification
+    </div>
+    <div class="sub-title">
+        Courses by SAVE International 
+    </div>
+    <div class="description">
+        The programs are conducted as per the mandate of SAVE International. The training programs
+        comprise of curriculum and content specified by SAVE International, and aim to equip the trainees. with fundamentals and skills, 
+        applicable in general. Training programs are conducted and delivered based on
+        ENVAL’s approach, while certification is through SAVE International.
+    </div>
+    <div class="more-options">
+        <div class="explore">
+            <a (click)="scrollToTrainings2()">Explore More</a>
+        </div>
+        <!--  <div class="read-more">
+            <a href="#">Read More</a>
+        </div> -->
+    </div> 
+</div>
+<!--VMA, VMF2, CVS-->
+<div class="train-container" id="trainings2" #trainings2>
+<div class="vm-cvs">
+<div class="vma">
+    <div class="vma-inner">
+    <div class="image-vma">
+        <span class="material-symbols-outlined training-icons">
+            verified_user
+        </span>
+    </div>
+    <div class="description">
+        Value Methodology Associate (VMA)
+    </div>
+    <div class="read-more-icon">
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+    </div>
+    <div class="read-more-button">
+        <a routerLink="/training-vma" routerLinkActive="active" ariaCurrentWhenActive="page">Read More</a>
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+</div>
+<div class="vmf2">
+    <div class="vmf2-inner">
+    <div class="image-vmf2">
+        <span class="material-symbols-outlined training-icons">
+            build_circle
+            </span>
+    </div>
+    <div class="description">
+        Value Methodology Fundamentals-2 (VMF2) 
+    </div>
+    <div class="read-more-icon">
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+    </div>
+    <div class="read-more-button">
+        <a routerLink="/training-vmf2" routerLinkActive="active" ariaCurrentWhenActive="page">Read More</a>
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+</div>
+<div class="vma">
+    <div class="vma-inner">
+    <div class="image-cvs">
+        <i class="fa-solid fa-award fa-3x"></i>
+    </div>
+    <div class="description">
+        Certified Value Specialist (CVS)
+    </div>
+    <div class="read-more-icon">
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+    </div>
+    <div class="read-more-button">
+        <a routerLink="/training-cvs" routerLinkActive="active" ariaCurrentWhenActive="page">Read More</a>
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+</div>
+</div>
+</div>
+<!--Corporate Trainings-->
+<div class="trainings-footer">
+    <div class="bg-yellow">
+    <div class="corporate-trainings">
+        <div class="cp-heading">Corporate Trainings</div>
+        <p>ENVAL conducts customised training courses in the form of on-site workshops, coupled with hands-on sessions 
+            on live projects. These are conducted by internationally acclaimed experts with acumen in VM combined with 
+            other key techniques, niche sectoral segments and large-scale project management. </p>
+        <div class="buttons">
+            <a (click)="toggleContact()">Talk to our Advisor</a>
+            <a class="more-btn" routerLink="/corporate-trainings" routerLinkActive="active" ariaCurrentWhenActive="page">Read More</a>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- <div class="sub-heading">Corporate Trainings</div>
+<div class="corporate-trainings">
+    <p>ENVAL conducts customised training courses in form of on-site workshops, coupled with hands-on sessions 
+        on live projects. These are conducted by internationally acclaimed experts with acumen in VM combined with 
+        other key techniques, niche sectoral segments and large-scale project management. </p>
+    <a (click)="toggleContact()">Talk to our Advisor</a>
+</div>-->
+<div *ngIf="isContactVisible" class="contact"> 
+    <div class="training-form">
+    <div class="individual-form">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <!-- <form> -->
+        <div class="form-heading-bar">
+            <div class="form-heading">
+                Fill up the following form to connect with our advisor
+            </div>
+            <button (click)="closeContact()" class="closebutton">x</button> 
+        </div>
+        <div class="form-items">
+            <input type="text" formControlName="name" required>
+            <label class="placeholder">Name<sup>*</sup></label>
+        </div>
+        <div class="form-items">
+            <input type="text" formControlName="designation" required>
+            <label class="placeholder">Designation<sup>*</sup></label>
+        </div>
+        <div class="form-items">
+            <input type="text" formControlName="organization" required>
+            <label class="placeholder">Organization<sup>*</sup></label>
+        </div>
+        <div class="form-items">
+            <input type="text" formControlName="location" required>
+            <label class="placeholder">Location<sup>*</sup></label>
+        </div>
+        <div class="form-items">
+            <input type="text" formControlName="trainees" required>
+            <label class="placeholder">No. of trainees<sup>*</sup></label>
+        </div>
+        <div class="form-items">
+            <input type="text" formControlName="email" required>
+            <label class="placeholder">Email ID<sup>*</sup></label>
+        </div>
+        <div class="form-items">
+            <input type="text" formControlName="mobile" required>
+            <label class="placeholder">Mobile No.<sup>*</sup></label>
+        </div>
+        <re-captcha (resolved)="resolved($event)" siteKey="6LfeP5cqAAAAAPBDawg7onXwpN2AqW2GjPwvZBc0"></re-captcha>
+        <div *ngIf="messageSent" class="info">
+            <i class="fa-solid fa-check sent-icon"></i>
+            <div class="sent-message">Message Sent!</div>
+        </div>
+        <div class="button-ele">
+            <button type="submit">Submit Form</button>
+        </div>
+    </form>
+    </div>
+</div> 
+</div>
+<app-footer></app-footer>
+<app-scroll-button></app-scroll-button>

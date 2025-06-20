@@ -1,0 +1,142 @@
+<app-navbar></app-navbar>
+<!--Contact Area Pic-->
+<div class="contact-bg">
+    <h1>Contact</h1>
+        <ul>
+            <li>
+                <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" 
+                class="read-more-btn">Home</a>
+            </li>
+            <li>Contact</li>
+        </ul>
+</div>
+<!--Contact List-->
+<div class="contact-list">
+    <div class="container">
+        <div class="contact-list-inner">
+            <div class="media">
+                <div class="media-left">
+                    <img src="../../assets/img/home/17.png" alt="img">
+                </div>
+                <div class="media-body">
+                    <h5>Our Phone</h5>
+                    <p>+91 98999 48940</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-list-inner">
+            <div class="media">
+                <div class="media-left-email">
+                    <img src="../../assets/img/home/18.png" alt="img">
+                </div>
+                <div class="media-body">
+                    <h5>Our Email</h5>
+                    <p>connect&#64;enval.in</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-list-inner">
+            <div class="media">
+                <div class="media-left">
+                    <img src="../../assets/img/home/16.png" alt="img">
+                </div>
+                <div class="media-body">
+                    <h5>Our Address</h5>
+                    <p>Mumbai</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Contact Form-->
+<div class="contact-form">
+    <div class="contact-left">
+        <h6>Get in touch</h6>
+        <h2>Write Us a Message</h2>
+        <div class="social_media">
+        <ul style="padding-left: 0px;">
+            <li>
+                <a class="facebook" href="">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+            </li>
+            <li>
+                <a class="whatsapp" href="">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </li>
+            <li>
+                <a class="instagram" href="">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </li>
+            <li>
+                <a class="linkedin" href="">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    <div class="contact-right">
+        <form class="contact-inputs" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="name-inputs">
+                <div class="first-name input-inner">
+                    <input type="text" formControlName="firstName" required>
+                    <label class="placeholder">First Name<sup>*</sup></label>
+                </div>
+                <div class="last-name input-inner">
+                    <input type="text" formControlName="lastName" required>
+                    <label class="placeholder">Last Name<sup>*</sup></label>
+                </div>
+            </div>
+            <div class="email-inputs">
+                <div class="email input-inner">
+                    <input type="text" formControlName="email" required>
+                    <label class="placeholder">Email<sup>*</sup></label>
+                </div>
+                <div class="phoneNumber input-inner">
+                    <input type="text" formControlName="phoneNumber" required>
+                    <label class="placeholder">Phone Number<sup>*</sup></label>
+                </div>
+            </div>
+            <div class="message input-inner">
+                <textarea type="text" formControlName="message" required></textarea>
+                <label class="placeholder">Message<sup>*</sup></label>
+            </div>
+            <re-captcha (resolved)="resolved($event)" siteKey="6LfeP5cqAAAAAPBDawg7onXwpN2AqW2GjPwvZBc0"></re-captcha>
+                        
+            <div class="submit-btn">
+                <button type="submit" class="btn">Send Message</button>
+                <div *ngIf="messageSent" class="info">
+                    <i class="fa-solid fa-check sent-icon"></i>
+                    <div class="sent-message">Message Sent!</div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--Maps-->
+<div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.1457121241!2d72.
+    71637508125761!3d19.08217751423088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c
+    6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sus!4v1731
+    678447553!5m2!1sen!2sus" width="1440" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+     referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<!--Subscrive Footer-->
+<!--<div class="footer">
+    <form class="footer-form">
+        <div class="name-tag">
+            <input type="text" placeholder="Your Full Name">
+        </div>
+        <div class="email-tag">
+            <input type="text" placeholder="Your Email Address">
+        </div>
+        <div class="subscribe-tag">
+            <a class="s-btn" href="#">Subscribe</a>
+        </div>
+    </form>
+</div>-->
+<app-footer></app-footer>
+<app-scroll-button></app-scroll-button>

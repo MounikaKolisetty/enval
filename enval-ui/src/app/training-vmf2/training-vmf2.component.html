@@ -1,0 +1,187 @@
+<app-navbar></app-navbar>
+<div class="top-container">
+    <h1>Training for Value Methodology Fundamentals - 2 (VMF2)</h1>
+    <img src="../../assets/img/training/Certificate_banner_dots.svgz" alt="" class="banner-dots">
+    <div class="course-points">
+        <img src="../../assets/img/training/course-preview.jpg" alt="">
+        <div class="course-includes">
+            <h4>Course Includes:</h4>
+            <ul>
+                <li>
+                    <div class="content-name">
+                        <i class="fa-regular fa-clock icon"></i>
+                        Course Duration:
+                    </div>
+                    <div class="content-value">
+                        32 hrs
+                    </div>
+                </li>
+                <li>
+                    <div class="content-name">
+                        <i class="fa-solid fa-laptop icon"></i>
+                        Pass Percentage:
+                    </div>
+                    <div class="content-value">
+                        Nill
+                    </div>
+                </li>
+                <li>
+                    <div class="content-name">
+                        <i class="fa-solid fa-book-open icon"></i>
+                        Exam Duration:
+                    </div>
+                    <div class="content-value">
+                        Nill
+                    </div>
+                </li>
+                <li>
+                    <div class="content-name">
+                        <i class="fa-solid fa-globe icon"></i>
+                        Language
+                    </div>
+                    <div class="content-value">
+                        English
+                    </div>
+                </li>
+                <li>
+                    <div class="content-name">
+                        <i class="fa-solid fa-award icon"></i>
+                        Certificate
+                    </div>
+                    <div class="content-value">
+                        Yes
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="options">
+            <a (click)="scrollToTraining()">View training options</a>
+        </div>
+    </div>
+</div>
+<div class="content-info">
+    <h2 class="heading">Course Overview</h2>
+    <p class="description">
+        Value Methodology Fundamentals–2 is meant for aspirants of Certified Value Specialist (CVS), 
+        the highest certification of VM with eligibility for leading VM projects. 
+    </p>
+    <div class="benefits-eligibility">
+        <div class="eligibility">
+            <div class="eligibility-heading">
+                <h4>Eligibility</h4>
+            </div>
+            <ul>
+                <li>
+                    <i class="fa-solid fa-check tick"></i>
+                    <div class="info">Completed Value Methodology Fundamentals 1 training
+                    </div>    
+                </li>
+                <li>
+                    <i class="fa-solid fa-check tick"></i>
+                    <div class="info">Participated in 2 value studies of minimum 24 hours each                    </div>    
+                </li>
+            </ul>
+        </div>
+        <div class="benefits">
+            <div class="benefits-heading">
+                <h4>Benefits</h4>
+            </div>
+            <ul>
+                <li>
+                    <i class="fa-solid fa-check tick"></i>
+                    <div class="info">Gain eligibility for applying for CVS </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <h4 class="content-heading">Content</h4>
+        <ul>
+            <li>
+                <i class="fa-regular fa-circle-check"></i>
+                In-depth coverage of 9 VM Core Competencies required for CVS
+            </li>
+            <li>
+                <i class="fa-regular fa-circle-check"></i>
+                Orientation on Certification requirements and processes for achieving CVS Certification
+            </li>
+        </ul>
+    </div>
+    <div class="methodology">
+        <h4>Training Methodology</h4>
+        <div class="list-items">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                    Online / offline interactive lectures
+                </li>
+                <li>
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                    Focus on application of VM in a wide range of projects and market segments 
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="certificates">
+    <div class="certificate-container">
+        <h2>Examination and Certification</h2>
+        <div class="certificate-content">
+            <ul>
+                <li>The program does not comprise of examination</li>
+            </ul>
+            <div class="image-container">
+                <img src="../../assets/img/training/Simplilearn_Certificate_ML.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="training-panel">
+<div class="training-options" id="training" #training>
+    <h4 class="head">Training Options</h4>
+    <div class="option">
+    <div class="bootcamp">
+        <h4 class="bootcamp-head">ONLINE TRAINING</h4>
+        <div class="bootcamp-benefits">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-check benefits-tick"></i>
+                    Live, online classroom training by top instructors and practitioners
+                </li>
+                <li>
+                    <i class="fa-solid fa-check benefits-tick"></i>
+                    Interactive lectures
+                </li>
+                <li>
+                    <i class="fa-solid fa-check benefits-tick"></i>
+                    Intensive groupwork
+                </li>
+            </ul>
+        </div>
+        <h5>4 days Batch</h5>
+        <!-- <div class="batch-dates">
+            <div class="date1">7, 8, 14, 15 Feb 2025</div>
+            <div class="vertical-line"></div>
+            <div class="date2">11<sup>th</sup> Nov, Weekday Class</div>
+        </div> -->
+        <!-- <a href="" class="schedules">View all schedules</a> -->
+    </div>
+    <div class="bootcamp-footer">
+        <!-- <div class="price">
+            <div class="offer">
+                <img src="../../assets/img/training/badge-percent.svg" alt="" style="width: 15px; height: 15px;">
+                33% Off
+            </div>
+            <div class="total-price">
+                $499<del>$749</del>
+            </div>
+        </div> -->
+        <div class="Enroll-btn">
+            <a [routerLink]="['/secure-payment', 'Value Methodology Fundamentals-2 (VMF-2)']" routerLinkActive="active" ariaCurrentWhenActive="page" class="a-btn">Enroll Now</a>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+<app-footer></app-footer>
+<app-scroll-button></app-scroll-button>

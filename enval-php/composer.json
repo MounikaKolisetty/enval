@@ -13,6 +13,7 @@
     ],
     "require": {
         "razorpay/razorpay": "^2.9",
-        "mongodb/mongodb": "^1.20"
+        "mongodb/mongodb": "^1.20",
+        "phpmailer/phpmailer": "^6.10"
     }
 }

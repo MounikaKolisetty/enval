@@ -1,0 +1,181 @@
+<app-navbar></app-navbar>
+<!--About Us-->
+<div class="About-us">
+    <div class="about-pic">
+        <h1>About Us</h1>
+        <ul>
+            <li>
+                <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" 
+                class="read-more-btn">Home</a>
+            </li>
+            <li>About Us</li>
+        </ul>
+    </div>
+</div>
+<!--Explore More-->
+<div class="more-info">
+    <div class="pic-container">
+        <img src="../../assets/img/about/about-2.jpg" alt="">
+    </div>
+    <div class="content">
+        <h2 class="Titillium">Enval</h2>
+        <p class="Titillium">ENVAL Consultants Pvt. Ltd. is a distinguished leader in Value Management, offering a 
+            comprehensive range of services—from strategic consulting and bespoke training to advanced project management 
+            and AI-powered software solutions. Serving both public and private sectors, we empower organizations to navigate 
+            complex challenges and drive sustainable growth in an increasingly competitive environment.
+        </p>
+            <p class="Titillium" *ngIf="isContentVisible"> 
+                Our methodology is centered around providing tailored, technology-enabled Value Management strategies that 
+                optimize operations, enhance efficiency, and maximize value. With a globally acclaimed team of experts, 
+                ENVAL is committed to delivering results that exceed expectations, fostering enduring partnerships built on 
+                trust and a shared pursuit of excellence. 
+            </p>
+        <a class="Titillium" (click)="toggleContent()">{{ buttonText }}</a>
+    </div>
+</div> 
+<!--Mission and Vision-->
+<div class="aim-container">
+    <div class="aim-left">
+    <p class="aim-head titillium">ENVAL</p>
+    <div class="aim-content">
+        <ul>
+            <li>
+                <h2 class="aim-subhead titillium">Mission</h2>
+                <p class="aim-desc titillium">Empower organizations, professionals and 
+                    academicians through digitally-enabled Value Management solutions for fostering 
+                    culture of excellence, driving innovation, accelerate growth and achieve sustainability.</p>
+            </li>
+            <li>
+                <h2 class="aim-subhead titillium">Vision</h2>
+                <p class="aim-desc titillium">Catalyse transformative change for government, corporates and academia 
+                    through technology-driven Value Management to thrive in ever evolving competitive landscape.</p>
+            </li>
+        </ul>
+    </div>
+    </div>
+    <div class="aim-picture">
+        <img src="../../assets/img/about/about_us_pic3.jpg" alt="">
+    </div>
+</div>
+<!--Values-->
+<div class="values-container">
+    <div class="values-heading">
+        <p class="titillium">Our Values</p>
+    </div>
+    <div class="value-content">
+        <div class="value">
+            <div class="value-logo">
+                <i class="fa-solid fa-people-group fa-3x people"></i>
+            </div>
+            <h4 class="titillium">People first</h4>
+        </div>
+        <div class="value">
+            <div class="value-logo">
+                <i class="fa-solid fa-shield-heart fa-3x vm"></i>
+            </div>
+            <h4 class="titillium">VM in the DNA</h4>
+        </div>
+        <div class="value">
+            <div class="value-logo">
+                <i class="fa-solid fa-recycle fa-3x sustain"></i>
+            </div>
+            <h4 class="titillium">Sustainability at the core</h4>
+        </div>
+        <div class="value">
+            <div class="value-logo">
+                <i class="fa-regular fa-lightbulb fa-3x dream"></i>
+            </div>
+            <h4 class="titillium">Driven by a shared dream</h4>
+        </div>
+    </div>
+</div>
+<!--Team-->
+<!-- <div class="team-container">
+    <div class="team-headings">
+        <h6 class="team-header">Meet Our Team</h6>
+        <h2 class="team-subheader">Our Creative Team</h2>
+    </div>
+    <div class="team-content">
+        <div class="person">
+            <div class="thumb">
+                <img src="../../assets/img/about/team1.png" alt="">
+                <div class="social-wrap">
+                    <i class="fa fa-share-alt share"></i>
+                </div>
+            </div>
+            <div class="details">
+                <h4>Doris Jordon</h4>
+                <span>Design Expert</span>
+            </div>
+        </div>
+        <div class="person">
+            <div class="thumb">
+                <img src="../../assets/img/about/team2.png" alt="">
+                <div class="social-wrap">
+                    <i class="fa fa-share-alt"></i>
+                </div>
+            </div>
+            <div class="details">
+                <h4>Eugen Freman</h4>
+                <span>Executive</span>
+            </div>
+        </div>
+        <div class="person">
+            <div class="thumb">
+                <img src="../../assets/img/about/team3.png" alt="">
+                <div class="social-wrap">
+                    <i class="fa fa-share-alt"></i>
+                </div>
+            </div>
+            <div class="details">
+                <h4>Jaction Leo</h4>
+                <span>Developer</span>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!--Testimonials-->
+<div class="testi-section">
+<div class="testimonial-container">
+    <div class="testimonial">
+        <div class="testi-content">
+            <p class="review">"The Value Methodology Workshop by ENVAL was first-of-its kind for me. Having gained an
+                in-depth understanding about this versatile and effective technique, I am now eager to apply it myself and 
+                experience its benefits!"</p>
+            <h5>Sourabh Sindagi</h5>
+            <p class="testi-info">Engineering and R&D Expert</p>
+        </div>
+    </div>
+    <div class="testimonial">
+        <div class="testi-content">
+            <p class="review">"I had prior exposure to Value Methodology, but it was only through by ENVAL that truly
+                 unlocked its full potential for me. The session on Function Analysis was particularly insightful. 
+                 It was an exciting learning experience!"</p>
+            <h5>Rajesh Sampat</h5>
+            <p class="testi-info">Chief Sales Officer</p>
+            <p class="testi-info">Inspiron Engineering Pvt. Ltd.</p>
+        </div>
+    </div>
+    <div class="testimonial">
+        <div class="testi-content">
+            <p class="review">"The Value Methodology Workshop by ENVAL was first-of-its kind for me. Having gained an
+                in-depth understanding about this versatile and effective technique, I am now eager to apply it myself and 
+                experience its benefits!"</p>
+            <h5>Sourabh Sindagi</h5>
+            <p class="testi-info">Engineering and R&D Expert</p>
+        </div>
+    </div>
+    <div class="testimonial">
+        <div class="testi-content">
+            <p class="review">"I had prior exposure to Value Methodology, but it was only through by ENVAL that truly
+                unlocked its full potential for me. The session on Function Analysis was particularly insightful. 
+                It was an exciting learning experience!"</p>
+           <h5>Rajesh Sampat</h5>
+           <p class="testi-info">Chief Sales Officer</p>
+           <p class="testi-info">Inspiron Engineering Pvt. Ltd.</p>
+        </div>
+    </div>
+</div>
+</div>
+<app-footer></app-footer>
+<app-scroll-button></app-scroll-button>

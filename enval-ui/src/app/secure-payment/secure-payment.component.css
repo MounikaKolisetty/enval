@@ -1,0 +1,256 @@
+
+.header img{
+    height: auto;
+    width: 100%;  
+    max-width: 120px;
+    padding: 15px 0 10px 100px;  
+}
+.header {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.payment {
+    padding: 3% 10%;
+}
+.payment .container .basic-details{
+    border: 1px solid #002147;
+    border-radius: 8px;
+}
+.basic-details .basic-header{
+    padding: 17px 25px;
+    font-family: Rubik, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    background: linear-gradient(to right, #002147, #274190);
+    color: #fff;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+.basic-details .first-line{
+    display: flex;
+    gap: 110px;
+    margin: 20px 35px;
+}
+.basic-details .line{
+    display: flex;
+    gap: 50px;
+    margin: 20px 35px;
+}
+.textarea-line{
+    margin: 20px 35px;
+}
+.field{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+}
+.title-field {
+    width: 100%;
+    max-width: 70px;
+}
+.name-field input{
+    width: 100%;
+    max-width: 200px;
+}
+ .basic-details .state-field {
+    margin: 20px 35px;
+}
+.basic-details .proceed-btn{
+    margin: 0px 35px 20px 35px;
+    border: none;
+    color: #fff;
+    background-color: #002147;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Rubik, sans-serif;
+    border-radius: 4px;
+    padding: 10px 50px;
+}
+.field-label{
+    font-family: Rubik, sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+}
+.field-label span{
+    color: red;
+}
+.first-line .name-title {
+    display: flex;
+    gap: 10px;
+}
+#state, 
+input,
+textarea{
+    padding: 6px 8px;
+    margin-top: 5px;
+}
+.textarea-line .textarea-field textarea{
+    width: 100%;
+    max-width: 635px;
+    height: 100%;
+    max-height: 60px !important;
+    min-height: 60px;
+}
+textarea::placeholder { 
+    font-family: sans-serif; 
+    font-size: 13.33px; 
+    color: #888888;  
+}
+#country-code{
+    padding: 6px 8px;
+    margin-right: 5px;
+}
+
+.payment{
+    display: flex;
+    gap: 30px;
+}
+.payment .container{
+    width: 70%;
+}
+.payment .order-summary{
+    width: 30%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    height: 100%;
+    max-height: 300px;
+}
+.order-summary .summary-header{
+    display: flex;
+    gap: 20px;
+    background-color: #fdf3db;
+    padding: 10px 20px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.summary-header .header-icon{
+    padding-top: 3px;
+}
+.summary-header .header-text{
+    font-family: Rubik, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+.order-summary .summary-details{
+    padding: 15px 15px 0 15px;
+    border-bottom: 1px dotted rgb(188, 187, 187);
+}
+.summary-details .course-heading{
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+.summary-details .course-details .course-time{
+    font-family: Rubik, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 10px 0;
+}
+.course-details {
+    border-bottom: 1px solid rgb(188, 187, 187);
+}
+.summary-details .program-fees{
+    display: flex;
+    padding: 10px 0;
+    justify-content: space-between;
+}
+.program-fees .fees-text{
+    font-family: Rubik, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+.program-fees .fees{
+    font-family: Rubik, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+.order-summary .summary-bottom{
+    padding: 15px;
+}
+.summary-bottom .billing-details{
+    font-family: Rubik, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+.summary-bottom .total-price{
+    display: flex;
+    padding: 10px 0;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(188, 187, 187);
+}
+.total-price .price-text{
+    font-family: Rubik, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+.total-price .fees{
+    font-family: Rubik, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+.order-summary .grand-total-price{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px 15px 15px;
+    font-family: Rubik, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+.input-error{
+    border: 1px solid red;
+    border-radius: 4px;
+}
+.info-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    position: relative;
+    top: -25px;
+    left: 90%;
+    color: red;
+}
+.title-info-icon{
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    position: relative;
+    color: red;
+    top: -25px;
+    left: 40px;
+}
+.phone-info-icon{
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    position: relative;
+    top: -25px;
+    right: -90%;
+    color: red;
+}
+@media (max-width: 450px) {
+    .header img{
+        padding-left: 50px;  
+    }
+    .payment{
+        flex-direction: column;
+    }
+    .payment .order-summary{
+        order: 1;
+        width: 100%;
+    }
+    .payment .container{
+        order: 2;
+        width: 100%;
+    }
+    .basic-details .first-line{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .basic-details .line{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .basic-details .name-field, .basic-details .email-field, .basic-details .state-field{ 
+        max-width: 250px;
+    }
+}

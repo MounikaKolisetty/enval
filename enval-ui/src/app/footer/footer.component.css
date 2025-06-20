@@ -1,0 +1,201 @@
+.footer-top {
+    display: flex; /* Enables flexbox layout */
+    justify-content: space-between; /* Optional: spaces the divs evenly */
+    margin: 5% 5% 2% 5%;
+    @media (max-width: 450px){
+        flex-direction: column;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.widget_contact, .widget_blog, .widget_training {
+    flex: 1; /* Makes each child div take equal space */
+    padding: 20px; /* Optional: adds padding inside divs */
+}
+.widget_course {
+    flex: 1;
+    padding: 20px 10px 10px 150px;
+    @media (max-width:450px) {
+        padding: 20px;
+    }
+}
+.widget_contact h4, .widget_course h4, .widget_blog h4, .widget_training h4{
+    color: #0a1e3a;
+    font-family: Rubik, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding-left: 20px; /* Adjust spacing as needed */
+    margin: 0 0 27px 0;
+}
+.widget_contact h4::before, .widget_course h4::before, .widget_blog h4::before, .widget_training h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px; /* Adjust width as needed */
+    height: 70%; /* Adjust height as needed */
+    border-radius: 10px;
+    background-color: #f0b429; /* Set the color to yellow */
+}
+.widget_contact .details{
+    list-style-type: none;
+    margin: 0;
+    padding-left: 20px;
+}
+.details {
+    padding: 0% !important;
+}
+.details li {
+    display: flex; /* Use Flexbox to align items */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 15px;
+}
+.details li mat-icon{
+    margin-right: 14px;
+    font-size: 16px;
+    color: #f0b429;
+    width: 100%;
+    max-width: 25px;
+}
+.details li div {
+    font-family: Rubik, sans-serif;
+    color: #565872;
+}
+.widget_course ul, .widget_blog ul, .widget_training ul {
+    list-style-type: square; /* Set list style to square */
+    margin: 0;
+    padding-left: 20px;
+}
+.widget_course ul li, .widget_training ul li{
+    margin-bottom: 8px !important;
+}
+.widget_blog ul li{
+    margin-bottom: 15px !important;
+}
+.widget_course ul li a{
+    font-family: Rubik, sans-serif;
+    font-size: 16px; /* Set font size of anchor tags */
+    font-weight: 400; /* Set font weight of anchor tags */
+    text-decoration: none; /* Remove underline from anchor tags */
+    display: inline-block; /* Ensure the text behaves like normal text */
+    color: #565872;
+}
+.widget_training ul li{
+    font-family: Rubik, sans-serif;
+    font-size: 16px; /* Set font size of anchor tags */
+    font-weight: 400; /* Set font weight of anchor tags */
+    color: #565872;
+}
+.widget_course ul li a:hover, .widget_training ul li:hover{
+    color: #f0b429;
+}
+.widget_blog ul li a {
+    text-decoration: none;
+    color: #0a1e3a;
+}
+.widget_course ul li::marker, .widget_blog ul li::marker, .widget_training ul li::marker {
+    color: #f0b429;
+}
+.widget_blog ul li a:hover{
+    color: #f0b429;
+}
+.footer-bottom{
+    border-top: 1px solid #cfcfcf; /* Adjust the color and thickness as needed */
+    display: flex;
+    justify-content: space-between;
+    padding:1% 5%;
+    @media (max-width: 450px) {
+        flex-direction: column;
+        padding-left: 0;
+    }
+}
+.footer-bottom .footer_logo, .footer-bottom .footer_copyrights, .footer-bottom .social_media{
+    flex: 1;
+}
+.footer_copyrights .policies{
+    display: flex;
+    margin-left: 15px;
+    font-family: Rubik, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: #565872;
+    @media (max-width: 450px) {
+        margin: 0 0 10px 100px;
+        text-align: center;
+    }
+}
+.footer_copyrights .policies .policy-link{
+    text-decoration: none;
+    color: #565872;
+}
+.footer_copyrights .policies div{
+    padding: 0 3px;
+}
+.footer_logo{
+    padding-top: 10px;
+    margin-left: 40px;
+
+    @media (max-width: 450px) {
+        padding-top: 10px;
+        margin-left: 30px;
+    }
+}
+.footer-bottom .footer_logo{
+    text-align: center;
+}
+.footer-bottom .footer_logo img{
+    width: 30%;
+}
+.footer_copyrights p, .footer_developed p{
+    margin: 10px;
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #565872;
+
+    @media (max-width: 450px) {
+        text-align: center;
+    }
+}
+.footer_developed p{
+    text-align: center;
+}
+.social_media ul{
+    list-style-type: none;
+    margin: 0;
+    text-align: right;
+    padding-left: 0;
+    padding-right: 70px;
+    @media (max-width: 450px) {
+        display: flex;
+        padding: 0 0 10px 100px;
+    }
+}
+.social_media ul li{
+    display: inline-block;       /* Makes the list items inline */
+    border: 1px solid #cfcfcf;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.facebook, .whatsapp, .instagram, .linkedin{
+    color: #565872;
+    font-size: 14px;
+    font-weight: 400;
+    margin-right: 15px;
+}
+.facebook i, .whatsapp i, .instagram i, .linkedin i{ 
+    padding-top: 13px;
+}
+.social_media ul li:hover {
+    background-color: #f0b429;
+}
+.social_media ul li:hover a{
+    color: #0a1e3a;
+}
+

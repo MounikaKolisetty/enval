@@ -1,0 +1,278 @@
+<app-navbar></app-navbar>
+<div class="course-top-view">
+<div class="course-heading">
+    <h1>Training for Student Value Practitioner (SVP)</h1>
+    <div class="banner-details">
+        <ul>
+            <li>
+                <i class="fa-solid fa-circle-check check"></i>
+                Gain career success with our comprehensive Value Engineering course
+            </li>
+            <li>
+                <i class="fa-solid fa-circle-check check"></i>
+                Learn from 20 hrs. of Applied Learning and interactive labs
+            </li>
+            <li>
+                <i class="fa-solid fa-circle-check check"></i>
+                Complete hands-on projects to solidify your understanding
+            </li>
+            <li>
+                <i class="fa-solid fa-circle-check check"></i>
+                Receive mentoring support throughout your learning journey
+            </li>
+            <li>
+                <i class="fa-solid fa-circle-check check"></i>
+                Master essential Value Engineering concepts for certification
+            </li>
+            <li>
+                <i class="fa-solid fa-circle-check check"></i>
+                Gain the skills needed to become a successful value engineer
+            </li>
+        </ul>
+    </div>
+    <div class="banner-buttons">
+        <div class="options"><a (click)="scrollToTraining()">View training options</a></div>
+        <div class="advisor">
+            <a (click)="toggleContact()">Talk to our advisor</a>
+        </div>
+    </div>
+    <div *ngIf="isContactVisible" class="contact"> 
+        <div class="training-form">
+            <div class="individual-form">
+                <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="form-heading-bar">
+                    <div class="form-heading">
+                        Fill up the following form to connect with our advisor
+                    </div>
+                    <button (click)="closeContact()" class="closebutton">x</button> 
+                </div>
+                <div class="form-items">
+                    <input type="text" formControlName="name" required>
+                    <label class="placeholder">Name<sup>*</sup></label>
+                </div>
+                <div class="form-items">
+                    <input type="text" formControlName="designation" required>
+                    <label class="placeholder">Designation<sup>*</sup></label>
+                </div>
+                <div class="form-items">
+                    <input type="text" formControlName="organization" required>
+                    <label class="placeholder">Organization<sup>*</sup></label>
+                </div>
+                <div class="form-items">
+                    <input type="text" formControlName="location" required>
+                    <label class="placeholder">Location<sup>*</sup></label>
+                </div>
+                <div class="form-items">
+                    <input type="text" formControlName="email" required>
+                    <label class="placeholder">Email ID<sup>*</sup></label>
+                </div>
+                <div class="form-items">
+                    <input type="text" formControlName="mobile" required>
+                    <label class="placeholder">Mobile No.<sup>*</sup></label>
+                </div>
+                <re-captcha (resolved)="resolved($event)" siteKey="6LfeP5cqAAAAAPBDawg7onXwpN2AqW2GjPwvZBc0"></re-captcha>
+                <div *ngIf="messageSent" class="info">
+                    <i class="fa-solid fa-check sent-icon"></i>
+                    <div class="sent-message">Message Sent!</div>
+                </div>
+                <div class="button-ele">
+                    <button type="submit">Submit Form</button>
+                </div>
+                </form>
+            </div>
+    </div> 
+    </div>
+</div>
+<div class="course-right">
+    <img src="../../assets/img/training/Certificate_desktop_banner.jpg" alt="" class="banner-img">
+    <img src="../../assets/img/training/Certificate_banner_dots.svgz" alt="" class="banner-dots">
+</div>
+</div>
+<div class="course-overview">
+    <h2 class="overview-heading">Student Value Practitioner (SVP) Course <b>Overview</b></h2>
+    <p class="overview-desc">ENVAL has developed modular training program for the SVP Certification. 
+        It is an entry-level Certification for students of all disciplines and is 
+        offered as an elective subject as a part of the curriculum at the graduate and
+        post-graduate levels of any stream. <br><br>
+        The training is conducted through institutions opting for offering it as an elective
+        paper / coursework. Certification is provided by INVEST.</p>
+    <div class="benefits">
+        <h4>Benefits</h4>
+        <div class="benefits-items">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-check tick"></i>
+                    Develop competency for application of VM in academics and career 
+                </li>
+                <li>
+                    <i class="fa-solid fa-check tick"></i>
+                    SVP-Certified students can lead student projects in their own college/university
+                </li>
+                <li>
+                    <i class="fa-solid fa-check tick"></i>
+                    Participate as team members in external VM projects
+                </li>
+                <li>
+                    <i class="fa-solid fa-check tick"></i>
+                    SVP candidates can have an edge over the competition in placement 
+                </li>
+                <li>
+                    <i class="fa-solid fa-check tick"></i>
+                Perform better in the respective organization after securing employment 
+                    through the application of the VM technique.
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="eligibility">
+        <h4>Eligibility</h4>
+        <p>Students enrolled in full-time/part-time graduate / post-graduate course</p>
+    </div>
+    <div class="duration">
+        <h4>This course include:</h4>
+        <div class="sections">
+            <div class="sections-column">
+                <ul>
+                    <li>
+                        <i class="fa-brands fa-youtube time"></i>
+                        20 hours of classroom training
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-code time"></i>
+                        Project Work
+                    </li>
+                </ul>
+            </div>
+            <div class="sections-column">
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-mobile-screen-button time"></i>
+                        Access on mobile and TV
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-trophy time"></i>
+                        Certification of completion
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-coverage">
+        <h4>Content and Coverage</h4>
+        <div class="container">
+            <div class="container-column">
+                <ul>
+                    <li>
+                        <i class="fa-regular fa-circle-check coveragetick"></i>
+                        Fundamentals of VM 
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-circle-check coveragetick"></i>
+                        Application of VM in India and at global level  
+                    </li>
+                </ul>
+            </div>
+            <div class="container-column">
+                <ul>
+                    <li>
+                        <i class="fa-regular fa-circle-check coveragetick"></i>
+                        Importance of VM in academic activities 
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-circle-check coveragetick"></i>
+                        Conducting academic VM projects 
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="methodology">
+        <h4>Training Methodology</h4>
+        <div class="list-items">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                    Interactive lectures - online and offline
+                </li>
+                <li>
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                    Individual assignments 
+                </li>
+                <li>
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                    Case studies and group work
+                </li>
+                <li>
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                    Short projects at institutional / college level 
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="certificates">
+    <div class="certificate-container">
+        <h2>Examination and Certification</h2>
+        <div class="certificate-content">
+            <ul>
+                <li>Training is conducted by ENVAL.</li>
+                <li>Total 3 exams are scheduled and conducted by the institution / college, 
+                    with 70% passing marks in each exam.</li>
+                <li>Certification is awarded by INVEST</li>
+            </ul>
+            <!-- <div class="image-container">
+                <img src="../../assets/img/training/Simplilearn_Certificate_ML.jpg" alt="">
+            </div> -->
+        </div>
+    </div>
+</div>
+<div class="training-panel">
+<div class="training-options" id="training" #training>
+    <h4 class="head">Training Options</h4>
+    <div class="option">
+    <div class="bootcamp">
+        <h4 class="bootcamp-head">ONLINE TRAINING</h4>
+        <div class="bootcamp-benefits">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-check benefits-tick"></i>
+                    Live, online classroom training by top instructors and practitioners
+                </li>
+                <li>
+                    <i class="fa-solid fa-check benefits-tick"></i>
+                    Interactive lectures
+                </li>
+                <li>
+                    <i class="fa-solid fa-check benefits-tick"></i>
+                    Intensive groupwork
+                </li>
+            </ul>
+        </div>
+        <h5>4 days Batch</h5>
+        <!-- <div class="batch-dates">
+            <div class="date1">7, 8, 14, 15 Feb 2025</div>
+            <div class="vertical-line"></div>
+            <div class="date2">11<sup>th</sup> Nov, Weekday Class</div>
+        </div> -->
+        <!-- <a href="" class="schedules">View all schedules</a> -->
+    </div>
+    <div class="bootcamp-footer">
+        <!-- <div class="price">
+            <div class="offer">
+                <img src="../../assets/img/training/badge-percent.svg" alt="" style="width: 15px; height: 15px;">
+                33% Off
+            </div>
+            <div class="total-price">
+                $499<del>$749</del>
+            </div>
+        </div> -->
+        <div class="Enroll-btn">
+            <a [routerLink]="['/secure-payment', 'Student Value Practitioner (SVP)']" routerLinkActive="active" ariaCurrentWhenActive="page" class="a-btn">Enroll Now</a>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+<app-footer></app-footer>
+<app-scroll-button></app-scroll-button>

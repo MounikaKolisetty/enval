@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<!--About Us-->
+<div class="About-us">
+    <div class="about-pic">
+        <h1>Upcoming Events</h1>
+        <ul>
+            <li>
+                <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" 
+                class="read-more-btn">Home</a>
+            </li>
+            <li>Upcoming Events</li>
+        </ul>
+    </div>
+</div>
+<div class="enval-broucher">
+    <img src="../../assets/img/footer/PVA.jpg" alt="">
+</div> 
+<div class="hiring">
+    <img src="../../assets/events-1.jpg" class="image" alt="">
+</div>
+<div class="video-container">
+    <youtube-player videoId="Uyfk-4m9Syk" [playerVars]="playerConfig" loadApi="true" class="video" [width]="1200" [height]="700"/>
+</div>
+<app-footer></app-footer>
+<app-scroll-button></app-scroll-button>

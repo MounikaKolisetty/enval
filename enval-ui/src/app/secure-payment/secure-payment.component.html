@@ -1,0 +1,198 @@
+<div class="header">
+    <img src="assets/img/home/logo_trans.png" alt="img" style="width: 375px; height: auto;"> 
+</div>
+<div class="payment">
+    <div class="container">
+        <div class="basic-details">
+
+            <div class="basic-header">Basic Details</div>
+            <form [formGroup]="paymentForm">
+                <div class="basic-sec">
+                    <div class="first-line">
+                        <div class="name-title">
+                        <div class="title-field field"> 
+                            <label class="field-label" for="title">Title<span>*</span></label> 
+                            <input type="text" id="title" name="title" placeholder="Mr. / Ms." required formControlName="userTitle" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userTitle'].invalid}"> 
+                            <span class="material-symbols-outlined title-info-icon" *ngIf="formSubmitted && paymentForm.controls['userTitle'].invalid">
+                                error
+                            </span>
+                        </div> 
+                        <div class="name-field field"> 
+                            <label class="field-label" for="name">Name<span>*</span></label> 
+                            <input type="text" id="name" name="name" placeholder="Enter your full name here" required formControlName="userName" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userName'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userName'].invalid">
+                                error
+                            </span>
+                        </div> 
+                        </div>
+                        <div class="phone-field field"> 
+                            <label class="field-label" for="phone">Phone number<span>*</span></label> 
+                            <input type="tel" id="phone" name="phone" placeholder="+91 - Phone Number" required formControlName="userContact" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userContact'].invalid}">
+                            <span class="material-symbols-outlined phone-info-icon"  *ngIf="formSubmitted && paymentForm.controls['userContact'].invalid">
+                                error
+                            </span>  
+                        </div> 
+                    </div>
+                    <div class="line">
+                        <div class="designation-field field"> 
+                            <label class="field-label" for="designation">Designation<span>*</span></label> 
+                            <input type="text" id="designation" name="designation" placeholder="Enter your designation here" required formControlName="userDesignation" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userDesignation'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userDesignation'].invalid">
+                                error
+                            </span>
+                        </div>
+                        <div class="department-field field"> 
+                            <label class="field-label" for="department">Department<span>*</span></label> 
+                            <input type="text" id="department" name="department" placeholder="Enter your department here" required formControlName="userDepartment" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userDepartment'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userDepartment'].invalid">
+                                error
+                            </span>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="organization-field field"> 
+                            <label class="field-label" for="organization">Organization<span>*</span></label> 
+                            <input type="text" id="organization" name="organization" placeholder="Enter your organization here" required formControlName="userOrganization" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userOrganization'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userOrganization'].invalid">
+                                error
+                            </span>
+                        </div> 
+                        <div class="location-field field"> 
+                            <label class="field-label" for="location">Location Area, City with pin code<span>*</span></label> 
+                            <input type="text" id="location" name="location" placeholder="Enter your location here" required formControlName="userLocation" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userLocation'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userLocation'].invalid">
+                                error
+                            </span>
+                        </div> 
+                    </div>
+                    <div class="line">
+                        <div class="business-area-field field"> 
+                            <label class="field-label" for="business-area">Business area / products<span>*</span></label> 
+                            <input type="text" id="business-area" name="business-area" placeholder="Enter your Business area / products here" required formControlName="userBusinessArea" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userBusinessArea'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userBusinessArea'].invalid">
+                                error
+                            </span>                    
+                        </div> 
+                        <div class="va-vme-field field"> 
+                            <label class="field-label" for="va-vme">Is VA / VME practiced in your organization?<span>*</span></label> 
+                            <input type="text" id="va-vme" name="va-vme" placeholder="Yes / No" required formControlName="userVAVME" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userVAVME'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userVAVME'].invalid">
+                                error
+                            </span>
+                        </div> 
+                    </div>
+                    <div class="textarea-line">
+                        <div class="responsibilities-field textarea-field"> 
+                            <label class="field-label" for="responsibilities">Your responsibilities in brief<span>*</span></label> 
+                            <textarea type="text" id="responsibilities" name="responsibilities" placeholder="Enter your responsibilities here" required formControlName="userResponsibilities" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userResponsibilities'].invalid}"></textarea>
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userResponsibilities'].invalid">
+                                error
+                            </span>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="email-field field"> 
+                            <label class="field-label" for="email">Email ID<span>*</span></label> 
+                            <input type="email" id="email" name="email" placeholder="example@site.com" required formControlName="userEmail" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userEmail'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userEmail'].invalid">
+                                error
+                            </span>                    
+                        </div> 
+                        <div class="degree-field field"> 
+                            <label class="field-label" for="degree">Education Degree with Stream<span>*</span></label> 
+                            <input type="text" id="degree" name="degree" placeholder="Enter your education degree with stream here" required formControlName="userDegree" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userDegree'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userDegree'].invalid">
+                                error
+                            </span>
+                        </div> 
+                    </div>
+                    <div class="line">
+                        <div class="pg-degree-field field"> 
+                            <label class="field-label" for="pg-degree">Post Graduation Degree with Stream<span>*</span></label> 
+                            <input type="text" id="pg-degree" name="pg-degree" placeholder="Enter your PG degree with stream here" required formControlName="userPGDegree" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userPGDegree'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userPGDegree'].invalid">
+                                error
+                            </span>
+                        </div> 
+                        <div class="other-degree-field field"> 
+                            <label class="field-label" for="other-degree">Any other educational degree?<span>*</span></label> 
+                            <input type="text" id="other-degree" name="other-degree" placeholder="Enter your other enducational degree here" required formControlName="userOtherDegree" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userOtherDegree'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userOtherDegree'].invalid">
+                                error
+                            </span>
+                        </div> 
+                    </div>
+                    <div class="line">
+                        <div class="sponsoredby-field field"> 
+                            <label class="field-label" for="sponsoredby">Sponsored by<span>*</span></label> 
+                            <input type="email" id="sponsoredby" name="sponsoredby" placeholder="Self / Company" required formControlName="userSponsoredby" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userSponsoredby'].invalid}"> 
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userSponsoredby'].invalid">
+                                error
+                            </span>                    
+                        </div>
+                    </div>
+                    <div class="textarea-line">
+                        <div class="purpose-field textarea-field"> 
+                            <label class="field-label" for="purpose">Reason / purpose of chosing this training<span>*</span></label> 
+                            <textarea type="text" id="purpose" name="purpose" placeholder="Enter your reason / purpose of chosing this training" required formControlName="userPurpose" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userPurpose'].invalid}"></textarea>
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userPurpose'].invalid">
+                                error
+                            </span>
+                        </div>
+                    </div>
+                    <div class="textarea-line">
+                        <div class="usage-field textarea-field"> 
+                            <label class="field-label" for="usage">Reason you intend to use VE / VAVE / VM<span>*</span></label> 
+                            <textarea type="text" id="usage" name="usage" placeholder="Enter your reason you intend to use VE / VAVE / VM" required formControlName="userUsage" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userUsage'].invalid}"></textarea>
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userUsage'].invalid">
+                                error
+                            </span>
+                        </div>
+                    </div>
+                    <div class="textarea-line">
+                        <div class="expectation-field textarea-field"> 
+                            <label class="field-label" for="expectation">Expectation from program in brief<span>*</span></label> 
+                            <textarea type="text" id="expectation" name="expectation" placeholder="Enter your expecttaion from program in brief" required formControlName="userExpectation" [ngClass]="{'input-error': formSubmitted && paymentForm.controls['userExpectation'].invalid}"></textarea>
+                            <span class="material-symbols-outlined info-icon" *ngIf="formSubmitted && paymentForm.controls['userExpectation'].invalid">
+                                error
+                            </span>
+                        </div>
+                    </div>
+                    <button class="proceed-btn" type="submit" (click)="createOrder()">Proceed</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="order-summary">
+        <div class="summary-header">
+            <div class="header-icon"><i class="fa-regular fa-rectangle-list"></i></div>
+            <div class="header-text">Order Summary</div>
+        </div>
+        <div class="summary-details">
+            <div class="course-details">
+                <div class="course-heading">{{ courseTitle }}</div>
+                <div class="course-time">
+                    <i class="fa-regular fa-calendar"></i>
+                    April 2025
+                </div>
+            </div>
+            <div class="program-fees">
+                <div class="fees-text">Program Fees</div>
+                <div class="fees">₹20,000</div>
+            </div>
+        </div>
+        <div class="summary-bottom">
+            <div class="billing-details">
+                Billing Details
+            </div>
+            <div class="total-price">
+                <div class="price-text">Total Price</div>
+                <div class="fees">₹20,000.00</div>
+            </div>
+        </div>
+        <div class="grand-total-price">
+            <div class="grand-text">Grand Total</div>
+            <div class="fees">₹20,000.00</div>
+        </div>
+    </div>
+</div>

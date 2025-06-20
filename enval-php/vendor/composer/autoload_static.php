@@ -32,6 +32,7 @@ class ComposerStaticInitf4d2f8d8245c8dec1734d26fa22a8a23
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'M' => 
         array (
@@ -64,6 +65,10 @@ class ComposerStaticInitf4d2f8d8245c8dec1734d26fa22a8a23
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'MouniKolisetty\\EnvalPhpBackend\\' => 
         array (

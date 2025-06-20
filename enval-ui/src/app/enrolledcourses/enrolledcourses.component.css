@@ -1,0 +1,134 @@
+app-navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+    background-color: #fff; /* Optional: set background color */
+}
+.courses-container{
+    padding-top: 100px;
+    margin: 3% 10%;
+}
+.courses-container .name{
+    font-family: Rubik, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+.courses-container .heading {
+    font-family: Rubik, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+.courses {
+    display: flex;
+    background-color: #24323F;
+    border-radius: 4px;
+    margin: 20px 0;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 70%;
+}
+.left{
+    color: #fff;
+    margin: 40px 0 40px 50px;
+    justify-content: space-between;
+}
+.left p{
+    color: #aaaaaa;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: Rubik, sans-serif;
+    margin: 0;
+}
+.left h4{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: Rubik, sans-serif;
+    margin-top: 10px;
+}
+.course-name{
+    margin-bottom: 50px;
+}
+.duration h4{
+    margin-bottom: 10px;
+}
+.right{
+    margin: 50px 100px 50px 0;
+    border:1px solid #fff;
+    padding: 20px 30px;
+    border-radius: 50%;
+}
+.right i{
+    color: #fff;
+    width: 10%;
+    height: 10%;
+    font-size: 100px;
+}
+/* Styling for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  table th, table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd; /* Only bottom border for horizontal lines */
+  }
+  
+  table th {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Styling for the header */
+  h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Styling for the no courses message */
+  p {
+    text-align: center;
+    font-size: 16px;
+    color: #999;
+  }
+  
+  /* Add any additional custom styles below */
+  
+@media (max-width: 450px){
+    .courses-container{
+        margin: 3% 5%;
+    }
+    .courses{
+        width: 100%;
+        max-width: 450px;
+    }
+    .right{
+        margin: 5%;
+        width: 5%;
+        height: 5%;
+        padding: 10px 40px 10px 20px;
+    }
+    .right i{
+        color: #fff;
+        width: 5%;
+        height: 5%;
+        font-size: 50px;
+    }
+    .course-name{
+        margin-bottom: 30px;
+    }
+}

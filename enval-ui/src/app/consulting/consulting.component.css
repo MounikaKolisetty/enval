@@ -1,0 +1,484 @@
+app-navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0; /* Aligns it to the left */
+    width: 100%; /* Full width of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+    background-color: #fff; /* Optional: set background color */
+}
+.About-us {
+    margin: 0;
+    padding: 0;
+    padding-top: 70px;
+}
+.about-pic {
+    background-image: url('../../assets/img/consulting/consulting-1.jpg');
+    background-size: cover;       /* Ensures the entire image is visible */
+    background-position: center;    /* Centers the image */
+    background-repeat: no-repeat;   /* Prevents the image from repeating */
+    color: white;
+    height: 500px;    /* Adjust the height as needed */
+    width: 100%;      /* Ensures it takes the full width */
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking */
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    @media (max-width: 450px) {
+        height: 350px;
+        background-size: cover;
+    }
+}
+.about-pic::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 570px;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 33, 71, 0.9), rgba(221, 199, 99, 0.9)); /* Black overlay with 50% opacity */
+    z-index: 0;
+}
+
+@media (max-width: 450px) {
+    .about-pic::before{
+    height: 430px;
+    }
+}
+.about-pic ul {
+    list-style: none; /* Remove default list styling */
+    display:flex;
+    z-index: 100;
+}
+.about-pic ul li + li::before {
+    display: inline-block;
+    padding-right: 0;
+    padding-left: 0;
+    color: #6c757d;
+    content: "";
+    height: 10px;
+    width: 10px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-left: 22px;
+    margin-right: 17px;
+}
+.about-pic h1{
+    font-size: 80px;
+    font-weight: 500;
+    font-weight: 700;
+    margin-bottom: 8px;
+    margin-top: 0px;
+    z-index: 100;
+    font-size: 1.875rem;
+    font-size: clamp(1.875rem, 1.0416666666666667rem + 3.7037037037037033vw, 4.375rem);
+}
+.about-pic ul li {
+    font-size: 24px;
+    font-weight: 500;
+}
+.about-pic ul li:last-child {
+    color: #f0b429;
+}
+.about-pic ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+.about-pic ul li a:hover{
+    color: #0a1e3a;
+}
+/*Major Segments*/
+.aboutus {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin: 5% 10%;
+    position: relative;
+    @media (max-width:450px) {
+        flex-direction: column;
+        margin: 10% 5% 5% 5%;
+    }
+}
+.about-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 612px;
+    max-height: 444px;
+}
+.about-image img {
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+    @media (max-width:450px) {
+        width: 95%;
+        height: 100%;
+    }
+}
+.yellow-panel{
+    background-color: #f0b429;
+    width: 200px;
+    height: 370px;
+    position: absolute;
+    top:30px;
+    left:430px;
+    border-radius: 10px;
+    z-index: 0;
+    @media (max-width:450px) {
+        width: 154px;
+        height: 85%;
+        top: 17px;
+        left: 62%;
+    }
+}
+.about-text{
+    flex: 2;
+    margin-left: 30px;
+    @media (max-width:450px) {
+        margin-left: 0px;
+    }
+}
+.about-text .sub-head{
+    font-family: Rubik, sans-serif;
+    color: #002147;
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 0;
+}
+.about-heading {
+    font-weight: bold;
+    color: #002147;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.heading-with-line {
+    display: flex;
+    align-items: center;
+}
+.line {
+    flex-grow: 0.1;
+    height: 1px;
+    background-color: #002147;
+    margin-left: 10px;
+}
+.description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0;
+    line-height: 1.6;
+    font-family: Rubik, sans-serif;
+}
+.segments{
+    display: flex;
+    @media (max-width:450px) {
+        flex-direction: column;
+    }
+}
+.segments-column{
+    padding-right: 15px;
+}
+.list-wrap{
+    list-style-type: none;
+    padding: 0;
+}
+.list-inner{
+    font-family: Rubik, sans-serif;
+    color: #555;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.fa-icon {
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    border-radius: 50%;
+    background: #f0b429;
+    text-align: center;
+    font-size: 13px;
+    display: inline-block;
+    margin-right: 9px;
+    color: #002147;
+}
+/*Services*/
+.services {
+    font-family: Rubik, sans-serif;
+    margin: 5% 0;
+    padding: 0 5%;
+}
+.service-container {
+    display: flex; 
+    gap: 30px;
+    @media (max-width:450px) {
+        display: block;
+    }
+}
+.service-box {
+    position: relative;
+    flex: 1; 
+    perspective: 1000px; /* Add perspective for the 3D effect */
+    animation: scroll-right-to-left 30s linear infinite;
+    height: 260px; /* Set the height of the card */
+}
+.srvc-content, .srvc-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden; /* Hide the back side of the card */
+    border-radius: 8px; /* Match card's border radius */
+    transition: transform 1s; /* Smooth transition for flip */
+    border: 1px solid #ddd;
+}
+.srvc-content{
+    flex-direction: column;
+}
+.srvc-back {
+    transform: rotateY(180deg); /* Hide back side initially */
+}
+.service-box:hover .srvc-content {
+    transform: rotateY(180deg); /* Rotate front side on hover */
+}
+.service-box:hover .srvc-back {
+    transform: rotateY(0); /* Show back side on hover */
+}
+.srvc-content:hover .srvc-bottom{
+    width: 100%;
+    color: #fff;
+    background-color: #002147;
+    border-radius: 0 0 8px 8px; 
+}
+.srvc-pic{
+    width: 100%;
+}
+.srvc-pic img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0; 
+    display: block;
+    position: relative; 
+    z-index: 1; 
+    transition: transform 800ms;
+}
+.srvc-bottom {
+    display: flex; 
+    align-items: center; /* Align items vertically */
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 0 0 8px 8px; 
+}
+.srvc-heading{
+    text-align: left;
+    padding: 20px;
+    font-weight: bold;
+}
+.srvc-bottom span{
+    padding-right: 20px;
+}
+.srvc-bottom span:hover{
+    cursor: pointer;
+}
+.sub-heading {
+    font-family: Rubik, sans-serif;
+    font-weight: 500;
+    color: #002147;
+    text-align: center;
+    margin-top: 3px;
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 1rem + 2.2222222222222223vw, 3rem);
+}
+.focus-container {
+    display: flex;
+    margin: 5%;
+    @media (max-width:450px) {
+        display: block;
+        padding-bottom: 30px;
+    }
+}
+.image {
+    margin-right: 20px;
+}
+.image img {
+    max-width: 100%;
+    width: 700px;
+}
+.metrics {
+    flex: 2;
+    height: 350px;
+    margin: 0%;
+}
+.metric-title{
+    margin-bottom: 25px;
+    font-family: Rubik, sans-serif;
+    color: #002147;
+    font-size: 20px;
+    padding: 0 0 10px 5px;
+    border-bottom: 1px solid #555;
+}
+title1{
+    animation: scrollToPosition;
+    animation-timeline: view();
+    animation-range: entry 40% cover 40%;
+}
+.title2{
+    animation: scrollToPosition;
+    animation-timeline: view();
+    animation-range: entry 40% cover 40%;
+}
+.title3{
+    animation: scrollToPosition;
+    animation-timeline: view();
+    animation-range: entry 40% cover 40%;
+}
+.title4{
+    animation: scrollToPosition;
+    animation-timeline: view();
+    animation-range: entry 40% cover 40%;
+}
+.title5{
+    animation: scrollToPosition;
+    animation-timeline: view();
+    animation-range: entry 40% cover 40%;
+}
+.title6{
+    animation: scrollToPosition;
+    animation-timeline: view();
+    animation-range: entry 40% cover 40%;
+}
+.title7{
+    animation: scrollToPosition;
+    animation-timeline: view();
+    animation-range: entry 40% cover 40%;
+}
+@keyframes scrollToPosition{
+    from{
+        opacity: 0;
+        transform: translate(100%) scale(0.3);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0) scale(1);
+    }
+}
+.slider{
+    display: flex;
+    width: 300%;
+    background-image: url('../../assets/img/consulting/img-bg.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 50vh; /* Use full viewport height */
+    padding: 10% 0;
+    animation: slide 15s infinite;
+}
+@keyframes slide{
+    0%, 20%{
+        left: 0%;
+    }
+    30%, 50%{
+        left: -100%;
+    }
+    70%, 100%{
+        left: -200%;
+    }
+}
+.slider::before{
+    content: '';
+    background-color: #002147;
+    opacity: 0.7;
+    width: 300%;
+    max-width: 1440px * 3;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.slide{
+    width: 100%;
+}
+/* .videos{
+    position: relative;
+    width: 100%;
+}
+
+.videos img{
+    position: absolute;
+    z-index: 0;
+    left: 20%;
+    width: 850px;
+    height: 450px;
+} */
+/* .font-icon{
+    position: absolute;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    left: 50%;
+    top: 150px;
+    transition: transform 0.3s ease; 
+    color: white; 
+} */
+/* .videos:hover .font-icon { 
+    transform: scale(1.5); 
+    font-size: 60px;
+} */
+.video-container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.video-container .video{
+    position: absolute;
+    z-index: 0;
+    left: 10%;
+}
+/* .video-container {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.video{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+} */
+.slider-container { 
+    position: relative; width: 100%; overflow: hidden; /* Hide overflow to prevent vertical scroll  */
+}
+@media (max-width: 450px) {
+    .video-container{
+        width: 300px;
+        height: 150px;
+        overflow: hidden;
+    }
+    .video{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .slider-container{
+        height: 230px;
+    }
+}
+/* Add styles to stop scrolling */
+.stop-scroll .slider {
+    animation-play-state: paused; /* Pause the scrolling animation */
+}
+
+  
+    

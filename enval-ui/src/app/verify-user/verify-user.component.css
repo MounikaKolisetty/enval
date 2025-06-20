@@ -1,0 +1,28 @@
+.reset-password-message{
+    background-color: #B4D1CC;
+    margin: 5% 35%;
+    @media (max-width: 450px){
+        margin: 5%;
+    }
+
+}
+.reset-password-message .container{
+    padding: 20px;
+    display: flex;
+}
+.font-icon{
+    padding-top: 2px;
+    padding-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+.container .right{
+    display: flex;
+    flex-direction: column;
+}
+.right h4{
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
